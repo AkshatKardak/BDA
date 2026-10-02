@@ -12,27 +12,41 @@ import {
   Search, 
   ExternalLink,
   ChevronRight,
-  Sparkles
+  Sparkles,
+  PieChart as PieIcon,
+  BarChart2
 } from "lucide-react";
+import {
+  ChartCard,
+  ThemedPieChart,
+  ThemedBarChart,
+  CHART_COLORS,
+  SERIES_PALETTE
+} from "@/components/charts";
+import ErrorBanner from "@/components/ErrorBanner";
 
 export default function PlayoffsPage() {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [selectedStage, setSelectedStage] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  useEffect(() => {
-    async function loadData() {
-      try {
-        setLoading(true);
-        const res = await api.getPlayoffs();
-        setData(res);
-      } catch (err) {
-        console.error("Failed to load playoffs data:", err);
-      } finally {
-        setLoading(false);
-      }
+  const loadData = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await api.getPlayoffs();
+      setData(res);
+    } catch (err: any) {
+      console.error("Failed to load playoffs data:", err);
+      setError("Unable to connect to FastAPI backend to retrieve playoffs telemetry.");
+    } finally {
+      setLoading(false);
     }
+  };
+
+  useEffect(() => {
     loadData();
   }, []);
 
@@ -40,6 +54,32 @@ export default function PlayoffsPage() {
   const finalsHistory = data?.finals_history || [];
   const teamPlayoffRecords = data?.team_playoff_records || [];
   const stageBreakdown = data?.stage_breakdown || {};
+
+  // Chart 1: Donut of Playoff Stage Breakdown
+  const stageDonutData = Object.entries(stageBreakdown).map(([stageName, count], idx) => ({
+    name: stageName,
+    value: Number(count),
+    color: SERIES_PALETTE[idx % SERIES_PALETTE.length],
+  }));
+
+  // Chart 2: Top Franchises by Championship Titles
+  const topTitlesData = (teamPlayoffRecords || [])
+    .filter((t: any) => t.titles > 0 || t.playoff_wins >= 5)
+    .slice(0, 8)
+    .map((t: any) => ({
+      name: t.team
+        .replace("Mumbai Indians", "MI")
+        .replace("Chennai Super Kings", "CSK")
+        .replace("Kolkata Knight Riders", "KKR")
+        .replace("Sunrisers Hyderabad", "SRH")
+        .replace("Rajasthan Royals", "RR")
+        .replace("Gujarat Titans", "GT")
+        .replace("Deccan Chargers", "DCG")
+        .replace("Royal Challengers Bengaluru", "RCB")
+        .replace("Delhi Capitals", "DC"),
+      titles: t.titles,
+      wins: t.playoff_wins,
+    }));
 
   // Filter 74 playoff matches
   const filteredMatches = allPlayoffs.filter((m: any) => {
@@ -78,6 +118,8 @@ export default function PlayoffsPage() {
           <span>74 Playoff Fixtures Verified</span>
         </div>
       </div>
+
+      {error && <ErrorBanner message={error} onRetry={loadData} />}
 
       {/* KPI Cards: Stage Breakdown */}
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
@@ -123,6 +165,42 @@ export default function PlayoffsPage() {
           <div className="text-[10px] text-[#707B91]">Genuine Matches</div>
         </div>
       </div>
+
+      {/* Visual Analytics: Stage Donut Chart & Playoff Wins Bar Chart */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        <ChartCard
+          eyebrow="KNOCKOUT ARCHITECTURE"
+          title="Playoff Stage Distribution (74 Matches)"
+          subtitle="Proportional breakdown across Finals, Qualifiers, Eliminators & Semis"
+          icon={PieIcon}
+          heightClass="h-64 sm:h-72"
+        >
+          <ThemedPieChart
+            data={stageDonutData}
+            donut={true}
+            centerLabel="Total Fixtures"
+            centerValue="74"
+            unit="matches"
+          />
+        </ChartCard>
+
+        <ChartCard
+          eyebrow="CHAMPIONSHIP SUCCESS"
+          title="Playoff Match Victories by Franchise"
+          subtitle="Franchises ranked by total playoff wins and titles won"
+          icon={BarChart2}
+          heightClass="h-64 sm:h-72"
+        >
+          <ThemedBarChart
+            data={topTitlesData}
+            xKey="name"
+            yKey="wins"
+            barName="Playoff Wins"
+            unit="Wins"
+            color={CHART_COLORS.goldPrimary}
+          />
+        </ChartCard>
+      </section>
 
       {/* Grid: Champions Hall of Fame & Playoff Win % */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -204,102 +282,75 @@ export default function PlayoffsPage() {
             ))}
           </div>
         </div>
+
       </div>
 
-      {/* 74-Match Playoff Archive with Filtering */}
-      <div className="bg-[#0A101D] border border-[rgba(255,255,255,0.08)] rounded-btn p-5 space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[rgba(255,255,255,0.06)] pb-4">
+      {/* Filterable 74 Playoff Matches Ledger */}
+      <div className="space-y-4 pt-4 border-t border-[rgba(255,255,255,0.06)]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h2 className="text-sm font-bold text-white uppercase tracking-wider font-mono">
-              Filterable 74-Match Playoff Archive
-            </h2>
-            <p className="text-[11px] text-[#707B91]">
-              Showing {filteredMatches.length} of {allPlayoffs.length} knockout encounters
-            </p>
+            <h3 className="text-sm font-bold text-white font-mono uppercase tracking-wider">
+              Playoffs Fixtures Explorer ({filteredMatches.length} Matches)
+            </h3>
+            <p className="text-[11px] text-[#8F9AAF]">Filter by stage (Final, Qualifier 1, Eliminator) or search team</p>
           </div>
 
-          {/* Filters */}
-          <div className="flex flex-wrap items-center gap-2">
-            <div className="relative">
-              <Search className="w-3.5 h-3.5 text-[#707B91] absolute left-2.5 top-2.5" />
-              <input
-                type="text"
-                placeholder="Search team, season, venue..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-[#070B16] border border-[rgba(255,255,255,0.08)] pl-8 pr-3 py-1.5 rounded-btn text-xs text-white placeholder-[#707B91] focus:outline-none focus:border-[#165DCC]"
-              />
-            </div>
-
-            <select
-              value={selectedStage}
-              onChange={(e) => setSelectedStage(e.target.value)}
-              className="bg-[#070B16] border border-[rgba(255,255,255,0.08)] px-3 py-1.5 rounded-btn text-xs text-[#8F9AAF] focus:outline-none focus:border-[#165DCC]"
-            >
-              <option value="All">All Stages ({allPlayoffs.length})</option>
-              <option value="Final">Final (19)</option>
-              <option value="Qualifier 1">Qualifier 1 (16)</option>
-              <option value="Eliminator">Eliminator (16)</option>
-              <option value="Qualifier 2">Qualifier 2 (16)</option>
-              <option value="Semi Final">Semi Final (6)</option>
-              <option value="3rd Place Play-Off">3rd Place Play-Off (1)</option>
-            </select>
+          {/* Filter Pills */}
+          <div className="flex flex-wrap items-center gap-1.5">
+            {["All", "Final", "Qualifier 1", "Eliminator", "Qualifier 2", "Semi Final"].map((stg) => (
+              <button
+                key={stg}
+                onClick={() => setSelectedStage(stg)}
+                className={`px-2.5 py-1 rounded-btn text-xs font-mono font-semibold transition-colors ${
+                  selectedStage === stg
+                    ? "bg-[#165DCC] text-white border border-[#2476E8]"
+                    : "bg-[#0A101D] text-[#8F9AAF] border border-[rgba(255,255,255,0.06)] hover:text-white"
+                }`}
+              >
+                {stg}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Table of Playoff Matches */}
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs font-mono">
-            <thead>
-              <tr className="border-b border-[rgba(255,255,255,0.06)] text-[#707B91] text-[11px]">
-                <th className="py-2.5 px-3">Date</th>
-                <th className="py-2.5 px-3">Season</th>
-                <th className="py-2.5 px-3">Stage</th>
-                <th className="py-2.5 px-3">Matchup</th>
-                <th className="py-2.5 px-3">Winner</th>
-                <th className="py-2.5 px-3">Margin</th>
-                <th className="py-2.5 px-3">Venue</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[rgba(255,255,255,0.03)]">
-              {filteredMatches.map((m: any) => {
-                const isFinal = m.match_stage === "Final";
-                const isQ = m.match_stage?.includes("Qualifier");
-                const isElim = m.match_stage === "Eliminator";
-                return (
+        {/* Fixtures Table */}
+        <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0A101D] overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs font-mono">
+              <thead className="bg-[#070B16] text-[#707B91] uppercase text-[10px] tracking-wider border-b border-[rgba(255,255,255,0.06)]">
+                <tr>
+                  <th className="py-2.5 px-3">Season</th>
+                  <th className="py-2.5 px-3">Stage</th>
+                  <th className="py-2.5 px-3">Match</th>
+                  <th className="py-2.5 px-3">Winner</th>
+                  <th className="py-2.5 px-3">Margin</th>
+                  <th className="py-2.5 px-3">Venue</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[rgba(255,255,255,0.03)] text-[#F4F6FA]">
+                {filteredMatches.map((m: any) => (
                   <tr key={m.match_id} className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
-                    <td className="py-2.5 px-3 text-[#707B91]">{m.date}</td>
-                    <td className="py-2.5 px-3 text-[#F5B942] font-semibold">{m.season}</td>
-                    <td className="py-2.5 px-3">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-semibold border ${
-                        isFinal
-                          ? "bg-[rgba(245,185,66,0.15)] text-[#F5B942] border-[rgba(245,185,66,0.35)]"
-                          : isQ
-                          ? "bg-[rgba(36,118,232,0.15)] text-[#2476E8] border-[rgba(36,118,232,0.35)]"
-                          : isElim
-                          ? "bg-[rgba(247,127,0,0.15)] text-[#F77F00] border-[rgba(247,127,0,0.35)]"
-                          : "bg-[#0D1830] text-[#8F9AAF] border-[rgba(255,255,255,0.08)]"
+                    <td className="py-2 px-3 text-[#F5B942] font-bold">{m.season}</td>
+                    <td className="py-2 px-3">
+                      <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                        m.match_stage === "Final"
+                          ? "bg-[rgba(245,185,66,0.15)] text-[#F5B942] border border-[rgba(245,185,66,0.3)]"
+                          : "bg-[#070B16] text-[#2476E8] border border-[rgba(36,118,232,0.2)]"
                       }`}>
                         {m.match_stage}
                       </span>
                     </td>
-                    <td className="py-2.5 px-3 text-white font-medium">
-                      {m.team1} <span className="text-[#707B91]">vs</span> {m.team2}
+                    <td className="py-2 px-3 text-white font-medium">
+                      {m.team1} vs {m.team2}
                     </td>
-                    <td className="py-2.5 px-3 text-[#2FBF71] font-semibold">
-                      {m.winner || "No Result / Tie"}
-                    </td>
-                    <td className="py-2.5 px-3 text-[#8F9AAF]">
-                      {m.win_margin ? `${m.win_margin} ${m.win_type || 'runs'}` : "Super Over"}
-                    </td>
-                    <td className="py-2.5 px-3 text-[#707B91] truncate max-w-[150px]" title={m.venue}>
-                      {m.venue}
-                    </td>
+                    <td className="py-2 px-3 font-bold text-[#2FBF71]">{m.winner}</td>
+                    <td className="py-2 px-3 text-[#A9B2C3]">{m.win_margin}</td>
+                    <td className="py-2 px-3 text-[#707B91] truncate max-w-[160px]">{m.city || m.venue}</td>
                   </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

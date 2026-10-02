@@ -165,6 +165,22 @@ elif section == "Franchise Performance":
         st.subheader("Leaderboard Table")
         st.dataframe(df_teams, use_container_width=True)
 
+        # Franchise Seasonal Performance Trajectory (§14.16 Requirement)
+        df_season_teams = load_csv(os.path.join("team_performance", "season_team_records.csv"))
+        if df_season_teams is not None:
+            st.markdown("---")
+            st.subheader("Franchise Seasonal Performance Trajectory (Win %)")
+            available_teams = sorted(df_season_teams['team'].dropna().unique().tolist())
+            selected_team = st.selectbox("Select Franchise to Analyze Season Trajectory", available_teams, index=0)
+            df_single_team = df_season_teams[df_season_teams['team'] == selected_team].sort_values("season")
+            fig_team_trend = px.line(
+                df_single_team, x="season", y="season_win_pct", markers=True,
+                title=f"{selected_team} - Win % Trajectory Across Seasons",
+                labels={"season_win_pct": "Win Rate (%)", "season": "Season"},
+                color_discrete_sequence=["#F59E0B"]
+            )
+            st.plotly_chart(fig_team_trend, use_container_width=True)
+
         # Head-to-Head Section
         df_h2h = load_csv(os.path.join("team_performance", "head_to_head_records.csv"))
         if df_h2h is not None:
@@ -250,6 +266,16 @@ elif section == "Toss Impact Dynamics":
             st.plotly_chart(fig_line, use_container_width=True)
 
     if df_toss_season is not None:
+        st.subheader("Toss Winner Match Conversion Rate (%) by Season")
+        fig_toss_win = px.bar(
+            df_toss_season, x="season", y="toss_advantage_pct",
+            title="Toss Winner Match Win Rate by Season (%)",
+            labels={"toss_advantage_pct": "Toss Winner Win %", "season": "Season"},
+            color="toss_advantage_pct",
+            color_continuous_scale="Viridis"
+        )
+        st.plotly_chart(fig_toss_win, use_container_width=True)
+
         st.subheader("Season Toss Analytics Table")
         st.dataframe(df_toss_season, use_container_width=True)
 
@@ -308,6 +334,17 @@ elif section == "Season Macro-Trends":
                 title="Boundary Evolution: Fours and Sixes per Edition"
             )
             st.plotly_chart(fig2, use_container_width=True)
+
+        if "season_matches" in df_trends.columns:
+            st.subheader("Tournament Fixtures Hosted per Season")
+            fig_matches = px.bar(
+                df_trends, x="season", y="season_matches",
+                title="Total Fixtures Hosted per Tournament Edition (2008–2026)",
+                labels={"season_matches": "Matches Hosted", "season": "Season"},
+                color="season_matches",
+                color_continuous_scale="Blues"
+            )
+            st.plotly_chart(fig_matches, use_container_width=True)
 
         st.subheader("Detailed Season Evolution Table")
         st.dataframe(df_trends, use_container_width=True)

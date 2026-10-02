@@ -15,6 +15,12 @@ import {
 } from "lucide-react";
 import Papa from "papaparse";
 import { api } from "@/lib/api";
+import {
+  ChartCard,
+  ThemedBarChart,
+  CHART_COLORS
+} from "@/components/charts";
+import ErrorBanner from "@/components/ErrorBanner";
 
 export default function MatchesPage() {
   const [matches, setMatches] = useState<any[]>([]);
@@ -28,6 +34,14 @@ export default function MatchesPage() {
   const [stage, setStage] = useState("");
   const [loading, setLoading] = useState(true);
   const [exporting, setExporting] = useState(false);
+  const [seasonsData, setSeasonsData] = useState<any[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    api.getSeasons()
+      .then((res) => setSeasonsData(res.timeline || []))
+      .catch((err) => console.error("Failed to load season matches:", err));
+  }, []);
 
   useEffect(() => {
     async function loadMatches() {
@@ -145,6 +159,32 @@ export default function MatchesPage() {
           <span>{exporting ? "Generating CSV..." : "Export to CSV"}</span>
         </button>
       </div>
+
+      {error && <ErrorBanner message={error} onRetry={() => setPage(1)} />}
+
+      {/* Visual Analytics: Matches Hosted per Season Bar Chart */}
+      {seasonsData.length > 0 && (
+        <ChartCard
+          eyebrow="CHRONOLOGY"
+          title="Matches Hosted per Tournament Edition (2008–2026)"
+          subtitle="Fixtures breakdown per season (1,243 official matches)"
+          icon={Calendar}
+          heightClass="h-48 sm:h-56"
+        >
+          <ThemedBarChart
+            data={seasonsData.map((s: any) => ({
+              season: s.season.toString(),
+              matches: s.season_matches,
+            }))}
+            xKey="season"
+            yKey="matches"
+            barName="Matches"
+            unit="Matches"
+            yDomain={[50, 80]}
+            color={CHART_COLORS.blueVibrant}
+          />
+        </ChartCard>
+      )}
 
       {/* Filter Form */}
       <form

@@ -5,22 +5,19 @@ import dynamic from "next/dynamic";
 import { 
   MapPin, 
   Search, 
-  BarChart2,
-  Trophy,
-  Layers,
-  ShieldCheck
+  BarChart2, 
+  ShieldCheck,
+  TrendingUp,
+  Activity
 } from "lucide-react";
 import { api } from "@/lib/api";
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  CartesianGrid,
-  Legend
-} from "recharts";
+  ChartCard,
+  ThemedGroupedBarChart,
+  ThemedScatterChart,
+  CHART_COLORS
+} from "@/components/charts";
+import ErrorBanner from "@/components/ErrorBanner";
 
 // Dynamically import Leaflet Map to prevent SSR errors in Next.js
 const VenueMap = dynamic(() => import("@/components/VenueMap"), {
@@ -38,21 +35,25 @@ const VenueMap = dynamic(() => import("@/components/VenueMap"), {
 export default function VenuesPage() {
   const [venues, setVenues] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [majorOnly, setMajorOnly] = useState(true);
 
-  useEffect(() => {
-    async function loadVenues() {
-      try {
-        setLoading(true);
-        const res = await api.getVenues();
-        setVenues(res.venues || []);
-      } catch (err) {
-        console.error("Failed to load venues:", err);
-      } finally {
-        setLoading(false);
-      }
+  const loadVenues = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await api.getVenues();
+      setVenues(res.venues || []);
+    } catch (err: any) {
+      console.error("Failed to load venues:", err);
+      setError("Unable to connect to FastAPI backend to retrieve venue pitch telemetry.");
+    } finally {
+      setLoading(false);
     }
+  };
+
+  useEffect(() => {
     loadVenues();
   }, []);
 
@@ -65,6 +66,39 @@ export default function VenuesPage() {
     );
   }
 
+  const cleanVenueName = (vName: string) =>
+    vName
+      .split(",")[0]
+      .replace("M Chinnaswamy Stadium", "Chinnaswamy")
+      .replace("MA Chidambaram Stadium", "Chepauk")
+      .replace("Rajiv Gandhi International Stadium", "Uppal")
+      .replace("Dr DY Patil Sports Academy", "DY Patil")
+      .replace("Himachal Pradesh Cricket Association Stadium", "Dharamshala")
+      .replace("Punjab Cricket Association IS Bindra Stadium", "Mohali")
+      .replace("Arun Jaitley Stadium", "Arun Jaitley")
+      .replace("Feroz Shah Kotla", "Kotla")
+      .replace("Sawai Mansingh Stadium", "SMS Stadium")
+      .replace("Narendra Modi Stadium", "Motera");
+
+  const majorVenues = venues.filter((v: any) => v.total_matches >= 15);
+
+  // 1. Grouped Bar Chart: Average 1st vs 2nd Innings Score
+  const scoreParChartData = majorVenues.slice(0, 10).map((v: any) => ({
+    name: cleanVenueName(v.venue),
+    avg_1st: Math.round(v.avg_1st_innings_score || 0),
+    avg_2nd: Math.round(v.avg_2nd_innings_score || 0),
+  }));
+
+  // 2. Scatter Plot: Bat-First Win % vs Chase Win %
+  const venueScatterData = majorVenues.map((v: any) => ({
+    name: v.venue,
+    bat_first_win_pct: Math.round(v.bat_first_win_pct || 0),
+    chase_win_pct: Math.round(v.chase_win_pct || 0),
+    matches: v.total_matches,
+    color: v.chase_win_pct >= 55 ? CHART_COLORS.greenSuccess : CHART_COLORS.blueVibrant,
+  }));
+
+  // Filtered Table
   const filteredVenues = venues.filter((v: any) => {
     const matchesSearch =
       v.venue.toLowerCase().includes(search.toLowerCase()) ||
@@ -73,30 +107,18 @@ export default function VenuesPage() {
     return matchesSearch && matchesFilter;
   });
 
-  const chartData = filteredVenues.slice(0, 10).map((v: any) => ({
-    name: v.venue
-      .split(",")[0]
-      .replace("M Chinnaswamy Stadium", "Chinnaswamy")
-      .replace("MA Chidambaram Stadium", "Chepauk")
-      .replace("Rajiv Gandhi International Stadium", "Uppal")
-      .replace("Dr DY Patil Sports Academy", "DY Patil")
-      .replace("Himachal Pradesh Cricket Association Stadium", "Dharamshala"),
-    avg_1st: Math.round(v.avg_1st_innings_score || 0),
-    avg_2nd: Math.round(v.avg_2nd_innings_score || 0),
-  }));
-
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[rgba(255,255,255,0.08)] pb-5">
         <div>
           <div className="flex items-center space-x-2 text-[10px] font-mono font-bold tracking-widest text-[#F5B942] uppercase mb-0.5">
             <span>STADIUM TELEMETRY</span>
             <span>·</span>
-            <span>60 VENUES</span>
+            <span>60 GLOBAL VENUES</span>
           </div>
           <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-            IPL Stadium Profiles & Geospatial Pitch Biases
+            IPL Stadium Profiles & Pitch Bias Analytics
           </h1>
           <p className="text-xs text-[#A9B2C3] mt-0.5 max-w-3xl leading-normal">
             Par scores, defending vs chasing advantages, and interactive geospatial mapping across 60 historic cricket grounds.
@@ -108,6 +130,55 @@ export default function VenuesPage() {
           <span>Interactive Leaflet Map Active</span>
         </div>
       </div>
+
+      {error && <ErrorBanner message={error} onRetry={loadVenues} />}
+
+      {/* 2 Required Visualizations from §14.16 */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        
+        {/* 1. Grouped Bar Chart: Average 1st vs 2nd Innings Par Scores */}
+        <ChartCard
+          eyebrow="PAR SCORE COMPARISON"
+          title="Average 1st vs 2nd Innings Scores"
+          subtitle="Comparing scoring decay between innings across premier grounds"
+          icon={BarChart2}
+          heightClass="h-64 sm:h-72"
+        >
+          <ThemedGroupedBarChart
+            data={scoreParChartData}
+            xKey="name"
+            bars={[
+              { key: "avg_1st", name: "1st Innings Par", color: CHART_COLORS.blueVibrant },
+              { key: "avg_2nd", name: "2nd Innings Avg", color: CHART_COLORS.goldPrimary },
+            ]}
+            unit="runs"
+            yDomain={[120, 200]}
+          />
+        </ChartCard>
+
+        {/* 2. Scatter Plot: Bat-First Win % vs Chase Win % */}
+        <ChartCard
+          eyebrow="CHASE BIAS"
+          title="Stadium Pitch Bias: Bat-First vs Chasing Win %"
+          subtitle="Correlation between defending (X-axis) and chasing (Y-axis) win rates"
+          icon={Activity}
+          heightClass="h-64 sm:h-72"
+        >
+          <ThemedScatterChart
+            data={venueScatterData}
+            xKey="bat_first_win_pct"
+            yKey="chase_win_pct"
+            nameKey="name"
+            xName="Bat 1st Win %"
+            yName="Chase Win %"
+            xUnit="%"
+            yUnit="%"
+            xDomain={[30, 70]}
+            yDomain={[30, 70]}
+          />
+        </ChartCard>
+
+      </section>
 
       {/* Interactive Leaflet India Map */}
       <div className="space-y-2">
@@ -121,42 +192,7 @@ export default function VenuesPage() {
         <VenueMap venues={venues} />
       </div>
 
-      {/* Scoring Comparison Chart for Top Grounds */}
-      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
-        <div className="flex items-center justify-between mb-3 pb-2.5 border-b border-[rgba(255,255,255,0.06)]">
-          <div>
-            <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
-              <BarChart2 className="w-3.5 h-3.5 text-[#F5B942]" />
-              1st Innings Par Score vs 2nd Innings Score
-            </h3>
-            <p className="text-[11px] text-[#707B91]">Comparing scoring dynamics across premier IPL grounds</p>
-          </div>
-        </div>
-
-        <div className="h-56 w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={chartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
-              <XAxis dataKey="name" stroke="#6F7A90" fontSize={10} tickLine={false} />
-              <YAxis stroke="#6F7A90" fontSize={10} domain={[130, 200]} tickLine={false} />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "#0D1424",
-                  borderColor: "rgba(255,255,255,0.12)",
-                  borderRadius: "6px",
-                  color: "#F4F6FA",
-                  fontSize: "11px",
-                }}
-              />
-              <Legend wrapperStyle={{ fontSize: "11px", paddingTop: "6px" }} />
-              <Bar dataKey="avg_1st" name="1st Innings Avg" fill="#2476E8" radius={[2, 2, 0, 0]} />
-              <Bar dataKey="avg_2nd" name="2nd Innings Avg" fill="#F5B942" radius={[2, 2, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-
-      {/* Toolbar */}
+      {/* Toolbar & Filter */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
         <div className="flex items-center space-x-2">
           <button
@@ -164,7 +200,7 @@ export default function VenuesPage() {
             className={`h-[30px] px-3 rounded-btn text-xs font-semibold transition-colors ${
               majorOnly
                 ? "bg-[#165DCC] text-white"
-                : "bg-[#0D1424] text-[#8F9AAF] border border-[rgba(255,255,255,0.08)] hover:text-white"
+                : "bg-[#0A101D] text-[#8F9AAF] border border-[rgba(255,255,255,0.08)] hover:text-white"
             }`}
           >
             Major Grounds (≥15 matches)
@@ -174,7 +210,7 @@ export default function VenuesPage() {
             className={`h-[30px] px-3 rounded-btn text-xs font-semibold transition-colors ${
               !majorOnly
                 ? "bg-[#165DCC] text-white"
-                : "bg-[#0D1424] text-[#8F9AAF] border border-[rgba(255,255,255,0.08)] hover:text-white"
+                : "bg-[#0A101D] text-[#8F9AAF] border border-[rgba(255,255,255,0.08)] hover:text-white"
             }`}
           >
             All 60 Stadiums
@@ -188,17 +224,17 @@ export default function VenuesPage() {
             placeholder="Search venue or city..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-[#0D1424] border border-[rgba(255,255,255,0.08)] rounded-btn pl-8 pr-3 py-1.5 text-xs text-white placeholder-[#707B91] focus:outline-none focus:border-[#2476E8]"
+            className="w-full bg-[#0A101D] border border-[rgba(255,255,255,0.08)] rounded-btn pl-8 pr-3 py-1.5 text-xs text-white placeholder-[#707B91] focus:outline-none focus:border-[#2476E8]"
           />
         </div>
       </div>
 
       {/* Stadiums Table */}
-      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0A101D] overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs font-mono">
             <thead>
-              <tr className="border-b border-[rgba(255,255,255,0.06)] bg-[#080D19] text-[#707B91] text-[11px]">
+              <tr className="border-b border-[rgba(255,255,255,0.06)] bg-[#070B16] text-[#707B91] text-[11px]">
                 <th className="py-2.5 px-3">Stadium Name</th>
                 <th className="py-2.5 px-3">City / Region</th>
                 <th className="py-2.5 px-3 text-right">Matches</th>

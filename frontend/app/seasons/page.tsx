@@ -4,44 +4,50 @@ import React, { useEffect, useState } from "react";
 import { 
   Calendar, 
   TrendingUp, 
-  Flame
+  Flame, 
+  Trophy,
+  BarChart3,
+  Layers,
+  ArrowRight
 } from "lucide-react";
 import { api } from "@/lib/api";
 import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  CartesianGrid,
-  BarChart,
-  Bar
-} from "recharts";
+  ChartCard,
+  ThemedLineChart,
+  ThemedGroupedBarChart,
+  ThemedBarChart,
+  ThemedAreaChart,
+  CHART_COLORS
+} from "@/components/charts";
+import ErrorBanner from "@/components/ErrorBanner";
 
 export default function SeasonsPage() {
   const [timeline, setTimeline] = useState<any[]>([]);
   const [selectedSeason, setSelectedSeason] = useState<string>("2026");
   const [seasonDetail, setSeasonDetail] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const loadSeasons = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const res = await api.getSeasons();
+      setTimeline(res.timeline || []);
+      if (res.timeline && res.timeline.length > 0) {
+        const latest = res.timeline[res.timeline.length - 1].season.toString();
+        setSelectedSeason(latest);
+        handleSelectSeason(latest);
+      }
+    } catch (err: any) {
+      console.error("Failed to load seasons:", err);
+      setError("Unable to connect to FastAPI backend to retrieve seasonal timeline data.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    async function loadSeasons() {
-      try {
-        setLoading(true);
-        const res = await api.getSeasons();
-        setTimeline(res.timeline || []);
-        if (res.timeline && res.timeline.length > 0) {
-          const latest = res.timeline[res.timeline.length - 1].season.toString();
-          setSelectedSeason(latest);
-          handleSelectSeason(latest);
-        }
-      } catch (err) {
-        console.error("Failed to load seasons:", err);
-      } finally {
-        setLoading(false);
-      }
-    }
     loadSeasons();
   }, []);
 
@@ -59,239 +65,280 @@ export default function SeasonsPage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[50vh] space-y-4">
         <div className="w-10 h-10 border-2 border-[rgba(245,185,66,0.2)] border-t-[#F5B942] rounded-full animate-spin"></div>
-        <p className="text-xs text-[#A9B2C3] font-mono tracking-wider">Loading seasonal timeline data...</p>
+        <p className="text-xs text-[#A9B2C3] font-mono tracking-wider">Loading seasonal timeline data & macro trends...</p>
       </div>
     );
   }
 
-  const chartData = timeline.map((s: any) => ({
+  // Chart 1: Run-Rate Trajectory (2008–2026)
+  const runRateData = timeline.map((s: any) => ({
     season: s.season.toString(),
-    rpo: s.run_rate,
+    run_rate: s.run_rate,
+  }));
+
+  // Chart 2: Stacked Boundaries (Sixes + Fours)
+  const boundaryStackedData = timeline.map((s: any) => ({
+    season: s.season.toString(),
     sixes: s.sixes,
     fours: s.fours,
+  }));
+
+  // Chart 3: Matches Hosted per Season
+  const matchesPerSeasonData = timeline.map((s: any) => ({
+    season: s.season.toString(),
+    matches: s.season_matches,
+  }));
+
+  // Chart 4: Chasing Win % Trajectory
+  const chasingWinData = timeline.map((s: any) => ({
+    season: s.season.toString(),
     chase_pct: s.chasing_win_pct,
   }));
 
   return (
-    <div className="space-y-5">
-      {/* Header */}
+    <div className="space-y-6">
+      {/* Page Header */}
       <div>
         <div className="flex items-center space-x-2 text-[10px] font-mono font-bold tracking-widest text-[#F5B942] uppercase mb-0.5">
           <span>HISTORICAL EVOLUTION</span>
           <span>·</span>
-          <span>18 EDITIONS</span>
+          <span>18 EDITIONS (2008–2026)</span>
         </div>
         <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-          IPL Scoring Evolution & Season Milestones (2008–2026)
+          IPL Scoring Evolution & Macro-Trends
         </h1>
         <p className="text-xs text-[#A9B2C3] mt-0.5 max-w-3xl leading-normal">
-          Tracking the explosive rise in run-rates (8.31 to 9.88 RPO), sixes escalation (1,400+ per season), and chasing dominance across 19 editions.
+          Tracking the explosive rise in run-rates (8.31 to 9.88 RPO), sixes escalation (1,400+ per season), and tournament expansion across 18 editions.
         </p>
       </div>
 
-      {/* Visual Charts: Run Rate & Sixes Trend */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
-        {/* Run Rate Progression */}
-        <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
-          <div className="flex items-center justify-between mb-3 pb-2 border-b border-[rgba(255,255,255,0.06)]">
-            <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
-              <TrendingUp className="w-3.5 h-3.5 text-[#F5B942]" />
-              Run-Rate Escalation (Runs Per Over)
-            </h3>
-            <span className="text-[10px] font-mono text-[#F5B942] bg-[rgba(245,185,66,0.1)] px-1.5 py-0.5 rounded border border-[rgba(245,185,66,0.2)]">
-              8.31 -> 9.88 RPO
+      {error && <ErrorBanner message={error} onRetry={loadSeasons} />}
+
+      {/* 4 Required Visualizations: Run Rate Line, Stacked Boundaries, Matches Bar, and Chase Area */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        
+        {/* 1. Run-Rate Trajectory Line Chart */}
+        <ChartCard
+          eyebrow="SCORING ACCELERATION"
+          title="IPL Run Rate Evolution (Runs Per Over)"
+          subtitle="Progressive run rate trajectory from 8.31 RPO (2008) to 9.88 RPO (2026)"
+          icon={TrendingUp}
+          heightClass="h-64 sm:h-72"
+        >
+          <ThemedLineChart
+            data={runRateData}
+            xKey="season"
+            yKey="run_rate"
+            lineName="Run Rate"
+            unit="RPO"
+            yDomain={[7, 10.5]}
+            color={CHART_COLORS.goldPrimary}
+          />
+        </ChartCard>
+
+        {/* 2. Stacked Bar Chart: Fours vs Sixes Evolution */}
+        <ChartCard
+          eyebrow="BOUNDARY POWER"
+          title="Boundary Evolution: Fours and Sixes per Edition"
+          subtitle="Stacked boundary counts showcasing the explosion of maximum hits"
+          icon={Flame}
+          heightClass="h-64 sm:h-72"
+        >
+          <ThemedGroupedBarChart
+            data={boundaryStackedData}
+            xKey="season"
+            stacked={true}
+            bars={[
+              { key: "fours", name: "Boundary Fours", color: CHART_COLORS.blueVibrant },
+              { key: "sixes", name: "Maximum Sixes", color: CHART_COLORS.goldPrimary },
+            ]}
+            unit="hits"
+          />
+        </ChartCard>
+
+        {/* 3. Bar Chart: Matches Played Per Season */}
+        <ChartCard
+          eyebrow="LEAGUE EXPANSION"
+          title="Matches Hosted per Tournament Edition"
+          subtitle="Tournament format expansion from 58 fixtures to 74 matches"
+          icon={BarChart3}
+          heightClass="h-64 sm:h-72"
+        >
+          <ThemedBarChart
+            data={matchesPerSeasonData}
+            xKey="season"
+            yKey="matches"
+            barName="Fixtures"
+            unit="Matches"
+            yDomain={[50, 80]}
+            color={CHART_COLORS.bluePrimary}
+          />
+        </ChartCard>
+
+        {/* 4. Area Chart: Chasing Win % Trajectory */}
+        <ChartCard
+          eyebrow="CHASE SUCCESS"
+          title="Chasing Win % Trajectory by Season"
+          subtitle="Percentage of fixtures won by the side batting second"
+          icon={Layers}
+          heightClass="h-64 sm:h-72"
+        >
+          <ThemedAreaChart
+            data={chasingWinData}
+            xKey="season"
+            yKey="chase_pct"
+            areaName="Chasing Win %"
+            unit="%"
+            yDomain={[40, 70]}
+            color={CHART_COLORS.greenSuccess}
+          />
+        </ChartCard>
+
+      </section>
+
+      {/* Season Selection & Deep Dive */}
+      <div className="space-y-4 pt-2 border-t border-[rgba(255,255,255,0.06)]">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div>
+            <span className="text-[10px] font-mono text-[#F5B942] uppercase tracking-wider font-bold block mb-0.5">
+              SEASON SELECTION
             </span>
-          </div>
-
-          <div className="h-56 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={chartData}>
-                <defs>
-                  <linearGradient id="colorRpo" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#2476E8" stopOpacity={0.4} />
-                    <stop offset="95%" stopColor="#2476E8" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
-                <XAxis dataKey="season" stroke="#6F7A90" fontSize={10} tickLine={false} />
-                <YAxis stroke="#6F7A90" fontSize={10} domain={[7.5, 10.5]} tickLine={false} />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: "#0D1424",
-                    borderColor: "rgba(255,255,255,0.12)",
-                    borderRadius: "6px",
-                    color: "#F4F6FA",
-                    fontSize: "11px",
-                  }}
-                />
-                <Area
-                  type="monotone"
-                  dataKey="rpo"
-                  name="Run Rate (RPO)"
-                  stroke="#2476E8"
-                  strokeWidth={2}
-                  fillOpacity={1}
-                  fill="url(#colorRpo)"
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-
-        {/* Boundary Escalation (Sixes Count) */}
-        <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
-          <div className="flex items-center justify-between mb-3 pb-2 border-b border-[rgba(255,255,255,0.06)]">
-            <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
-              <Flame className="w-3.5 h-3.5 text-[#F5B942]" />
-              Total Sixes Hit Per Season
+            <h3 className="text-sm font-bold text-white flex items-center gap-1.5 font-mono">
+              <Calendar className="w-4 h-4 text-[#165DCC]" />
+              Inspect Season {selectedSeason} Telemetry
             </h3>
-            <span className="text-[10px] font-mono text-[#F5B942] bg-[rgba(245,185,66,0.1)] px-1.5 py-0.5 rounded border border-[rgba(245,185,66,0.2)]">
-              Surpassed 1,400+ Maximums
-            </span>
           </div>
 
-          <div className="h-56 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
-                <XAxis dataKey="season" stroke="#6F7A90" fontSize={10} tickLine={false} />
-                <YAxis stroke="#6F7A90" fontSize={10} tickLine={false} />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: "#0D1424",
-                    borderColor: "rgba(255,255,255,0.12)",
-                    borderRadius: "6px",
-                    color: "#F4F6FA",
-                    fontSize: "11px",
-                  }}
-                />
-                <Bar dataKey="sixes" name="Sixes Hit" fill="#F5B942" radius={[2, 2, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      </div>
-
-      {/* Horizontal Season Timeline Selector (Section 49) */}
-      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-3 sm:p-4 shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-bold text-white flex items-center gap-1.5">
-            <Calendar className="w-3.5 h-3.5 text-[#F5B942]" />
-            Tournament Timeline Selector
-          </span>
-          <span className="text-[10px] text-[#707B91] font-mono">18 Editions Evaluated</span>
-        </div>
-
-        {/* Clean Timeline Strip */}
-        <div className="flex overflow-x-auto pb-1 space-x-1 scrollbar-none">
-          {timeline.map((s: any) => {
-            const isSelected = selectedSeason === s.season.toString();
-            return (
+          <div className="flex flex-wrap gap-1.5">
+            {timeline.map((s: any) => (
               <button
                 key={s.season}
                 onClick={() => handleSelectSeason(s.season.toString())}
-                className={`flex-shrink-0 px-2.5 py-1 text-xs font-mono font-bold transition-colors rounded-btn ${
-                  isSelected
-                    ? "bg-[#165DCC] text-white border-b-2 border-[#F5B942]"
-                    : "bg-[#070B16] text-[#8F9AAF] hover:text-white hover:bg-[#111A2E]"
+                className={`px-2.5 py-1 rounded-btn text-xs font-mono font-semibold transition-colors ${
+                  selectedSeason === s.season.toString()
+                    ? "bg-[#165DCC] text-white border border-[#2476E8]"
+                    : "bg-[#0A101D] text-[#8F9AAF] border border-[rgba(255,255,255,0.06)] hover:text-white"
                 }`}
               >
                 {s.season}
               </button>
-            );
-          })}
+            ))}
+          </div>
         </div>
+
+        {/* Selected Season Detail Overview */}
+        {seasonDetail && (
+          <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0A101D] p-5 space-y-4 shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pb-3 border-b border-[rgba(255,255,255,0.06)]">
+              <div>
+                <h4 className="text-base font-bold text-white flex items-center gap-2">
+                  <Trophy className="w-4 h-4 text-[#F5B942]" />
+                  IPL {selectedSeason} Edition Summary
+                </h4>
+                <p className="text-xs text-[#8F9AAF] mt-0.5">
+                  Winner: <strong className="text-white">{seasonDetail.champion || seasonDetail.winner || "Historical Champion"}</strong> · Runner Up: {seasonDetail.runner_up || "Finalist"}
+                </p>
+              </div>
+
+              <span className="text-xs font-mono text-[#F5B942] bg-[rgba(245,185,66,0.1)] px-2.5 py-1 rounded border border-[rgba(245,185,66,0.25)]">
+                Run Rate: {seasonDetail.run_rate} RPO
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 text-xs font-mono">
+              <div className="bg-[#070B16] p-2.5 rounded-btn border border-[rgba(255,255,255,0.04)]">
+                <span className="text-[10px] text-[#707B91] uppercase block">Fixtures</span>
+                <strong className="text-white text-sm">{seasonDetail.matches_count || seasonDetail.matches?.length || 74}</strong>
+              </div>
+              <div className="bg-[#070B16] p-2.5 rounded-btn border border-[rgba(255,255,255,0.04)]">
+                <span className="text-[10px] text-[#707B91] uppercase block">Total Runs</span>
+                <strong className="text-white text-sm">{seasonDetail.total_runs?.toLocaleString()}</strong>
+              </div>
+              <div className="bg-[#070B16] p-2.5 rounded-btn border border-[rgba(255,255,255,0.04)]">
+                <span className="text-[10px] text-[#707B91] uppercase block">Total Fours</span>
+                <strong className="text-[#2476E8] text-sm">{seasonDetail.fours?.toLocaleString()}</strong>
+              </div>
+              <div className="bg-[#070B16] p-2.5 rounded-btn border border-[rgba(255,255,255,0.04)]">
+                <span className="text-[10px] text-[#707B91] uppercase block">Total Sixes</span>
+                <strong className="text-[#F5B942] text-sm">{seasonDetail.sixes?.toLocaleString()}</strong>
+              </div>
+              <div className="bg-[#070B16] p-2.5 rounded-btn border border-[rgba(255,255,255,0.04)]">
+                <span className="text-[10px] text-[#707B91] uppercase block">Wickets</span>
+                <strong className="text-white text-sm">{seasonDetail.total_wickets?.toLocaleString()}</strong>
+              </div>
+              <div className="bg-[#070B16] p-2.5 rounded-btn border border-[rgba(255,255,255,0.04)]">
+                <span className="text-[10px] text-[#707B91] uppercase block">Chase Win %</span>
+                <strong className="text-[#2FBF71] text-sm">{seasonDetail.chasing_win_pct}%</strong>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Selected Season Deep Dive */}
-      {seasonDetail && (
-        <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.12)] space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[rgba(255,255,255,0.06)]">
-            <div>
-              <span className="text-[10px] font-mono text-[#F5B942] uppercase font-bold tracking-wider block mb-0.5">
-                EDITION PROFILE
-              </span>
-              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-1.5">
-                IPL {selectedSeason} Season Summary
-              </h2>
-              <p className="text-[11px] text-[#707B91] mt-0.5">
-                {seasonDetail.summary?.season_matches} official matches played across the campaign
-              </p>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-mono">
-              <span className="bg-[#070B16] text-[#F5B942] border border-[rgba(255,255,255,0.08)] px-2.5 py-0.5 rounded-btn font-bold text-[11px]">
-                Run Rate: {seasonDetail.summary?.run_rate} RPO
-              </span>
-              <span className="bg-[#070B16] text-white border border-[rgba(255,255,255,0.08)] px-2.5 py-0.5 rounded-btn font-bold text-[11px]">
-                Chasing Win: {seasonDetail.summary?.chasing_win_pct}%
-              </span>
-            </div>
-          </div>
-
-          {/* Quick Metrics */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
-            <div className="bg-[#070B16] p-2.5 sm:p-3 rounded-btn border border-[rgba(255,255,255,0.06)]">
-              <p className="text-[9px] text-[#707B91] uppercase">Total Runs</p>
-              <p className="text-base font-bold text-white font-mono mt-0.5">
-                {seasonDetail.summary?.total_runs?.toLocaleString()}
-              </p>
-            </div>
-            <div className="bg-[#070B16] p-2.5 sm:p-3 rounded-btn border border-[rgba(255,255,255,0.06)]">
-              <p className="text-[9px] text-[#707B91] uppercase">Boundaries</p>
-              <p className="text-base font-bold text-[#F5B942] font-mono mt-0.5">
-                {seasonDetail.summary?.fours} (4s) / {seasonDetail.summary?.sixes} (6s)
-              </p>
-            </div>
-            <div className="bg-[#070B16] p-2.5 sm:p-3 rounded-btn border border-[rgba(255,255,255,0.06)]">
-              <p className="text-[9px] text-[#707B91] uppercase">Total Wickets</p>
-              <p className="text-base font-bold text-white font-mono mt-0.5">
-                {seasonDetail.summary?.total_wickets}
-              </p>
-            </div>
-            <div className="bg-[#070B16] p-2.5 sm:p-3 rounded-btn border border-[rgba(255,255,255,0.06)]">
-              <p className="text-[9px] text-[#707B91] uppercase">Boundary Run %</p>
-              <p className="text-base font-bold text-[#2476E8] font-mono mt-0.5">
-                {seasonDetail.summary?.boundary_run_pct}%
-              </p>
-            </div>
-          </div>
-
-          {/* Sample Fixtures Table */}
-          <div>
-            <h4 className="text-[11px] font-bold text-[#707B91] uppercase tracking-wider mb-2 font-mono">
-              Sample Fixtures from {selectedSeason}
-            </h4>
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
-                <thead className="bg-[#090E1B] text-[#707B91] font-mono uppercase text-[10px] tracking-wider border-b border-[rgba(255,255,255,0.06)]">
-                  <tr>
-                    <th className="py-2 px-3">Date</th>
-                    <th className="py-2 px-3">Fixture</th>
-                    <th className="py-2 px-3">Venue</th>
-                    <th className="py-2 px-3">Winner</th>
-                    <th className="py-2 px-3 text-right">Margin</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[rgba(255,255,255,0.04)] text-[#F4F6FA]">
-                  {(seasonDetail.sample_matches || []).map((m: any, idx: number) => (
-                    <tr key={idx} className="hover:bg-[rgba(22,93,204,0.08)] transition-colors">
-                      <td className="py-1.5 px-3 font-mono text-[#707B91]">{m.date || "—"}</td>
-                      <td className="py-1.5 px-3 font-bold text-white">
-                        {m.team1} vs {m.team2}
-                      </td>
-                      <td className="py-1.5 px-3 text-[#A9B2C3] truncate max-w-xs">{m.venue}</td>
-                      <td className="py-1.5 px-3 font-semibold text-[#F5B942]">{m.winner || "No Result"}</td>
-                      <td className="py-1.5 px-3 text-right font-mono text-[#707B91]">
-                        {m.win_margin ? `${m.win_margin} ${m.win_type}` : "—"}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+      {/* Historical Seasons Matrix Table */}
+      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0A101D] overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+        <div className="p-3 sm:p-3.5 border-b border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+          <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5 font-mono">
+            <Calendar className="w-3.5 h-3.5 text-[#F5B942]" />
+            Season Macro-Trends Matrix (2008–2026)
+          </h3>
+          <span className="text-[10px] text-[#707B91] font-mono">18 Tournament Seasons</span>
         </div>
-      )}
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs font-mono">
+            <thead className="bg-[#070B16] text-[#707B91] uppercase text-[10px] tracking-wider border-b border-[rgba(255,255,255,0.06)]">
+              <tr>
+                <th className="py-2.5 px-3">Season</th>
+                <th className="py-2.5 px-3 text-center">Matches</th>
+                <th className="py-2.5 px-3 text-center">Total Runs</th>
+                <th className="py-2.5 px-3 text-center">Run Rate</th>
+                <th className="py-2.5 px-3 text-center">Fours</th>
+                <th className="py-2.5 px-3 text-center">Sixes</th>
+                <th className="py-2.5 px-3 text-center">Boundary %</th>
+                <th className="py-2.5 px-3 text-center">Chase Win %</th>
+                <th className="py-2.5 px-3 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[rgba(255,255,255,0.03)] text-[#F4F6FA]">
+              {timeline.map((s: any) => {
+                const isSelected = selectedSeason === s.season.toString();
+                return (
+                  <tr
+                    key={s.season}
+                    onClick={() => handleSelectSeason(s.season.toString())}
+                    className={`cursor-pointer transition-colors ${
+                      isSelected
+                        ? "bg-[rgba(22,93,204,0.16)] border-l-4 border-l-[#F5B942]"
+                        : "hover:bg-[rgba(255,255,255,0.02)]"
+                    }`}
+                  >
+                    <td className="py-2.5 px-3 font-bold text-white">{s.season}</td>
+                    <td className="py-2.5 px-3 text-center text-white">{s.season_matches}</td>
+                    <td className="py-2.5 px-3 text-center font-bold text-white">{s.total_runs?.toLocaleString()}</td>
+                    <td className="py-2.5 px-3 text-center font-bold text-[#F5B942]">{s.run_rate}</td>
+                    <td className="py-2.5 px-3 text-center text-[#2476E8]">{s.fours?.toLocaleString()}</td>
+                    <td className="py-2.5 px-3 text-center font-semibold text-[#F5B942]">{s.sixes?.toLocaleString()}</td>
+                    <td className="py-2.5 px-3 text-center text-white">{s.boundary_run_pct}%</td>
+                    <td className="py-2.5 px-3 text-center text-[#2FBF71]">{s.chasing_win_pct}%</td>
+                    <td className="py-2.5 px-3 text-right">
+                      <button
+                        className={`h-[24px] px-2.5 rounded-btn text-[10px] font-semibold transition-colors ${
+                          isSelected
+                            ? "bg-[#165DCC] text-white"
+                            : "bg-[#070B16] border border-[rgba(255,255,255,0.08)] text-[#A9B2C3] hover:text-white"
+                        }`}
+                      >
+                        {isSelected ? "Inspecting" : "Select"}
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }

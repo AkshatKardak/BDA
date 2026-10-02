@@ -13,12 +13,8 @@ import {
   Search,
   Trophy,
   Database,
-  FileText,
   Menu,
   X,
-  Activity,
-  Cpu,
-  Radio,
   ShieldCheck
 } from "lucide-react";
 
@@ -26,12 +22,10 @@ interface NavLinkItem {
   name: string;
   href: string;
   icon: any;
-  isLive?: boolean;
 }
 
 const NAV_LINKS: NavLinkItem[] = [
   { name: "Overview", href: "/", icon: BarChart3 },
-  { name: "Live Match", href: "/live", icon: Radio, isLive: true },
   { name: "Playoffs", href: "/playoffs", icon: Trophy },
   { name: "Franchises", href: "/teams", icon: Users },
   { name: "Players", href: "/players", icon: Award },
@@ -44,8 +38,7 @@ const NAV_LINKS: NavLinkItem[] = [
 
 const TECH_LINKS = [
   { name: "Data Quality", href: "/data-quality", icon: ShieldCheck },
-  { name: "Big Data Pipeline", href: "/pipeline", icon: Database },
-  { name: "Project Spec", href: "/about", icon: FileText },
+  { name: "Pipeline", href: "/pipeline", icon: Database },
 ];
 
 export default function Navbar() {
@@ -54,9 +47,9 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#080D19]/95 backdrop-blur-md border-b border-[rgba(255,255,255,0.08)]">
-      <div className="max-w-[1360px] h-[56px] mx-auto px-4 sm:px-5 lg:px-6 flex items-center justify-between">
+      <div className="max-w-[1360px] h-14 mx-auto px-4 sm:px-5 lg:px-6 flex items-center justify-between gap-4">
         
-        {/* Brand Logo - Custom Cricket Ball Seam & Title */}
+        {/* Brand Logo & Tournament Identity */}
         <Link 
           href="/" 
           prefetch={true}
@@ -92,21 +85,21 @@ export default function Navbar() {
 
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5">
-              <span className="font-bold text-white text-xs sm:text-sm tracking-tight leading-tight group-hover:text-[#F5B942] transition-colors">
+              <span className="font-bold text-white text-xs sm:text-sm tracking-tight leading-tight group-hover:text-[#F5B942] transition-colors whitespace-nowrap">
                 IPL Cricket Analytics
               </span>
-              <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-[rgba(22,93,204,0.2)] text-[#2476E8] border border-[rgba(36,118,232,0.25)]">
-                2008-2026
+              <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-[rgba(22,93,204,0.2)] text-[#2476E8] border border-[rgba(36,118,232,0.25)] whitespace-nowrap">
+                2008–2026
               </span>
             </div>
-            <span className="text-[9px] text-[#707B91] font-mono tracking-wider hidden sm:block">
+            <span className="text-[9px] text-[#707B91] font-mono tracking-wider hidden md:block whitespace-nowrap">
               Flume · HDFS · Hive · PySpark
             </span>
           </div>
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden xl:flex items-center h-full space-x-0.5">
+        <nav className="hidden xl:flex items-center h-full space-x-1 flex-1 justify-center max-w-[820px]">
           {NAV_LINKS.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -115,24 +108,21 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 prefetch={true}
-                className={`h-full flex items-center space-x-1 px-2.5 text-xs font-medium transition-colors ${
+                className={`h-full flex items-center space-x-1.5 px-2.5 text-xs font-medium transition-colors whitespace-nowrap ${
                   isActive
                     ? "text-[#F7F8FC] bg-[rgba(22,93,204,0.18)] border-b-2 border-[#F5B942]"
                     : "text-[#8F9AAF] hover:text-[#F7F8FC] hover:bg-[rgba(255,255,255,0.03)]"
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#F5B942]" : item.isLive ? "text-[#E63946]" : "text-[#707B91]"}`} />
+                <Icon className={`w-3.5 h-3.5 flex-shrink-0 ${isActive ? "text-[#F5B942]" : "text-[#707B91]"}`} />
                 <span>{item.name}</span>
-                {item.isLive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse ml-0.5" />
-                )}
               </Link>
             );
           })}
         </nav>
 
-        {/* Right Section: Architecture & Telemetry Links */}
-        <div className="hidden lg:flex items-center space-x-2">
+        {/* Right Section: Telemetry & Pipeline Status */}
+        <div className="hidden lg:flex items-center space-x-2 flex-shrink-0">
           {TECH_LINKS.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -141,25 +131,25 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 prefetch={true}
-                className={`flex items-center space-x-1.5 px-2.5 py-1.5 rounded-btn text-xs font-medium transition-colors ${
+                className={`flex items-center space-x-1.5 px-2.5 py-1.5 rounded-btn text-xs font-medium transition-colors whitespace-nowrap ${
                   isActive
                     ? "text-[#F7F8FC] bg-[rgba(22,93,204,0.25)] border border-[rgba(36,118,232,0.4)]"
                     : "text-[#8F9AAF] hover:text-[#F7F8FC] hover:bg-[rgba(255,255,255,0.04)]"
                 }`}
               >
-                <Icon className="w-3.5 h-3.5 text-[#F5B942]" />
+                <Icon className="w-3.5 h-3.5 text-[#F5B942] flex-shrink-0" />
                 <span>{item.name}</span>
               </Link>
             );
           })}
 
-          {/* Live Pipeline Status Pill */}
+          {/* Pipeline Status Indicator */}
           <Link
             href="/pipeline"
             prefetch={true}
-            className="flex items-center space-x-1.5 px-2.5 py-1 rounded-btn bg-[#0D1830] border border-[rgba(255,255,255,0.08)] text-xs hover:border-[rgba(245,185,66,0.3)] transition-colors"
+            className="flex items-center space-x-1.5 px-2.5 py-1 rounded-btn bg-[#0D1830] border border-[rgba(255,255,255,0.08)] text-xs hover:border-[rgba(245,185,66,0.3)] transition-colors whitespace-nowrap"
           >
-            <span className="relative flex h-2 w-2">
+            <span className="relative flex h-2 w-2 flex-shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2FBF71] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2FBF71]"></span>
             </span>
@@ -194,7 +184,7 @@ export default function Navbar() {
           <div className="text-[10px] font-mono uppercase text-[#707B91] tracking-wider font-semibold">
             Analytics Modules
           </div>
-          <div className="grid grid-cols-2 gap-1.5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
             {NAV_LINKS.map((item) => {
               const Icon = item.icon;
               const isActive = pathname === item.href;
@@ -210,13 +200,8 @@ export default function Navbar() {
                       : "text-[#8F9AAF] hover:text-white bg-[#0D1424] border border-[rgba(255,255,255,0.04)]"
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#F5B942]" : item.isLive ? "text-[#E63946]" : "text-[#707B91]"}`} />
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#F5B942]" : "text-[#707B91]"}`} />
                   <span>{item.name}</span>
-                  {item.isLive && (
-                    <span className="text-[9px] font-mono font-bold px-1 py-0.2 rounded bg-[rgba(230,57,70,0.2)] text-[#E63946] ml-auto">
-                      LIVE
-                    </span>
-                  )}
                 </Link>
               );
             })}
@@ -226,26 +211,28 @@ export default function Navbar() {
             <div className="text-[10px] font-mono uppercase text-[#707B91] tracking-wider font-semibold mb-1">
               Architecture & Telemetry
             </div>
-            {TECH_LINKS.map((item) => {
-              const Icon = item.icon;
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  prefetch={true}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center space-x-2 px-3 py-2 rounded-btn text-xs font-medium transition-colors ${
-                    isActive
-                      ? "bg-[rgba(22,93,204,0.25)] text-white border border-[rgba(36,118,232,0.4)]"
-                      : "text-[#8F9AAF] hover:text-white bg-[#0D1424] border border-[rgba(255,255,255,0.04)]"
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5 text-[#F5B942]" />
-                  <span>{item.name}</span>
-                </Link>
-              );
-            })}
+            <div className="grid grid-cols-2 gap-1.5">
+              {TECH_LINKS.map((item) => {
+                const Icon = item.icon;
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    prefetch={true}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center space-x-2 px-3 py-2 rounded-btn text-xs font-medium transition-colors ${
+                      isActive
+                        ? "bg-[rgba(22,93,204,0.25)] text-white border border-[rgba(36,118,232,0.4)]"
+                        : "text-[#8F9AAF] hover:text-white bg-[#0D1424] border border-[rgba(255,255,255,0.04)]"
+                    }`}
+                  >
+                    <Icon className="w-3.5 h-3.5 text-[#F5B942]" />
+                    <span>{item.name}</span>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}

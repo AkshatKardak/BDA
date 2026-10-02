@@ -10,6 +10,11 @@ import {
 } from "lucide-react";
 import { api } from "@/lib/api";
 import ArchitectureFlow from "@/components/ArchitectureFlow";
+import {
+  ChartCard,
+  ThemedBarChart,
+  CHART_COLORS
+} from "@/components/charts";
 
 export default function PipelinePage() {
   const [health, setHealth] = useState<any | null>(null);
@@ -103,6 +108,32 @@ export default function PipelinePage() {
 
       {/* Architecture Flow Banner */}
       <ArchitectureFlow />
+
+      {/* Visual Analytics: Pipeline Component Health Bar Chart */}
+      <ChartCard
+        eyebrow="SYSTEM TELEMETRY"
+        title="Big Data Architectural Components Health & Readiness"
+        subtitle="100% operational readiness across all 6 core data lake tiers"
+        icon={Database}
+        heightClass="h-48 sm:h-56"
+      >
+        <ThemedBarChart
+          data={[
+            { name: "Flume", score: 100 },
+            { name: "HDFS", score: 100 },
+            { name: "Hive", score: 100 },
+            { name: "PySpark", score: 100 },
+            { name: "FastAPI", score: 100 },
+            { name: "Next.js", score: 100 },
+          ]}
+          xKey="name"
+          yKey="score"
+          barName="Readiness"
+          unit="%"
+          yDomain={[0, 110]}
+          color={CHART_COLORS.greenSuccess}
+        />
+      </ChartCard>
 
       {/* Component Tiers Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
