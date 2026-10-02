@@ -23,8 +23,15 @@ export default function Footer() {
           {/* Col 1: Platform Identity & Academic Scope */}
           <div className="space-y-3">
             <div className="flex items-center space-x-2.5">
-              <div className="relative w-6 h-6 rounded-full bg-[#0D1830] border border-[rgba(245,185,66,0.35)] flex items-center justify-center">
-                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none">
+              <div className="relative w-6 h-6 min-w-[24px] min-h-[24px] max-w-[24px] max-h-[24px] rounded-full bg-[#0D1830] border border-[rgba(245,185,66,0.35)] flex items-center justify-center overflow-hidden flex-shrink-0">
+                <svg 
+                  width={14}
+                  height={14}
+                  viewBox="0 0 24 24" 
+                  className="w-3.5 h-3.5 block" 
+                  fill="none"
+                  style={{ width: 14, height: 14, maxWidth: 14, maxHeight: 14, flexShrink: 0 }}
+                >
                   <circle cx="12" cy="12" r="9" stroke="#165DCC" strokeWidth="1.8" />
                   <path
                     d="M7 6.5C9.5 8.5 10 11.5 10 12C10 12.5 9.5 15.5 7 17.5"
@@ -69,6 +76,22 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/live" prefetch={true} className="text-[#E63946] font-medium hover:underline flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse"></span>
+                  Live Match Telemetry
+                </Link>
+              </li>
+              <li>
+                <Link href="/playoffs" prefetch={true} className="text-[#F5B942] font-medium hover:underline">
+                  Playoffs & Finals History (74 Matches)
+                </Link>
+              </li>
+              <li>
+                <Link href="/data-quality" prefetch={true} className="text-[#2FBF71] font-medium hover:underline">
+                  Data Quality & Pipeline Audit (100%)
+                </Link>
+              </li>
+              <li>
                 <Link href="/teams" prefetch={true} className="text-[#8F9AAF] hover:text-[#F4F6FA] transition-colors">
                   Franchise Records & Head-to-Head
                 </Link>
@@ -85,12 +108,17 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/venues" prefetch={true} className="text-[#8F9AAF] hover:text-[#F4F6FA] transition-colors">
-                  Stadium Profiles & Par Score Matrix
+                  Stadium Profiles & Interactive Map
                 </Link>
               </li>
               <li>
                 <Link href="/seasons" prefetch={true} className="text-[#8F9AAF] hover:text-[#F4F6FA] transition-colors">
                   Run-Rate Evolution (2008-2026)
+                </Link>
+              </li>
+              <li>
+                <Link href="/matches" prefetch={true} className="text-[#8F9AAF] hover:text-[#F4F6FA] transition-colors">
+                  Match Explorer & CSV Export
                 </Link>
               </li>
               <li>

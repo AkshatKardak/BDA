@@ -15,6 +15,8 @@ class OverviewKPIs(BaseModel):
     total_seasons: int
     total_teams: int
     total_venues: int
+    playoff_matches: Optional[int] = 74
+    tournament_finals: Optional[int] = 19
     total_runs: int
     total_wickets: int
     total_sixes: int
@@ -26,6 +28,8 @@ class OverviewKPIs(BaseModel):
 class OverviewResponse(BaseModel):
     title: str
     description: str
+    last_data_update: Optional[str] = None
+    live_matches_count: Optional[int] = 0
     kpis: OverviewKPIs
     top_teams: List[Dict[str, Any]]
     top_batters: List[Dict[str, Any]]

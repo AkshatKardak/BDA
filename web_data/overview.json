@@ -1,12 +1,16 @@
 {
   "title": "IPL Large-Scale Cricket Data Analytics",
   "description": "Distributed Big Data Analytics Platform powered by Apache Flume, Hadoop HDFS, Hive, and PySpark",
+  "last_data_update": "2026-10-02T15:40:13.275787+00:00",
+  "live_matches_count": 0,
   "kpis": {
     "total_matches": 1243,
     "total_deliveries": 295732,
     "total_seasons": 18,
     "total_teams": 15,
     "total_venues": 60,
+    "playoff_matches": 74,
+    "tournament_finals": 19,
     "total_runs": 401738,
     "total_wickets": 14687,
     "total_sixes": 15779,

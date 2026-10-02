@@ -1,0 +1,582 @@
+{
+  "overall_phases": [
+    {
+      "phase": "Powerplay (1-6)",
+      "runs": 98926,
+      "deliveries": 77596,
+      "wickets": 3004,
+      "fours": 11946,
+      "sixes": 3010,
+      "dot_balls": 35184,
+      "run_rate": 7.65,
+      "boundary_pct": 19.3,
+      "dot_pct": 45.3
+    },
+    {
+      "phase": "Middle (7-15)",
+      "runs": 175097,
+      "deliveries": 136176,
+      "wickets": 5521,
+      "fours": 13208,
+      "sixes": 6385,
+      "dot_balls": 43524,
+      "run_rate": 7.71,
+      "boundary_pct": 14.4,
+      "dot_pct": 32.0
+    },
+    {
+      "phase": "Death (16-20)",
+      "runs": 127715,
+      "deliveries": 81960,
+      "wickets": 6162,
+      "fours": 9293,
+      "sixes": 6384,
+      "dot_balls": 22522,
+      "run_rate": 9.35,
+      "boundary_pct": 19.1,
+      "dot_pct": 27.5
+    }
+  ],
+  "season_phase_trends": [
+    {
+      "season": 2008,
+      "phase": "Death (16-20)",
+      "runs": 5474,
+      "deliveries": 3491,
+      "wickets": 289,
+      "fours": 455,
+      "sixes": 247,
+      "run_rate": 9.41
+    },
+    {
+      "season": 2008,
+      "phase": "Middle (7-15)",
+      "runs": 8082,
+      "deliveries": 6338,
+      "wickets": 257,
+      "fours": 677,
+      "sixes": 275,
+      "run_rate": 7.65
+    },
+    {
+      "season": 2008,
+      "phase": "Powerplay (1-6)",
+      "runs": 4381,
+      "deliveries": 3660,
+      "wickets": 143,
+      "fours": 571,
+      "sixes": 101,
+      "run_rate": 7.18
+    },
+    {
+      "season": 2009,
+      "phase": "Death (16-20)",
+      "runs": 5360,
+      "deliveries": 3752,
+      "wickets": 290,
+      "fours": 376,
+      "sixes": 202,
+      "run_rate": 8.57
+    },
+    {
+      "season": 2009,
+      "phase": "Middle (7-15)",
+      "runs": 6929,
+      "deliveries": 6227,
+      "wickets": 253,
+      "fours": 489,
+      "sixes": 179,
+      "run_rate": 6.68
+    },
+    {
+      "season": 2009,
+      "phase": "Powerplay (1-6)",
+      "runs": 4064,
+      "deliveries": 3627,
+      "wickets": 155,
+      "fours": 456,
+      "sixes": 127,
+      "run_rate": 6.72
+    },
+    {
+      "season": 2010,
+      "phase": "Death (16-20)",
+      "runs": 5965,
+      "deliveries": 4024,
+      "wickets": 290,
+      "fours": 449,
+      "sixes": 251,
+      "run_rate": 8.89
+    },
+    {
+      "season": 2010,
+      "phase": "Middle (7-15)",
+      "runs": 8163,
+      "deliveries": 6665,
+      "wickets": 280,
+      "fours": 627,
+      "sixes": 235,
+      "run_rate": 7.35
+    },
+    {
+      "season": 2010,
+      "phase": "Powerplay (1-6)",
+      "runs": 4755,
+      "deliveries": 3809,
+      "wickets": 153,
+      "fours": 633,
+      "sixes": 101,
+      "run_rate": 7.49
+    },
+    {
+      "season": 2011,
+      "phase": "Death (16-20)",
+      "runs": 6570,
+      "deliveries": 4543,
+      "wickets": 344,
+      "fours": 486,
+      "sixes": 277,
+      "run_rate": 8.68
+    },
+    {
+      "season": 2011,
+      "phase": "Middle (7-15)",
+      "runs": 9457,
+      "deliveries": 7932,
+      "wickets": 298,
+      "fours": 788,
+      "sixes": 257,
+      "run_rate": 7.15
+    },
+    {
+      "season": 2011,
+      "phase": "Powerplay (1-6)",
+      "runs": 5127,
+      "deliveries": 4538,
+      "wickets": 171,
+      "fours": 642,
+      "sixes": 105,
+      "run_rate": 6.78
+    },
+    {
+      "season": 2012,
+      "phase": "Death (16-20)",
+      "runs": 7437,
+      "deliveries": 4984,
+      "wickets": 383,
+      "fours": 543,
+      "sixes": 313,
+      "run_rate": 8.95
+    },
+    {
+      "season": 2012,
+      "phase": "Middle (7-15)",
+      "runs": 9871,
+      "deliveries": 8179,
+      "wickets": 319,
+      "fours": 744,
+      "sixes": 302,
+      "run_rate": 7.24
+    },
+    {
+      "season": 2012,
+      "phase": "Powerplay (1-6)",
+      "runs": 5145,
+      "deliveries": 4604,
+      "wickets": 155,
+      "fours": 624,
+      "sixes": 118,
+      "run_rate": 6.71
+    },
+    {
+      "season": 2013,
+      "phase": "Death (16-20)",
+      "runs": 7630,
+      "deliveries": 5108,
+      "wickets": 389,
+      "fours": 589,
+      "sixes": 341,
+      "run_rate": 8.96
+    },
+    {
+      "season": 2013,
+      "phase": "Middle (7-15)",
+      "runs": 9782,
+      "deliveries": 8315,
+      "wickets": 335,
+      "fours": 800,
+      "sixes": 246,
+      "run_rate": 7.06
+    },
+    {
+      "season": 2013,
+      "phase": "Powerplay (1-6)",
+      "runs": 5190,
+      "deliveries": 4754,
+      "wickets": 187,
+      "fours": 665,
+      "sixes": 94,
+      "run_rate": 6.55
+    },
+    {
+      "season": 2014,
+      "phase": "Death (16-20)",
+      "runs": 6230,
+      "deliveries": 3968,
+      "wickets": 287,
+      "fours": 421,
+      "sixes": 320,
+      "run_rate": 9.42
+    },
+    {
+      "season": 2014,
+      "phase": "Middle (7-15)",
+      "runs": 8256,
+      "deliveries": 6574,
+      "wickets": 251,
+      "fours": 609,
+      "sixes": 283,
+      "run_rate": 7.54
+    },
+    {
+      "season": 2014,
+      "phase": "Powerplay (1-6)",
+      "runs": 4445,
+      "deliveries": 3758,
+      "wickets": 135,
+      "fours": 533,
+      "sixes": 112,
+      "run_rate": 7.1
+    },
+    {
+      "season": 2015,
+      "phase": "Death (16-20)",
+      "runs": 5999,
+      "deliveries": 3748,
+      "wickets": 294,
+      "fours": 455,
+      "sixes": 292,
+      "run_rate": 9.6
+    },
+    {
+      "season": 2015,
+      "phase": "Middle (7-15)",
+      "runs": 7826,
+      "deliveries": 6255,
+      "wickets": 260,
+      "fours": 582,
+      "sixes": 285,
+      "run_rate": 7.51
+    },
+    {
+      "season": 2015,
+      "phase": "Powerplay (1-6)",
+      "runs": 4528,
+      "deliveries": 3649,
+      "wickets": 136,
+      "fours": 574,
+      "sixes": 115,
+      "run_rate": 7.45
+    },
+    {
+      "season": 2016,
+      "phase": "Death (16-20)",
+      "runs": 6097,
+      "deliveries": 3805,
+      "wickets": 280,
+      "fours": 444,
+      "sixes": 297,
+      "run_rate": 9.61
+    },
+    {
+      "season": 2016,
+      "phase": "Middle (7-15)",
+      "runs": 8193,
+      "deliveries": 6562,
+      "wickets": 246,
+      "fours": 634,
+      "sixes": 232,
+      "run_rate": 7.49
+    },
+    {
+      "season": 2016,
+      "phase": "Powerplay (1-6)",
+      "runs": 4572,
+      "deliveries": 3729,
+      "wickets": 139,
+      "fours": 555,
+      "sixes": 110,
+      "run_rate": 7.36
+    },
+    {
+      "season": 2017,
+      "phase": "Death (16-20)",
+      "runs": 5707,
+      "deliveries": 3771,
+      "wickets": 291,
+      "fours": 404,
+      "sixes": 271,
+      "run_rate": 9.08
+    },
+    {
+      "season": 2017,
+      "phase": "Middle (7-15)",
+      "runs": 8274,
+      "deliveries": 6401,
+      "wickets": 272,
+      "fours": 622,
+      "sixes": 302,
+      "run_rate": 7.76
+    },
+    {
+      "season": 2017,
+      "phase": "Powerplay (1-6)",
+      "runs": 4805,
+      "deliveries": 3690,
+      "wickets": 147,
+      "fours": 586,
+      "sixes": 133,
+      "run_rate": 7.81
+    },
+    {
+      "season": 2018,
+      "phase": "Death (16-20)",
+      "runs": 6292,
+      "deliveries": 4032,
+      "wickets": 299,
+      "fours": 416,
+      "sixes": 349,
+      "run_rate": 9.36
+    },
+    {
+      "season": 2018,
+      "phase": "Middle (7-15)",
+      "runs": 8619,
+      "deliveries": 6546,
+      "wickets": 277,
+      "fours": 652,
+      "sixes": 337,
+      "run_rate": 7.9
+    },
+    {
+      "season": 2018,
+      "phase": "Powerplay (1-6)",
+      "runs": 4990,
+      "deliveries": 3708,
+      "wickets": 144,
+      "fours": 584,
+      "sixes": 186,
+      "run_rate": 8.07
+    },
+    {
+      "season": 2019,
+      "phase": "Death (16-20)",
+      "runs": 6417,
+      "deliveries": 4071,
+      "wickets": 304,
+      "fours": 460,
+      "sixes": 335,
+      "run_rate": 9.46
+    },
+    {
+      "season": 2019,
+      "phase": "Middle (7-15)",
+      "runs": 8135,
+      "deliveries": 6537,
+      "wickets": 248,
+      "fours": 597,
+      "sixes": 297,
+      "run_rate": 7.47
+    },
+    {
+      "season": 2019,
+      "phase": "Powerplay (1-6)",
+      "runs": 4882,
+      "deliveries": 3704,
+      "wickets": 133,
+      "fours": 598,
+      "sixes": 154,
+      "run_rate": 7.91
+    },
+    {
+      "season": 2021,
+      "phase": "Death (16-20)",
+      "runs": 12473,
+      "deliveries": 8201,
+      "wickets": 610,
+      "fours": 928,
+      "sixes": 591,
+      "run_rate": 9.13
+    },
+    {
+      "season": 2021,
+      "phase": "Middle (7-15)",
+      "runs": 16353,
+      "deliveries": 13264,
+      "wickets": 520,
+      "fours": 1136,
+      "sixes": 571,
+      "run_rate": 7.4
+    },
+    {
+      "season": 2021,
+      "phase": "Powerplay (1-6)",
+      "runs": 9227,
+      "deliveries": 7519,
+      "wickets": 263,
+      "fours": 1076,
+      "sixes": 261,
+      "run_rate": 7.36
+    },
+    {
+      "season": 2022,
+      "phase": "Death (16-20)",
+      "runs": 8018,
+      "deliveries": 5072,
+      "wickets": 394,
+      "fours": 554,
+      "sixes": 461,
+      "run_rate": 9.49
+    },
+    {
+      "season": 2022,
+      "phase": "Middle (7-15)",
+      "runs": 10747,
+      "deliveries": 8227,
+      "wickets": 335,
+      "fours": 788,
+      "sixes": 437,
+      "run_rate": 7.84
+    },
+    {
+      "season": 2022,
+      "phase": "Powerplay (1-6)",
+      "runs": 5630,
+      "deliveries": 4613,
+      "wickets": 182,
+      "fours": 678,
+      "sixes": 164,
+      "run_rate": 7.32
+    },
+    {
+      "season": 2023,
+      "phase": "Death (16-20)",
+      "runs": 8284,
+      "deliveries": 5127,
+      "wickets": 393,
+      "fours": 570,
+      "sixes": 468,
+      "run_rate": 9.69
+    },
+    {
+      "season": 2023,
+      "phase": "Middle (7-15)",
+      "runs": 11082,
+      "deliveries": 8138,
+      "wickets": 342,
+      "fours": 807,
+      "sixes": 460,
+      "run_rate": 8.17
+    },
+    {
+      "season": 2023,
+      "phase": "Powerplay (1-6)",
+      "runs": 6322,
+      "deliveries": 4598,
+      "wickets": 179,
+      "fours": 798,
+      "sixes": 196,
+      "run_rate": 8.25
+    },
+    {
+      "season": 2024,
+      "phase": "Death (16-20)",
+      "runs": 8080,
+      "deliveries": 4790,
+      "wickets": 342,
+      "fours": 586,
+      "sixes": 465,
+      "run_rate": 10.12
+    },
+    {
+      "season": 2024,
+      "phase": "Middle (7-15)",
+      "runs": 11265,
+      "deliveries": 7862,
+      "wickets": 346,
+      "fours": 814,
+      "sixes": 528,
+      "run_rate": 8.6
+    },
+    {
+      "season": 2024,
+      "phase": "Powerplay (1-6)",
+      "runs": 6626,
+      "deliveries": 4451,
+      "wickets": 195,
+      "fours": 775,
+      "sixes": 268,
+      "run_rate": 8.93
+    },
+    {
+      "season": 2025,
+      "phase": "Death (16-20)",
+      "runs": 7849,
+      "deliveries": 4700,
+      "wickets": 352,
+      "fours": 569,
+      "sixes": 459,
+      "run_rate": 10.02
+    },
+    {
+      "season": 2025,
+      "phase": "Middle (7-15)",
+      "runs": 11800,
+      "deliveries": 8027,
+      "wickets": 333,
+      "fours": 903,
+      "sixes": 551,
+      "run_rate": 8.82
+    },
+    {
+      "season": 2025,
+      "phase": "Powerplay (1-6)",
+      "runs": 6878,
+      "deliveries": 4558,
+      "wickets": 186,
+      "fours": 791,
+      "sixes": 292,
+      "run_rate": 9.05
+    },
+    {
+      "season": 2026,
+      "phase": "Death (16-20)",
+      "runs": 7833,
+      "deliveries": 4773,
+      "wickets": 331,
+      "fours": 588,
+      "sixes": 445,
+      "run_rate": 9.85
+    },
+    {
+      "season": 2026,
+      "phase": "Middle (7-15)",
+      "runs": 12263,
+      "deliveries": 8127,
+      "wickets": 349,
+      "fours": 939,
+      "sixes": 608,
+      "run_rate": 9.05
+    },
+    {
+      "season": 2026,
+      "phase": "Powerplay (1-6)",
+      "runs": 7359,
+      "deliveries": 4627,
+      "wickets": 201,
+      "fours": 807,
+      "sixes": 373,
+      "run_rate": 9.54
+    }
+  ]
+}

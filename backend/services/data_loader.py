@@ -29,7 +29,9 @@ class DataLoaderService:
         files = [
             "overview.json", "teams.json", "players.json", "toss.json",
             "venues.json", "seasons.json", "leaderboards.json",
-            "trends.json", "matches.json"
+            "trends.json", "matches.json", "playoffs.json",
+            "phases.json", "over_by_over.json", "data_quality.json",
+            "automated_insights.json"
         ]
         for f in files:
             data = self._load_json(f)
@@ -148,17 +150,36 @@ class DataLoaderService:
     def get_trends(self) -> Dict[str, Any]:
         return self._cache.get("trends.json", {})
 
+    def get_playoffs(self) -> Dict[str, Any]:
+        return self._cache.get("playoffs.json", {})
+
+    def get_phases(self) -> Dict[str, Any]:
+        return self._cache.get("phases.json", {})
+
+    def get_over_by_over(self) -> Dict[str, Any]:
+        return self._cache.get("over_by_over.json", {})
+
+    def get_data_quality(self) -> Dict[str, Any]:
+        return self._cache.get("data_quality.json", {})
+
+    def get_insights(self) -> List[Dict[str, Any]]:
+        return self._cache.get("automated_insights.json", [])
+
     def get_matches(
         self,
         page: int = 1,
         limit: int = 20,
         season: Optional[str] = None,
         team: Optional[str] = None,
-        venue: Optional[str] = None
+        venue: Optional[str] = None,
+        stage: Optional[str] = None,
+        match_id: Optional[int] = None
     ) -> Dict[str, Any]:
         raw_matches = self._cache.get("matches.json", {}).get("matches", [])
         
         filtered = raw_matches
+        if match_id is not None:
+            filtered = [m for m in filtered if int(m.get("match_id", 0)) == int(match_id)]
         if season:
             filtered = [m for m in filtered if str(m.get("season")) == str(season)]
         if team:
@@ -170,6 +191,12 @@ class DataLoaderService:
         if venue:
             v = venue.lower()
             filtered = [m for m in filtered if v in str(m.get("venue", "")).lower()]
+        if stage:
+            st = stage.strip().lower()
+            if st in ["playoff", "playoffs"]:
+                filtered = [m for m in filtered if str(m.get("match_stage", "")).lower() != "league"]
+            else:
+                filtered = [m for m in filtered if str(m.get("match_stage", "")).lower() == st]
 
         total = len(filtered)
         total_pages = max(1, math.ceil(total / limit))

@@ -5,7 +5,7 @@
  * Features:
  * - In-memory caching with 10-minute TTL for instant (0ms) page-to-page navigation
  * - In-flight promise deduplication to prevent duplicate concurrent network calls
- * - Force-refresh capability for live pipeline audits
+ * - Force-refresh capability for live pipeline audits & live matches
  */
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api";
@@ -82,16 +82,25 @@ export const api = {
   getSeasonDetail: (season: string, force?: boolean) => fetchFromApi<any>(`/seasons/${encodeURIComponent(season)}`, force),
   getLeaderboards: (force?: boolean) => fetchFromApi<any>("/leaderboards", force),
   getTrends: (force?: boolean) => fetchFromApi<any>("/trends", force),
-  getMatches: (params?: { page?: number; limit?: number; season?: string; team?: string; venue?: string }, force?: boolean) => {
+  getMatches: (params?: { page?: number; limit?: number; season?: string; team?: string; venue?: string; stage?: string; match_id?: number }, force?: boolean) => {
     const sp = new URLSearchParams();
     if (params?.page) sp.append("page", params.page.toString());
     if (params?.limit) sp.append("limit", params.limit.toString());
     if (params?.season) sp.append("season", params.season);
     if (params?.team) sp.append("team", params.team);
     if (params?.venue) sp.append("venue", params.venue);
+    if (params?.stage) sp.append("stage", params.stage);
+    if (params?.match_id) sp.append("match_id", params.match_id.toString());
     const query = sp.toString() ? `?${sp.toString()}` : "";
     return fetchFromApi<any>(`/matches${query}`, force);
   },
+  getPlayoffs: (force?: boolean) => fetchFromApi<any>("/analytics/playoffs", force),
+  getPhases: (force?: boolean) => fetchFromApi<any>("/analytics/phases", force),
+  getRunRate: (force?: boolean) => fetchFromApi<any>("/analytics/run-rate", force),
+  getInsights: (force?: boolean) => fetchFromApi<any>("/analytics/insights", force),
+  getDataQuality: (force?: boolean) => fetchFromApi<any>("/data-quality", force),
+  getLiveMatches: (force: boolean = true) => fetchFromApi<any>("/live/matches", force),
+  getLiveStatus: () => fetchFromApi<any>("/live/status", true),
   getPipelineStatus: (force: boolean = true) => fetchFromApi<any>("/pipeline/status", force),
   getHealth: (force: boolean = true) => fetchFromApi<any>("/health", force),
   clearCache: () => {

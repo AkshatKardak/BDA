@@ -30,3 +30,13 @@ flume/logs/*.tmp
 # OS generated
 .DS_Store
 Thumbs.db
+
+# Environment variables & secrets
+.env
+*.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env.local
+frontend/.env.*.local
+

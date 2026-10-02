@@ -11,7 +11,12 @@
       "avg_1st_innings_score": 160.2,
       "avg_2nd_innings_score": 147.1,
       "highest_score": 232,
-      "lowest_score": 49
+      "lowest_score": 49,
+      "latitude": 22.5646,
+      "longitude": 88.3433,
+      "state": "West Bengal",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Wankhede Stadium",
@@ -24,7 +29,12 @@
       "avg_1st_innings_score": 166.0,
       "avg_2nd_innings_score": 154.4,
       "highest_score": 235,
-      "lowest_score": 67
+      "lowest_score": 67,
+      "latitude": 18.9389,
+      "longitude": 72.8258,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "M Chinnaswamy Stadium",
@@ -37,7 +47,12 @@
       "avg_1st_innings_score": 168.1,
       "avg_2nd_innings_score": 145.5,
       "highest_score": 263,
-      "lowest_score": 2
+      "lowest_score": 2,
+      "latitude": 12.9788,
+      "longitude": 77.5996,
+      "state": "Karnataka",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Wankhede Stadium, Mumbai",
@@ -50,7 +65,12 @@
       "avg_1st_innings_score": 181.9,
       "avg_2nd_innings_score": 171.5,
       "highest_score": 249,
-      "lowest_score": 97
+      "lowest_score": 97,
+      "latitude": 18.9389,
+      "longitude": 72.8258,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Feroz Shah Kotla",
@@ -63,7 +83,12 @@
       "avg_1st_innings_score": 161.6,
       "avg_2nd_innings_score": 147.8,
       "highest_score": 231,
-      "lowest_score": 44
+      "lowest_score": 44,
+      "latitude": 28.6378,
+      "longitude": 77.2424,
+      "state": "Delhi",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Rajiv Gandhi International Stadium, Uppal",
@@ -76,7 +101,12 @@
       "avg_1st_innings_score": 156.1,
       "avg_2nd_innings_score": 147.0,
       "highest_score": 223,
-      "lowest_score": 80
+      "lowest_score": 80,
+      "latitude": 17.4065,
+      "longitude": 78.5596,
+      "state": "Telangana",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Sawai Mansingh Stadium",
@@ -89,7 +119,12 @@
       "avg_1st_innings_score": 157.7,
       "avg_2nd_innings_score": 145.8,
       "highest_score": 197,
-      "lowest_score": 60
+      "lowest_score": 60,
+      "latitude": 26.894,
+      "longitude": 75.8033,
+      "state": "Rajasthan",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "MA Chidambaram Stadium, Chepauk",
@@ -102,7 +137,12 @@
       "avg_1st_innings_score": 166.0,
       "avg_2nd_innings_score": 151.9,
       "highest_score": 246,
-      "lowest_score": 95
+      "lowest_score": 95,
+      "latitude": 13.0628,
+      "longitude": 80.2793,
+      "state": "Tamil Nadu",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Dubai International Cricket Stadium",
@@ -115,7 +155,12 @@
       "avg_1st_innings_score": 163.8,
       "avg_2nd_innings_score": 149.1,
       "highest_score": 219,
-      "lowest_score": 109
+      "lowest_score": 109,
+      "latitude": 25.0471,
+      "longitude": 55.2198,
+      "state": "Dubai",
+      "country": "UAE",
+      "is_india": false
     },
     {
       "venue": "Narendra Modi Stadium, Ahmedabad",
@@ -128,7 +173,12 @@
       "avg_1st_innings_score": 185.8,
       "avg_2nd_innings_score": 166.1,
       "highest_score": 243,
-      "lowest_score": 86
+      "lowest_score": 86,
+      "latitude": 23.0917,
+      "longitude": 72.5972,
+      "state": "Gujarat",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "MA Chidambaram Stadium, Chepauk, Chennai",
@@ -141,7 +191,12 @@
       "avg_1st_innings_score": 168.3,
       "avg_2nd_innings_score": 156.9,
       "highest_score": 217,
-      "lowest_score": 101
+      "lowest_score": 101,
+      "latitude": 13.0628,
+      "longitude": 80.2793,
+      "state": "Tamil Nadu",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Punjab Cricket Association Stadium, Mohali",
@@ -154,7 +209,12 @@
       "avg_1st_innings_score": 163.3,
       "avg_2nd_innings_score": 150.6,
       "highest_score": 240,
-      "lowest_score": 84
+      "lowest_score": 84,
+      "latitude": 30.6908,
+      "longitude": 76.7374,
+      "state": "Punjab",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Arun Jaitley Stadium, Delhi",
@@ -167,7 +227,12 @@
       "avg_1st_innings_score": 193.6,
       "avg_2nd_innings_score": 180.7,
       "highest_score": 278,
-      "lowest_score": 75
+      "lowest_score": 75,
+      "latitude": 28.6378,
+      "longitude": 77.2424,
+      "state": "Delhi",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Sharjah Cricket Stadium",
@@ -180,7 +245,12 @@
       "avg_1st_innings_score": 159.0,
       "avg_2nd_innings_score": 147.5,
       "highest_score": 228,
-      "lowest_score": 85
+      "lowest_score": 85,
+      "latitude": 25.3298,
+      "longitude": 55.4208,
+      "state": "Sharjah",
+      "country": "UAE",
+      "is_india": false
     },
     {
       "venue": "Eden Gardens, Kolkata",
@@ -193,7 +263,12 @@
       "avg_1st_innings_score": 190.3,
       "avg_2nd_innings_score": 174.9,
       "highest_score": 262,
-      "lowest_score": 7
+      "lowest_score": 7,
+      "latitude": 22.5646,
+      "longitude": 88.3433,
+      "state": "West Bengal",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Sheikh Zayed Stadium",
@@ -206,7 +281,12 @@
       "avg_1st_innings_score": 158.9,
       "avg_2nd_innings_score": 145.6,
       "highest_score": 206,
-      "lowest_score": 70
+      "lowest_score": 70,
+      "latitude": 24.3986,
+      "longitude": 54.5492,
+      "state": "Abu Dhabi",
+      "country": "UAE",
+      "is_india": false
     },
     {
       "venue": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
@@ -219,7 +299,12 @@
       "avg_1st_innings_score": 174.8,
       "avg_2nd_innings_score": 166.5,
       "highest_score": 235,
-      "lowest_score": 108
+      "lowest_score": 108,
+      "latitude": 26.7865,
+      "longitude": 81.0142,
+      "state": "Uttar Pradesh",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Rajiv Gandhi International Stadium, Uppal, Hyderabad",
@@ -232,7 +317,12 @@
       "avg_1st_innings_score": 194.7,
       "avg_2nd_innings_score": 181.8,
       "highest_score": 286,
-      "lowest_score": 131
+      "lowest_score": 131,
+      "latitude": 17.4065,
+      "longitude": 78.5596,
+      "state": "Telangana",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "M Chinnaswamy Stadium, Bengaluru",
@@ -245,7 +335,12 @@
       "avg_1st_innings_score": 190.4,
       "avg_2nd_innings_score": 181.7,
       "highest_score": 287,
-      "lowest_score": 95
+      "lowest_score": 95,
+      "latitude": 12.9788,
+      "longitude": 77.5996,
+      "state": "Karnataka",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Maharashtra Cricket Association Stadium",
@@ -258,7 +353,12 @@
       "avg_1st_innings_score": 166.4,
       "avg_2nd_innings_score": 152.1,
       "highest_score": 211,
-      "lowest_score": 73
+      "lowest_score": 73,
+      "latitude": 18.6745,
+      "longitude": 73.7064,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Sawai Mansingh Stadium, Jaipur",
@@ -271,7 +371,12 @@
       "avg_1st_innings_score": 194.5,
       "avg_2nd_innings_score": 178.3,
       "highest_score": 229,
-      "lowest_score": 59
+      "lowest_score": 59,
+      "latitude": 26.894,
+      "longitude": 75.8033,
+      "state": "Rajasthan",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Dr DY Patil Sports Academy, Mumbai",
@@ -284,7 +389,12 @@
       "avg_1st_innings_score": 170.7,
       "avg_2nd_innings_score": 158.0,
       "highest_score": 216,
-      "lowest_score": 113
+      "lowest_score": 113,
+      "latitude": 19.0435,
+      "longitude": 73.026,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Brabourne Stadium, Mumbai",
@@ -297,7 +407,12 @@
       "avg_1st_innings_score": 177.4,
       "avg_2nd_innings_score": 165.2,
       "highest_score": 217,
-      "lowest_score": 68
+      "lowest_score": 68,
+      "latitude": 18.9322,
+      "longitude": 72.8242,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Dr DY Patil Sports Academy",
@@ -310,7 +425,12 @@
       "avg_1st_innings_score": 146.6,
       "avg_2nd_innings_score": 136.3,
       "highest_score": 190,
-      "lowest_score": 82
+      "lowest_score": 82,
+      "latitude": 19.0435,
+      "longitude": 73.026,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Subrata Roy Sahara Stadium",
@@ -323,7 +443,12 @@
       "avg_1st_innings_score": 149.4,
       "avg_2nd_innings_score": 133.6,
       "highest_score": 187,
-      "lowest_score": 99
+      "lowest_score": 99,
+      "latitude": 18.6745,
+      "longitude": 73.7064,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Kingsmead",
@@ -336,7 +461,12 @@
       "avg_1st_innings_score": 152.0,
       "avg_2nd_innings_score": 138.2,
       "highest_score": 211,
-      "lowest_score": 79
+      "lowest_score": 79,
+      "latitude": -29.8499,
+      "longitude": 31.0294,
+      "state": "KwaZulu-Natal",
+      "country": "South Africa",
+      "is_india": false
     },
     {
       "venue": "Rajiv Gandhi International Stadium",
@@ -349,7 +479,12 @@
       "avg_1st_innings_score": 162.6,
       "avg_2nd_innings_score": 146.1,
       "highest_score": 231,
-      "lowest_score": 96
+      "lowest_score": 96,
+      "latitude": 17.4065,
+      "longitude": 78.5596,
+      "state": "Telangana",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "M.Chinnaswamy Stadium",
@@ -362,7 +497,12 @@
       "avg_1st_innings_score": 173.9,
       "avg_2nd_innings_score": 167.9,
       "highest_score": 218,
-      "lowest_score": 41
+      "lowest_score": 41,
+      "latitude": 12.9788,
+      "longitude": 77.5996,
+      "state": "Karnataka",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium",
@@ -375,7 +515,12 @@
       "avg_1st_innings_score": 157.5,
       "avg_2nd_innings_score": 130.7,
       "highest_score": 206,
-      "lowest_score": 76
+      "lowest_score": 76,
+      "latitude": 17.7981,
+      "longitude": 83.3547,
+      "state": "Andhra Pradesh",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Arun Jaitley Stadium",
@@ -388,7 +533,12 @@
       "avg_1st_innings_score": 168.3,
       "avg_2nd_innings_score": 155.0,
       "highest_score": 219,
-      "lowest_score": 115
+      "lowest_score": 115,
+      "latitude": 28.6378,
+      "longitude": 77.2424,
+      "state": "Delhi",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Maharashtra Cricket Association Stadium, Pune",
@@ -401,7 +551,12 @@
       "avg_1st_innings_score": 171.5,
       "avg_2nd_innings_score": 144.5,
       "highest_score": 210,
-      "lowest_score": 82
+      "lowest_score": 82,
+      "latitude": 18.6745,
+      "longitude": 73.7064,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "SuperSport Park",
@@ -414,7 +569,12 @@
       "avg_1st_innings_score": 154.8,
       "avg_2nd_innings_score": 149.6,
       "highest_score": 189,
-      "lowest_score": 105
+      "lowest_score": 105,
+      "latitude": -25.8589,
+      "longitude": 28.1969,
+      "state": "Gauteng",
+      "country": "South Africa",
+      "is_india": false
     },
     {
       "venue": "Sardar Patel Stadium, Motera",
@@ -427,7 +587,12 @@
       "avg_1st_innings_score": 163.2,
       "avg_2nd_innings_score": 149.0,
       "highest_score": 201,
-      "lowest_score": 102
+      "lowest_score": 102,
+      "latitude": 23.0917,
+      "longitude": 72.5972,
+      "state": "Gujarat",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Punjab Cricket Association IS Bindra Stadium, Mohali",
@@ -440,7 +605,12 @@
       "avg_1st_innings_score": 164.1,
       "avg_2nd_innings_score": 158.2,
       "highest_score": 207,
-      "lowest_score": 67
+      "lowest_score": 67,
+      "latitude": 30.6908,
+      "longitude": 76.7374,
+      "state": "Punjab",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Punjab Cricket Association IS Bindra Stadium",
@@ -453,7 +623,12 @@
       "avg_1st_innings_score": 175.6,
       "avg_2nd_innings_score": 172.0,
       "highest_score": 197,
-      "lowest_score": 150
+      "lowest_score": 150,
+      "latitude": 30.6908,
+      "longitude": 76.7374,
+      "state": "Punjab",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur",
@@ -466,7 +641,12 @@
       "avg_1st_innings_score": 163.0,
       "avg_2nd_innings_score": 155.4,
       "highest_score": 219,
-      "lowest_score": 95
+      "lowest_score": 95,
+      "latitude": 30.7937,
+      "longitude": 76.7327,
+      "state": "Punjab",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Brabourne Stadium",
@@ -479,7 +659,12 @@
       "avg_1st_innings_score": 180.4,
       "avg_2nd_innings_score": 167.7,
       "highest_score": 212,
-      "lowest_score": 115
+      "lowest_score": 115,
+      "latitude": 18.9322,
+      "longitude": 72.8242,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "MA Chidambaram Stadium",
@@ -492,7 +677,12 @@
       "avg_1st_innings_score": 150.6,
       "avg_2nd_innings_score": 134.2,
       "highest_score": 205,
-      "lowest_score": 70
+      "lowest_score": 70,
+      "latitude": 13.0628,
+      "longitude": 80.2793,
+      "state": "Tamil Nadu",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Himachal Pradesh Cricket Association Stadium, Dharamsala",
@@ -505,7 +695,12 @@
       "avg_1st_innings_score": 205.2,
       "avg_2nd_innings_score": 187.6,
       "highest_score": 254,
-      "lowest_score": 122
+      "lowest_score": 122,
+      "latitude": 32.2276,
+      "longitude": 76.3248,
+      "state": "Himachal Pradesh",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Saurashtra Cricket Association Stadium",
@@ -518,7 +713,12 @@
       "avg_1st_innings_score": 168.9,
       "avg_2nd_innings_score": 162.7,
       "highest_score": 213,
-      "lowest_score": 131
+      "lowest_score": 131,
+      "latitude": 22.3615,
+      "longitude": 70.7301,
+      "state": "Gujarat",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Himachal Pradesh Cricket Association Stadium",
@@ -531,7 +731,12 @@
       "avg_1st_innings_score": 175.7,
       "avg_2nd_innings_score": 146.2,
       "highest_score": 232,
-      "lowest_score": 116
+      "lowest_score": 116,
+      "latitude": 32.2276,
+      "longitude": 76.3248,
+      "state": "Himachal Pradesh",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Holkar Cricket Stadium",
@@ -544,7 +749,12 @@
       "avg_1st_innings_score": 160.3,
       "avg_2nd_innings_score": 158.8,
       "highest_score": 245,
-      "lowest_score": 88
+      "lowest_score": 88,
+      "latitude": 22.7247,
+      "longitude": 75.8778,
+      "state": "Madhya Pradesh",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "New Wanderers Stadium",
@@ -557,7 +767,12 @@
       "avg_1st_innings_score": 144.0,
       "avg_2nd_innings_score": 142.5,
       "highest_score": 166,
-      "lowest_score": 123
+      "lowest_score": 123,
+      "latitude": -26.1317,
+      "longitude": 28.0573,
+      "state": "Gauteng",
+      "country": "South Africa",
+      "is_india": false
     },
     {
       "venue": "Barsapara Cricket Stadium, Guwahati",
@@ -570,7 +785,12 @@
       "avg_1st_innings_score": 168.9,
       "avg_2nd_innings_score": 157.6,
       "highest_score": 202,
-      "lowest_score": 123
+      "lowest_score": 123,
+      "latitude": 26.1433,
+      "longitude": 91.7362,
+      "state": "Assam",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Zayed Cricket Stadium, Abu Dhabi",
@@ -583,7 +803,12 @@
       "avg_1st_innings_score": 159.0,
       "avg_2nd_innings_score": 150.4,
       "highest_score": 235,
-      "lowest_score": 92
+      "lowest_score": 92,
+      "latitude": 24.3986,
+      "longitude": 54.5492,
+      "state": "Abu Dhabi",
+      "country": "UAE",
+      "is_india": false
     },
     {
       "venue": "JSCA International Stadium Complex",
@@ -596,7 +821,12 @@
       "avg_1st_innings_score": 149.0,
       "avg_2nd_innings_score": 144.7,
       "highest_score": 189,
-      "lowest_score": 114
+      "lowest_score": 114,
+      "latitude": 23.3134,
+      "longitude": 85.2774,
+      "state": "Jharkhand",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "St George's Park",
@@ -609,7 +839,12 @@
       "avg_1st_innings_score": 159.0,
       "avg_2nd_innings_score": 131.4,
       "highest_score": 187,
-      "lowest_score": 87
+      "lowest_score": 87,
+      "latitude": -33.9664,
+      "longitude": 25.6067,
+      "state": "Eastern Cape",
+      "country": "South Africa",
+      "is_india": false
     },
     {
       "venue": "Barabati Stadium",
@@ -622,7 +857,12 @@
       "avg_1st_innings_score": 167.7,
       "avg_2nd_innings_score": 157.7,
       "highest_score": 231,
-      "lowest_score": 126
+      "lowest_score": 126,
+      "latitude": 20.4809,
+      "longitude": 85.8687,
+      "state": "Odisha",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh",
@@ -635,7 +875,12 @@
       "avg_1st_innings_score": 220.3,
       "avg_2nd_innings_score": 205.6,
       "highest_score": 254,
-      "lowest_score": 162
+      "lowest_score": 162,
+      "latitude": 20.5937,
+      "longitude": 78.9629,
+      "state": "India",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Shaheed Veer Narayan Singh International Stadium",
@@ -648,7 +893,12 @@
       "avg_1st_innings_score": 146.3,
       "avg_2nd_innings_score": 143.8,
       "highest_score": 164,
-      "lowest_score": 119
+      "lowest_score": 119,
+      "latitude": 21.2514,
+      "longitude": 81.8294,
+      "state": "Chhattisgarh",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Newlands",
@@ -661,7 +911,12 @@
       "avg_1st_innings_score": 139.4,
       "avg_2nd_innings_score": 112.6,
       "highest_score": 184,
-      "lowest_score": 58
+      "lowest_score": 58,
+      "latitude": -33.9743,
+      "longitude": 18.4688,
+      "state": "Western Cape",
+      "country": "South Africa",
+      "is_india": false
     },
     {
       "venue": "Nehru Stadium",
@@ -674,7 +929,12 @@
       "avg_1st_innings_score": 146.8,
       "avg_2nd_innings_score": 125.8,
       "highest_score": 162,
-      "lowest_score": 74
+      "lowest_score": 74,
+      "latitude": 9.9981,
+      "longitude": 76.2999,
+      "state": "Kerala",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh",
@@ -687,7 +947,12 @@
       "avg_1st_innings_score": 197.8,
       "avg_2nd_innings_score": 173.4,
       "highest_score": 257,
-      "lowest_score": 146
+      "lowest_score": 146,
+      "latitude": 30.6908,
+      "longitude": 76.7374,
+      "state": "Punjab",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Green Park",
@@ -700,7 +965,12 @@
       "avg_1st_innings_score": 161.3,
       "avg_2nd_innings_score": 163.3,
       "highest_score": 197,
-      "lowest_score": 124
+      "lowest_score": 124,
+      "latitude": 26.482,
+      "longitude": 80.3498,
+      "state": "Uttar Pradesh",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Dr. Y.S. Rajasekhara Reddy ACA-VDCA Cricket Stadium, Visakhapatnam",
@@ -713,7 +983,12 @@
       "avg_1st_innings_score": 208.8,
       "avg_2nd_innings_score": 178.5,
       "highest_score": 272,
-      "lowest_score": 163
+      "lowest_score": 163,
+      "latitude": 17.7981,
+      "longitude": 83.3547,
+      "state": "Andhra Pradesh",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "De Beers Diamond Oval",
@@ -726,7 +1001,12 @@
       "avg_1st_innings_score": 158.0,
       "avg_2nd_innings_score": 141.0,
       "highest_score": 169,
-      "lowest_score": 113
+      "lowest_score": 113,
+      "latitude": -28.7428,
+      "longitude": 24.7584,
+      "state": "Northern Cape",
+      "country": "South Africa",
+      "is_india": false
     },
     {
       "venue": "Buffalo Park",
@@ -739,7 +1019,12 @@
       "avg_1st_innings_score": 147.3,
       "avg_2nd_innings_score": 119.0,
       "highest_score": 178,
-      "lowest_score": 100
+      "lowest_score": 100,
+      "latitude": -33.0039,
+      "longitude": 27.9189,
+      "state": "Eastern Cape",
+      "country": "South Africa",
+      "is_india": false
     },
     {
       "venue": "Vidarbha Cricket Association Stadium, Jamtha",
@@ -752,7 +1037,12 @@
       "avg_1st_innings_score": 149.3,
       "avg_2nd_innings_score": 144.7,
       "highest_score": 159,
-      "lowest_score": 138
+      "lowest_score": 138,
+      "latitude": 21.0153,
+      "longitude": 79.0347,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
@@ -765,7 +1055,12 @@
       "avg_1st_innings_score": 179.0,
       "avg_2nd_innings_score": 180.5,
       "highest_score": 194,
-      "lowest_score": 166
+      "lowest_score": 166,
+      "latitude": 21.2514,
+      "longitude": 81.8294,
+      "state": "Chhattisgarh",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "OUTsurance Oval",
@@ -778,7 +1073,12 @@
       "avg_1st_innings_score": 135.0,
       "avg_2nd_innings_score": 129.5,
       "highest_score": 150,
-      "lowest_score": 120
+      "lowest_score": 120,
+      "latitude": -29.1139,
+      "longitude": 26.2057,
+      "state": "Free State",
+      "country": "South Africa",
+      "is_india": false
     }
   ],
   "major_venues": [
@@ -793,7 +1093,12 @@
       "avg_1st_innings_score": 160.2,
       "avg_2nd_innings_score": 147.1,
       "highest_score": 232,
-      "lowest_score": 49
+      "lowest_score": 49,
+      "latitude": 22.5646,
+      "longitude": 88.3433,
+      "state": "West Bengal",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Wankhede Stadium",
@@ -806,7 +1111,12 @@
       "avg_1st_innings_score": 166.0,
       "avg_2nd_innings_score": 154.4,
       "highest_score": 235,
-      "lowest_score": 67
+      "lowest_score": 67,
+      "latitude": 18.9389,
+      "longitude": 72.8258,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "M Chinnaswamy Stadium",
@@ -819,7 +1129,12 @@
       "avg_1st_innings_score": 168.1,
       "avg_2nd_innings_score": 145.5,
       "highest_score": 263,
-      "lowest_score": 2
+      "lowest_score": 2,
+      "latitude": 12.9788,
+      "longitude": 77.5996,
+      "state": "Karnataka",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Wankhede Stadium, Mumbai",
@@ -832,7 +1147,12 @@
       "avg_1st_innings_score": 181.9,
       "avg_2nd_innings_score": 171.5,
       "highest_score": 249,
-      "lowest_score": 97
+      "lowest_score": 97,
+      "latitude": 18.9389,
+      "longitude": 72.8258,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Feroz Shah Kotla",
@@ -845,7 +1165,12 @@
       "avg_1st_innings_score": 161.6,
       "avg_2nd_innings_score": 147.8,
       "highest_score": 231,
-      "lowest_score": 44
+      "lowest_score": 44,
+      "latitude": 28.6378,
+      "longitude": 77.2424,
+      "state": "Delhi",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Rajiv Gandhi International Stadium, Uppal",
@@ -858,7 +1183,12 @@
       "avg_1st_innings_score": 156.1,
       "avg_2nd_innings_score": 147.0,
       "highest_score": 223,
-      "lowest_score": 80
+      "lowest_score": 80,
+      "latitude": 17.4065,
+      "longitude": 78.5596,
+      "state": "Telangana",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Sawai Mansingh Stadium",
@@ -871,7 +1201,12 @@
       "avg_1st_innings_score": 157.7,
       "avg_2nd_innings_score": 145.8,
       "highest_score": 197,
-      "lowest_score": 60
+      "lowest_score": 60,
+      "latitude": 26.894,
+      "longitude": 75.8033,
+      "state": "Rajasthan",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "MA Chidambaram Stadium, Chepauk",
@@ -884,7 +1219,12 @@
       "avg_1st_innings_score": 166.0,
       "avg_2nd_innings_score": 151.9,
       "highest_score": 246,
-      "lowest_score": 95
+      "lowest_score": 95,
+      "latitude": 13.0628,
+      "longitude": 80.2793,
+      "state": "Tamil Nadu",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Dubai International Cricket Stadium",
@@ -897,7 +1237,12 @@
       "avg_1st_innings_score": 163.8,
       "avg_2nd_innings_score": 149.1,
       "highest_score": 219,
-      "lowest_score": 109
+      "lowest_score": 109,
+      "latitude": 25.0471,
+      "longitude": 55.2198,
+      "state": "Dubai",
+      "country": "UAE",
+      "is_india": false
     },
     {
       "venue": "Narendra Modi Stadium, Ahmedabad",
@@ -910,7 +1255,12 @@
       "avg_1st_innings_score": 185.8,
       "avg_2nd_innings_score": 166.1,
       "highest_score": 243,
-      "lowest_score": 86
+      "lowest_score": 86,
+      "latitude": 23.0917,
+      "longitude": 72.5972,
+      "state": "Gujarat",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "MA Chidambaram Stadium, Chepauk, Chennai",
@@ -923,7 +1273,12 @@
       "avg_1st_innings_score": 168.3,
       "avg_2nd_innings_score": 156.9,
       "highest_score": 217,
-      "lowest_score": 101
+      "lowest_score": 101,
+      "latitude": 13.0628,
+      "longitude": 80.2793,
+      "state": "Tamil Nadu",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Punjab Cricket Association Stadium, Mohali",
@@ -936,7 +1291,12 @@
       "avg_1st_innings_score": 163.3,
       "avg_2nd_innings_score": 150.6,
       "highest_score": 240,
-      "lowest_score": 84
+      "lowest_score": 84,
+      "latitude": 30.6908,
+      "longitude": 76.7374,
+      "state": "Punjab",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Arun Jaitley Stadium, Delhi",
@@ -949,7 +1309,12 @@
       "avg_1st_innings_score": 193.6,
       "avg_2nd_innings_score": 180.7,
       "highest_score": 278,
-      "lowest_score": 75
+      "lowest_score": 75,
+      "latitude": 28.6378,
+      "longitude": 77.2424,
+      "state": "Delhi",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Sharjah Cricket Stadium",
@@ -962,7 +1327,12 @@
       "avg_1st_innings_score": 159.0,
       "avg_2nd_innings_score": 147.5,
       "highest_score": 228,
-      "lowest_score": 85
+      "lowest_score": 85,
+      "latitude": 25.3298,
+      "longitude": 55.4208,
+      "state": "Sharjah",
+      "country": "UAE",
+      "is_india": false
     },
     {
       "venue": "Eden Gardens, Kolkata",
@@ -975,7 +1345,12 @@
       "avg_1st_innings_score": 190.3,
       "avg_2nd_innings_score": 174.9,
       "highest_score": 262,
-      "lowest_score": 7
+      "lowest_score": 7,
+      "latitude": 22.5646,
+      "longitude": 88.3433,
+      "state": "West Bengal",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Sheikh Zayed Stadium",
@@ -988,7 +1363,12 @@
       "avg_1st_innings_score": 158.9,
       "avg_2nd_innings_score": 145.6,
       "highest_score": 206,
-      "lowest_score": 70
+      "lowest_score": 70,
+      "latitude": 24.3986,
+      "longitude": 54.5492,
+      "state": "Abu Dhabi",
+      "country": "UAE",
+      "is_india": false
     },
     {
       "venue": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
@@ -1001,7 +1381,12 @@
       "avg_1st_innings_score": 174.8,
       "avg_2nd_innings_score": 166.5,
       "highest_score": 235,
-      "lowest_score": 108
+      "lowest_score": 108,
+      "latitude": 26.7865,
+      "longitude": 81.0142,
+      "state": "Uttar Pradesh",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Rajiv Gandhi International Stadium, Uppal, Hyderabad",
@@ -1014,7 +1399,12 @@
       "avg_1st_innings_score": 194.7,
       "avg_2nd_innings_score": 181.8,
       "highest_score": 286,
-      "lowest_score": 131
+      "lowest_score": 131,
+      "latitude": 17.4065,
+      "longitude": 78.5596,
+      "state": "Telangana",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "M Chinnaswamy Stadium, Bengaluru",
@@ -1027,7 +1417,12 @@
       "avg_1st_innings_score": 190.4,
       "avg_2nd_innings_score": 181.7,
       "highest_score": 287,
-      "lowest_score": 95
+      "lowest_score": 95,
+      "latitude": 12.9788,
+      "longitude": 77.5996,
+      "state": "Karnataka",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Maharashtra Cricket Association Stadium",
@@ -1040,7 +1435,12 @@
       "avg_1st_innings_score": 166.4,
       "avg_2nd_innings_score": 152.1,
       "highest_score": 211,
-      "lowest_score": 73
+      "lowest_score": 73,
+      "latitude": 18.6745,
+      "longitude": 73.7064,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Sawai Mansingh Stadium, Jaipur",
@@ -1053,7 +1453,12 @@
       "avg_1st_innings_score": 194.5,
       "avg_2nd_innings_score": 178.3,
       "highest_score": 229,
-      "lowest_score": 59
+      "lowest_score": 59,
+      "latitude": 26.894,
+      "longitude": 75.8033,
+      "state": "Rajasthan",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Dr DY Patil Sports Academy, Mumbai",
@@ -1066,7 +1471,12 @@
       "avg_1st_innings_score": 170.7,
       "avg_2nd_innings_score": 158.0,
       "highest_score": 216,
-      "lowest_score": 113
+      "lowest_score": 113,
+      "latitude": 19.0435,
+      "longitude": 73.026,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Brabourne Stadium, Mumbai",
@@ -1079,7 +1489,12 @@
       "avg_1st_innings_score": 177.4,
       "avg_2nd_innings_score": 165.2,
       "highest_score": 217,
-      "lowest_score": 68
+      "lowest_score": 68,
+      "latitude": 18.9322,
+      "longitude": 72.8242,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Dr DY Patil Sports Academy",
@@ -1092,7 +1507,12 @@
       "avg_1st_innings_score": 146.6,
       "avg_2nd_innings_score": 136.3,
       "highest_score": 190,
-      "lowest_score": 82
+      "lowest_score": 82,
+      "latitude": 19.0435,
+      "longitude": 73.026,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Subrata Roy Sahara Stadium",
@@ -1105,7 +1525,12 @@
       "avg_1st_innings_score": 149.4,
       "avg_2nd_innings_score": 133.6,
       "highest_score": 187,
-      "lowest_score": 99
+      "lowest_score": 99,
+      "latitude": 18.6745,
+      "longitude": 73.7064,
+      "state": "Maharashtra",
+      "country": "India",
+      "is_india": true
     },
     {
       "venue": "Kingsmead",
@@ -1118,7 +1543,12 @@
       "avg_1st_innings_score": 152.0,
       "avg_2nd_innings_score": 138.2,
       "highest_score": 211,
-      "lowest_score": 79
+      "lowest_score": 79,
+      "latitude": -29.8499,
+      "longitude": 31.0294,
+      "state": "KwaZulu-Natal",
+      "country": "South Africa",
+      "is_india": false
     },
     {
       "venue": "Rajiv Gandhi International Stadium",
@@ -1131,7 +1561,12 @@
       "avg_1st_innings_score": 162.6,
       "avg_2nd_innings_score": 146.1,
       "highest_score": 231,
-      "lowest_score": 96
+      "lowest_score": 96,
+      "latitude": 17.4065,
+      "longitude": 78.5596,
+      "state": "Telangana",
+      "country": "India",
+      "is_india": true
     }
   ]
 }

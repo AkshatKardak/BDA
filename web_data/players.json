@@ -2505,27 +2505,6 @@
   ],
   "orange_purple_cap_history": [
     {
-      "season": 2009,
-      "batter": "ML Hayden",
-      "season_runs": 572,
-      "balls_faced": 395,
-      "season_rank": 1
-    },
-    {
-      "season": 2009,
-      "batter": "AC Gilchrist",
-      "season_runs": 495,
-      "balls_faced": 325,
-      "season_rank": 2
-    },
-    {
-      "season": 2009,
-      "batter": "AB de Villiers",
-      "season_runs": 465,
-      "balls_faced": 355,
-      "season_rank": 3
-    },
-    {
       "season": 2008,
       "batter": "SE Marsh",
       "season_runs": 616,
@@ -2547,45 +2526,24 @@
       "season_rank": 3
     },
     {
-      "season": 2011,
-      "batter": "CH Gayle",
-      "season_runs": 608,
-      "balls_faced": 332,
-      "season_rank": 1
-    },
-    {
-      "season": 2011,
-      "batter": "V Kohli",
-      "season_runs": 557,
-      "balls_faced": 460,
-      "season_rank": 2
-    },
-    {
-      "season": 2011,
+      "season": 2010,
       "batter": "SR Tendulkar",
-      "season_runs": 553,
-      "balls_faced": 488,
-      "season_rank": 3
-    },
-    {
-      "season": 2012,
-      "batter": "CH Gayle",
-      "season_runs": 733,
-      "balls_faced": 456,
+      "season_runs": 618,
+      "balls_faced": 466,
       "season_rank": 1
     },
     {
-      "season": 2012,
-      "batter": "G Gambhir",
-      "season_runs": 590,
-      "balls_faced": 411,
+      "season": 2010,
+      "batter": "JH Kallis",
+      "season_runs": 572,
+      "balls_faced": 494,
       "season_rank": 2
     },
     {
-      "season": 2012,
-      "batter": "S Dhawan",
-      "season_runs": 569,
-      "balls_faced": 439,
+      "season": 2010,
+      "batter": "SK Raina",
+      "season_runs": 528,
+      "balls_faced": 367,
       "season_rank": 3
     },
     {
@@ -2631,6 +2589,48 @@
       "season_rank": 3
     },
     {
+      "season": 2016,
+      "batter": "V Kohli",
+      "season_runs": 973,
+      "balls_faced": 640,
+      "season_rank": 1
+    },
+    {
+      "season": 2016,
+      "batter": "DA Warner",
+      "season_runs": 848,
+      "balls_faced": 560,
+      "season_rank": 2
+    },
+    {
+      "season": 2016,
+      "batter": "AB de Villiers",
+      "season_runs": 687,
+      "balls_faced": 407,
+      "season_rank": 3
+    },
+    {
+      "season": 2011,
+      "batter": "CH Gayle",
+      "season_runs": 608,
+      "balls_faced": 332,
+      "season_rank": 1
+    },
+    {
+      "season": 2011,
+      "batter": "V Kohli",
+      "season_runs": 557,
+      "balls_faced": 460,
+      "season_rank": 2
+    },
+    {
+      "season": 2011,
+      "batter": "SR Tendulkar",
+      "season_runs": 553,
+      "balls_faced": 488,
+      "season_rank": 3
+    },
+    {
       "season": 2019,
       "batter": "DA Warner",
       "season_runs": 692,
@@ -2673,45 +2673,45 @@
       "season_rank": 3
     },
     {
-      "season": 2010,
-      "batter": "SR Tendulkar",
-      "season_runs": 618,
-      "balls_faced": 466,
+      "season": 2009,
+      "batter": "ML Hayden",
+      "season_runs": 572,
+      "balls_faced": 395,
       "season_rank": 1
     },
     {
-      "season": 2010,
-      "batter": "JH Kallis",
-      "season_runs": 572,
-      "balls_faced": 494,
+      "season": 2009,
+      "batter": "AC Gilchrist",
+      "season_runs": 495,
+      "balls_faced": 325,
       "season_rank": 2
     },
     {
-      "season": 2010,
-      "batter": "SK Raina",
-      "season_runs": 528,
-      "balls_faced": 367,
+      "season": 2009,
+      "batter": "AB de Villiers",
+      "season_runs": 465,
+      "balls_faced": 355,
       "season_rank": 3
     },
     {
-      "season": 2016,
-      "batter": "V Kohli",
-      "season_runs": 973,
-      "balls_faced": 640,
+      "season": 2012,
+      "batter": "CH Gayle",
+      "season_runs": 733,
+      "balls_faced": 456,
       "season_rank": 1
     },
     {
-      "season": 2016,
-      "batter": "DA Warner",
-      "season_runs": 848,
-      "balls_faced": 560,
+      "season": 2012,
+      "batter": "G Gambhir",
+      "season_runs": 590,
+      "balls_faced": 411,
       "season_rank": 2
     },
     {
-      "season": 2016,
-      "batter": "AB de Villiers",
-      "season_runs": 687,
-      "balls_faced": 407,
+      "season": 2012,
+      "batter": "S Dhawan",
+      "season_runs": 569,
+      "balls_faced": 439,
       "season_rank": 3
     },
     {
@@ -2733,27 +2733,6 @@
       "batter": "S Dhawan",
       "season_runs": 479,
       "balls_faced": 376,
-      "season_rank": 3
-    },
-    {
-      "season": 2013,
-      "batter": "MEK Hussey",
-      "season_runs": 733,
-      "balls_faced": 566,
-      "season_rank": 1
-    },
-    {
-      "season": 2013,
-      "batter": "CH Gayle",
-      "season_runs": 720,
-      "balls_faced": 459,
-      "season_rank": 2
-    },
-    {
-      "season": 2013,
-      "batter": "V Kohli",
-      "season_runs": 639,
-      "balls_faced": 459,
       "season_rank": 3
     },
     {
@@ -2799,27 +2778,6 @@
       "season_rank": 3
     },
     {
-      "season": 2023,
-      "batter": "Shubman Gill",
-      "season_runs": 890,
-      "balls_faced": 564,
-      "season_rank": 1
-    },
-    {
-      "season": 2023,
-      "batter": "F du Plessis",
-      "season_runs": 730,
-      "balls_faced": 475,
-      "season_rank": 2
-    },
-    {
-      "season": 2023,
-      "batter": "DP Conway",
-      "season_runs": 672,
-      "balls_faced": 481,
-      "season_rank": 3
-    },
-    {
       "season": 2024,
       "batter": "V Kohli",
       "season_runs": 741,
@@ -2838,6 +2796,48 @@
       "batter": "R Parag",
       "season_runs": 573,
       "balls_faced": 384,
+      "season_rank": 3
+    },
+    {
+      "season": 2013,
+      "batter": "MEK Hussey",
+      "season_runs": 733,
+      "balls_faced": 566,
+      "season_rank": 1
+    },
+    {
+      "season": 2013,
+      "batter": "CH Gayle",
+      "season_runs": 720,
+      "balls_faced": 459,
+      "season_rank": 2
+    },
+    {
+      "season": 2013,
+      "batter": "V Kohli",
+      "season_runs": 639,
+      "balls_faced": 459,
+      "season_rank": 3
+    },
+    {
+      "season": 2023,
+      "batter": "Shubman Gill",
+      "season_runs": 890,
+      "balls_faced": 564,
+      "season_rank": 1
+    },
+    {
+      "season": 2023,
+      "batter": "F du Plessis",
+      "season_runs": 730,
+      "balls_faced": 475,
+      "season_rank": 2
+    },
+    {
+      "season": 2023,
+      "batter": "DP Conway",
+      "season_runs": 672,
+      "balls_faced": 481,
       "season_rank": 3
     },
     {

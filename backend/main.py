@@ -31,7 +31,10 @@ try:
         leaderboards_router,
         trends_router,
         matches_router,
-        pipeline_router
+        pipeline_router,
+        live_router,
+        analytics_router,
+        data_quality_router
     )
 except ModuleNotFoundError:
     from config import settings
@@ -45,7 +48,10 @@ except ModuleNotFoundError:
         leaderboards_router,
         trends_router,
         matches_router,
-        pipeline_router
+        pipeline_router,
+        live_router,
+        analytics_router,
+        data_quality_router
     )
 
 app = FastAPI(
@@ -76,6 +82,9 @@ app.include_router(leaderboards_router, prefix=settings.API_PREFIX)
 app.include_router(trends_router, prefix=settings.API_PREFIX)
 app.include_router(matches_router, prefix=settings.API_PREFIX)
 app.include_router(pipeline_router, prefix=settings.API_PREFIX)
+app.include_router(live_router, prefix=settings.API_PREFIX)
+app.include_router(analytics_router, prefix=settings.API_PREFIX)
+app.include_router(data_quality_router, prefix=settings.API_PREFIX)
 
 @app.get("/")
 def root():

@@ -1,0 +1,44 @@
+[
+  {
+    "category": "Franchise Dominance",
+    "title": "Championship Heavyweights",
+    "description": "Chennai Super Kings and Mumbai Indians headline tournament history, claiming 5 and 5 titles respectively across 18 tournament editions.",
+    "impact": "High",
+    "stat": "5 Titles (Chennai Super Kings)"
+  },
+  {
+    "category": "Player Legacy",
+    "title": "All-Time Run Accumulator",
+    "description": "V Kohli dominates the all-time scoring charts with 9,346 runs across 275 innings at a strike rate of 134.9.",
+    "impact": "Record",
+    "stat": "9,346 Runs (V Kohli)"
+  },
+  {
+    "category": "Bowling Precision",
+    "title": "Leading Wicket Aggregate",
+    "description": "YS Chahal holds the premier bowling record in the Big Data lake with 233 tournament wickets.",
+    "impact": "Record",
+    "stat": "233 Wickets (YS Chahal)"
+  },
+  {
+    "category": "Toss & Venue Biases",
+    "title": "Chasing Advantage at Sawai Mansingh Stadium",
+    "description": "Teams chasing at Sawai Mansingh Stadium enjoy a 68.1% win rate across 47 matches due to heavy second-innings dew.",
+    "impact": "Tactical",
+    "stat": "68.1% Chasing Win Rate"
+  },
+  {
+    "category": "Innings Phase Acceleration",
+    "title": "Death Overs Run Surge",
+    "description": "Scoring rates escalate dramatically from the Powerplay (7.65 RPO) to the Death Overs (Overs 16-20) where batsmen strike at 9.35 RPO.",
+    "impact": "Trend",
+    "stat": "9.35 RPO in Death"
+  },
+  {
+    "category": "Tournament Knockouts",
+    "title": "74 Playoff Clashes Analyzed",
+    "description": "Every single knockout fixture including 19 finals, 16 Qualifier 1s, 16 Eliminators, and 16 Qualifier 2s has been preserved and verified.",
+    "impact": "Milestone",
+    "stat": "74 Playoff Matches"
+  }
+]

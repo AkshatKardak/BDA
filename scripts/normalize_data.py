@@ -77,11 +77,23 @@ def normalize():
     m_df = pl.read_parquet(MATCHES_RAW)
     print(f"       Raw matches count: {m_df.height:,}")
     
-    # Extract integer match_id from filename (e.g. 335982.yaml -> 335982)
-    m_df = m_df.with_columns(
+    # Stage cleaner to preserve playoff matches
+    def clean_stage(val):
+        if val is None or not str(val).strip() or str(val).strip().lower() == "nan":
+            return "League"
+        s = str(val).strip()
+        if s == "Elimination Final":
+            return "Eliminator"
+        return s
+
+    # Extract integer match_id from filename, clean season, stage, event_name, and match_number
+    m_df = m_df.with_columns([
         pl.col("filename").str.replace(r"\.[a-zA-Z]+$", "").cast(pl.Int64).alias("match_id"),
-        pl.col("season").map_elements(clean_season, return_dtype=pl.String).alias("season_norm")
-    )
+        pl.col("season").map_elements(clean_season, return_dtype=pl.String).alias("season_norm"),
+        pl.col("event_stage").fill_null("League").map_elements(clean_stage, return_dtype=pl.String).alias("match_stage"),
+        pl.lit("Indian Premier League").alias("event_name"),
+        pl.col("match_number").cast(pl.Int64, strict=False).alias("match_number")
+    ])
     
     # Map team names
     def remap_team(col_name):
@@ -102,9 +114,10 @@ def normalize():
         pl.col("season_norm").alias("season")
     ])
     
-    # Select clean standardized columns
+    # Select clean standardized columns preserving match_stage, event_name, match_number
     match_cols = [
-        "match_id", "season", "date", "team1", "team2", "city_norm", "venue",
+        "match_id", "season", "date", "match_number", "match_stage", "event_name",
+        "team1", "team2", "city_norm", "venue",
         "toss_winner", "toss_decision", "winner", "win_type", "win_margin",
         "result", "player_of_match"
     ]

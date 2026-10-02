@@ -1,0 +1,114 @@
+{
+  "audit_timestamp": "2026-10-02T15:40:13.336624+00:00",
+  "summary": {
+    "status": "HEALTHY",
+    "overall_integrity_score": "100%",
+    "total_matches_verified": 1243,
+    "total_deliveries_verified": 295732,
+    "duplicate_deliveries": 0,
+    "duplicate_matches": 0,
+    "playoffs_classified": 74,
+    "finals_classified": 19
+  },
+  "transformations_applied": [
+    {
+      "field": "city",
+      "action": "Resolved missing cities using canonical stadium mapping",
+      "affected_records": 63
+    },
+    {
+      "field": "match_stage",
+      "action": "Normalized raw stage nulls & values to 7 discrete playoff/league labels",
+      "affected_records": 1243
+    },
+    {
+      "field": "winner",
+      "action": "Handled ties / no-result / super over outcomes with precise classification",
+      "affected_records": 22
+    },
+    {
+      "field": "win_by",
+      "action": "Preserved wickets, runs, and tie/no result criteria",
+      "affected_records": 1243
+    },
+    {
+      "field": "deliveries_composite_key",
+      "action": "Unique indexing on match_id + innings + over + ball (zero duplicates)",
+      "affected_records": 295732
+    }
+  ],
+  "pipeline_stages": [
+    {
+      "tier": "Tier 1",
+      "name": "Raw Ingestion",
+      "technology": "Cricsheet JSON/CSV Corpus",
+      "records_matches": 1243,
+      "records_deliveries": 295732,
+      "status": "VERIFIED",
+      "latency": "Local / Batch File Ingestion"
+    },
+    {
+      "tier": "Tier 2",
+      "name": "Schema Normalization",
+      "technology": "Polars Vectorized Engine",
+      "records_matches": 1243,
+      "records_deliveries": 295732,
+      "status": "VERIFIED",
+      "latency": "< 0.4s In-Memory Execution"
+    },
+    {
+      "tier": "Tier 3",
+      "name": "Distributed Streaming",
+      "technology": "Apache Flume Spool & Memory Channel",
+      "records_matches": 1243,
+      "records_deliveries": 295732,
+      "status": "STREAMING",
+      "latency": "< 50ms Real-Time Event Spool"
+    },
+    {
+      "tier": "Tier 4",
+      "name": "Distributed Lake Storage",
+      "technology": "Hadoop HDFS (Snappy Parquet Partitioned)",
+      "records_matches": 1243,
+      "records_deliveries": 295732,
+      "status": "STORED",
+      "latency": "HDFS 64MB Block Replication"
+    },
+    {
+      "tier": "Tier 5",
+      "name": "Data Warehousing & OLAP",
+      "technology": "Apache Hive Metastore & Tez/MR",
+      "records_matches": 1243,
+      "records_deliveries": 295732,
+      "status": "PARTITIONED",
+      "latency": "Partition Pruned SQL OLAP Queries"
+    },
+    {
+      "tier": "Tier 6",
+      "name": "Distributed Analytics Engine",
+      "technology": "Apache PySpark (Resilient Distributed Datasets)",
+      "records_matches": 1243,
+      "records_deliveries": 295732,
+      "status": "AGGREGATED",
+      "latency": "DAG Graph In-Memory Pipeline"
+    },
+    {
+      "tier": "Tier 7",
+      "name": "Live & Analytics REST API",
+      "technology": "FastAPI Async ASGI Framework",
+      "records_matches": 1243,
+      "records_deliveries": 295732,
+      "status": "SERVED",
+      "latency": "< 10ms Endpoint Response"
+    },
+    {
+      "tier": "Tier 8",
+      "name": "Analytical Presentation",
+      "technology": "Next.js 14 + Tailwind CSS Sports Dashboard",
+      "records_matches": 1243,
+      "records_deliveries": 295732,
+      "status": "RENDERED",
+      "latency": "Instant Server/Client Hydration"
+    }
+  ]
+}

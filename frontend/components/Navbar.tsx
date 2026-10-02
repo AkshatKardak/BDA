@@ -17,11 +17,22 @@ import {
   Menu,
   X,
   Activity,
-  Cpu
+  Cpu,
+  Radio,
+  ShieldCheck
 } from "lucide-react";
 
-const NAV_LINKS = [
+interface NavLinkItem {
+  name: string;
+  href: string;
+  icon: any;
+  isLive?: boolean;
+}
+
+const NAV_LINKS: NavLinkItem[] = [
   { name: "Overview", href: "/", icon: BarChart3 },
+  { name: "Live Match", href: "/live", icon: Radio, isLive: true },
+  { name: "Playoffs", href: "/playoffs", icon: Trophy },
   { name: "Franchises", href: "/teams", icon: Users },
   { name: "Players", href: "/players", icon: Award },
   { name: "Toss", href: "/toss", icon: Compass },
@@ -32,6 +43,7 @@ const NAV_LINKS = [
 ];
 
 const TECH_LINKS = [
+  { name: "Data Quality", href: "/data-quality", icon: ShieldCheck },
   { name: "Big Data Pipeline", href: "/pipeline", icon: Database },
   { name: "Project Spec", href: "/about", icon: FileText },
 ];
@@ -51,9 +63,16 @@ export default function Navbar() {
           onClick={() => setMobileMenuOpen(false)}
           className="flex items-center space-x-2.5 group flex-shrink-0"
         >
-          <div className="relative w-7 h-7 rounded-full bg-[#0D1830] border border-[rgba(245,185,66,0.35)] group-hover:border-[#F5B942] flex items-center justify-center shadow-sm transition-colors">
+          <div className="relative w-7 h-7 min-w-[28px] min-h-[28px] max-w-[28px] max-h-[28px] rounded-full bg-[#0D1830] border border-[rgba(245,185,66,0.35)] group-hover:border-[#F5B942] flex items-center justify-center shadow-sm transition-colors overflow-hidden flex-shrink-0">
             {/* Custom Cricket Ball Mark */}
-            <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none">
+            <svg 
+              width={16}
+              height={16}
+              viewBox="0 0 24 24" 
+              className="w-4 h-4 block" 
+              fill="none"
+              style={{ width: 16, height: 16, maxWidth: 16, maxHeight: 16, flexShrink: 0 }}
+            >
               <circle cx="12" cy="12" r="9" stroke="#165DCC" strokeWidth="1.8" />
               <path
                 d="M7 6.5C9.5 8.5 10 11.5 10 12C10 12.5 9.5 15.5 7 17.5"
@@ -102,8 +121,11 @@ export default function Navbar() {
                     : "text-[#8F9AAF] hover:text-[#F7F8FC] hover:bg-[rgba(255,255,255,0.03)]"
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#F5B942]" : "text-[#707B91]"}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#F5B942]" : item.isLive ? "text-[#E63946]" : "text-[#707B91]"}`} />
                 <span>{item.name}</span>
+                {item.isLive && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse ml-0.5" />
+                )}
               </Link>
             );
           })}
@@ -188,8 +210,13 @@ export default function Navbar() {
                       : "text-[#8F9AAF] hover:text-white bg-[#0D1424] border border-[rgba(255,255,255,0.04)]"
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#F5B942]" : "text-[#707B91]"}`} />
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#F5B942]" : item.isLive ? "text-[#E63946]" : "text-[#707B91]"}`} />
                   <span>{item.name}</span>
+                  {item.isLive && (
+                    <span className="text-[9px] font-mono font-bold px-1 py-0.2 rounded bg-[rgba(230,57,70,0.2)] text-[#E63946] ml-auto">
+                      LIVE
+                    </span>
+                  )}
                 </Link>
               );
             })}
