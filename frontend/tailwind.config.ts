@@ -12,16 +12,46 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         ipl: {
-          dark: "#0B0F19",
-          card: "#111827",
-          border: "#1F2937",
-          cardhover: "#182234",
-          emerald: "#10B981",
-          gold: "#F59E0B",
-          blue: "#2563EB",
-          cyan: "#06B6D4",
-          purple: "#8B5CF6"
-        }
+          navy: {
+            950: "var(--ipl-navy-950)",
+            900: "var(--ipl-navy-900)",
+            800: "var(--ipl-navy-800)",
+          },
+          blue: {
+            700: "var(--ipl-blue-700)",
+            600: "var(--ipl-blue-600)",
+            500: "var(--ipl-blue-500)",
+          },
+          gold: {
+            500: "var(--ipl-gold-500)",
+            400: "var(--ipl-gold-400)",
+          },
+          red: {
+            500: "var(--ipl-red-500)",
+          },
+          white: "var(--ipl-white)",
+          text: {
+            DEFAULT: "var(--ipl-text)",
+            muted: "var(--ipl-text-muted)",
+            subtle: "var(--ipl-text-subtle)",
+          },
+          surface: {
+            DEFAULT: "var(--ipl-surface)",
+            hover: "var(--ipl-surface-hover)",
+          },
+          border: {
+            DEFAULT: "var(--ipl-border)",
+            gold: "var(--ipl-border-gold)",
+          },
+          success: "var(--ipl-success)",
+          warning: "var(--ipl-warning)",
+          danger: "var(--ipl-danger)",
+        },
+      },
+      borderRadius: {
+        card: "14px",
+        btn: "8px",
+        table: "12px",
       },
     },
   },

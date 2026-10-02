@@ -7,9 +7,9 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "IPL Big Data Analytics | Flume · HDFS · Hive · PySpark",
+  title: "IPL Large-Scale Cricket Data Analytics | Flume · HDFS · Hive · PySpark",
   description:
-    "Production-grade Academic Big Data Platform analyzing 2008–2026 IPL records using Apache Flume, Hadoop HDFS, Hive, and PySpark.",
+    "Production-grade Academic Big Data Platform analyzing 2008–2026 IPL cricket records using Apache Flume, Hadoop HDFS, Hive, and PySpark.",
 };
 
 export default function RootLayout({
@@ -19,9 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} bg-[#0B0F19] text-gray-100 min-h-screen flex flex-col`}>
+      <body className={`${inter.className} bg-[#070B16] text-[#F4F6FA] min-h-screen flex flex-col antialiased`}>
         <Navbar />
-        <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main className="flex-1 max-w-[1440px] w-full mx-auto px-4 sm:px-5 lg:px-6 py-6 sm:py-8">
           {children}
         </main>
         <Footer />

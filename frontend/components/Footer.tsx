@@ -1,108 +1,52 @@
 import React from "react";
-import { Database, Cpu, Terminal, ShieldCheck } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-800/80 bg-[#070A11] text-gray-400 py-10 mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div className="space-y-3 md:col-span-2">
-            <div className="flex items-center space-x-2">
-              <span className="font-bold text-white text-lg tracking-tight">
-                IPL Big Data Analytics Engine
-              </span>
-              <span className="text-[10px] bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded border border-blue-500/30">
-                Academic Standard
-              </span>
-            </div>
-            <p className="text-xs text-gray-400 leading-relaxed max-w-lg">
-              Engineered to satisfy the college mini-project specification for 
-              <strong className="text-gray-200"> Streaming Data Analysis</strong> using 
-              <strong className="text-emerald-400"> Apache Flume</strong> for data capture, 
-              <strong className="text-amber-400"> Hadoop HDFS</strong> for distributed storage, and 
-              <strong className="text-blue-400"> Apache Hive & PySpark</strong> for large-scale distributed analytics.
-            </p>
-            <div className="flex items-center space-x-4 text-xs font-mono text-gray-500">
-              <span className="flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                100% Genuine Cricsheet Records
-              </span>
-              <span>•</span>
-              <span>1,243 Matches</span>
-              <span>•</span>
-              <span>295,732 Deliveries</span>
-            </div>
+    <footer className="border-t border-[rgba(255,255,255,0.08)] bg-[#060A13] text-[#707B91] py-8 mt-16">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Left Brand */}
+          <div className="flex items-center space-x-3">
+            <div className="w-2.5 h-2.5 rounded-full bg-[#165DCC]"></div>
+            <span className="text-sm font-bold text-white tracking-tight">
+              IPL Large-Scale Cricket Data Analytics
+            </span>
+            <span className="text-[11px] font-mono text-[#A9B2C3] border-l border-[rgba(255,255,255,0.1)] pl-3">
+              2008–2026
+            </span>
           </div>
 
-          <div>
-            <h4 className="text-xs font-bold text-gray-200 uppercase tracking-wider mb-3">
-              Big Data Architecture
-            </h4>
-            <ul className="space-y-2 text-xs">
-              <li className="flex items-center space-x-2">
-                <Terminal className="w-3.5 h-3.5 text-amber-400" />
-                <span>Flume Ingestion Engine</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Database className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Hadoop HDFS Lake (/ipl/raw)</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Cpu className="w-3.5 h-3.5 text-blue-400" />
-                <span>Hive Data Warehouse & ORC</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Cpu className="w-3.5 h-3.5 text-purple-400" />
-                <span>PySpark Distributed Analytics</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-xs font-bold text-gray-200 uppercase tracking-wider mb-3">
-              Core References
-            </h4>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <a 
-                  href="https://github.com/aadi-jn/indian-premier-league" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="hover:text-emerald-400 transition-colors"
-                >
-                  IPL 2008–2026 Primary Dataset
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://github.com/riddheshawade/IPL_Data_analysis_using_PySpark" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="hover:text-emerald-400 transition-colors"
-                >
-                  IPL PySpark Architecture Reference
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://cricsheet.org" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="hover:text-emerald-400 transition-colors"
-                >
-                  Cricsheet Open Ball-by-Ball Data
-                </a>
-              </li>
-            </ul>
+          {/* Right Tech Stack */}
+          <div className="flex items-center space-x-3 text-xs font-mono text-[#A9B2C3]">
+            <span>Flume</span>
+            <span>·</span>
+            <span>HDFS</span>
+            <span>·</span>
+            <span>Hive</span>
+            <span>·</span>
+            <span>PySpark</span>
           </div>
         </div>
 
-        <div className="pt-6 border-t border-gray-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
-          <div>
-            IPL Large-Scale Cricket Data Analytics © 2008–2026. Academic Production Release.
-          </div>
-          <div className="mt-2 sm:mt-0 font-mono">
-            FastAPI · Next.js · TypeScript · Tailwind CSS · Recharts
+        {/* Bottom Credits & Academic Requirement */}
+        <div className="mt-6 pt-4 border-t border-[rgba(255,255,255,0.04)] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+          <p className="text-[#707B91]">
+            Academic Big Data Analytics Project · Genuine Cricsheet Data (1,243 Matches, 295,732 Balls)
+          </p>
+          <div className="flex items-center space-x-4">
+            <a
+              href="https://github.com/AkshatKardak/BDA"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center space-x-1.5 text-[#A9B2C3] hover:text-[#F5B942] transition-colors"
+            >
+              {/* GitHub SVG */}
+              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+              <span>Built by Akshat Kardak</span>
+            </a>
           </div>
         </div>
       </div>

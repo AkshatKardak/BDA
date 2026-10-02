@@ -5,12 +5,9 @@ import {
   Search, 
   Filter, 
   Trophy, 
-  Calendar, 
   MapPin, 
   ChevronLeft, 
   ChevronRight,
-  Shield,
-  Zap,
   Award
 } from "lucide-react";
 import { api } from "@/lib/api";
@@ -20,7 +17,7 @@ export default function MatchesPage() {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [limit, setLimit] = useState(20);
+  const [limit] = useState(20);
   const [season, setSeason] = useState("");
   const [team, setTeam] = useState("");
   const [venue, setVenue] = useState("");
@@ -35,7 +32,7 @@ export default function MatchesPage() {
           limit,
           season: season || undefined,
           team: team || undefined,
-          venue: venue || undefined
+          venue: venue || undefined,
         });
         setMatches(res.matches || []);
         setTotal(res.total || 0);
@@ -51,7 +48,7 @@ export default function MatchesPage() {
 
   const handleFilterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setPage(1); // Reset to first page on filter change
+    setPage(1);
   };
 
   const handleClearFilters = () => {
@@ -65,67 +62,68 @@ export default function MatchesPage() {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-2">
-          <Search className="w-3.5 h-3.5" />
-          Genuine Match Ledger Explorer
+        <div className="flex items-center space-x-2 text-[11px] font-mono font-bold tracking-widest text-[#F5B942] uppercase mb-1">
+          <span>MATCH ARCHIVE</span>
+          <span>·</span>
+          <span>1,243 FIXTURES</span>
         </div>
-        <h1 className="text-3xl font-black text-white tracking-tight">
-          IPL Historical Match Archives (2008–2026)
+        <h1 className="text-3xl font-extrabold text-white tracking-tight">
+          IPL Historical Match Archives & Scorecards
         </h1>
-        <p className="text-xs text-gray-400 mt-1">
-          Explore all 1,243 official IPL fixtures. Search by franchise, season, venue, or toss outcomes.
+        <p className="text-xs text-[#A9B2C3] mt-1 max-w-3xl leading-relaxed">
+          Official scorecard records covering 19 editions. Search by franchise, tournament season, venue, or toss results.
         </p>
       </div>
 
-      {/* Filters Form */}
+      {/* Filter Form */}
       <form
         onSubmit={handleFilterSubmit}
-        className="rounded-xl border border-gray-800 bg-gray-900/60 p-4 backdrop-blur-sm grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs"
+        className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 shadow-[0_8px_30px_rgba(0,0,0,0.16)] grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs"
       >
         <div>
-          <label className="block text-[11px] font-mono text-gray-400 mb-1">Season</label>
+          <label className="block text-[10px] font-mono uppercase text-[#707B91] mb-1 font-bold">Season</label>
           <input
             type="text"
             placeholder="e.g. 2026 or 2024"
             value={season}
             onChange={(e) => setSeason(e.target.value)}
-            className="w-full bg-gray-950 border border-gray-800 rounded-lg px-3 py-1.5 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
+            className="w-full bg-[#070B16] border border-[rgba(255,255,255,0.08)] rounded-btn px-3 py-2 text-white placeholder-[#707B91] focus:outline-none focus:border-[#2476E8]"
           />
         </div>
 
         <div>
-          <label className="block text-[11px] font-mono text-gray-400 mb-1">Franchise / Team</label>
+          <label className="block text-[10px] font-mono uppercase text-[#707B91] mb-1 font-bold">Franchise / Team</label>
           <input
             type="text"
             placeholder="e.g. Mumbai or Chennai"
             value={team}
             onChange={(e) => setTeam(e.target.value)}
-            className="w-full bg-gray-950 border border-gray-800 rounded-lg px-3 py-1.5 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
+            className="w-full bg-[#070B16] border border-[rgba(255,255,255,0.08)] rounded-btn px-3 py-2 text-white placeholder-[#707B91] focus:outline-none focus:border-[#2476E8]"
           />
         </div>
 
         <div>
-          <label className="block text-[11px] font-mono text-gray-400 mb-1">Stadium / Venue</label>
+          <label className="block text-[10px] font-mono uppercase text-[#707B91] mb-1 font-bold">Stadium / Ground</label>
           <input
             type="text"
             placeholder="e.g. Wankhede or Eden"
             value={venue}
             onChange={(e) => setVenue(e.target.value)}
-            className="w-full bg-gray-950 border border-gray-800 rounded-lg px-3 py-1.5 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500"
+            className="w-full bg-[#070B16] border border-[rgba(255,255,255,0.08)] rounded-btn px-3 py-2 text-white placeholder-[#707B91] focus:outline-none focus:border-[#2476E8]"
           />
         </div>
 
         <div className="flex items-end space-x-2">
           <button
             type="submit"
-            className="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-1.5 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5"
+            className="flex-1 h-[38px] bg-[#165DCC] hover:bg-[#2476E8] text-white font-semibold rounded-btn transition-colors flex items-center justify-center gap-1.5"
           >
             <Filter className="w-3.5 h-3.5" /> Apply
           </button>
           <button
             type="button"
             onClick={handleClearFilters}
-            className="bg-gray-800 hover:bg-gray-700 text-gray-300 py-1.5 px-3 rounded-lg transition-colors"
+            className="h-[38px] px-4 bg-[#111A2E] hover:bg-[#18233C] text-[#A9B2C3] rounded-btn transition-colors"
           >
             Reset
           </button>
@@ -134,99 +132,99 @@ export default function MatchesPage() {
 
       {/* Results Count & Pagination Controls */}
       <div className="flex items-center justify-between text-xs">
-        <span className="font-mono text-gray-400">
+        <span className="font-mono text-[#A9B2C3]">
           Showing <strong className="text-white">{matches.length}</strong> of{" "}
-          <strong className="text-emerald-400">{total.toLocaleString()}</strong> matches
+          <strong className="text-[#F5B942]">{total.toLocaleString()}</strong> official fixtures
         </span>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-1.5">
           <button
             disabled={page <= 1 || loading}
             onClick={() => setPage((p) => Math.max(1, p - 1))}
-            className="p-1.5 rounded-lg bg-gray-900 border border-gray-800 text-gray-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-800"
+            className="p-1.5 rounded-btn bg-[#0D1424] border border-[rgba(255,255,255,0.08)] text-[#A9B2C3] disabled:opacity-30 disabled:cursor-not-allowed hover:text-white"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
-          <span className="font-mono text-gray-300 px-2">
+          <span className="font-mono text-[#A9B2C3] px-2 text-[11px]">
             Page {page} / {totalPages}
           </span>
           <button
             disabled={page >= totalPages || loading}
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-            className="p-1.5 rounded-lg bg-gray-900 border border-gray-800 text-gray-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-800"
+            className="p-1.5 rounded-btn bg-[#0D1424] border border-[rgba(255,255,255,0.08)] text-[#A9B2C3] disabled:opacity-30 disabled:cursor-not-allowed hover:text-white"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
       </div>
 
-      {/* Matches Grid */}
+      {/* Matches Grid - Scorecard Hierarchy (Section 50) */}
       {loading ? (
         <div className="flex flex-col items-center justify-center min-h-[40vh] space-y-4">
-          <div className="w-10 h-10 border-4 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin"></div>
-          <p className="text-xs text-gray-400 font-mono">Querying match ledger...</p>
+          <div className="w-10 h-10 border-2 border-[rgba(245,185,66,0.2)] border-t-[#F5B942] rounded-full animate-spin"></div>
+          <p className="text-xs text-[#A9B2C3] font-mono tracking-wider">Querying match ledger...</p>
         </div>
       ) : matches.length === 0 ? (
-        <div className="rounded-xl border border-gray-800 bg-gray-900/40 p-12 text-center text-gray-400">
+        <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-12 text-center text-[#707B91]">
           <p className="text-sm font-semibold">No matches found matching your filters.</p>
-          <p className="text-xs mt-1">Try resetting or using broader search criteria.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {matches.map((m: any) => (
             <div
               key={m.match_id}
-              className="rounded-xl border border-gray-800 bg-gray-900/60 p-5 hover:border-gray-700 transition-all backdrop-blur-sm"
+              className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 sm:p-5 shadow-[0_8px_30px_rgba(0,0,0,0.16)] transition-all hover:border-[rgba(36,118,232,0.3)]"
             >
-              <div className="flex items-center justify-between text-xs text-gray-400 border-b border-gray-800 pb-2 mb-3">
+              {/* Header: Season & Date */}
+              <div className="flex items-center justify-between text-xs text-[#707B91] border-b border-[rgba(255,255,255,0.06)] pb-2.5 mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono font-bold text-amber-400">Season {m.season}</span>
+                  <span className="font-mono font-bold text-[#F5B942]">Season {m.season}</span>
                   <span>•</span>
                   <span>{m.date || "Date Unspecified"}</span>
                 </div>
-                <span className="font-mono text-[11px] text-gray-500">#{m.match_id}</span>
+                <span className="font-mono text-[11px] text-[#707B91]">#{m.match_id}</span>
               </div>
 
-              {/* Teams & Winner */}
-              <div className="space-y-1.5 my-3">
+              {/* Scorecard Teams Hierarchy */}
+              <div className="space-y-2 my-3">
                 <div className="flex items-center justify-between text-sm">
-                  <span className={`font-bold ${m.winner === m.team1 ? "text-emerald-400 flex items-center gap-1.5" : "text-white"}`}>
-                    {m.winner === m.team1 && <Trophy className="w-3.5 h-3.5 text-amber-400" />}
+                  <span className={`font-bold ${m.winner === m.team1 ? "text-white flex items-center gap-1.5" : "text-[#A9B2C3]"}`}>
+                    {m.winner === m.team1 && <Trophy className="w-3.5 h-3.5 text-[#F5B942]" />}
                     {m.team1}
                   </span>
                   {m.winner === m.team1 && (
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                      Won {m.win_margin ? `by ${m.win_margin} ${m.win_type}` : ""}
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[rgba(245,185,66,0.12)] text-[#F5B942] border border-[rgba(245,185,66,0.25)] font-bold">
+                      Winner {m.win_margin ? `(${m.win_margin} ${m.win_type})` : ""}
                     </span>
                   )}
                 </div>
 
                 <div className="flex items-center justify-between text-sm">
-                  <span className={`font-bold ${m.winner === m.team2 ? "text-emerald-400 flex items-center gap-1.5" : "text-white"}`}>
-                    {m.winner === m.team2 && <Trophy className="w-3.5 h-3.5 text-amber-400" />}
+                  <span className={`font-bold ${m.winner === m.team2 ? "text-white flex items-center gap-1.5" : "text-[#A9B2C3]"}`}>
+                    {m.winner === m.team2 && <Trophy className="w-3.5 h-3.5 text-[#F5B942]" />}
                     {m.team2}
                   </span>
                   {m.winner === m.team2 && (
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                      Won {m.win_margin ? `by ${m.win_margin} ${m.win_type}` : ""}
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[rgba(245,185,66,0.12)] text-[#F5B942] border border-[rgba(245,185,66,0.25)] font-bold">
+                      Winner {m.win_margin ? `(${m.win_margin} ${m.win_type})` : ""}
                     </span>
                   )}
                 </div>
               </div>
 
               {/* Match Details Footer */}
-              <div className="pt-3 border-t border-gray-800 text-[11px] text-gray-400 space-y-1">
+              <div className="pt-3 border-t border-[rgba(255,255,255,0.06)] text-[11px] text-[#707B91] space-y-1">
                 <div className="flex items-center gap-1 truncate">
-                  <MapPin className="w-3 h-3 text-gray-500 flex-shrink-0" />
+                  <MapPin className="w-3 h-3 text-[#707B91] flex-shrink-0" />
                   <span className="truncate">{m.venue}{m.city ? `, ${m.city}` : ""}</span>
                 </div>
                 <div className="flex items-center justify-between text-[11px]">
                   <span>
-                    Toss: <strong className="text-gray-300">{m.toss_winner}</strong> ({m.toss_decision})
+                    Toss: <strong className="text-[#A9B2C3]">{m.toss_winner}</strong> ({m.toss_decision})
                   </span>
                   {m.player_of_match && (
-                    <span className="flex items-center gap-1 text-amber-300 font-medium">
-                      <Award className="w-3 h-3 text-amber-400" />
+                    <span className="flex items-center gap-1 text-[#F5B942] font-semibold">
+                      <Award className="w-3 h-3" />
                       PoM: {m.player_of_match}
                     </span>
                   )}

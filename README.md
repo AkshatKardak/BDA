@@ -8,6 +8,7 @@
 ![Next.js 14](https://img.shields.io/badge/Next.js_14-App_Router-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-Modern_UI-38B2AC?logo=tailwind-css)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ---
 
@@ -37,7 +38,7 @@ This project directly satisfies the College Big Data Analytics (BDA) mini-projec
 
 ---
 
-## 3. Core Features (One Line Each)
+## 3. Core Features
 
 - **Streaming Delivery Ingestion:** Captures high-velocity ball-by-ball cricket event streams via Apache Flume with memory channel buffering and rolling HDFS sink persistence.
 - **Distributed Storage Lake:** Stores raw event streams and partitioned analytical datasets reliably across Hadoop HDFS with native Windows winutils compatibility.
@@ -49,7 +50,7 @@ This project directly satisfies the College Big Data Analytics (BDA) mini-projec
 
 ---
 
-## 4. Unique Features (One Line Each)
+## 4. Unique Features
 
 - **Historical Streaming Replay Engine:** Faithfully simulates real-time match streaming from genuine Cricsheet historical logs over TCP sockets without synthetic records.
 - **Cross-Era Franchise Name Normalization:** Resolves team rebrandings (e.g., Delhi Daredevils to Delhi Capitals, Kings XI Punjab to Punjab Kings) into unified historical franchise entities.
@@ -131,7 +132,7 @@ This project directly satisfies the College Big Data Analytics (BDA) mini-projec
 ### Prerequisites
 Make sure the following runtimes are installed on your system:
 - **Python**: 3.10+ (Recommended: Python 3.11)
-- **Node.js**: 18.x or newer (Tested on Node v24 & npm 11)
+- **Node.js**: 18.x or newer (Tested on Node v20/v24 & npm)
 - **Java JDK**: 11 to 22 (Tested on OpenJDK 22)
 
 ---
@@ -237,48 +238,112 @@ To demonstrate live streaming ingestion into HDFS:
 
 ---
 
-## 7. Web Application Pages & Navigation
+## 7. Repository Structure
 
-| Route | Page Name | Primary Features |
-|---|---|---|
-| `/` | **Overview Dashboard** | Global KPIs, all-time top franchises, scoring evolution chart, top 5 batters & bowlers. |
-| `/teams` | **Franchises & Teams** | Standings table for 15 teams, win %, bat 1st vs chase wins, season charts, head-to-head rivalries. |
-| `/players` | **Player Big Data** | Searchable roster, Orange/Purple Cap history, strike rates, economy rates, player profile drawer. |
-| `/toss` | **Toss Insights** | Field first vs bat first splits, "Win Toss, Win Match" correlation, venue toss conversion rates. |
-| `/venues` | **Stadiums & Venues** | Pitch telemetry across 60 grounds, 1st vs 2nd innings par scores, ground bias classifications. |
-| `/seasons` | **Season Evolution** | Scoring escalation (8.31 to 9.88 RPO), sixes explosion (1,400+ sixes), season fixture samples. |
-| `/matches` | **Match Ledger** | 1,243 official fixtures archive with multi-attribute filtering (Season, Team, Stadium) and pagination. |
-| `/leaderboards`| **Leaderboards** | Top 10 in Runs, Wickets, Strike Rate, Economy, Sixes, Fours. |
-| `/pipeline` | **Pipeline Monitor** | Live health telemetry for Flume, HDFS, Hive, PySpark, API cache with command cheat-sheet. |
-| `/about` | **Project Spec** | College syllabus requirement, system architecture breakdown, data provenance details. |
+```
+BDA/
+├── backend/
+│   ├── config.py                 # Backend environment configuration
+│   ├── main.py                   # FastAPI REST server with 16 analytical endpoints
+│   └── __init__.py               # Python package initialization
+├── data/
+│   ├── cleaned/                  # Cleaned parquet & CSV datasets
+│   ├── normalized/               # Standardized matches.csv & deliveries.csv
+│   ├── raw/                      # Raw Cricsheet match & delivery dumps
+│   ├── sample/                   # Historical sample data for streaming
+│   └── SCHEMA_MAPPING.md         # Schema definitions & column dictionary
+├── docs/
+│   ├── architecture.md           # Deep-dive architecture design document
+│   ├── installation.md           # Step-by-step setup and environment guide
+│   └── troubleshooting.md        # Big Data troubleshooting FAQ
+├── flume/
+│   ├── ipl-flume.conf            # Apache Flume Netcat/Spool -> Memory -> HDFS agent
+│   └── README.md                 # Flume ingestion documentation
+├── frontend/
+│   ├── app/                      # Next.js 14 App Router pages
+│   │   ├── about/                # Academic project specification & architecture
+│   │   ├── leaderboards/         # All-time batting & bowling records
+│   │   ├── matches/              # Searchable ledger of 1,243 IPL matches
+│   │   ├── pipeline/             # Live pipeline health & telemetry monitor
+│   │   ├── players/              # Player stats, Orange/Purple Caps & drawer
+│   │   ├── seasons/              # Historical scoring & boundary trends
+│   │   ├── teams/                # Franchise standings, telemetry & head-to-head
+│   │   ├── toss/                 # Toss impact, decisions & venue win rates
+│   │   ├── venues/               # Pitch profiles & par scores across 60 grounds
+│   │   ├── globals.css           # IPL navy/blue/gold design system
+│   │   ├── layout.tsx            # Global layout with sports navigation & footer
+│   │   └── page.tsx              # Executive tournament dashboard
+│   ├── components/               # Modular sports analytics UI components
+│   │   ├── ArchitectureFlow.tsx  # Interactive pipeline architecture visualization
+│   │   ├── Footer.tsx            # Academic attribution & repository links
+│   │   ├── Navbar.tsx            # Sports broadcast navigation bar
+│   │   └── StatCard.tsx          # Consistent KPI metric card with gold accents
+│   ├── lib/
+│   │   └── api.ts                # Type-safe API client for FastAPI backend
+│   ├── types/
+│   │   └── index.ts              # TypeScript interfaces for all IPL data models
+│   ├── package.json              # Frontend dependencies (Next.js 14, Tailwind, Recharts)
+│   └── tailwind.config.ts        # Custom IPL color palette & styling tokens
+├── hadoop/
+│   ├── bin/                      # winutils.exe and hadoop.dll for Windows
+│   ├── core-site.xml             # Hadoop core configuration (HDFS default FS)
+│   ├── hdfs-site.xml             # Replication and namenode/datanode paths
+│   ├── mapred-site.xml           # MapReduce framework configuration
+│   ├── yarn-site.xml             # YARN resource manager configuration
+│   └── *.sh                      # Hadoop cluster management scripts
+├── hive/
+│   ├── 01_create_database.sql    # Hive database creation script
+│   ├── 02_create_tables.sql      # External staging & managed ORC tables
+│   ├── 03_load_data.sql          # Ingestion queries from HDFS to Hive ORC
+│   ├── 04_analytics.sql          # 13 analytical OLAP queries
+│   └── 05_views.sql              # Analytical reporting views
+├── output/
+│   ├── player_performance/       # PySpark player metrics (CSV/Parquet)
+│   ├── season_analysis/          # PySpark season escalation metrics
+│   ├── team_performance/        # PySpark team win rates & head-to-head metrics
+│   ├── toss_analysis/            # PySpark toss decision & venue conversion metrics
+│   ├── venue_analysis/           # PySpark stadium profiles & par scores
+│   └── prediction_metrics.txt    # PySpark MLlib match prediction evaluation
+├── pyspark/
+│   ├── 01_ingestion.py           # PySpark data ingestion from HDFS/local
+│   ├── 02_cleaning.py            # Data cleaning & type normalization
+│   ├── 03_player_analysis.py     # Batting/bowling stats & cap leaderboards
+│   ├── 04_team_analysis.py       # Franchise performance & rivalry matrices
+│   ├── 05_toss_analysis.py       # Toss decision & outcome correlation
+│   ├── 06_venue_analysis.py      # Stadium par score & bias analysis
+│   ├── 07_season_analysis.py     # Tournament scoring rate progression
+│   ├── 08_match_prediction.py    # PySpark MLlib match winner classifier
+│   ├── export_web_data.py        # Compiles PySpark outputs into JSON marts
+│   ├── run_all_analytics.py      # Orchestrator for all 8 PySpark stages
+│   └── spark_utils.py            # SparkSession factory & shared helpers
+├── scripts/
+│   ├── download_data.py          # Downloads genuine Cricsheet dataset
+│   ├── normalize_data.py         # Standardizes raw CSVs to uniform schema
+│   ├── validate_data.py          # Data validation & zero-synthetic audit
+│   ├── run_pipeline.bat/.sh      # Automated full-pipeline execution script
+│   ├── start_servers.bat/.sh     # One-click startup for FastAPI and Next.js
+│   └── verify_pipeline.py        # 10-tier automated pipeline health audit
+├── streaming/
+│   ├── event_formatter.py        # Formats ball-by-ball events for streaming
+│   └── replay_ipl.py             # Historical delivery stream emitter (TCP/Spool)
+├── web_data/                     # Pre-aggregated analytical JSON data marts
+├── requirements.txt              # Python runtime dependencies
+└── spark_common.py               # Shared SparkSession configuration
+```
 
 ---
 
-## 8. Verification Audit Result (10 / 10 PASSED)
-
-```
-===========================================================================
- IPL BIG DATA ANALYTICS: FULL PIPELINE VERIFICATION AUDIT
-===========================================================================
-[PASS] 1. Genuine Dataset (1,243 matches, 295,732 real delivery records present)
-[PASS] 2. Data Validation (Validation rules, schema constraints, and zero synthetic records enforced)
-[PASS] 3. Hadoop HDFS (/ipl/raw, /ipl/warehouse lake hierarchy & winutils ready)
-[PASS] 4. Apache Flume (Agent config verified: Socket/Spool -> Memory -> HDFS Sink)
-[PASS] 5. Historical Streaming Replay (Python socket & spooling streaming event emitter ready)
-[PASS] 6. Apache Hive (Database, external staging, managed ORC tables, and 13 analytical queries verified)
-[PASS] 7. Apache PySpark (All 8 distributed analytical modules implemented)
-[PASS] 8. PySpark Analytics Output (All lake analytical CSVs and ML evaluation reports populated)
-[PASS] 9. Web Data Cache Layer (All 9 compiled analytical JSON marts populated)
-[PASS] 10. Full-Stack Web Platform (FastAPI REST service & compiled Next.js UI operational)
-===========================================================================
- AUDIT RESULT: 10 / 10 PASSED
-===========================================================================
->>> ALL 10 PIPELINE & APPLICATION TIERS VERIFIED SUCCESSFULLY! <<<
-```
-
----
-
-## 9. Primary References & Provenance
+## 8. Primary References & Provenance
 1. **Primary Dataset**: [aadi-jn/indian-premier-league](https://github.com/aadi-jn/indian-premier-league) (Cricsheet ball-by-ball source 2008–2026).
 2. **PySpark Architectural Reference**: [riddheshawade/IPL_Data_analysis_using_PySpark](https://github.com/riddheshawade/IPL_Data_analysis_using_PySpark).
 3. **Cricsheet Open Data**: [https://cricsheet.org](https://cricsheet.org).
+
+---
+
+## 9. License
+This project is open-source and licensed under the [MIT License](LICENSE).
+
+---
+
+## Author
+Built with pride for Big Data Analytics by **[Akshat Kardak](https://github.com/AkshatKardak)**.

@@ -5,21 +5,48 @@ FastAPI Application Entry Point for IPL Large-Scale Cricket Data Analytics.
 Serves processed insights derived from Apache Flume, HDFS, Hive, and PySpark.
 """
 
+import os
+import sys
+
+# Ensure parent directory (project root) is on sys.path
+_CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+_PROJECT_ROOT = os.path.dirname(_CURRENT_DIR)
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
+if _CURRENT_DIR not in sys.path:
+    sys.path.insert(0, _CURRENT_DIR)
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.config import settings
-from backend.routes import (
-    overview_router,
-    teams_router,
-    players_router,
-    toss_router,
-    venues_router,
-    seasons_router,
-    leaderboards_router,
-    trends_router,
-    matches_router,
-    pipeline_router
-)
+
+try:
+    from backend.config import settings
+    from backend.routes import (
+        overview_router,
+        teams_router,
+        players_router,
+        toss_router,
+        venues_router,
+        seasons_router,
+        leaderboards_router,
+        trends_router,
+        matches_router,
+        pipeline_router
+    )
+except ModuleNotFoundError:
+    from config import settings
+    from routes import (
+        overview_router,
+        teams_router,
+        players_router,
+        toss_router,
+        venues_router,
+        seasons_router,
+        leaderboards_router,
+        trends_router,
+        matches_router,
+        pipeline_router
+    )
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -62,4 +89,4 @@ def root():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
