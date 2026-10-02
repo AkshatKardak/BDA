@@ -1,0 +1,19 @@
+IPL MATCH PREDICTION EVALUATION REPORT (PRE-MATCH FEATURES ONLY)
+=================================================================
+
+Data Leakage Prevention: CONFIRMED
+Evaluated Matches: 1234
+Train / Test Split: 987 / 247
+
+Logistic Regression Accuracy: 0.5223 | ROC-AUC: 0.5413
+Random Forest Accuracy:       0.4980 | ROC-AUC: 0.5408
+
+Classification Report (Random Forest):
+              precision    recall  f1-score   support
+
+ Team 2 Wins       0.50      0.45      0.47       124
+ Team 1 Wins       0.50      0.54      0.52       123
+
+    accuracy                           0.50       247
+   macro avg       0.50      0.50      0.50       247
+weighted avg       0.50      0.50      0.50       247

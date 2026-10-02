@@ -1,0 +1,6 @@
+match_id,season,date,team1,team2,city,venue,toss_winner,toss_decision,winner,win_type,win_margin,result,player_of_match
+335982,2008,2008-04-18,Royal Challengers Bengaluru,Kolkata Knight Riders,Bengaluru,M Chinnaswamy Stadium,Royal Challengers Bengaluru,field,Kolkata Knight Riders,runs,140.0,,BB McCullum
+335983,2008,2008-04-19,Punjab Kings,Chennai Super Kings,Chandigarh,"Punjab Cricket Association Stadium, Mohali",Chennai Super Kings,bat,Chennai Super Kings,runs,33.0,,MEK Hussey
+335984,2008,2008-04-19,Delhi Capitals,Rajasthan Royals,Delhi,Feroz Shah Kotla,Rajasthan Royals,bat,Delhi Capitals,wickets,9.0,,MF Maharoof
+335985,2008,2008-04-20,Mumbai Indians,Royal Challengers Bengaluru,Mumbai,Wankhede Stadium,Mumbai Indians,bat,Royal Challengers Bengaluru,wickets,5.0,,MV Boucher
+335986,2008,2008-04-20,Kolkata Knight Riders,Deccan Chargers,Kolkata,Eden Gardens,Deccan Chargers,bat,Kolkata Knight Riders,wickets,5.0,,DJ Hussey

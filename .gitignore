@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# PySpark / Hadoop logs and temp
+metastore_db/
+derby.log
+*.spark.log
+spark-warehouse/
+flume/logs/*.log
+flume/logs/*.tmp
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+
+# OS generated
+.DS_Store
+Thumbs.db
