@@ -73,37 +73,37 @@ export default function SeasonsPage() {
   }));
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-5">
       {/* Header */}
       <div>
-        <div className="flex items-center space-x-2 text-[11px] font-mono font-bold tracking-widest text-[#F5B942] uppercase mb-1">
+        <div className="flex items-center space-x-2 text-[10px] font-mono font-bold tracking-widest text-[#F5B942] uppercase mb-0.5">
           <span>HISTORICAL EVOLUTION</span>
           <span>·</span>
           <span>18 EDITIONS</span>
         </div>
-        <h1 className="text-3xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
           IPL Scoring Evolution & Season Milestones (2008–2026)
         </h1>
-        <p className="text-xs text-[#A9B2C3] mt-1 max-w-3xl leading-relaxed">
+        <p className="text-xs text-[#A9B2C3] mt-0.5 max-w-3xl leading-normal">
           Tracking the explosive rise in run-rates (8.31 to 9.88 RPO), sixes escalation (1,400+ per season), and chasing dominance across 19 editions.
         </p>
       </div>
 
       {/* Visual Charts: Run Rate & Sixes Trend */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
         {/* Run Rate Progression */}
-        <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-5 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.16)]">
-          <div className="flex items-center justify-between mb-4 pb-3 border-b border-[rgba(255,255,255,0.06)]">
-            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-[#F5B942]" />
+        <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+          <div className="flex items-center justify-between mb-3 pb-2 border-b border-[rgba(255,255,255,0.06)]">
+            <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
+              <TrendingUp className="w-3.5 h-3.5 text-[#F5B942]" />
               Run-Rate Escalation (Runs Per Over)
             </h3>
-            <span className="text-[11px] font-mono text-[#F5B942] bg-[rgba(245,185,66,0.1)] px-2 py-0.5 rounded border border-[rgba(245,185,66,0.2)]">
+            <span className="text-[10px] font-mono text-[#F5B942] bg-[rgba(245,185,66,0.1)] px-1.5 py-0.5 rounded border border-[rgba(245,185,66,0.2)]">
               8.31 ➔ 9.88 RPO
             </span>
           </div>
 
-          <div className="h-64 w-full">
+          <div className="h-56 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={chartData}>
                 <defs>
@@ -113,15 +113,15 @@ export default function SeasonsPage() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
-                <XAxis dataKey="season" stroke="#6F7A90" fontSize={11} tickLine={false} />
-                <YAxis stroke="#6F7A90" fontSize={11} domain={[7.5, 10.5]} tickLine={false} />
+                <XAxis dataKey="season" stroke="#6F7A90" fontSize={10} tickLine={false} />
+                <YAxis stroke="#6F7A90" fontSize={10} domain={[7.5, 10.5]} tickLine={false} />
                 <Tooltip
                   contentStyle={{
                     backgroundColor: "#0D1424",
                     borderColor: "rgba(255,255,255,0.12)",
-                    borderRadius: "8px",
+                    borderRadius: "6px",
                     color: "#F4F6FA",
-                    fontSize: "12px",
+                    fontSize: "11px",
                   }}
                 />
                 <Area
@@ -129,7 +129,7 @@ export default function SeasonsPage() {
                   dataKey="rpo"
                   name="Run Rate (RPO)"
                   stroke="#2476E8"
-                  strokeWidth={2.5}
+                  strokeWidth={2}
                   fillOpacity={1}
                   fill="url(#colorRpo)"
                 />
@@ -139,33 +139,33 @@ export default function SeasonsPage() {
         </div>
 
         {/* Boundary Escalation (Sixes Count) */}
-        <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-5 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.16)]">
-          <div className="flex items-center justify-between mb-4 pb-3 border-b border-[rgba(255,255,255,0.06)]">
-            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-              <Flame className="w-4 h-4 text-[#F5B942]" />
+        <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+          <div className="flex items-center justify-between mb-3 pb-2 border-b border-[rgba(255,255,255,0.06)]">
+            <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
+              <Flame className="w-3.5 h-3.5 text-[#F5B942]" />
               Total Sixes Hit Per Season
             </h3>
-            <span className="text-[11px] font-mono text-[#F5B942] bg-[rgba(245,185,66,0.1)] px-2 py-0.5 rounded border border-[rgba(245,185,66,0.2)]">
+            <span className="text-[10px] font-mono text-[#F5B942] bg-[rgba(245,185,66,0.1)] px-1.5 py-0.5 rounded border border-[rgba(245,185,66,0.2)]">
               Surpassed 1,400+ Maximums
             </span>
           </div>
 
-          <div className="h-64 w-full">
+          <div className="h-56 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
-                <XAxis dataKey="season" stroke="#6F7A90" fontSize={11} tickLine={false} />
-                <YAxis stroke="#6F7A90" fontSize={11} tickLine={false} />
+                <XAxis dataKey="season" stroke="#6F7A90" fontSize={10} tickLine={false} />
+                <YAxis stroke="#6F7A90" fontSize={10} tickLine={false} />
                 <Tooltip
                   contentStyle={{
                     backgroundColor: "#0D1424",
                     borderColor: "rgba(255,255,255,0.12)",
-                    borderRadius: "8px",
+                    borderRadius: "6px",
                     color: "#F4F6FA",
-                    fontSize: "12px",
+                    fontSize: "11px",
                   }}
                 />
-                <Bar dataKey="sixes" name="Sixes Hit" fill="#F5B942" radius={[3, 3, 0, 0]} />
+                <Bar dataKey="sixes" name="Sixes Hit" fill="#F5B942" radius={[2, 2, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -173,13 +173,13 @@ export default function SeasonsPage() {
       </div>
 
       {/* Horizontal Season Timeline Selector (Section 49) */}
-      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 sm:p-5 shadow-[0_8px_30px_rgba(0,0,0,0.16)]">
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-xs font-bold text-white flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-[#F5B942]" />
+      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-3 sm:p-4 shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs font-bold text-white flex items-center gap-1.5">
+            <Calendar className="w-3.5 h-3.5 text-[#F5B942]" />
             Tournament Timeline Selector
           </span>
-          <span className="text-[11px] text-[#707B91] font-mono">18 Editions Evaluated</span>
+          <span className="text-[10px] text-[#707B91] font-mono">18 Editions Evaluated</span>
         </div>
 
         {/* Clean Timeline Strip */}
@@ -190,7 +190,7 @@ export default function SeasonsPage() {
               <button
                 key={s.season}
                 onClick={() => handleSelectSeason(s.season.toString())}
-                className={`flex-shrink-0 px-3.5 py-2 text-xs font-mono font-bold transition-colors ${
+                className={`flex-shrink-0 px-2.5 py-1 text-xs font-mono font-bold transition-colors rounded-btn ${
                   isSelected
                     ? "bg-[#165DCC] text-white border-b-2 border-[#F5B942]"
                     : "bg-[#070B16] text-[#8F9AAF] hover:text-white hover:bg-[#111A2E]"
@@ -205,52 +205,52 @@ export default function SeasonsPage() {
 
       {/* Selected Season Deep Dive */}
       {seasonDetail && (
-        <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-5 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.16)] space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[rgba(255,255,255,0.06)]">
+        <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.12)] space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[rgba(255,255,255,0.06)]">
             <div>
               <span className="text-[10px] font-mono text-[#F5B942] uppercase font-bold tracking-wider block mb-0.5">
                 EDITION PROFILE
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+              <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-1.5">
                 IPL {selectedSeason} Season Summary
               </h2>
-              <p className="text-xs text-[#707B91] mt-0.5">
+              <p className="text-[11px] text-[#707B91] mt-0.5">
                 {seasonDetail.summary?.season_matches} official matches played across the campaign
               </p>
             </div>
-            <div className="flex items-center gap-3 text-xs font-mono">
-              <span className="bg-[#070B16] text-[#F5B942] border border-[rgba(255,255,255,0.08)] px-3 py-1 rounded-btn font-bold">
+            <div className="flex items-center gap-2 text-xs font-mono">
+              <span className="bg-[#070B16] text-[#F5B942] border border-[rgba(255,255,255,0.08)] px-2.5 py-0.5 rounded-btn font-bold text-[11px]">
                 Run Rate: {seasonDetail.summary?.run_rate} RPO
               </span>
-              <span className="bg-[#070B16] text-white border border-[rgba(255,255,255,0.08)] px-3 py-1 rounded-btn font-bold">
+              <span className="bg-[#070B16] text-white border border-[rgba(255,255,255,0.08)] px-2.5 py-0.5 rounded-btn font-bold text-[11px]">
                 Chasing Win: {seasonDetail.summary?.chasing_win_pct}%
               </span>
             </div>
           </div>
 
           {/* Quick Metrics */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="bg-[#070B16] p-3.5 rounded-btn border border-[rgba(255,255,255,0.06)]">
-              <p className="text-[10px] text-[#707B91] uppercase">Total Runs</p>
-              <p className="text-lg font-bold text-white font-mono mt-1">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+            <div className="bg-[#070B16] p-2.5 sm:p-3 rounded-btn border border-[rgba(255,255,255,0.06)]">
+              <p className="text-[9px] text-[#707B91] uppercase">Total Runs</p>
+              <p className="text-base font-bold text-white font-mono mt-0.5">
                 {seasonDetail.summary?.total_runs?.toLocaleString()}
               </p>
             </div>
-            <div className="bg-[#070B16] p-3.5 rounded-btn border border-[rgba(255,255,255,0.06)]">
-              <p className="text-[10px] text-[#707B91] uppercase">Boundaries</p>
-              <p className="text-lg font-bold text-[#F5B942] font-mono mt-1">
+            <div className="bg-[#070B16] p-2.5 sm:p-3 rounded-btn border border-[rgba(255,255,255,0.06)]">
+              <p className="text-[9px] text-[#707B91] uppercase">Boundaries</p>
+              <p className="text-base font-bold text-[#F5B942] font-mono mt-0.5">
                 {seasonDetail.summary?.fours} (4s) / {seasonDetail.summary?.sixes} (6s)
               </p>
             </div>
-            <div className="bg-[#070B16] p-3.5 rounded-btn border border-[rgba(255,255,255,0.06)]">
-              <p className="text-[10px] text-[#707B91] uppercase">Total Wickets</p>
-              <p className="text-lg font-bold text-white font-mono mt-1">
+            <div className="bg-[#070B16] p-2.5 sm:p-3 rounded-btn border border-[rgba(255,255,255,0.06)]">
+              <p className="text-[9px] text-[#707B91] uppercase">Total Wickets</p>
+              <p className="text-base font-bold text-white font-mono mt-0.5">
                 {seasonDetail.summary?.total_wickets}
               </p>
             </div>
-            <div className="bg-[#070B16] p-3.5 rounded-btn border border-[rgba(255,255,255,0.06)]">
-              <p className="text-[10px] text-[#707B91] uppercase">Boundary Run %</p>
-              <p className="text-lg font-bold text-[#2476E8] font-mono mt-1">
+            <div className="bg-[#070B16] p-2.5 sm:p-3 rounded-btn border border-[rgba(255,255,255,0.06)]">
+              <p className="text-[9px] text-[#707B91] uppercase">Boundary Run %</p>
+              <p className="text-base font-bold text-[#2476E8] font-mono mt-0.5">
                 {seasonDetail.summary?.boundary_run_pct}%
               </p>
             </div>
@@ -258,30 +258,30 @@ export default function SeasonsPage() {
 
           {/* Sample Fixtures Table */}
           <div>
-            <h4 className="text-xs font-bold text-[#707B91] uppercase tracking-wider mb-3 font-mono">
+            <h4 className="text-[11px] font-bold text-[#707B91] uppercase tracking-wider mb-2 font-mono">
               Sample Fixtures from {selectedSeason}
             </h4>
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead className="bg-[#090E1B] text-[#707B91] font-mono uppercase text-[10px] tracking-wider border-b border-[rgba(255,255,255,0.06)]">
                   <tr>
-                    <th className="py-2.5 px-3">Date</th>
-                    <th className="py-2.5 px-3">Fixture</th>
-                    <th className="py-2.5 px-3">Venue</th>
-                    <th className="py-2.5 px-3">Winner</th>
-                    <th className="py-2.5 px-3 text-right">Margin</th>
+                    <th className="py-2 px-3">Date</th>
+                    <th className="py-2 px-3">Fixture</th>
+                    <th className="py-2 px-3">Venue</th>
+                    <th className="py-2 px-3">Winner</th>
+                    <th className="py-2 px-3 text-right">Margin</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[rgba(255,255,255,0.04)] text-[#F4F6FA]">
                   {(seasonDetail.sample_matches || []).map((m: any, idx: number) => (
                     <tr key={idx} className="hover:bg-[rgba(22,93,204,0.08)] transition-colors">
-                      <td className="py-2.5 px-3 font-mono text-[#707B91]">{m.date || "—"}</td>
-                      <td className="py-2.5 px-3 font-bold text-white">
+                      <td className="py-1.5 px-3 font-mono text-[#707B91]">{m.date || "—"}</td>
+                      <td className="py-1.5 px-3 font-bold text-white">
                         {m.team1} vs {m.team2}
                       </td>
-                      <td className="py-2.5 px-3 text-[#A9B2C3] truncate max-w-xs">{m.venue}</td>
-                      <td className="py-2.5 px-3 font-semibold text-[#F5B942]">{m.winner || "No Result"}</td>
-                      <td className="py-2.5 px-3 text-right font-mono text-[#707B91]">
+                      <td className="py-1.5 px-3 text-[#A9B2C3] truncate max-w-xs">{m.venue}</td>
+                      <td className="py-1.5 px-3 font-semibold text-[#F5B942]">{m.winner || "No Result"}</td>
+                      <td className="py-1.5 px-3 text-right font-mono text-[#707B91]">
                         {m.win_margin ? `${m.win_margin} ${m.win_type}` : "—"}
                       </td>
                     </tr>

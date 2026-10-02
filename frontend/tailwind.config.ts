@@ -49,9 +49,9 @@ const config: Config = {
         },
       },
       borderRadius: {
-        card: "14px",
-        btn: "8px",
-        table: "12px",
+        card: "10px",
+        btn: "6px",
+        table: "8px",
       },
     },
   },

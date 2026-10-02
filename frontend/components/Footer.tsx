@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[rgba(255,255,255,0.08)] bg-[#060A13] text-[#707B91] py-8 mt-16">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="border-t border-[rgba(255,255,255,0.08)] bg-[#060A13] text-[#707B91] py-4 mt-8">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-5 lg:px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Left Brand */}
           <div className="flex items-center space-x-3">

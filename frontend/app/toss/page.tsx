@@ -62,93 +62,93 @@ export default function TossPage() {
   const overallTossWinPct = totalCalls > 0 ? ((totalTossWins / totalCalls) * 100).toFixed(1) : "51.2";
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-5">
       {/* Header */}
       <div>
-        <div className="flex items-center space-x-2 text-[11px] font-mono font-bold tracking-widest text-[#F5B942] uppercase mb-1">
+        <div className="flex items-center space-x-2 text-[10px] font-mono font-bold tracking-widest text-[#F5B942] uppercase mb-0.5">
           <span>STRATEGIC TELEMETRY</span>
           <span>·</span>
           <span>DECISION BIAS</span>
         </div>
-        <h1 className="text-3xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
           Does the Toss Really Matter?
         </h1>
-        <p className="text-xs text-[#A9B2C3] mt-1 max-w-3xl leading-relaxed">
+        <p className="text-xs text-[#A9B2C3] mt-0.5 max-w-3xl leading-normal">
           Empirical evaluation of the &quot;Win Toss, Win Match&quot; hypothesis across 1,243 genuine fixtures, tactical fielding-first shifts, and venue pitch biases.
         </p>
       </div>
 
       {/* Featured Sports Headline Stat */}
-      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0B1222] p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-[0_8px_30px_rgba(0,0,0,0.16)]">
+      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0B1222] p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
         <div>
-          <span className="text-[11px] font-mono text-[#F5B942] uppercase font-bold tracking-wider block mb-1">
+          <span className="text-[10px] font-mono text-[#F5B942] uppercase font-bold tracking-wider block mb-0.5">
             STATISTICAL FINDING (1,243 FIXTURES)
           </span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
             Toss Winner ➔ Match Winner
           </h2>
-          <p className="text-xs text-[#A9B2C3] mt-1.5 max-w-xl leading-relaxed">
+          <p className="text-xs text-[#A9B2C3] mt-1 max-w-xl leading-normal">
             Across 18 editions of the Indian Premier League, winning the toss yields only a marginal match-winning advantage over defending.
           </p>
         </div>
 
-        <div className="flex items-center space-x-6 flex-shrink-0 bg-[#0D1424] px-6 py-4 rounded-card border border-[rgba(255,255,255,0.08)]">
+        <div className="flex items-center space-x-4 sm:space-x-5 flex-shrink-0 bg-[#0D1424] px-4 py-2.5 rounded-card border border-[rgba(255,255,255,0.08)]">
           <div className="text-center">
-            <p className="text-3xl sm:text-4xl font-extrabold text-[#F5B942] font-sans">
+            <p className="text-2xl sm:text-3xl font-extrabold text-[#F5B942] font-sans">
               {overallTossWinPct}%
             </p>
-            <p className="text-[10px] uppercase font-mono text-[#707B91] mt-0.5">Win Correlation</p>
+            <p className="text-[9px] uppercase font-mono text-[#707B91] mt-0.5">Win Correlation</p>
           </div>
-          <div className="h-10 w-[1px] bg-[rgba(255,255,255,0.08)]" />
+          <div className="h-8 w-[1px] bg-[rgba(255,255,255,0.08)]" />
           <div className="text-center">
-            <p className="text-3xl sm:text-4xl font-extrabold text-white font-sans">
+            <p className="text-2xl sm:text-3xl font-extrabold text-white font-sans">
               {totalTossWins}
             </p>
-            <p className="text-[10px] uppercase font-mono text-[#707B91] mt-0.5">Total Wins</p>
+            <p className="text-[9px] uppercase font-mono text-[#707B91] mt-0.5">Total Wins</p>
           </div>
         </div>
       </div>
 
       {/* Decision Split Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         {(overall_distribution || []).map((d: any, idx: number) => {
           const isField = d.toss_decision.toLowerCase() === "field";
           return (
             <div
               key={idx}
-              className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-5 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.16)]"
+              className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 sm:p-4.5 shadow-[0_4px_16px_rgba(0,0,0,0.12)]"
             >
-              <div className="flex items-center justify-between mb-4 pb-3 border-b border-[rgba(255,255,255,0.06)]">
+              <div className="flex items-center justify-between mb-3 pb-2 border-b border-[rgba(255,255,255,0.06)]">
                 <span className="text-xs font-mono font-bold uppercase text-[#F5B942]">
                   Decision: {d.toss_decision} First
                 </span>
-                <span className="text-xs font-mono text-[#A9B2C3]">
+                <span className="text-[11px] font-mono text-[#A9B2C3]">
                   {d.decision_share_pct}% of All Tosses
                 </span>
               </div>
 
-              <div className="grid grid-cols-3 gap-3 text-center my-4">
-                <div className="bg-[#070B16] p-3 rounded-btn border border-[rgba(255,255,255,0.06)]">
-                  <p className="text-[10px] text-[#707B91] uppercase">Total Calls</p>
-                  <p className="text-lg font-bold text-white font-mono mt-1">
+              <div className="grid grid-cols-3 gap-2 text-center my-3">
+                <div className="bg-[#070B16] p-2.5 rounded-btn border border-[rgba(255,255,255,0.06)]">
+                  <p className="text-[9px] text-[#707B91] uppercase">Total Calls</p>
+                  <p className="text-base font-bold text-white font-mono mt-0.5">
                     {d.decision_count.toLocaleString()}
                   </p>
                 </div>
-                <div className="bg-[#070B16] p-3 rounded-btn border border-[rgba(255,255,255,0.06)]">
-                  <p className="text-[10px] text-[#707B91] uppercase">Converted Wins</p>
-                  <p className="text-lg font-bold text-[#2476E8] font-mono mt-1">
+                <div className="bg-[#070B16] p-2.5 rounded-btn border border-[rgba(255,255,255,0.06)]">
+                  <p className="text-[9px] text-[#707B91] uppercase">Converted Wins</p>
+                  <p className="text-base font-bold text-[#2476E8] font-mono mt-0.5">
                     {d.toss_and_match_wins.toLocaleString()}
                   </p>
                 </div>
-                <div className="bg-[#070B16] p-3 rounded-btn border border-[rgba(255,255,255,0.06)]">
-                  <p className="text-[10px] text-[#707B91] uppercase">Conversion</p>
-                  <p className="text-lg font-bold text-[#F5B942] font-mono mt-1">
+                <div className="bg-[#070B16] p-2.5 rounded-btn border border-[rgba(255,255,255,0.06)]">
+                  <p className="text-[9px] text-[#707B91] uppercase">Conversion</p>
+                  <p className="text-base font-bold text-[#F5B942] font-mono mt-0.5">
                     {d.decision_win_pct}%
                   </p>
                 </div>
               </div>
 
-              <p className="text-xs text-[#707B91] leading-relaxed">
+              <p className="text-[11px] text-[#707B91] leading-relaxed">
                 {isField
                   ? "Captains heavily favor fielding first in night fixtures due to evening dew, target visibility, and death-overs chase capabilities."
                   : "Batting first dominated the inaugural seasons (2008–2013) before data intelligence confirmed modern chasing success rates."}
@@ -159,48 +159,48 @@ export default function TossPage() {
       </div>
 
       {/* Season-by-Season Toss Decision Evolution Chart */}
-      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-5 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.16)]">
-        <div className="flex items-center justify-between mb-4 pb-3 border-b border-[rgba(255,255,255,0.06)]">
+      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+        <div className="flex items-center justify-between mb-3 pb-2.5 border-b border-[rgba(255,255,255,0.06)]">
           <div>
-            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-[#F5B942]" />
+            <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
+              <TrendingUp className="w-3.5 h-3.5 text-[#F5B942]" />
               Toss Decision Evolution Across 18 Seasons
             </h3>
-            <p className="text-xs text-[#707B91]">Notice the dramatic strategic divergence toward fielding first since 2016</p>
+            <p className="text-[11px] text-[#707B91]">Notice the dramatic strategic divergence toward fielding first since 2016</p>
           </div>
         </div>
 
-        <div className="h-72 w-full">
+        <div className="h-56 w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={chartSeasonData}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
-              <XAxis dataKey="season" stroke="#6F7A90" fontSize={11} tickLine={false} />
-              <YAxis stroke="#6F7A90" fontSize={11} tickLine={false} />
+              <XAxis dataKey="season" stroke="#6F7A90" fontSize={10} tickLine={false} />
+              <YAxis stroke="#6F7A90" fontSize={10} tickLine={false} />
               <Tooltip
                 contentStyle={{
                   backgroundColor: "#0D1424",
                   borderColor: "rgba(255,255,255,0.12)",
-                  borderRadius: "8px",
+                  borderRadius: "6px",
                   color: "#F4F6FA",
-                  fontSize: "12px",
+                  fontSize: "11px",
                 }}
               />
-              <Legend wrapperStyle={{ fontSize: "11px", paddingTop: "8px" }} />
-              <Bar dataKey="Field" name="Field First Choice" fill="#2476E8" radius={[3, 3, 0, 0]} />
-              <Bar dataKey="Bat" name="Bat First Choice" fill="#F5B942" radius={[3, 3, 0, 0]} />
+              <Legend wrapperStyle={{ fontSize: "11px", paddingTop: "6px" }} />
+              <Bar dataKey="Field" name="Field First Choice" fill="#2476E8" radius={[2, 2, 0, 0]} />
+              <Bar dataKey="Bat" name="Bat First Choice" fill="#F5B942" radius={[2, 2, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
       </div>
 
       {/* Venue-Wise Toss Impact */}
-      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.16)]">
-        <div className="p-4 sm:p-5 border-b border-[rgba(255,255,255,0.06)] flex items-center justify-between">
-          <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-[#F5B942]" />
+      <div className="rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0D1424] overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+        <div className="p-3 sm:p-3.5 border-b border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+          <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
+            <MapPin className="w-3.5 h-3.5 text-[#F5B942]" />
             Stadium Toss Win Conversion Rates
           </h3>
-          <span className="text-[11px] text-[#707B91] font-mono">
+          <span className="text-[10px] text-[#707B91] font-mono">
             Grounds with ≥ 20 fixtures
           </span>
         </div>
@@ -209,12 +209,12 @@ export default function TossPage() {
           <table className="w-full text-left text-xs">
             <thead className="bg-[#090E1B] text-[#707B91] font-mono uppercase text-[10px] tracking-wider border-b border-[rgba(255,255,255,0.06)]">
               <tr>
-                <th className="py-3 px-4">Stadium</th>
-                <th className="py-3 px-4 text-center">Matches</th>
-                <th className="py-3 px-4 text-center">Toss Winner Won</th>
-                <th className="py-3 px-4 text-center">Field & Won</th>
-                <th className="py-3 px-4 text-center">Bat & Won</th>
-                <th className="py-3 px-4 text-center">Toss Win Rate</th>
+                <th className="py-2 px-3">Stadium</th>
+                <th className="py-2 px-3 text-center">Matches</th>
+                <th className="py-2 px-3 text-center">Toss Winner Won</th>
+                <th className="py-2 px-3 text-center">Field & Won</th>
+                <th className="py-2 px-3 text-center">Bat & Won</th>
+                <th className="py-2 px-3 text-center">Toss Win Rate</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[rgba(255,255,255,0.04)] text-[#F4F6FA]">
@@ -222,20 +222,20 @@ export default function TossPage() {
                 const highAdvantage = v.toss_win_pct >= 55.0;
                 return (
                   <tr key={idx} className="hover:bg-[rgba(22,93,204,0.08)] transition-colors">
-                    <td className="py-3 px-4 font-semibold text-white">{v.venue}</td>
-                    <td className="py-3 px-4 text-center font-mono">{v.venue_matches}</td>
-                    <td className="py-3 px-4 text-center font-mono font-bold text-white">
+                    <td className="py-1.5 px-3 font-semibold text-white">{v.venue}</td>
+                    <td className="py-1.5 px-3 text-center font-mono">{v.venue_matches}</td>
+                    <td className="py-1.5 px-3 text-center font-mono font-bold text-white">
                       {v.toss_winner_wins}
                     </td>
-                    <td className="py-3 px-4 text-center font-mono text-[#2476E8]">
+                    <td className="py-1.5 px-3 text-center font-mono text-[#2476E8]">
                       {v.field_and_won}
                     </td>
-                    <td className="py-3 px-4 text-center font-mono text-[#A9B2C3]">
+                    <td className="py-1.5 px-3 text-center font-mono text-[#A9B2C3]">
                       {v.bat_and_won}
                     </td>
-                    <td className="py-3 px-4 text-center font-mono">
+                    <td className="py-1.5 px-3 text-center font-mono">
                       <span
-                        className={`px-2 py-0.5 rounded text-[11px] font-bold ${
+                        className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
                           highAdvantage
                             ? "bg-[rgba(245,185,66,0.12)] text-[#F5B942] border border-[rgba(245,185,66,0.25)]"
                             : "bg-[#111A2E] text-[#A9B2C3]"
