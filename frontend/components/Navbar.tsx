@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
@@ -12,10 +13,14 @@ import {
   Search,
   Trophy,
   Database,
-  FileText
+  FileText,
+  Menu,
+  X,
+  Activity,
+  Cpu
 } from "lucide-react";
 
-const NAV_CENTER = [
+const NAV_LINKS = [
   { name: "Overview", href: "/", icon: BarChart3 },
   { name: "Franchises", href: "/teams", icon: Users },
   { name: "Players", href: "/players", icon: Award },
@@ -26,21 +31,27 @@ const NAV_CENTER = [
   { name: "Leaderboards", href: "/leaderboards", icon: Trophy },
 ];
 
-const NAV_RIGHT = [
+const TECH_LINKS = [
   { name: "Big Data Pipeline", href: "/pipeline", icon: Database },
   { name: "Project Spec", href: "/about", icon: FileText },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full h-[56px] bg-[#080D19] border-b border-[rgba(255,255,255,0.08)]">
-      <div className="max-w-[1360px] h-full mx-auto px-4 sm:px-5 lg:px-6 flex items-center justify-between">
+    <header className="sticky top-0 z-50 w-full bg-[#080D19]/95 backdrop-blur-md border-b border-[rgba(255,255,255,0.08)]">
+      <div className="max-w-[1360px] h-[56px] mx-auto px-4 sm:px-5 lg:px-6 flex items-center justify-between">
         
-        {/* Brand Logo - Cricket Ball Seam Inspired */}
-        <Link href="/" className="flex items-center space-x-2.5 group flex-shrink-0">
-          <div className="relative w-7 h-7 rounded-full bg-[#0D1830] border border-[rgba(245,185,66,0.3)] flex items-center justify-center shadow-sm">
+        {/* Brand Logo - Custom Cricket Ball Seam & Title */}
+        <Link 
+          href="/" 
+          prefetch={true}
+          onClick={() => setMobileMenuOpen(false)}
+          className="flex items-center space-x-2.5 group flex-shrink-0"
+        >
+          <div className="relative w-7 h-7 rounded-full bg-[#0D1830] border border-[rgba(245,185,66,0.35)] group-hover:border-[#F5B942] flex items-center justify-center shadow-sm transition-colors">
             {/* Custom Cricket Ball Mark */}
             <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none">
               <circle cx="12" cy="12" r="9" stroke="#165DCC" strokeWidth="1.8" />
@@ -62,22 +73,22 @@ export default function Navbar() {
 
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5">
-              <span className="font-bold text-white text-xs sm:text-sm tracking-tight leading-tight">
+              <span className="font-bold text-white text-xs sm:text-sm tracking-tight leading-tight group-hover:text-[#F5B942] transition-colors">
                 IPL Cricket Analytics
               </span>
-              <span className="text-[9px] font-mono font-bold px-1 py-0.2 rounded bg-[rgba(22,93,204,0.2)] text-[#2476E8] border border-[rgba(36,118,232,0.25)]">
-                2008–2026
+              <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-[rgba(22,93,204,0.2)] text-[#2476E8] border border-[rgba(36,118,232,0.25)]">
+                2008-2026
               </span>
             </div>
-            <span className="text-[9px] text-[#707B91] font-mono tracking-wider">
+            <span className="text-[9px] text-[#707B91] font-mono tracking-wider hidden sm:block">
               Flume · HDFS · Hive · PySpark
             </span>
           </div>
         </Link>
 
-        {/* Center Navigation Links */}
+        {/* Desktop Navigation Links */}
         <nav className="hidden xl:flex items-center h-full space-x-0.5">
-          {NAV_CENTER.map((item) => {
+          {NAV_LINKS.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
             return (
@@ -98,9 +109,9 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right Section: Technical Links & Pipeline Status */}
-        <div className="hidden md:flex items-center space-x-1.5">
-          {NAV_RIGHT.map((item) => {
+        {/* Right Section: Architecture & Telemetry Links */}
+        <div className="hidden lg:flex items-center space-x-2">
+          {TECH_LINKS.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
             return (
@@ -108,51 +119,109 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 prefetch={true}
-                className={`flex items-center space-x-1 px-2 py-1 rounded-btn text-xs font-medium transition-colors ${
+                className={`flex items-center space-x-1.5 px-2.5 py-1.5 rounded-btn text-xs font-medium transition-colors ${
                   isActive
                     ? "text-[#F7F8FC] bg-[rgba(22,93,204,0.25)] border border-[rgba(36,118,232,0.4)]"
                     : "text-[#8F9AAF] hover:text-[#F7F8FC] hover:bg-[rgba(255,255,255,0.04)]"
                 }`}
               >
-                <Icon className="w-3 h-3 text-[#F5B942]" />
+                <Icon className="w-3.5 h-3.5 text-[#F5B942]" />
                 <span>{item.name}</span>
               </Link>
             );
           })}
 
+          {/* Live Pipeline Status Pill */}
           <Link
             href="/pipeline"
             prefetch={true}
             className="flex items-center space-x-1.5 px-2.5 py-1 rounded-btn bg-[#0D1830] border border-[rgba(255,255,255,0.08)] text-xs hover:border-[rgba(245,185,66,0.3)] transition-colors"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2FBF71]"></span>
-            <span className="font-mono text-[#A9B2C3] text-[10px] font-medium">Pipeline</span>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2FBF71] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2FBF71]"></span>
+            </span>
+            <span className="font-mono text-[#A9B2C3] text-[10px] font-medium">Pipeline: Active</span>
           </Link>
+        </div>
+
+        {/* Mobile / Tablet Menu Button */}
+        <div className="flex xl:hidden items-center space-x-2">
+          <Link
+            href="/pipeline"
+            prefetch={true}
+            className="flex items-center space-x-1.5 px-2 py-1 rounded-btn bg-[#0D1830] border border-[rgba(255,255,255,0.08)] text-[11px]"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2FBF71]"></span>
+            <span className="font-mono text-[#A9B2C3] text-[10px]">Pipeline</span>
+          </Link>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+            className="h-8 w-8 rounded-btn bg-[#0D1830] border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-[#A9B2C3] hover:text-white hover:border-[rgba(245,185,66,0.3)] transition-all"
+          >
+            {mobileMenuOpen ? <X className="w-4 h-4 text-[#F5B942]" /> : <Menu className="w-4 h-4" />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile/Tablet Horizontal Scrollable Bar */}
-      <div className="xl:hidden overflow-x-auto border-t border-[rgba(255,255,255,0.06)] bg-[#070B16] py-1 px-2.5 flex space-x-1 scrollbar-none">
-        {[...NAV_CENTER, ...NAV_RIGHT].map((item) => {
-          const Icon = item.icon;
-          const isActive = pathname === item.href;
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              prefetch={true}
-              className={`flex-shrink-0 flex items-center space-x-1 px-2 py-0.5 rounded-btn text-[11px] font-medium transition-colors ${
-                isActive
-                  ? "bg-[rgba(22,93,204,0.22)] text-white border-b-2 border-[#F5B942]"
-                  : "text-[#8F9AAF] hover:text-white"
-              }`}
-            >
-              <Icon className="w-3 h-3 text-[#F5B942]" />
-              <span>{item.name}</span>
-            </Link>
-          );
-        })}
-      </div>
+      {/* Mobile Drawer / Slide-Down Menu */}
+      {mobileMenuOpen && (
+        <div className="xl:hidden border-t border-[rgba(255,255,255,0.08)] bg-[#070B16] px-4 py-3 space-y-3 shadow-2xl">
+          <div className="text-[10px] font-mono uppercase text-[#707B91] tracking-wider font-semibold">
+            Analytics Modules
+          </div>
+          <div className="grid grid-cols-2 gap-1.5">
+            {NAV_LINKS.map((item) => {
+              const Icon = item.icon;
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  prefetch={true}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center space-x-2 px-2.5 py-2 rounded-btn text-xs font-medium transition-colors ${
+                    isActive
+                      ? "bg-[rgba(22,93,204,0.22)] text-white border border-[rgba(245,185,66,0.3)]"
+                      : "text-[#8F9AAF] hover:text-white bg-[#0D1424] border border-[rgba(255,255,255,0.04)]"
+                  }`}
+                >
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? "text-[#F5B942]" : "text-[#707B91]"}`} />
+                  <span>{item.name}</span>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="pt-2 border-t border-[rgba(255,255,255,0.06)] flex flex-col gap-1.5">
+            <div className="text-[10px] font-mono uppercase text-[#707B91] tracking-wider font-semibold mb-1">
+              Architecture & Telemetry
+            </div>
+            {TECH_LINKS.map((item) => {
+              const Icon = item.icon;
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  prefetch={true}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center space-x-2 px-3 py-2 rounded-btn text-xs font-medium transition-colors ${
+                    isActive
+                      ? "bg-[rgba(22,93,204,0.25)] text-white border border-[rgba(36,118,232,0.4)]"
+                      : "text-[#8F9AAF] hover:text-white bg-[#0D1424] border border-[rgba(255,255,255,0.04)]"
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5 text-[#F5B942]" />
+                  <span>{item.name}</span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </header>
   );
 }
