@@ -1,0 +1,388 @@
+{
+  "season_run_rate": [
+    {
+      "season": 2008,
+      "run_rate": 8.31,
+      "avg_match_runs": 309.3
+    },
+    {
+      "season": 2009,
+      "run_rate": 7.49,
+      "avg_match_runs": 286.9
+    },
+    {
+      "season": 2010,
+      "run_rate": 8.13,
+      "avg_match_runs": 314.7
+    },
+    {
+      "season": 2011,
+      "run_rate": 7.73,
+      "avg_match_runs": 289.8
+    },
+    {
+      "season": 2012,
+      "run_rate": 7.83,
+      "avg_match_runs": 303.4
+    },
+    {
+      "season": 2013,
+      "run_rate": 7.69,
+      "avg_match_runs": 297.4
+    },
+    {
+      "season": 2014,
+      "run_rate": 8.2,
+      "avg_match_runs": 315.5
+    },
+    {
+      "season": 2015,
+      "run_rate": 8.37,
+      "avg_match_runs": 311.1
+    },
+    {
+      "season": 2016,
+      "run_rate": 8.31,
+      "avg_match_runs": 314.4
+    },
+    {
+      "season": 2017,
+      "run_rate": 8.41,
+      "avg_match_runs": 318.4
+    },
+    {
+      "season": 2018,
+      "run_rate": 8.65,
+      "avg_match_runs": 331.7
+    },
+    {
+      "season": 2019,
+      "run_rate": 8.42,
+      "avg_match_runs": 323.9
+    },
+    {
+      "season": 2021,
+      "run_rate": 8.17,
+      "avg_match_runs": 317.1
+    },
+    {
+      "season": 2022,
+      "run_rate": 8.54,
+      "avg_match_runs": 329.7
+    },
+    {
+      "season": 2023,
+      "run_rate": 8.99,
+      "avg_match_runs": 347.1
+    },
+    {
+      "season": 2024,
+      "run_rate": 9.56,
+      "avg_match_runs": 365.8
+    },
+    {
+      "season": 2025,
+      "run_rate": 9.64,
+      "avg_match_runs": 358.5
+    },
+    {
+      "season": 2026,
+      "run_rate": 9.88,
+      "avg_match_runs": 371.0
+    }
+  ],
+  "boundary_evolution": [
+    {
+      "season": 2008,
+      "fours": 1703,
+      "sixes": 623,
+      "boundary_run_pct": 58.82
+    },
+    {
+      "season": 2009,
+      "fours": 1321,
+      "sixes": 508,
+      "boundary_run_pct": 50.95
+    },
+    {
+      "season": 2010,
+      "fours": 1709,
+      "sixes": 587,
+      "boundary_run_pct": 54.85
+    },
+    {
+      "season": 2011,
+      "fours": 1916,
+      "sixes": 639,
+      "boundary_run_pct": 54.35
+    },
+    {
+      "season": 2012,
+      "fours": 1911,
+      "sixes": 733,
+      "boundary_run_pct": 53.63
+    },
+    {
+      "season": 2013,
+      "fours": 2054,
+      "sixes": 681,
+      "boundary_run_pct": 54.43
+    },
+    {
+      "season": 2014,
+      "fours": 1563,
+      "sixes": 715,
+      "boundary_run_pct": 55.69
+    },
+    {
+      "season": 2015,
+      "fours": 1611,
+      "sixes": 692,
+      "boundary_run_pct": 57.73
+    },
+    {
+      "season": 2016,
+      "fours": 1633,
+      "sixes": 639,
+      "boundary_run_pct": 54.96
+    },
+    {
+      "season": 2017,
+      "fours": 1612,
+      "sixes": 706,
+      "boundary_run_pct": 56.87
+    },
+    {
+      "season": 2018,
+      "fours": 1652,
+      "sixes": 872,
+      "boundary_run_pct": 59.49
+    },
+    {
+      "season": 2019,
+      "fours": 1655,
+      "sixes": 786,
+      "boundary_run_pct": 58.33
+    },
+    {
+      "season": 2021,
+      "fours": 3140,
+      "sixes": 1423,
+      "boundary_run_pct": 55.44
+    },
+    {
+      "season": 2022,
+      "fours": 2020,
+      "sixes": 1062,
+      "boundary_run_pct": 59.24
+    },
+    {
+      "season": 2023,
+      "fours": 2175,
+      "sixes": 1124,
+      "boundary_run_pct": 60.12
+    },
+    {
+      "season": 2024,
+      "fours": 2175,
+      "sixes": 1261,
+      "boundary_run_pct": 62.63
+    },
+    {
+      "season": 2025,
+      "fours": 2263,
+      "sixes": 1302,
+      "boundary_run_pct": 63.57
+    },
+    {
+      "season": 2026,
+      "fours": 2334,
+      "sixes": 1426,
+      "boundary_run_pct": 65.17
+    }
+  ],
+  "chasing_success": [
+    {
+      "season": 2008,
+      "chasing_win_pct": 58.62,
+      "toss_win_pct": 48.28
+    },
+    {
+      "season": 2009,
+      "chasing_win_pct": 51.79,
+      "toss_win_pct": 58.93
+    },
+    {
+      "season": 2010,
+      "chasing_win_pct": 47.46,
+      "toss_win_pct": 52.54
+    },
+    {
+      "season": 2011,
+      "chasing_win_pct": 54.17,
+      "toss_win_pct": 52.78
+    },
+    {
+      "season": 2012,
+      "chasing_win_pct": 54.05,
+      "toss_win_pct": 44.59
+    },
+    {
+      "season": 2013,
+      "chasing_win_pct": 50.0,
+      "toss_win_pct": 47.3
+    },
+    {
+      "season": 2014,
+      "chasing_win_pct": 62.71,
+      "toss_win_pct": 49.15
+    },
+    {
+      "season": 2015,
+      "chasing_win_pct": 42.86,
+      "toss_win_pct": 48.21
+    },
+    {
+      "season": 2016,
+      "chasing_win_pct": 65.0,
+      "toss_win_pct": 56.67
+    },
+    {
+      "season": 2017,
+      "chasing_win_pct": 55.17,
+      "toss_win_pct": 58.62
+    },
+    {
+      "season": 2018,
+      "chasing_win_pct": 53.33,
+      "toss_win_pct": 53.33
+    },
+    {
+      "season": 2019,
+      "chasing_win_pct": 61.4,
+      "toss_win_pct": 59.65
+    },
+    {
+      "season": 2021,
+      "chasing_win_pct": 57.39,
+      "toss_win_pct": 51.3
+    },
+    {
+      "season": 2022,
+      "chasing_win_pct": 50.0,
+      "toss_win_pct": 48.65
+    },
+    {
+      "season": 2023,
+      "chasing_win_pct": 45.21,
+      "toss_win_pct": 46.58
+    },
+    {
+      "season": 2024,
+      "chasing_win_pct": 50.7,
+      "toss_win_pct": 43.66
+    },
+    {
+      "season": 2025,
+      "chasing_win_pct": 52.86,
+      "toss_win_pct": 61.43
+    },
+    {
+      "season": 2026,
+      "chasing_win_pct": 62.5,
+      "toss_win_pct": 51.39
+    }
+  ],
+  "wickets_trend": [
+    {
+      "season": 2008,
+      "total_wickets": 689,
+      "avg_match_wickets": 11.9
+    },
+    {
+      "season": 2009,
+      "total_wickets": 698,
+      "avg_match_wickets": 12.2
+    },
+    {
+      "season": 2010,
+      "total_wickets": 723,
+      "avg_match_wickets": 12.1
+    },
+    {
+      "season": 2011,
+      "total_wickets": 813,
+      "avg_match_wickets": 11.1
+    },
+    {
+      "season": 2012,
+      "total_wickets": 857,
+      "avg_match_wickets": 11.6
+    },
+    {
+      "season": 2013,
+      "total_wickets": 911,
+      "avg_match_wickets": 12.0
+    },
+    {
+      "season": 2014,
+      "total_wickets": 673,
+      "avg_match_wickets": 11.2
+    },
+    {
+      "season": 2015,
+      "total_wickets": 690,
+      "avg_match_wickets": 11.7
+    },
+    {
+      "season": 2016,
+      "total_wickets": 665,
+      "avg_match_wickets": 11.1
+    },
+    {
+      "season": 2017,
+      "total_wickets": 710,
+      "avg_match_wickets": 12.0
+    },
+    {
+      "season": 2018,
+      "total_wickets": 720,
+      "avg_match_wickets": 12.0
+    },
+    {
+      "season": 2019,
+      "total_wickets": 685,
+      "avg_match_wickets": 11.4
+    },
+    {
+      "season": 2021,
+      "total_wickets": 1393,
+      "avg_match_wickets": 11.6
+    },
+    {
+      "season": 2022,
+      "total_wickets": 911,
+      "avg_match_wickets": 12.3
+    },
+    {
+      "season": 2023,
+      "total_wickets": 914,
+      "avg_match_wickets": 12.4
+    },
+    {
+      "season": 2024,
+      "total_wickets": 883,
+      "avg_match_wickets": 12.4
+    },
+    {
+      "season": 2025,
+      "total_wickets": 871,
+      "avg_match_wickets": 11.8
+    },
+    {
+      "season": 2026,
+      "total_wickets": 881,
+      "avg_match_wickets": 11.9
+    }
+  ]
+}

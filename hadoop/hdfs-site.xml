@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  hadoop/hdfs-site.xml
+  HDFS configuration for IPL Big Data Analytics pseudo-distributed setup
+-->
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+        <description>Default block replication factor for single-node development cluster</description>
+    </property>
+    <property>
+        <name>dfs.blocksize</name>
+        <value>134217728</value>
+        <description>128MB HDFS block size</description>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:///tmp/hadoop-${user.name}/dfs/name</value>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///tmp/hadoop-${user.name}/dfs/data</value>
+    </property>
+    <property>
+        <name>dfs.permissions.enabled</name>
+        <value>false</value>
+    </property>
+</configuration>

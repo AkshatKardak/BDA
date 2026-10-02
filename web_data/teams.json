@@ -1,0 +1,2175 @@
+{
+  "franchises": [
+    {
+      "team": "Mumbai Indians",
+      "matches_played": 291,
+      "wins": 157,
+      "losses": 134,
+      "no_results": 0,
+      "bat_first_wins": 77,
+      "chase_wins": 78,
+      "win_pct": 53.95,
+      "bat_first_win_pct": 49.04,
+      "chase_win_pct": 49.68
+    },
+    {
+      "team": "Chennai Super Kings",
+      "matches_played": 266,
+      "wins": 148,
+      "losses": 117,
+      "no_results": 1,
+      "bat_first_wins": 75,
+      "chase_wins": 73,
+      "win_pct": 55.64,
+      "bat_first_win_pct": 50.68,
+      "chase_win_pct": 49.32
+    },
+    {
+      "team": "Royal Challengers Bengaluru",
+      "matches_played": 286,
+      "wins": 145,
+      "losses": 138,
+      "no_results": 3,
+      "bat_first_wins": 66,
+      "chase_wins": 77,
+      "win_pct": 50.7,
+      "bat_first_win_pct": 45.52,
+      "chase_win_pct": 53.1
+    },
+    {
+      "team": "Kolkata Knight Riders",
+      "matches_played": 278,
+      "wins": 142,
+      "losses": 134,
+      "no_results": 2,
+      "bat_first_wins": 58,
+      "chase_wins": 82,
+      "win_pct": 51.08,
+      "bat_first_win_pct": 40.85,
+      "chase_win_pct": 57.75
+    },
+    {
+      "team": "Delhi Capitals",
+      "matches_played": 281,
+      "wins": 129,
+      "losses": 148,
+      "no_results": 4,
+      "bat_first_wins": 48,
+      "chase_wins": 77,
+      "win_pct": 45.91,
+      "bat_first_win_pct": 37.21,
+      "chase_win_pct": 59.69
+    },
+    {
+      "team": "Punjab Kings",
+      "matches_played": 278,
+      "wins": 129,
+      "losses": 146,
+      "no_results": 3,
+      "bat_first_wins": 57,
+      "chase_wins": 69,
+      "win_pct": 46.4,
+      "bat_first_win_pct": 44.19,
+      "chase_win_pct": 53.49
+    },
+    {
+      "team": "Rajasthan Royals",
+      "matches_played": 251,
+      "wins": 125,
+      "losses": 124,
+      "no_results": 2,
+      "bat_first_wins": 50,
+      "chase_wins": 73,
+      "win_pct": 49.8,
+      "bat_first_win_pct": 40.0,
+      "chase_win_pct": 58.4
+    },
+    {
+      "team": "Sunrisers Hyderabad",
+      "matches_played": 211,
+      "wins": 103,
+      "losses": 107,
+      "no_results": 1,
+      "bat_first_wins": 53,
+      "chase_wins": 49,
+      "win_pct": 48.82,
+      "bat_first_win_pct": 51.46,
+      "chase_win_pct": 47.57
+    },
+    {
+      "team": "Gujarat Titans",
+      "matches_played": 77,
+      "wins": 47,
+      "losses": 30,
+      "no_results": 0,
+      "bat_first_wins": 19,
+      "chase_wins": 28,
+      "win_pct": 61.04,
+      "bat_first_win_pct": 40.43,
+      "chase_win_pct": 59.57
+    },
+    {
+      "team": "Lucknow Super Giants",
+      "matches_played": 72,
+      "wins": 34,
+      "losses": 37,
+      "no_results": 1,
+      "bat_first_wins": 21,
+      "chase_wins": 13,
+      "win_pct": 47.22,
+      "bat_first_win_pct": 61.76,
+      "chase_win_pct": 38.24
+    },
+    {
+      "team": "Deccan Chargers",
+      "matches_played": 75,
+      "wins": 29,
+      "losses": 46,
+      "no_results": 0,
+      "bat_first_wins": 18,
+      "chase_wins": 11,
+      "win_pct": 38.67,
+      "bat_first_win_pct": 62.07,
+      "chase_win_pct": 37.93
+    },
+    {
+      "team": "Rising Pune Supergiant",
+      "matches_played": 30,
+      "wins": 15,
+      "losses": 15,
+      "no_results": 0,
+      "bat_first_wins": 7,
+      "chase_wins": 8,
+      "win_pct": 50.0,
+      "bat_first_win_pct": 46.67,
+      "chase_win_pct": 53.33
+    },
+    {
+      "team": "Gujarat Lions",
+      "matches_played": 30,
+      "wins": 13,
+      "losses": 17,
+      "no_results": 0,
+      "bat_first_wins": 1,
+      "chase_wins": 12,
+      "win_pct": 43.33,
+      "bat_first_win_pct": 7.69,
+      "chase_win_pct": 92.31
+    },
+    {
+      "team": "Pune Warriors",
+      "matches_played": 46,
+      "wins": 12,
+      "losses": 33,
+      "no_results": 1,
+      "bat_first_wins": 6,
+      "chase_wins": 6,
+      "win_pct": 26.09,
+      "bat_first_win_pct": 50.0,
+      "chase_win_pct": 50.0
+    },
+    {
+      "team": "Kochi Tuskers Kerala",
+      "matches_played": 14,
+      "wins": 6,
+      "losses": 8,
+      "no_results": 0,
+      "bat_first_wins": 2,
+      "chase_wins": 4,
+      "win_pct": 42.86,
+      "bat_first_win_pct": 33.33,
+      "chase_win_pct": 66.67
+    }
+  ],
+  "details": {
+    "Mumbai Indians": {
+      "team": "Mumbai Indians",
+      "matches_played": 291,
+      "wins": 157,
+      "losses": 134,
+      "no_results": 0,
+      "bat_first_wins": 77,
+      "chase_wins": 78,
+      "win_pct": 53.95,
+      "bat_first_win_pct": 49.04,
+      "chase_win_pct": 49.68,
+      "season_history": [
+        {
+          "season": 2008,
+          "team": "Mumbai Indians",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2009,
+          "team": "Mumbai Indians",
+          "matches": 13,
+          "wins": 5,
+          "season_win_pct": 38.46
+        },
+        {
+          "season": 2010,
+          "team": "Mumbai Indians",
+          "matches": 16,
+          "wins": 11,
+          "season_win_pct": 68.75
+        },
+        {
+          "season": 2011,
+          "team": "Mumbai Indians",
+          "matches": 16,
+          "wins": 10,
+          "season_win_pct": 62.5
+        },
+        {
+          "season": 2012,
+          "team": "Mumbai Indians",
+          "matches": 17,
+          "wins": 10,
+          "season_win_pct": 58.82
+        },
+        {
+          "season": 2013,
+          "team": "Mumbai Indians",
+          "matches": 19,
+          "wins": 13,
+          "season_win_pct": 68.42
+        },
+        {
+          "season": 2014,
+          "team": "Mumbai Indians",
+          "matches": 15,
+          "wins": 7,
+          "season_win_pct": 46.67
+        },
+        {
+          "season": 2015,
+          "team": "Mumbai Indians",
+          "matches": 16,
+          "wins": 10,
+          "season_win_pct": 62.5
+        },
+        {
+          "season": 2016,
+          "team": "Mumbai Indians",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2017,
+          "team": "Mumbai Indians",
+          "matches": 17,
+          "wins": 12,
+          "season_win_pct": 70.59
+        },
+        {
+          "season": 2018,
+          "team": "Mumbai Indians",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2019,
+          "team": "Mumbai Indians",
+          "matches": 16,
+          "wins": 11,
+          "season_win_pct": 68.75
+        },
+        {
+          "season": 2021,
+          "team": "Mumbai Indians",
+          "matches": 30,
+          "wins": 18,
+          "season_win_pct": 60.0
+        },
+        {
+          "season": 2022,
+          "team": "Mumbai Indians",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        },
+        {
+          "season": 2023,
+          "team": "Mumbai Indians",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2024,
+          "team": "Mumbai Indians",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        },
+        {
+          "season": 2025,
+          "team": "Mumbai Indians",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2026,
+          "team": "Mumbai Indians",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        }
+      ],
+      "h2h_rivalries": [
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Mumbai Indians",
+          "total_encounters": 41,
+          "team_a_wins": 20,
+          "team_b_wins": 21,
+          "team_a_win_pct": 48.78,
+          "team_b_win_pct": 51.22
+        },
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Mumbai Indians",
+          "total_encounters": 38,
+          "team_a_wins": 17,
+          "team_b_wins": 21,
+          "team_a_win_pct": 44.74,
+          "team_b_win_pct": 55.26
+        },
+        {
+          "team_a": "Kolkata Knight Riders",
+          "team_b": "Mumbai Indians",
+          "total_encounters": 37,
+          "team_a_wins": 12,
+          "team_b_wins": 25,
+          "team_a_win_pct": 32.43,
+          "team_b_win_pct": 67.57
+        },
+        {
+          "team_a": "Mumbai Indians",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 36,
+          "team_a_wins": 19,
+          "team_b_wins": 17,
+          "team_a_win_pct": 52.78,
+          "team_b_win_pct": 47.22
+        },
+        {
+          "team_a": "Mumbai Indians",
+          "team_b": "Punjab Kings",
+          "total_encounters": 36,
+          "team_a_wins": 18,
+          "team_b_wins": 18,
+          "team_a_win_pct": 50.0,
+          "team_b_win_pct": 50.0
+        },
+        {
+          "team_a": "Mumbai Indians",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 32,
+          "team_a_wins": 16,
+          "team_b_wins": 16,
+          "team_a_win_pct": 50.0,
+          "team_b_win_pct": 50.0
+        },
+        {
+          "team_a": "Mumbai Indians",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 26,
+          "team_a_wins": 15,
+          "team_b_wins": 11,
+          "team_a_win_pct": 57.69,
+          "team_b_win_pct": 42.31
+        },
+        {
+          "team_a": "Deccan Chargers",
+          "team_b": "Mumbai Indians",
+          "total_encounters": 10,
+          "team_a_wins": 4,
+          "team_b_wins": 6,
+          "team_a_win_pct": 40.0,
+          "team_b_win_pct": 60.0
+        }
+      ]
+    },
+    "Chennai Super Kings": {
+      "team": "Chennai Super Kings",
+      "matches_played": 266,
+      "wins": 148,
+      "losses": 117,
+      "no_results": 1,
+      "bat_first_wins": 75,
+      "chase_wins": 73,
+      "win_pct": 55.64,
+      "bat_first_win_pct": 50.68,
+      "chase_win_pct": 49.32,
+      "season_history": [
+        {
+          "season": 2008,
+          "team": "Chennai Super Kings",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2009,
+          "team": "Chennai Super Kings",
+          "matches": 14,
+          "wins": 8,
+          "season_win_pct": 57.14
+        },
+        {
+          "season": 2010,
+          "team": "Chennai Super Kings",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2011,
+          "team": "Chennai Super Kings",
+          "matches": 16,
+          "wins": 11,
+          "season_win_pct": 68.75
+        },
+        {
+          "season": 2012,
+          "team": "Chennai Super Kings",
+          "matches": 18,
+          "wins": 10,
+          "season_win_pct": 55.56
+        },
+        {
+          "season": 2013,
+          "team": "Chennai Super Kings",
+          "matches": 18,
+          "wins": 12,
+          "season_win_pct": 66.67
+        },
+        {
+          "season": 2014,
+          "team": "Chennai Super Kings",
+          "matches": 16,
+          "wins": 10,
+          "season_win_pct": 62.5
+        },
+        {
+          "season": 2015,
+          "team": "Chennai Super Kings",
+          "matches": 17,
+          "wins": 10,
+          "season_win_pct": 58.82
+        },
+        {
+          "season": 2018,
+          "team": "Chennai Super Kings",
+          "matches": 16,
+          "wins": 11,
+          "season_win_pct": 68.75
+        },
+        {
+          "season": 2019,
+          "team": "Chennai Super Kings",
+          "matches": 17,
+          "wins": 10,
+          "season_win_pct": 58.82
+        },
+        {
+          "season": 2021,
+          "team": "Chennai Super Kings",
+          "matches": 30,
+          "wins": 17,
+          "season_win_pct": 56.67
+        },
+        {
+          "season": 2022,
+          "team": "Chennai Super Kings",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        },
+        {
+          "season": 2023,
+          "team": "Chennai Super Kings",
+          "matches": 16,
+          "wins": 10,
+          "season_win_pct": 62.5
+        },
+        {
+          "season": 2024,
+          "team": "Chennai Super Kings",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2025,
+          "team": "Chennai Super Kings",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        },
+        {
+          "season": 2026,
+          "team": "Chennai Super Kings",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        }
+      ],
+      "h2h_rivalries": [
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Mumbai Indians",
+          "total_encounters": 41,
+          "team_a_wins": 20,
+          "team_b_wins": 21,
+          "team_a_win_pct": 48.78,
+          "team_b_win_pct": 51.22
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 35,
+          "team_a_wins": 21,
+          "team_b_wins": 14,
+          "team_a_win_pct": 60.0,
+          "team_b_win_pct": 40.0
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Delhi Capitals",
+          "total_encounters": 33,
+          "team_a_wins": 21,
+          "team_b_wins": 12,
+          "team_a_win_pct": 63.64,
+          "team_b_win_pct": 36.36
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Punjab Kings",
+          "total_encounters": 33,
+          "team_a_wins": 16,
+          "team_b_wins": 17,
+          "team_a_win_pct": 48.48,
+          "team_b_win_pct": 51.52
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Kolkata Knight Riders",
+          "total_encounters": 32,
+          "team_a_wins": 21,
+          "team_b_wins": 11,
+          "team_a_win_pct": 65.63,
+          "team_b_win_pct": 34.38
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 32,
+          "team_a_wins": 16,
+          "team_b_wins": 16,
+          "team_a_win_pct": 50.0,
+          "team_b_win_pct": 50.0
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 24,
+          "team_a_wins": 15,
+          "team_b_wins": 9,
+          "team_a_win_pct": 62.5,
+          "team_b_win_pct": 37.5
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Gujarat Titans",
+          "total_encounters": 10,
+          "team_a_wins": 4,
+          "team_b_wins": 6,
+          "team_a_win_pct": 40.0,
+          "team_b_win_pct": 60.0
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Deccan Chargers",
+          "total_encounters": 10,
+          "team_a_wins": 6,
+          "team_b_wins": 4,
+          "team_a_win_pct": 60.0,
+          "team_b_win_pct": 40.0
+        }
+      ]
+    },
+    "Royal Challengers Bengaluru": {
+      "team": "Royal Challengers Bengaluru",
+      "matches_played": 286,
+      "wins": 145,
+      "losses": 138,
+      "no_results": 3,
+      "bat_first_wins": 66,
+      "chase_wins": 77,
+      "win_pct": 50.7,
+      "bat_first_win_pct": 45.52,
+      "chase_win_pct": 53.1,
+      "season_history": [
+        {
+          "season": 2008,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        },
+        {
+          "season": 2009,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2010,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 16,
+          "wins": 8,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2011,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 16,
+          "wins": 10,
+          "season_win_pct": 62.5
+        },
+        {
+          "season": 2012,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 15,
+          "wins": 8,
+          "season_win_pct": 53.33
+        },
+        {
+          "season": 2013,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2014,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 14,
+          "wins": 5,
+          "season_win_pct": 35.71
+        },
+        {
+          "season": 2015,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 16,
+          "wins": 8,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2016,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2017,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 13,
+          "wins": 3,
+          "season_win_pct": 23.08
+        },
+        {
+          "season": 2018,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2019,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 14,
+          "wins": 5,
+          "season_win_pct": 35.71
+        },
+        {
+          "season": 2021,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 30,
+          "wins": 16,
+          "season_win_pct": 53.33
+        },
+        {
+          "season": 2022,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2023,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2024,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 15,
+          "wins": 7,
+          "season_win_pct": 46.67
+        },
+        {
+          "season": 2025,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 15,
+          "wins": 11,
+          "season_win_pct": 73.33
+        },
+        {
+          "season": 2026,
+          "team": "Royal Challengers Bengaluru",
+          "matches": 16,
+          "wins": 11,
+          "season_win_pct": 68.75
+        }
+      ],
+      "h2h_rivalries": [
+        {
+          "team_a": "Punjab Kings",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 38,
+          "team_a_wins": 18,
+          "team_b_wins": 20,
+          "team_a_win_pct": 47.37,
+          "team_b_win_pct": 52.63
+        },
+        {
+          "team_a": "Mumbai Indians",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 36,
+          "team_a_wins": 19,
+          "team_b_wins": 17,
+          "team_a_win_pct": 52.78,
+          "team_b_win_pct": 47.22
+        },
+        {
+          "team_a": "Kolkata Knight Riders",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 36,
+          "team_a_wins": 20,
+          "team_b_wins": 16,
+          "team_a_win_pct": 55.56,
+          "team_b_win_pct": 44.44
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 35,
+          "team_a_wins": 21,
+          "team_b_wins": 14,
+          "team_a_win_pct": 60.0,
+          "team_b_win_pct": 40.0
+        },
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 34,
+          "team_a_wins": 13,
+          "team_b_wins": 21,
+          "team_a_win_pct": 38.24,
+          "team_b_win_pct": 61.76
+        },
+        {
+          "team_a": "Rajasthan Royals",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 32,
+          "team_a_wins": 15,
+          "team_b_wins": 17,
+          "team_a_win_pct": 46.88,
+          "team_b_win_pct": 53.13
+        },
+        {
+          "team_a": "Royal Challengers Bengaluru",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 27,
+          "team_a_wins": 12,
+          "team_b_wins": 15,
+          "team_a_win_pct": 44.44,
+          "team_b_win_pct": 55.56
+        },
+        {
+          "team_a": "Deccan Chargers",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 11,
+          "team_a_wins": 6,
+          "team_b_wins": 5,
+          "team_a_win_pct": 54.55,
+          "team_b_win_pct": 45.45
+        },
+        {
+          "team_a": "Gujarat Titans",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 10,
+          "team_a_wins": 4,
+          "team_b_wins": 6,
+          "team_a_win_pct": 40.0,
+          "team_b_win_pct": 60.0
+        }
+      ]
+    },
+    "Kolkata Knight Riders": {
+      "team": "Kolkata Knight Riders",
+      "matches_played": 278,
+      "wins": 142,
+      "losses": 134,
+      "no_results": 2,
+      "bat_first_wins": 58,
+      "chase_wins": 82,
+      "win_pct": 51.08,
+      "bat_first_win_pct": 40.85,
+      "chase_win_pct": 57.75,
+      "season_history": [
+        {
+          "season": 2008,
+          "team": "Kolkata Knight Riders",
+          "matches": 13,
+          "wins": 6,
+          "season_win_pct": 46.15
+        },
+        {
+          "season": 2009,
+          "team": "Kolkata Knight Riders",
+          "matches": 13,
+          "wins": 3,
+          "season_win_pct": 23.08
+        },
+        {
+          "season": 2010,
+          "team": "Kolkata Knight Riders",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2011,
+          "team": "Kolkata Knight Riders",
+          "matches": 15,
+          "wins": 8,
+          "season_win_pct": 53.33
+        },
+        {
+          "season": 2012,
+          "team": "Kolkata Knight Riders",
+          "matches": 17,
+          "wins": 12,
+          "season_win_pct": 70.59
+        },
+        {
+          "season": 2013,
+          "team": "Kolkata Knight Riders",
+          "matches": 16,
+          "wins": 6,
+          "season_win_pct": 37.5
+        },
+        {
+          "season": 2014,
+          "team": "Kolkata Knight Riders",
+          "matches": 16,
+          "wins": 11,
+          "season_win_pct": 68.75
+        },
+        {
+          "season": 2015,
+          "team": "Kolkata Knight Riders",
+          "matches": 13,
+          "wins": 7,
+          "season_win_pct": 53.85
+        },
+        {
+          "season": 2016,
+          "team": "Kolkata Knight Riders",
+          "matches": 15,
+          "wins": 8,
+          "season_win_pct": 53.33
+        },
+        {
+          "season": 2017,
+          "team": "Kolkata Knight Riders",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2018,
+          "team": "Kolkata Knight Riders",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2019,
+          "team": "Kolkata Knight Riders",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2021,
+          "team": "Kolkata Knight Riders",
+          "matches": 31,
+          "wins": 16,
+          "season_win_pct": 51.61
+        },
+        {
+          "season": 2022,
+          "team": "Kolkata Knight Riders",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2023,
+          "team": "Kolkata Knight Riders",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2024,
+          "team": "Kolkata Knight Riders",
+          "matches": 14,
+          "wins": 11,
+          "season_win_pct": 78.57
+        },
+        {
+          "season": 2025,
+          "team": "Kolkata Knight Riders",
+          "matches": 13,
+          "wins": 5,
+          "season_win_pct": 38.46
+        },
+        {
+          "season": 2026,
+          "team": "Kolkata Knight Riders",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        }
+      ],
+      "h2h_rivalries": [
+        {
+          "team_a": "Kolkata Knight Riders",
+          "team_b": "Mumbai Indians",
+          "total_encounters": 37,
+          "team_a_wins": 12,
+          "team_b_wins": 25,
+          "team_a_win_pct": 32.43,
+          "team_b_win_pct": 67.57
+        },
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Kolkata Knight Riders",
+          "total_encounters": 36,
+          "team_a_wins": 16,
+          "team_b_wins": 20,
+          "team_a_win_pct": 44.44,
+          "team_b_win_pct": 55.56
+        },
+        {
+          "team_a": "Kolkata Knight Riders",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 36,
+          "team_a_wins": 20,
+          "team_b_wins": 16,
+          "team_a_win_pct": 55.56,
+          "team_b_win_pct": 44.44
+        },
+        {
+          "team_a": "Kolkata Knight Riders",
+          "team_b": "Punjab Kings",
+          "total_encounters": 34,
+          "team_a_wins": 21,
+          "team_b_wins": 13,
+          "team_a_win_pct": 61.76,
+          "team_b_win_pct": 38.24
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Kolkata Knight Riders",
+          "total_encounters": 32,
+          "team_a_wins": 21,
+          "team_b_wins": 11,
+          "team_a_win_pct": 65.63,
+          "team_b_win_pct": 34.38
+        },
+        {
+          "team_a": "Kolkata Knight Riders",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 32,
+          "team_a_wins": 21,
+          "team_b_wins": 11,
+          "team_a_win_pct": 65.63,
+          "team_b_win_pct": 34.38
+        },
+        {
+          "team_a": "Kolkata Knight Riders",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 31,
+          "team_a_wins": 17,
+          "team_b_wins": 14,
+          "team_a_win_pct": 54.84,
+          "team_b_win_pct": 45.16
+        }
+      ]
+    },
+    "Delhi Capitals": {
+      "team": "Delhi Capitals",
+      "matches_played": 281,
+      "wins": 129,
+      "losses": 148,
+      "no_results": 4,
+      "bat_first_wins": 48,
+      "chase_wins": 77,
+      "win_pct": 45.91,
+      "bat_first_win_pct": 37.21,
+      "chase_win_pct": 59.69,
+      "season_history": [
+        {
+          "season": 2008,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2009,
+          "team": "Delhi Capitals",
+          "matches": 15,
+          "wins": 10,
+          "season_win_pct": 66.67
+        },
+        {
+          "season": 2010,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2011,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        },
+        {
+          "season": 2012,
+          "team": "Delhi Capitals",
+          "matches": 18,
+          "wins": 11,
+          "season_win_pct": 61.11
+        },
+        {
+          "season": 2013,
+          "team": "Delhi Capitals",
+          "matches": 16,
+          "wins": 3,
+          "season_win_pct": 18.75
+        },
+        {
+          "season": 2014,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 2,
+          "season_win_pct": 14.29
+        },
+        {
+          "season": 2015,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 5,
+          "season_win_pct": 35.71
+        },
+        {
+          "season": 2016,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2017,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2018,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 5,
+          "season_win_pct": 35.71
+        },
+        {
+          "season": 2019,
+          "team": "Delhi Capitals",
+          "matches": 16,
+          "wins": 10,
+          "season_win_pct": 62.5
+        },
+        {
+          "season": 2021,
+          "team": "Delhi Capitals",
+          "matches": 33,
+          "wins": 19,
+          "season_win_pct": 57.58
+        },
+        {
+          "season": 2022,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2023,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 5,
+          "season_win_pct": 35.71
+        },
+        {
+          "season": 2024,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2025,
+          "team": "Delhi Capitals",
+          "matches": 15,
+          "wins": 7,
+          "season_win_pct": 46.67
+        },
+        {
+          "season": 2026,
+          "team": "Delhi Capitals",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        }
+      ],
+      "h2h_rivalries": [
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Mumbai Indians",
+          "total_encounters": 38,
+          "team_a_wins": 17,
+          "team_b_wins": 21,
+          "team_a_win_pct": 44.74,
+          "team_b_win_pct": 55.26
+        },
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Kolkata Knight Riders",
+          "total_encounters": 36,
+          "team_a_wins": 16,
+          "team_b_wins": 20,
+          "team_a_win_pct": 44.44,
+          "team_b_win_pct": 55.56
+        },
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Punjab Kings",
+          "total_encounters": 36,
+          "team_a_wins": 18,
+          "team_b_wins": 18,
+          "team_a_win_pct": 50.0,
+          "team_b_win_pct": 50.0
+        },
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 34,
+          "team_a_wins": 13,
+          "team_b_wins": 21,
+          "team_a_win_pct": 38.24,
+          "team_b_win_pct": 61.76
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Delhi Capitals",
+          "total_encounters": 33,
+          "team_a_wins": 21,
+          "team_b_wins": 12,
+          "team_a_win_pct": 63.64,
+          "team_b_win_pct": 36.36
+        },
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 32,
+          "team_a_wins": 17,
+          "team_b_wins": 15,
+          "team_a_win_pct": 53.13,
+          "team_b_win_pct": 46.88
+        },
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 26,
+          "team_a_wins": 12,
+          "team_b_wins": 14,
+          "team_a_win_pct": 46.15,
+          "team_b_win_pct": 53.85
+        },
+        {
+          "team_a": "Deccan Chargers",
+          "team_b": "Delhi Capitals",
+          "total_encounters": 11,
+          "team_a_wins": 4,
+          "team_b_wins": 7,
+          "team_a_win_pct": 36.36,
+          "team_b_win_pct": 63.64
+        }
+      ]
+    },
+    "Punjab Kings": {
+      "team": "Punjab Kings",
+      "matches_played": 278,
+      "wins": 129,
+      "losses": 146,
+      "no_results": 3,
+      "bat_first_wins": 57,
+      "chase_wins": 69,
+      "win_pct": 46.4,
+      "bat_first_win_pct": 44.19,
+      "chase_win_pct": 53.49,
+      "season_history": [
+        {
+          "season": 2008,
+          "team": "Punjab Kings",
+          "matches": 15,
+          "wins": 10,
+          "season_win_pct": 66.67
+        },
+        {
+          "season": 2009,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2010,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        },
+        {
+          "season": 2011,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2012,
+          "team": "Punjab Kings",
+          "matches": 16,
+          "wins": 8,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2013,
+          "team": "Punjab Kings",
+          "matches": 16,
+          "wins": 8,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2014,
+          "team": "Punjab Kings",
+          "matches": 17,
+          "wins": 12,
+          "season_win_pct": 70.59
+        },
+        {
+          "season": 2015,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 3,
+          "season_win_pct": 21.43
+        },
+        {
+          "season": 2016,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        },
+        {
+          "season": 2017,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2018,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2019,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2021,
+          "team": "Punjab Kings",
+          "matches": 28,
+          "wins": 12,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2022,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2023,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2024,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 5,
+          "season_win_pct": 35.71
+        },
+        {
+          "season": 2025,
+          "team": "Punjab Kings",
+          "matches": 18,
+          "wins": 10,
+          "season_win_pct": 55.56
+        },
+        {
+          "season": 2026,
+          "team": "Punjab Kings",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        }
+      ],
+      "h2h_rivalries": [
+        {
+          "team_a": "Punjab Kings",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 38,
+          "team_a_wins": 18,
+          "team_b_wins": 20,
+          "team_a_win_pct": 47.37,
+          "team_b_win_pct": 52.63
+        },
+        {
+          "team_a": "Mumbai Indians",
+          "team_b": "Punjab Kings",
+          "total_encounters": 36,
+          "team_a_wins": 18,
+          "team_b_wins": 18,
+          "team_a_win_pct": 50.0,
+          "team_b_win_pct": 50.0
+        },
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Punjab Kings",
+          "total_encounters": 36,
+          "team_a_wins": 18,
+          "team_b_wins": 18,
+          "team_a_win_pct": 50.0,
+          "team_b_win_pct": 50.0
+        },
+        {
+          "team_a": "Kolkata Knight Riders",
+          "team_b": "Punjab Kings",
+          "total_encounters": 34,
+          "team_a_wins": 21,
+          "team_b_wins": 13,
+          "team_a_win_pct": 61.76,
+          "team_b_win_pct": 38.24
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Punjab Kings",
+          "total_encounters": 33,
+          "team_a_wins": 16,
+          "team_b_wins": 17,
+          "team_a_win_pct": 48.48,
+          "team_b_win_pct": 51.52
+        },
+        {
+          "team_a": "Punjab Kings",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 31,
+          "team_a_wins": 13,
+          "team_b_wins": 18,
+          "team_a_win_pct": 41.94,
+          "team_b_win_pct": 58.06
+        },
+        {
+          "team_a": "Punjab Kings",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 26,
+          "team_a_wins": 8,
+          "team_b_wins": 18,
+          "team_a_win_pct": 30.77,
+          "team_b_win_pct": 69.23
+        },
+        {
+          "team_a": "Deccan Chargers",
+          "team_b": "Punjab Kings",
+          "total_encounters": 10,
+          "team_a_wins": 3,
+          "team_b_wins": 7,
+          "team_a_win_pct": 30.0,
+          "team_b_win_pct": 70.0
+        }
+      ]
+    },
+    "Rajasthan Royals": {
+      "team": "Rajasthan Royals",
+      "matches_played": 251,
+      "wins": 125,
+      "losses": 124,
+      "no_results": 2,
+      "bat_first_wins": 50,
+      "chase_wins": 73,
+      "win_pct": 49.8,
+      "bat_first_win_pct": 40.0,
+      "chase_win_pct": 58.4,
+      "season_history": [
+        {
+          "season": 2008,
+          "team": "Rajasthan Royals",
+          "matches": 16,
+          "wins": 13,
+          "season_win_pct": 81.25
+        },
+        {
+          "season": 2009,
+          "team": "Rajasthan Royals",
+          "matches": 13,
+          "wins": 6,
+          "season_win_pct": 46.15
+        },
+        {
+          "season": 2010,
+          "team": "Rajasthan Royals",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2011,
+          "team": "Rajasthan Royals",
+          "matches": 13,
+          "wins": 6,
+          "season_win_pct": 46.15
+        },
+        {
+          "season": 2012,
+          "team": "Rajasthan Royals",
+          "matches": 16,
+          "wins": 7,
+          "season_win_pct": 43.75
+        },
+        {
+          "season": 2013,
+          "team": "Rajasthan Royals",
+          "matches": 18,
+          "wins": 11,
+          "season_win_pct": 61.11
+        },
+        {
+          "season": 2014,
+          "team": "Rajasthan Royals",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2015,
+          "team": "Rajasthan Royals",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2018,
+          "team": "Rajasthan Royals",
+          "matches": 15,
+          "wins": 7,
+          "season_win_pct": 46.67
+        },
+        {
+          "season": 2019,
+          "team": "Rajasthan Royals",
+          "matches": 14,
+          "wins": 5,
+          "season_win_pct": 35.71
+        },
+        {
+          "season": 2021,
+          "team": "Rajasthan Royals",
+          "matches": 28,
+          "wins": 11,
+          "season_win_pct": 39.29
+        },
+        {
+          "season": 2022,
+          "team": "Rajasthan Royals",
+          "matches": 17,
+          "wins": 10,
+          "season_win_pct": 58.82
+        },
+        {
+          "season": 2023,
+          "team": "Rajasthan Royals",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2024,
+          "team": "Rajasthan Royals",
+          "matches": 15,
+          "wins": 9,
+          "season_win_pct": 60.0
+        },
+        {
+          "season": 2025,
+          "team": "Rajasthan Royals",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        },
+        {
+          "season": 2026,
+          "team": "Rajasthan Royals",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        }
+      ],
+      "h2h_rivalries": [
+        {
+          "team_a": "Mumbai Indians",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 32,
+          "team_a_wins": 16,
+          "team_b_wins": 16,
+          "team_a_win_pct": 50.0,
+          "team_b_win_pct": 50.0
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 32,
+          "team_a_wins": 16,
+          "team_b_wins": 16,
+          "team_a_win_pct": 50.0,
+          "team_b_win_pct": 50.0
+        },
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 32,
+          "team_a_wins": 17,
+          "team_b_wins": 15,
+          "team_a_win_pct": 53.13,
+          "team_b_win_pct": 46.88
+        },
+        {
+          "team_a": "Rajasthan Royals",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 32,
+          "team_a_wins": 15,
+          "team_b_wins": 17,
+          "team_a_win_pct": 46.88,
+          "team_b_win_pct": 53.13
+        },
+        {
+          "team_a": "Punjab Kings",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 31,
+          "team_a_wins": 13,
+          "team_b_wins": 18,
+          "team_a_win_pct": 41.94,
+          "team_b_win_pct": 58.06
+        },
+        {
+          "team_a": "Kolkata Knight Riders",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 31,
+          "team_a_wins": 17,
+          "team_b_wins": 14,
+          "team_a_win_pct": 54.84,
+          "team_b_win_pct": 45.16
+        },
+        {
+          "team_a": "Rajasthan Royals",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 24,
+          "team_a_wins": 10,
+          "team_b_wins": 14,
+          "team_a_win_pct": 41.67,
+          "team_b_win_pct": 58.33
+        },
+        {
+          "team_a": "Gujarat Titans",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 11,
+          "team_a_wins": 8,
+          "team_b_wins": 3,
+          "team_a_win_pct": 72.73,
+          "team_b_win_pct": 27.27
+        }
+      ]
+    },
+    "Sunrisers Hyderabad": {
+      "team": "Sunrisers Hyderabad",
+      "matches_played": 211,
+      "wins": 103,
+      "losses": 107,
+      "no_results": 1,
+      "bat_first_wins": 53,
+      "chase_wins": 49,
+      "win_pct": 48.82,
+      "bat_first_win_pct": 51.46,
+      "chase_win_pct": 47.57,
+      "season_history": [
+        {
+          "season": 2013,
+          "team": "Sunrisers Hyderabad",
+          "matches": 17,
+          "wins": 10,
+          "season_win_pct": 58.82
+        },
+        {
+          "season": 2014,
+          "team": "Sunrisers Hyderabad",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2015,
+          "team": "Sunrisers Hyderabad",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2016,
+          "team": "Sunrisers Hyderabad",
+          "matches": 17,
+          "wins": 11,
+          "season_win_pct": 64.71
+        },
+        {
+          "season": 2017,
+          "team": "Sunrisers Hyderabad",
+          "matches": 14,
+          "wins": 8,
+          "season_win_pct": 57.14
+        },
+        {
+          "season": 2018,
+          "team": "Sunrisers Hyderabad",
+          "matches": 17,
+          "wins": 10,
+          "season_win_pct": 58.82
+        },
+        {
+          "season": 2019,
+          "team": "Sunrisers Hyderabad",
+          "matches": 15,
+          "wins": 6,
+          "season_win_pct": 40.0
+        },
+        {
+          "season": 2021,
+          "team": "Sunrisers Hyderabad",
+          "matches": 30,
+          "wins": 11,
+          "season_win_pct": 36.67
+        },
+        {
+          "season": 2022,
+          "team": "Sunrisers Hyderabad",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2023,
+          "team": "Sunrisers Hyderabad",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        },
+        {
+          "season": 2024,
+          "team": "Sunrisers Hyderabad",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2025,
+          "team": "Sunrisers Hyderabad",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2026,
+          "team": "Sunrisers Hyderabad",
+          "matches": 15,
+          "wins": 9,
+          "season_win_pct": 60.0
+        }
+      ],
+      "h2h_rivalries": [
+        {
+          "team_a": "Kolkata Knight Riders",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 32,
+          "team_a_wins": 21,
+          "team_b_wins": 11,
+          "team_a_win_pct": 65.63,
+          "team_b_win_pct": 34.38
+        },
+        {
+          "team_a": "Royal Challengers Bengaluru",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 27,
+          "team_a_wins": 12,
+          "team_b_wins": 15,
+          "team_a_win_pct": 44.44,
+          "team_b_win_pct": 55.56
+        },
+        {
+          "team_a": "Delhi Capitals",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 26,
+          "team_a_wins": 12,
+          "team_b_wins": 14,
+          "team_a_win_pct": 46.15,
+          "team_b_win_pct": 53.85
+        },
+        {
+          "team_a": "Punjab Kings",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 26,
+          "team_a_wins": 8,
+          "team_b_wins": 18,
+          "team_a_win_pct": 30.77,
+          "team_b_win_pct": 69.23
+        },
+        {
+          "team_a": "Mumbai Indians",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 26,
+          "team_a_wins": 15,
+          "team_b_wins": 11,
+          "team_a_win_pct": 57.69,
+          "team_b_win_pct": 42.31
+        },
+        {
+          "team_a": "Rajasthan Royals",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 24,
+          "team_a_wins": 10,
+          "team_b_wins": 14,
+          "team_a_win_pct": 41.67,
+          "team_b_win_pct": 58.33
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Sunrisers Hyderabad",
+          "total_encounters": 24,
+          "team_a_wins": 15,
+          "team_b_wins": 9,
+          "team_a_win_pct": 62.5,
+          "team_b_win_pct": 37.5
+        }
+      ]
+    },
+    "Gujarat Titans": {
+      "team": "Gujarat Titans",
+      "matches_played": 77,
+      "wins": 47,
+      "losses": 30,
+      "no_results": 0,
+      "bat_first_wins": 19,
+      "chase_wins": 28,
+      "win_pct": 61.04,
+      "bat_first_win_pct": 40.43,
+      "chase_win_pct": 59.57,
+      "season_history": [
+        {
+          "season": 2022,
+          "team": "Gujarat Titans",
+          "matches": 16,
+          "wins": 12,
+          "season_win_pct": 75.0
+        },
+        {
+          "season": 2023,
+          "team": "Gujarat Titans",
+          "matches": 17,
+          "wins": 11,
+          "season_win_pct": 64.71
+        },
+        {
+          "season": 2024,
+          "team": "Gujarat Titans",
+          "matches": 12,
+          "wins": 5,
+          "season_win_pct": 41.67
+        },
+        {
+          "season": 2025,
+          "team": "Gujarat Titans",
+          "matches": 15,
+          "wins": 9,
+          "season_win_pct": 60.0
+        },
+        {
+          "season": 2026,
+          "team": "Gujarat Titans",
+          "matches": 17,
+          "wins": 10,
+          "season_win_pct": 58.82
+        }
+      ],
+      "h2h_rivalries": [
+        {
+          "team_a": "Gujarat Titans",
+          "team_b": "Rajasthan Royals",
+          "total_encounters": 11,
+          "team_a_wins": 8,
+          "team_b_wins": 3,
+          "team_a_win_pct": 72.73,
+          "team_b_win_pct": 27.27
+        },
+        {
+          "team_a": "Gujarat Titans",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 10,
+          "team_a_wins": 4,
+          "team_b_wins": 6,
+          "team_a_win_pct": 40.0,
+          "team_b_win_pct": 60.0
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Gujarat Titans",
+          "total_encounters": 10,
+          "team_a_wins": 4,
+          "team_b_wins": 6,
+          "team_a_win_pct": 40.0,
+          "team_b_win_pct": 60.0
+        }
+      ]
+    },
+    "Lucknow Super Giants": {
+      "team": "Lucknow Super Giants",
+      "matches_played": 72,
+      "wins": 34,
+      "losses": 37,
+      "no_results": 1,
+      "bat_first_wins": 21,
+      "chase_wins": 13,
+      "win_pct": 47.22,
+      "bat_first_win_pct": 61.76,
+      "chase_win_pct": 38.24,
+      "season_history": [
+        {
+          "season": 2022,
+          "team": "Lucknow Super Giants",
+          "matches": 15,
+          "wins": 9,
+          "season_win_pct": 60.0
+        },
+        {
+          "season": 2023,
+          "team": "Lucknow Super Giants",
+          "matches": 15,
+          "wins": 8,
+          "season_win_pct": 53.33
+        },
+        {
+          "season": 2024,
+          "team": "Lucknow Super Giants",
+          "matches": 14,
+          "wins": 7,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2025,
+          "team": "Lucknow Super Giants",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2026,
+          "team": "Lucknow Super Giants",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        }
+      ],
+      "h2h_rivalries": []
+    },
+    "Deccan Chargers": {
+      "team": "Deccan Chargers",
+      "matches_played": 75,
+      "wins": 29,
+      "losses": 46,
+      "no_results": 0,
+      "bat_first_wins": 18,
+      "chase_wins": 11,
+      "win_pct": 38.67,
+      "bat_first_win_pct": 62.07,
+      "chase_win_pct": 37.93,
+      "season_history": [
+        {
+          "season": 2008,
+          "team": "Deccan Chargers",
+          "matches": 14,
+          "wins": 2,
+          "season_win_pct": 14.29
+        },
+        {
+          "season": 2009,
+          "team": "Deccan Chargers",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2010,
+          "team": "Deccan Chargers",
+          "matches": 16,
+          "wins": 8,
+          "season_win_pct": 50.0
+        },
+        {
+          "season": 2011,
+          "team": "Deccan Chargers",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        },
+        {
+          "season": 2012,
+          "team": "Deccan Chargers",
+          "matches": 15,
+          "wins": 4,
+          "season_win_pct": 26.67
+        }
+      ],
+      "h2h_rivalries": [
+        {
+          "team_a": "Deccan Chargers",
+          "team_b": "Delhi Capitals",
+          "total_encounters": 11,
+          "team_a_wins": 4,
+          "team_b_wins": 7,
+          "team_a_win_pct": 36.36,
+          "team_b_win_pct": 63.64
+        },
+        {
+          "team_a": "Deccan Chargers",
+          "team_b": "Royal Challengers Bengaluru",
+          "total_encounters": 11,
+          "team_a_wins": 6,
+          "team_b_wins": 5,
+          "team_a_win_pct": 54.55,
+          "team_b_win_pct": 45.45
+        },
+        {
+          "team_a": "Deccan Chargers",
+          "team_b": "Mumbai Indians",
+          "total_encounters": 10,
+          "team_a_wins": 4,
+          "team_b_wins": 6,
+          "team_a_win_pct": 40.0,
+          "team_b_win_pct": 60.0
+        },
+        {
+          "team_a": "Deccan Chargers",
+          "team_b": "Punjab Kings",
+          "total_encounters": 10,
+          "team_a_wins": 3,
+          "team_b_wins": 7,
+          "team_a_win_pct": 30.0,
+          "team_b_win_pct": 70.0
+        },
+        {
+          "team_a": "Chennai Super Kings",
+          "team_b": "Deccan Chargers",
+          "total_encounters": 10,
+          "team_a_wins": 6,
+          "team_b_wins": 4,
+          "team_a_win_pct": 60.0,
+          "team_b_win_pct": 40.0
+        }
+      ]
+    },
+    "Rising Pune Supergiant": {
+      "team": "Rising Pune Supergiant",
+      "matches_played": 30,
+      "wins": 15,
+      "losses": 15,
+      "no_results": 0,
+      "bat_first_wins": 7,
+      "chase_wins": 8,
+      "win_pct": 50.0,
+      "bat_first_win_pct": 46.67,
+      "chase_win_pct": 53.33,
+      "season_history": [
+        {
+          "season": 2016,
+          "team": "Rising Pune Supergiant",
+          "matches": 14,
+          "wins": 5,
+          "season_win_pct": 35.71
+        },
+        {
+          "season": 2017,
+          "team": "Rising Pune Supergiant",
+          "matches": 16,
+          "wins": 10,
+          "season_win_pct": 62.5
+        }
+      ],
+      "h2h_rivalries": []
+    },
+    "Gujarat Lions": {
+      "team": "Gujarat Lions",
+      "matches_played": 30,
+      "wins": 13,
+      "losses": 17,
+      "no_results": 0,
+      "bat_first_wins": 1,
+      "chase_wins": 12,
+      "win_pct": 43.33,
+      "bat_first_win_pct": 7.69,
+      "chase_win_pct": 92.31,
+      "season_history": [
+        {
+          "season": 2016,
+          "team": "Gujarat Lions",
+          "matches": 16,
+          "wins": 9,
+          "season_win_pct": 56.25
+        },
+        {
+          "season": 2017,
+          "team": "Gujarat Lions",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        }
+      ],
+      "h2h_rivalries": []
+    },
+    "Pune Warriors": {
+      "team": "Pune Warriors",
+      "matches_played": 46,
+      "wins": 12,
+      "losses": 33,
+      "no_results": 1,
+      "bat_first_wins": 6,
+      "chase_wins": 6,
+      "win_pct": 26.09,
+      "bat_first_win_pct": 50.0,
+      "chase_win_pct": 50.0,
+      "season_history": [
+        {
+          "season": 2011,
+          "team": "Pune Warriors",
+          "matches": 14,
+          "wins": 4,
+          "season_win_pct": 28.57
+        },
+        {
+          "season": 2012,
+          "team": "Pune Warriors",
+          "matches": 16,
+          "wins": 4,
+          "season_win_pct": 25.0
+        },
+        {
+          "season": 2013,
+          "team": "Pune Warriors",
+          "matches": 16,
+          "wins": 4,
+          "season_win_pct": 25.0
+        }
+      ],
+      "h2h_rivalries": []
+    },
+    "Kochi Tuskers Kerala": {
+      "team": "Kochi Tuskers Kerala",
+      "matches_played": 14,
+      "wins": 6,
+      "losses": 8,
+      "no_results": 0,
+      "bat_first_wins": 2,
+      "chase_wins": 4,
+      "win_pct": 42.86,
+      "bat_first_win_pct": 33.33,
+      "chase_win_pct": 66.67,
+      "season_history": [
+        {
+          "season": 2011,
+          "team": "Kochi Tuskers Kerala",
+          "matches": 14,
+          "wins": 6,
+          "season_win_pct": 42.86
+        }
+      ],
+      "h2h_rivalries": []
+    }
+  }
+}

@@ -1,0 +1,400 @@
+{
+  "overall_distribution": [
+    {
+      "toss_decision": "bat",
+      "decision_count": 414,
+      "toss_and_match_wins": 188,
+      "decision_share_pct": 33.55,
+      "decision_win_pct": 45.41
+    },
+    {
+      "toss_decision": "field",
+      "decision_count": 820,
+      "toss_and_match_wins": 446,
+      "decision_share_pct": 66.45,
+      "decision_win_pct": 54.39
+    }
+  ],
+  "season_trends": [
+    {
+      "season": 2008,
+      "season_matches": 58,
+      "field_first_decisions": 32,
+      "bat_first_decisions": 26,
+      "toss_winner_wins": 28,
+      "toss_advantage_pct": 48.28,
+      "field_first_pct": 55.17
+    },
+    {
+      "season": 2009,
+      "season_matches": 57,
+      "field_first_decisions": 22,
+      "bat_first_decisions": 35,
+      "toss_winner_wins": 33,
+      "toss_advantage_pct": 57.89,
+      "field_first_pct": 38.6
+    },
+    {
+      "season": 2010,
+      "season_matches": 60,
+      "field_first_decisions": 21,
+      "bat_first_decisions": 39,
+      "toss_winner_wins": 31,
+      "toss_advantage_pct": 51.67,
+      "field_first_pct": 35.0
+    },
+    {
+      "season": 2011,
+      "season_matches": 72,
+      "field_first_decisions": 48,
+      "bat_first_decisions": 24,
+      "toss_winner_wins": 38,
+      "toss_advantage_pct": 52.78,
+      "field_first_pct": 66.67
+    },
+    {
+      "season": 2012,
+      "season_matches": 74,
+      "field_first_decisions": 37,
+      "bat_first_decisions": 37,
+      "toss_winner_wins": 33,
+      "toss_advantage_pct": 44.59,
+      "field_first_pct": 50.0
+    },
+    {
+      "season": 2013,
+      "season_matches": 76,
+      "field_first_decisions": 31,
+      "bat_first_decisions": 45,
+      "toss_winner_wins": 36,
+      "toss_advantage_pct": 47.37,
+      "field_first_pct": 40.79
+    },
+    {
+      "season": 2014,
+      "season_matches": 60,
+      "field_first_decisions": 41,
+      "bat_first_decisions": 19,
+      "toss_winner_wins": 30,
+      "toss_advantage_pct": 50.0,
+      "field_first_pct": 68.33
+    },
+    {
+      "season": 2015,
+      "season_matches": 57,
+      "field_first_decisions": 32,
+      "bat_first_decisions": 25,
+      "toss_winner_wins": 28,
+      "toss_advantage_pct": 49.12,
+      "field_first_pct": 56.14
+    },
+    {
+      "season": 2016,
+      "season_matches": 60,
+      "field_first_decisions": 49,
+      "bat_first_decisions": 11,
+      "toss_winner_wins": 34,
+      "toss_advantage_pct": 56.67,
+      "field_first_pct": 81.67
+    },
+    {
+      "season": 2017,
+      "season_matches": 59,
+      "field_first_decisions": 48,
+      "bat_first_decisions": 11,
+      "toss_winner_wins": 34,
+      "toss_advantage_pct": 57.63,
+      "field_first_pct": 81.36
+    },
+    {
+      "season": 2018,
+      "season_matches": 60,
+      "field_first_decisions": 50,
+      "bat_first_decisions": 10,
+      "toss_winner_wins": 32,
+      "toss_advantage_pct": 53.33,
+      "field_first_pct": 83.33
+    },
+    {
+      "season": 2019,
+      "season_matches": 59,
+      "field_first_decisions": 49,
+      "bat_first_decisions": 10,
+      "toss_winner_wins": 36,
+      "toss_advantage_pct": 61.02,
+      "field_first_pct": 83.05
+    },
+    {
+      "season": 2021,
+      "season_matches": 120,
+      "field_first_decisions": 77,
+      "bat_first_decisions": 43,
+      "toss_winner_wins": 60,
+      "toss_advantage_pct": 50.0,
+      "field_first_pct": 64.17
+    },
+    {
+      "season": 2022,
+      "season_matches": 74,
+      "field_first_decisions": 59,
+      "bat_first_decisions": 15,
+      "toss_winner_wins": 36,
+      "toss_advantage_pct": 48.65,
+      "field_first_pct": 79.73
+    },
+    {
+      "season": 2023,
+      "season_matches": 73,
+      "field_first_decisions": 52,
+      "bat_first_decisions": 21,
+      "toss_winner_wins": 34,
+      "toss_advantage_pct": 46.58,
+      "field_first_pct": 71.23
+    },
+    {
+      "season": 2024,
+      "season_matches": 71,
+      "field_first_decisions": 52,
+      "bat_first_decisions": 19,
+      "toss_winner_wins": 31,
+      "toss_advantage_pct": 43.66,
+      "field_first_pct": 73.24
+    },
+    {
+      "season": 2025,
+      "season_matches": 71,
+      "field_first_decisions": 59,
+      "bat_first_decisions": 12,
+      "toss_winner_wins": 43,
+      "toss_advantage_pct": 60.56,
+      "field_first_pct": 83.1
+    },
+    {
+      "season": 2026,
+      "season_matches": 73,
+      "field_first_decisions": 61,
+      "bat_first_decisions": 12,
+      "toss_winner_wins": 37,
+      "toss_advantage_pct": 50.68,
+      "field_first_pct": 83.56
+    }
+  ],
+  "venue_impact": [
+    {
+      "venue": "Eden Gardens",
+      "venue_matches": 77,
+      "toss_winner_wins": 43,
+      "field_and_won": 31,
+      "bat_and_won": 12,
+      "toss_win_pct": 55.84
+    },
+    {
+      "venue": "Wankhede Stadium",
+      "venue_matches": 73,
+      "toss_winner_wins": 37,
+      "field_and_won": 26,
+      "bat_and_won": 11,
+      "toss_win_pct": 50.68
+    },
+    {
+      "venue": "M Chinnaswamy Stadium",
+      "venue_matches": 63,
+      "toss_winner_wins": 35,
+      "field_and_won": 32,
+      "bat_and_won": 3,
+      "toss_win_pct": 55.56
+    },
+    {
+      "venue": "Wankhede Stadium, Mumbai",
+      "venue_matches": 59,
+      "toss_winner_wins": 32,
+      "field_and_won": 29,
+      "bat_and_won": 3,
+      "toss_win_pct": 54.24
+    },
+    {
+      "venue": "Feroz Shah Kotla",
+      "venue_matches": 59,
+      "toss_winner_wins": 31,
+      "field_and_won": 19,
+      "bat_and_won": 12,
+      "toss_win_pct": 52.54
+    },
+    {
+      "venue": "Rajiv Gandhi International Stadium, Uppal",
+      "venue_matches": 49,
+      "toss_winner_wins": 17,
+      "field_and_won": 12,
+      "bat_and_won": 5,
+      "toss_win_pct": 34.69
+    },
+    {
+      "venue": "MA Chidambaram Stadium, Chepauk",
+      "venue_matches": 48,
+      "toss_winner_wins": 25,
+      "field_and_won": 4,
+      "bat_and_won": 21,
+      "toss_win_pct": 52.08
+    },
+    {
+      "venue": "Sawai Mansingh Stadium",
+      "venue_matches": 47,
+      "toss_winner_wins": 25,
+      "field_and_won": 19,
+      "bat_and_won": 6,
+      "toss_win_pct": 53.19
+    },
+    {
+      "venue": "Dubai International Cricket Stadium",
+      "venue_matches": 46,
+      "toss_winner_wins": 18,
+      "field_and_won": 11,
+      "bat_and_won": 7,
+      "toss_win_pct": 39.13
+    },
+    {
+      "venue": "MA Chidambaram Stadium, Chepauk, Chennai",
+      "venue_matches": 41,
+      "toss_winner_wins": 20,
+      "field_and_won": 14,
+      "bat_and_won": 6,
+      "toss_win_pct": 48.78
+    },
+    {
+      "venue": "Narendra Modi Stadium, Ahmedabad",
+      "venue_matches": 41,
+      "toss_winner_wins": 19,
+      "field_and_won": 16,
+      "bat_and_won": 3,
+      "toss_win_pct": 46.34
+    },
+    {
+      "venue": "Punjab Cricket Association Stadium, Mohali",
+      "venue_matches": 35,
+      "toss_winner_wins": 16,
+      "field_and_won": 11,
+      "bat_and_won": 5,
+      "toss_win_pct": 45.71
+    },
+    {
+      "venue": "Arun Jaitley Stadium, Delhi",
+      "venue_matches": 30,
+      "toss_winner_wins": 15,
+      "field_and_won": 12,
+      "bat_and_won": 3,
+      "toss_win_pct": 50.0
+    },
+    {
+      "venue": "Sheikh Zayed Stadium",
+      "venue_matches": 29,
+      "toss_winner_wins": 15,
+      "field_and_won": 8,
+      "bat_and_won": 7,
+      "toss_win_pct": 51.72
+    },
+    {
+      "venue": "Sharjah Cricket Stadium",
+      "venue_matches": 28,
+      "toss_winner_wins": 16,
+      "field_and_won": 13,
+      "bat_and_won": 3,
+      "toss_win_pct": 57.14
+    },
+    {
+      "venue": "Eden Gardens, Kolkata",
+      "venue_matches": 28,
+      "toss_winner_wins": 10,
+      "field_and_won": 9,
+      "bat_and_won": 1,
+      "toss_win_pct": 35.71
+    },
+    {
+      "venue": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
+      "venue_matches": 28,
+      "toss_winner_wins": 18,
+      "field_and_won": 14,
+      "bat_and_won": 4,
+      "toss_win_pct": 64.29
+    },
+    {
+      "venue": "Rajiv Gandhi International Stadium, Uppal, Hyderabad",
+      "venue_matches": 25,
+      "toss_winner_wins": 12,
+      "field_and_won": 7,
+      "bat_and_won": 5,
+      "toss_win_pct": 48.0
+    },
+    {
+      "venue": "M Chinnaswamy Stadium, Bengaluru",
+      "venue_matches": 24,
+      "toss_winner_wins": 13,
+      "field_and_won": 13,
+      "bat_and_won": 0,
+      "toss_win_pct": 54.17
+    },
+    {
+      "venue": "Maharashtra Cricket Association Stadium",
+      "venue_matches": 22,
+      "toss_winner_wins": 14,
+      "field_and_won": 13,
+      "bat_and_won": 1,
+      "toss_win_pct": 63.64
+    },
+    {
+      "venue": "Sawai Mansingh Stadium, Jaipur",
+      "venue_matches": 21,
+      "toss_winner_wins": 13,
+      "field_and_won": 8,
+      "bat_and_won": 5,
+      "toss_win_pct": 61.9
+    },
+    {
+      "venue": "Dr DY Patil Sports Academy, Mumbai",
+      "venue_matches": 20,
+      "toss_winner_wins": 11,
+      "field_and_won": 9,
+      "bat_and_won": 2,
+      "toss_win_pct": 55.0
+    },
+    {
+      "venue": "Dr DY Patil Sports Academy",
+      "venue_matches": 17,
+      "toss_winner_wins": 9,
+      "field_and_won": 6,
+      "bat_and_won": 3,
+      "toss_win_pct": 52.94
+    },
+    {
+      "venue": "Brabourne Stadium, Mumbai",
+      "venue_matches": 17,
+      "toss_winner_wins": 8,
+      "field_and_won": 7,
+      "bat_and_won": 1,
+      "toss_win_pct": 47.06
+    },
+    {
+      "venue": "Subrata Roy Sahara Stadium",
+      "venue_matches": 16,
+      "toss_winner_wins": 9,
+      "field_and_won": 0,
+      "bat_and_won": 9,
+      "toss_win_pct": 56.25
+    },
+    {
+      "venue": "Kingsmead",
+      "venue_matches": 15,
+      "toss_winner_wins": 9,
+      "field_and_won": 3,
+      "bat_and_won": 6,
+      "toss_win_pct": 60.0
+    },
+    {
+      "venue": "Rajiv Gandhi International Stadium",
+      "venue_matches": 15,
+      "toss_winner_wins": 4,
+      "field_and_won": 3,
+      "bat_and_won": 1,
+      "toss_win_pct": 26.67
+    }
+  ]
+}
