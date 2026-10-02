@@ -99,7 +99,7 @@ export default function SeasonsPage() {
               Run-Rate Escalation (Runs Per Over)
             </h3>
             <span className="text-[10px] font-mono text-[#F5B942] bg-[rgba(245,185,66,0.1)] px-1.5 py-0.5 rounded border border-[rgba(245,185,66,0.2)]">
-              8.31 ➔ 9.88 RPO
+              8.31 -> 9.88 RPO
             </span>
           </div>
 

@@ -84,6 +84,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
+                prefetch={true}
                 className={`h-full flex items-center space-x-1 px-2.5 text-xs font-medium transition-colors ${
                   isActive
                     ? "text-[#F7F8FC] bg-[rgba(22,93,204,0.18)] border-b-2 border-[#F5B942]"
@@ -106,6 +107,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
+                prefetch={true}
                 className={`flex items-center space-x-1 px-2 py-1 rounded-btn text-xs font-medium transition-colors ${
                   isActive
                     ? "text-[#F7F8FC] bg-[rgba(22,93,204,0.25)] border border-[rgba(36,118,232,0.4)]"
@@ -120,6 +122,7 @@ export default function Navbar() {
 
           <Link
             href="/pipeline"
+            prefetch={true}
             className="flex items-center space-x-1.5 px-2.5 py-1 rounded-btn bg-[#0D1830] border border-[rgba(255,255,255,0.08)] text-xs hover:border-[rgba(245,185,66,0.3)] transition-colors"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#2FBF71]"></span>
@@ -137,6 +140,7 @@ export default function Navbar() {
             <Link
               key={item.href}
               href={item.href}
+              prefetch={true}
               className={`flex-shrink-0 flex items-center space-x-1 px-2 py-0.5 rounded-btn text-[11px] font-medium transition-colors ${
                 isActive
                   ? "bg-[rgba(22,93,204,0.22)] text-white border-b-2 border-[#F5B942]"

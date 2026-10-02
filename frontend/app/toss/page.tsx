@@ -85,7 +85,7 @@ export default function TossPage() {
             STATISTICAL FINDING (1,243 FIXTURES)
           </span>
           <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-            Toss Winner ➔ Match Winner
+            Toss Winner -> Match Winner
           </h2>
           <p className="text-xs text-[#A9B2C3] mt-1 max-w-xl leading-normal">
             Across 18 editions of the Indian Premier League, winning the toss yields only a marginal match-winning advantage over defending.
