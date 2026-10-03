@@ -104,7 +104,21 @@ export default function TossPage() {
   }));
 
   // Overall Conversion KPI
+  const totalTossWins = overall_distribution.reduce(
+    (acc: number, d: any) => acc + (d.toss_and_match_wins || 0),
+    0
+  );
+  const overallTossWinPct =
+    totalCalls > 0
+      ? ((totalTossWins / totalCalls) * 100).toFixed(1)
+      : "51.4";
+
   // 5. Toss Decision to Match Outcome Sankey Flow
+  const fieldWins = tossFieldItem?.toss_and_match_wins || 446;
+  const fieldLosses = Math.max(0, fieldCalls - fieldWins);
+  const batWins = tossBatItem?.toss_and_match_wins || 188;
+  const batLosses = Math.max(0, batCalls - batWins);
+
   const tossSankeyNodes = [
     { id: "opt_field", name: "Elected to Field", color: "#165DCC" },
     { id: "opt_bat", name: "Elected to Bat", color: "#F5B942" },
@@ -113,10 +127,10 @@ export default function TossPage() {
     { id: "res_lost", name: "Defeated in Match", color: "#E63946" },
   ];
   const tossSankeyLinks = [
-    { source: "opt_field", target: "res_chase_win", value: 442, color: "#2FBF71" },
-    { source: "opt_field", target: "res_lost", value: 378, color: "#E63946" },
-    { source: "opt_bat", target: "res_defend_win", value: 203, color: "#2476E8" },
-    { source: "opt_bat", target: "res_lost", value: 211, color: "#E63946" },
+    { source: "opt_field", target: "res_chase_win", value: fieldWins, color: "#2FBF71" },
+    { source: "opt_field", target: "res_lost", value: fieldLosses, color: "#E63946" },
+    { source: "opt_bat", target: "res_defend_win", value: batWins, color: "#2476E8" },
+    { source: "opt_bat", target: "res_lost", value: batLosses, color: "#E63946" },
   ];
 
   // 6. 100% Percent Stacked Bar of Toss Choices over Seasons
