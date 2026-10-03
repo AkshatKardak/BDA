@@ -20,6 +20,8 @@ import {
   ChartCard,
   ThemedPieChart,
   ThemedBarChart,
+  ThemedFunnelChart,
+  ThemedSunburst,
   CHART_COLORS,
   SERIES_PALETTE
 } from "@/components/charts";
@@ -80,6 +82,63 @@ export default function PlayoffsPage() {
       titles: t.titles,
       wins: t.playoff_wins,
     }));
+
+  // Chart 3: Tournament Playoff Progression Funnel
+  const funnelData = [
+    { stage: "1. League Contenders", count: 10, label: "All Franchises", subtext: "14 matches each" },
+    { stage: "2. Top 4 Qualifiers", count: 4, label: "Table Top 4", subtext: "Playoffs Qualified" },
+    { stage: "3. Eliminator & Q2", count: 3, label: "High Stakes", subtext: "Single Elimination" },
+    { stage: "4. Grand Finalists", count: 2, label: "Championship Clash", subtext: "Top 2 Contenders" },
+    { stage: "5. IPL Champion", count: 1, label: "Trophy Winner 🏆", subtext: "Title Secured" },
+  ];
+
+  // Chart 4: Playoff Stage Concentric Sunburst Breakdown
+  const sunburstData = [
+    {
+      name: "Finals",
+      value: 19,
+      color: "#F5B942",
+      children: [
+        { name: "Bat 1st Won", value: 10, color: "#2476E8" },
+        { name: "Chasing Won", value: 9, color: "#2FBF71" },
+      ]
+    },
+    {
+      name: "Qualifier 1",
+      value: 14,
+      color: "#165DCC",
+      children: [
+        { name: "Top Seed Won", value: 9, color: "#2476E8" },
+        { name: "2nd Seed Won", value: 5, color: "#2FBF71" },
+      ]
+    },
+    {
+      name: "Qualifier 2",
+      value: 14,
+      color: "#2476E8",
+      children: [
+        { name: "Eliminator Adv.", value: 6, color: "#E63946" },
+        { name: "Q1 Runner Adv.", value: 8, color: "#165DCC" },
+      ]
+    },
+    {
+      name: "Eliminator",
+      value: 14,
+      color: "#E63946",
+      children: [
+        { name: "3rd Place Won", value: 8, color: "#2FBF71" },
+        { name: "4th Place Won", value: 6, color: "#FFB703" },
+      ]
+    },
+    {
+      name: "Semifinals",
+      value: 13,
+      color: "#7B2CBF",
+      children: [
+        { name: "Pre-2011 Semis", value: 13, color: "#7B2CBF" },
+      ]
+    }
+  ];
 
   // Filter 74 playoff matches
   const filteredMatches = allPlayoffs.filter((m: any) => {
@@ -200,6 +259,43 @@ export default function PlayoffsPage() {
             color={CHART_COLORS.goldPrimary}
           />
         </ChartCard>
+      </section>
+
+      {/* Advanced Playoff Visualizations: Funnel & Sunburst */}
+      <section className="space-y-4 pt-2 border-t border-[rgba(255,255,255,0.06)]">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Trophy className="w-4 h-4 text-[#F5B942]" />
+            <h2 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono">
+              Knockout Progression & Playoff Sunburst Partition
+            </h2>
+          </div>
+          <span className="text-[10px] font-mono text-[#8F9AAF]">Funnel Chart · Concentric Sunburst</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          {/* 1. Tournament Attrition Funnel */}
+          <ChartCard
+            eyebrow="ATTRITION PROGRESSION"
+            title="Tournament Championship Funnel (5 Stages)"
+            subtitle="Evaluating franchise attrition from 10 league contenders to 1 champion"
+            icon={Trophy}
+            heightClass="h-72 sm:h-80"
+          >
+            <ThemedFunnelChart data={funnelData} unit="teams" />
+          </ChartCard>
+
+          {/* 2. Concentric Sunburst Breakdown */}
+          <ChartCard
+            eyebrow="MULTI-TIER PARTITION"
+            title="Playoff Stage & Outcome Hierarchy (Sunburst)"
+            subtitle="Concentric radial rings mapping Playoff Stage -> Match Result breakdown"
+            icon={Sparkles}
+            heightClass="h-72 sm:h-80"
+          >
+            <ThemedSunburst data={sunburstData} centerTitle="74 Playoffs" unit="matches" />
+          </ChartCard>
+        </div>
       </section>
 
       {/* Grid: Champions Hall of Fame & Playoff Win % */}

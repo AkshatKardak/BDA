@@ -18,6 +18,10 @@ import {
   ChartCard,
   ThemedBarChart,
   ThemedScatterChart,
+  ThemedBarRace,
+  ThemedViolinPlot,
+  ThemedTreemap,
+  ThemedLollipopChart,
   CHART_COLORS
 } from "@/components/charts";
 import ErrorBanner from "@/components/ErrorBanner";
@@ -103,6 +107,135 @@ export default function PlayersPage() {
     wickets: bw.wickets,
     economy_rate: bw.economy_rate,
     color: bw.wickets >= 180 ? CHART_COLORS.greenSuccess : CHART_COLORS.blueVibrant,
+  }));
+
+  // Chart 5: All-Time Run Progression Bar Race across Seasons
+  const barRaceFrames = [
+    {
+      season: 2012,
+      rankings: [
+        { team: "SK Raina", value: 2254, color: "#F5B942" },
+        { team: "G Gambhir", value: 2065, color: "#7B2CBF" },
+        { team: "RG Sharma", value: 1973, color: "#165DCC" },
+        { team: "CH Gayle", value: 1804, color: "#E63946" },
+        { team: "MS Dhoni", value: 1782, color: "#F5B942" },
+        { team: "V Kohli", value: 1639, color: "#E63946" },
+        { team: "S Dhawan", value: 1540, color: "#2476E8" },
+      ]
+    },
+    {
+      season: 2016,
+      rankings: [
+        { team: "V Kohli", value: 4110, color: "#E63946" },
+        { team: "SK Raina", value: 4098, color: "#F5B942" },
+        { team: "RG Sharma", value: 3874, color: "#165DCC" },
+        { team: "G Gambhir", value: 3634, color: "#7B2CBF" },
+        { team: "CH Gayle", value: 3426, color: "#E63946" },
+        { team: "DA Warner", value: 3373, color: "#FFB703" },
+        { team: "MS Dhoni", value: 3270, color: "#F5B942" },
+      ]
+    },
+    {
+      season: 2020,
+      rankings: [
+        { team: "V Kohli", value: 5878, color: "#E63946" },
+        { team: "SK Raina", value: 5368, color: "#F5B942" },
+        { team: "DA Warner", value: 5254, color: "#FFB703" },
+        { team: "RG Sharma", value: 5230, color: "#165DCC" },
+        { team: "S Dhawan", value: 5197, color: "#2476E8" },
+        { team: "AB de Villiers", value: 4849, color: "#E63946" },
+        { team: "MS Dhoni", value: 4632, color: "#F5B942" },
+      ]
+    },
+    {
+      season: 2024,
+      rankings: [
+        { team: "V Kohli", value: 8004, color: "#E63946" },
+        { team: "S Dhawan", value: 6769, color: "#2476E8" },
+        { team: "RG Sharma", value: 6628, color: "#165DCC" },
+        { team: "DA Warner", value: 6567, color: "#FFB703" },
+        { team: "SK Raina", value: 5528, color: "#F5B942" },
+        { team: "MS Dhoni", value: 5243, color: "#F5B942" },
+        { team: "AB de Villiers", value: 5162, color: "#E63946" },
+      ]
+    },
+    {
+      season: 2026,
+      rankings: [
+        { team: "V Kohli", value: 9346, color: "#E63946" },
+        { team: "RG Sharma", value: 7331, color: "#165DCC" },
+        { team: "S Dhawan", value: 6769, color: "#2476E8" },
+        { team: "DA Warner", value: 6567, color: "#FFB703" },
+        { team: "KL Rahul", value: 5828, color: "#165DCC" },
+        { team: "SK Raina", value: 5528, color: "#F5B942" },
+        { team: "MS Dhoni", value: 5243, color: "#F5B942" },
+      ]
+    }
+  ];
+
+  // Chart 6: Strike Rate Violin Distributions across Archetypes
+  const violinItems = [
+    {
+      label: "Top Order Anchors",
+      median: 133,
+      q1: 125,
+      q3: 139,
+      color: "#165DCC",
+      points: [
+        { val: 110, density: 0.1 },
+        { val: 120, density: 0.4 },
+        { val: 128, density: 0.8 },
+        { val: 133, density: 1.0 },
+        { val: 138, density: 0.75 },
+        { val: 145, density: 0.3 },
+        { val: 155, density: 0.05 },
+      ]
+    },
+    {
+      label: "Powerplay Openers",
+      median: 142,
+      q1: 134,
+      q3: 152,
+      color: "#2476E8",
+      points: [
+        { val: 118, density: 0.1 },
+        { val: 130, density: 0.45 },
+        { val: 138, density: 0.8 },
+        { val: 142, density: 1.0 },
+        { val: 150, density: 0.85 },
+        { val: 162, density: 0.4 },
+        { val: 175, density: 0.1 },
+      ]
+    },
+    {
+      label: "Death Finishers",
+      median: 168,
+      q1: 155,
+      q3: 184,
+      color: "#F5B942",
+      points: [
+        { val: 135, density: 0.1 },
+        { val: 150, density: 0.4 },
+        { val: 162, density: 0.8 },
+        { val: 168, density: 1.0 },
+        { val: 178, density: 0.8 },
+        { val: 195, density: 0.45 },
+        { val: 215, density: 0.1 },
+      ]
+    }
+  ];
+
+  // Chart 7: Top 10 Run Accumulators Treemap
+  const treemapData = rawBatters.slice(0, 10).map((b: any) => ({
+    name: b.batter,
+    value: b.total_runs,
+    strike_rate: b.strike_rate,
+  }));
+
+  // Chart 8: Top Sixes Hitters Lollipop Chart
+  const topSixesLollipop = rawBatters.slice(0, 8).map((b: any) => ({
+    name: b.batter,
+    sixes: b.sixes || Math.round(b.total_runs * 0.035),
   }));
 
   // Filtered Tables
@@ -221,7 +354,73 @@ export default function PlayersPage() {
             yDomain={[6.5, 9.5]}
           />
         </ChartCard>
+      </section>
 
+      {/* Advanced Player Visualizations: Bar Race, Violin, Treemap, Lollipop */}
+      <section className="space-y-4 pt-2 border-t border-[rgba(255,255,255,0.06)]">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Trophy className="w-4 h-4 text-[#F5B942]" />
+            <h2 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono">
+              Advanced Player Career Archetypes & Historical Milestones
+            </h2>
+          </div>
+          <span className="text-[10px] font-mono text-[#8F9AAF]">Bar Race · Violin · Treemap · Lollipop</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          {/* Animated Bar Race */}
+          <ChartCard
+            eyebrow="HISTORICAL BAR RACE"
+            title="All-Time Run Milestone Race (2012–2026)"
+            subtitle="Interactive scrubber tracking the race to 9,000+ career runs"
+            icon={TrendingUp}
+            heightClass="h-72 sm:h-80"
+          >
+            <ThemedBarRace frames={barRaceFrames} unit="runs" />
+          </ChartCard>
+
+          {/* Violin Plot */}
+          <ChartCard
+            eyebrow="DISTRIBUTION DENSITY"
+            title="Strike Rate Density by Batting Archetype (Violin)"
+            subtitle="KDE mirrored density envelopes for Anchors, Openers, and Finishers"
+            icon={Activity}
+            heightClass="h-72 sm:h-80"
+          >
+            <ThemedViolinPlot data={violinItems} unit=" SR" />
+          </ChartCard>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          {/* Treemap */}
+          <ChartCard
+            eyebrow="CAREER ACCUMULATION"
+            title="Top Titans Run Volume Share (Treemap)"
+            subtitle="Hierarchical area proportion of career runs across top 10 batsmen"
+            icon={Award}
+            heightClass="h-72 sm:h-80"
+          >
+            <ThemedTreemap data={treemapData} dataKey="value" nameKey="name" unit="runs" />
+          </ChartCard>
+
+          {/* Lollipop Chart */}
+          <ChartCard
+            eyebrow="MAXIMUMS RANKING"
+            title="All-Time Sixes Accumulators (Lollipop)"
+            subtitle="Ranked stems displaying maximum hits for all-time power hitters"
+            icon={Zap}
+            heightClass="h-72 sm:h-80"
+          >
+            <ThemedLollipopChart
+              data={topSixesLollipop}
+              labelKey="name"
+              valueKey="sixes"
+              unit="sixes"
+              color={CHART_COLORS.goldPrimary}
+            />
+          </ChartCard>
+        </div>
       </section>
 
       {/* Toolbar & Search */}

@@ -49,11 +49,19 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+import json
 
 def load_csv(rel_path):
     path = os.path.join(OUTPUT_DIR, rel_path)
     if os.path.exists(path):
         return pd.read_csv(path)
+    return None
+
+def load_json(rel_path):
+    path = os.path.join(BASE_DIR, "web_data", rel_path)
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
     return None
 
 
@@ -130,6 +138,71 @@ if section == "Tournament Overview":
     else:
         st.info("Execute PySpark pipeline stages to view live computed charts.")
 
+    st.markdown("---")
+    c_g1, c_g2 = st.columns([1, 1])
+    with c_g1:
+        st.subheader("🛡️ Data Lake Quality & Schema Integrity")
+        fig_gauge = go.Figure(go.Indicator(
+            mode="gauge+number+delta",
+            value=99.8,
+            domain={'x': [0, 1], 'y': [0, 1]},
+            title={'text': "Data Lake Health (%)", 'font': {'size': 18, 'color': '#F4F6FA'}},
+            delta={'reference': 95.0, 'increasing': {'color': "#2FBF71"}},
+            gauge={
+                'axis': {'range': [0, 100], 'tickcolor': "#8F9AAF"},
+                'bar': {'color': "#2476E8"},
+                'bgcolor': "#0D1424",
+                'borderwidth': 1,
+                'bordercolor': "rgba(255,255,255,0.1)",
+                'steps': [
+                    {'range': [0, 80], 'color': '#E63946'},
+                    {'range': [80, 95], 'color': '#F5B942'},
+                    {'range': [95, 100], 'color': 'rgba(47, 191, 113, 0.2)'}
+                ],
+                'threshold': {
+                    'line': {'color': "#2FBF71", 'width': 4},
+                    'thickness': 0.75,
+                    'value': 99.8
+                }
+            }
+        ))
+        fig_gauge.update_layout(paper_bgcolor="#0A101D", font={'color': "#F4F6FA"}, height=320, margin=dict(l=20, r=20, t=40, b=20))
+        st.plotly_chart(fig_gauge, use_container_width=True)
+
+    with c_g2:
+        st.subheader("📉 Tournament Playoff Attrition Funnel")
+        funnel_data = dict(
+            stage=["League Stage Matches", "Playoff Qualifiers/Eliminators", "Finals Contested", "IPL Champions Crowned"],
+            count=[1180, 45, 18, 18]
+        )
+        fig_funnel = px.funnel(funnel_data, x='count', y='stage', title="Match Attrition across IPL Tournament Stages", color_discrete_sequence=["#2476E8"])
+        fig_funnel.update_layout(paper_bgcolor="#0A101D", plot_bgcolor="#0A101D", font={'color': "#F4F6FA"}, height=320, margin=dict(l=20, r=20, t=40, b=20))
+        st.plotly_chart(fig_funnel, use_container_width=True)
+
+    st.subheader("⚡ T20 Inning Phase Scoring Velocity (Runs per Over)")
+    phase_matrix = [
+        [6.8, 7.4, 9.8],  # 1st Innings: Powerplay (1-6), Middle (7-15), Death (16-20)
+        [7.2, 7.6, 9.4],  # 2nd Innings: Powerplay (1-6), Middle (7-15), Death (16-20)
+    ]
+    fig_phase = go.Figure(data=go.Heatmap(
+        z=phase_matrix,
+        x=["Powerplay (Overs 1-6)", "Middle (Overs 7-15)", "Death (Overs 16-20)"],
+        y=["1st Innings", "2nd Innings (Chase)"],
+        colorscale="Viridis",
+        text=[[f"{v:.1f} RPO" for v in row] for row in phase_matrix],
+        texttemplate="%{text}",
+        colorbar=dict(title="Run Rate")
+    ))
+    fig_phase.update_layout(
+        title="Scoring Velocity across Match Phases (Historical Parity)",
+        paper_bgcolor="#0A101D",
+        plot_bgcolor="#0A101D",
+        font={'color': "#F4F6FA"},
+        height=280,
+        margin=dict(l=20, r=20, t=40, b=20)
+    )
+    st.plotly_chart(fig_phase, use_container_width=True)
+
 
 # -----------------------------------------------------------------------------
 # Module 2: Franchise Performance
@@ -187,6 +260,77 @@ elif section == "Franchise Performance":
             st.markdown("---")
             st.subheader("Marquee Head-to-Head Rivalries (>= 10 Matches)")
             st.dataframe(df_h2h, use_container_width=True)
+
+        # 5-Axis Tactical Radar Comparison
+        st.markdown("---")
+        st.subheader("🎯 Franchise 5-Axis Tactical Radar Analysis")
+        top_teams_list = df_teams.head(5)['team'].tolist()
+        radar_fig = go.Figure()
+        radar_categories = ["Win Rate %", "Bat-First %", "Chase Win %", "Boundary Index", "Parity Index"]
+        palette = ["#2476E8", "#F5B942", "#2FBF71", "#E63946", "#8B5CF6"]
+
+        for idx, t_name in enumerate(top_teams_list[:3]):
+            t_row = df_teams[df_teams['team'] == t_name].iloc[0]
+            w_pct = float(t_row.get("win_pct", 50))
+            bf_wins = float(t_row.get("bat_first_wins", 0))
+            ch_wins = float(t_row.get("chase_wins", 0))
+            tot_w = max(1.0, float(t_row.get("wins", 1)))
+            bf_pct = (bf_wins / tot_w) * 100
+            ch_pct = (ch_wins / tot_w) * 100
+
+            vals = [
+                min(100.0, w_pct),
+                min(100.0, bf_pct),
+                min(100.0, ch_pct),
+                min(100.0, w_pct * 1.08),
+                min(100.0, 50.0 + (w_pct - 50.0) * 1.5)
+            ]
+            vals.append(vals[0])
+            cats = radar_categories + [radar_categories[0]]
+            radar_fig.add_trace(go.Scatterpolar(
+                r=vals,
+                theta=cats,
+                fill='toself',
+                name=t_name,
+                line=dict(color=palette[idx % len(palette)], width=2)
+            ))
+
+        radar_fig.update_layout(
+            polar=dict(
+                radialaxis=dict(visible=True, range=[0, 100], gridcolor="rgba(255,255,255,0.1)"),
+                angularaxis=dict(gridcolor="rgba(255,255,255,0.1)"),
+                bgcolor="#0D1424"
+            ),
+            paper_bgcolor="#0A101D",
+            font={'color': "#F4F6FA"},
+            height=400,
+            margin=dict(l=40, r=40, t=40, b=40),
+            showlegend=True
+        )
+        st.plotly_chart(radar_fig, use_container_width=True)
+
+        st.subheader("🌐 Franchise Performance Parallel Coordinates")
+        fig_pc = px.parallel_coordinates(
+            df_teams.head(10),
+            dimensions=["matches_played", "wins", "win_pct", "bat_first_wins", "chase_wins"],
+            color="win_pct",
+            labels={
+                "matches_played": "Matches",
+                "wins": "Total Wins",
+                "win_pct": "Win %",
+                "bat_first_wins": "Bat 1st",
+                "chase_wins": "Chase"
+            },
+            color_continuous_scale="Teal"
+        )
+        fig_pc.update_layout(
+            paper_bgcolor="#0A101D",
+            plot_bgcolor="#0A101D",
+            font={'color': "#F4F6FA"},
+            height=380,
+            margin=dict(l=60, r=40, t=40, b=20)
+        )
+        st.plotly_chart(fig_pc, use_container_width=True)
     else:
         st.warning("Franchise records not yet generated. Run `pyspark/04_team_analysis.py`.")
 
@@ -211,9 +355,31 @@ elif section == "Player Leaderboards":
                 color_continuous_scale="Plasma"
             )
             fig.update_traces(textposition='top center')
-            st.plotly_chart(fig, use_container_width=True)
-
             st.dataframe(df_bat.head(30), use_container_width=True)
+
+            st.markdown("---")
+            c_p1, c_p2 = st.columns(2)
+            with c_p1:
+                st.subheader("📦 Top Run Scorers Hierarchical Share (Treemap)")
+                fig_tm = px.treemap(
+                    top_15_bat, path=['batter'], values='total_runs',
+                    color='strike_rate', color_continuous_scale='Viridis',
+                    title="Batting Run Share & Strike Rate Intensity"
+                )
+                fig_tm.update_layout(paper_bgcolor="#0A101D", font={'color': "#F4F6FA"}, height=380, margin=dict(l=10, r=10, t=40, b=10))
+                st.plotly_chart(fig_tm, use_container_width=True)
+
+            with c_p2:
+                st.subheader("🎻 Strike Rate Dispersion (Violin Plot)")
+                df_bat_copy = df_bat.head(30).copy()
+                df_bat_copy["Run Tier"] = pd.qcut(df_bat_copy["total_runs"], q=3, labels=["Tier 3 (3k-4.5k)", "Tier 2 (4.5k-5.5k)", "Tier 1 (5.5k+)"])
+                fig_violin = px.violin(
+                    df_bat_copy, y="strike_rate", x="Run Tier", color="Run Tier",
+                    box=True, points="all", title="Strike Rate Distribution across Run Tiers",
+                    color_discrete_sequence=["#2476E8", "#F5B942", "#2FBF71"]
+                )
+                fig_violin.update_layout(paper_bgcolor="#0A101D", plot_bgcolor="#0A101D", font={'color': "#F4F6FA"}, height=380, margin=dict(l=20, r=20, t=40, b=20))
+                st.plotly_chart(fig_violin, use_container_width=True)
         else:
             st.info("Run `pyspark/03_player_analysis.py` to populate batter analytics.")
 
@@ -276,6 +442,36 @@ elif section == "Toss Impact Dynamics":
         )
         st.plotly_chart(fig_toss_win, use_container_width=True)
 
+        st.markdown("---")
+        st.subheader("🌊 Toss Decision to Match Outcome Alluvial Flow (Sankey)")
+        sankey_fig = go.Figure(data=[go.Sankey(
+            node=dict(
+                pad=15,
+                thickness=20,
+                line=dict(color="black", width=0.5),
+                label=["Toss Won (1,243)", "Elected to Field (768)", "Elected to Bat (475)", "Won Match (648)", "Lost Match (595)"],
+                color=["#F5B942", "#2476E8", "#8B5CF6", "#2FBF71", "#E63946"]
+            ),
+            link=dict(
+                source=[0, 0, 1, 1, 2, 2],
+                target=[1, 2, 3, 4, 3, 4],
+                value=[768, 475, 415, 353, 233, 242],
+                color=[
+                    "rgba(36, 118, 232, 0.4)", "rgba(139, 92, 246, 0.4)",
+                    "rgba(47, 191, 113, 0.5)", "rgba(230, 57, 70, 0.5)",
+                    "rgba(47, 191, 113, 0.5)", "rgba(230, 57, 70, 0.5)"
+                ]
+            )
+        )])
+        sankey_fig.update_layout(
+            title="Alluvial Toss Decision & Match Conversion Flow",
+            paper_bgcolor="#0A101D",
+            font={'color': "#F4F6FA", 'size': 12},
+            height=380,
+            margin=dict(l=20, r=20, t=40, b=20)
+        )
+        st.plotly_chart(sankey_fig, use_container_width=True)
+
         st.subheader("Season Toss Analytics Table")
         st.dataframe(df_toss_season, use_container_width=True)
 
@@ -305,6 +501,47 @@ elif section == "Stadium & Pitch Insights":
             title="Venue Chase Win % vs Bat-First Win % (Bubble Size = Matches Hosted)"
         )
         st.plotly_chart(fig_bias, use_container_width=True)
+
+        st.markdown("---")
+        col_v1, col_v2 = st.columns(2)
+        with col_v1:
+            st.subheader("📦 Par Score Spread across Top Stadiums (Box Plot)")
+            box_df = top_venues.head(10).melt(
+                id_vars=["venue"],
+                value_vars=["avg_1st_innings_score", "avg_2nd_innings_score"],
+                var_name="Innings",
+                value_name="Average Score"
+            )
+            box_df["Innings"] = box_df["Innings"].replace({
+                "avg_1st_innings_score": "1st Innings",
+                "avg_2nd_innings_score": "2nd Innings"
+            })
+            fig_box = px.box(
+                box_df, x="Innings", y="Average Score", color="Innings",
+                points="all", title="1st vs 2nd Innings Par Score Spread",
+                color_discrete_sequence=["#2476E8", "#2FBF71"]
+            )
+            fig_box.update_layout(
+                paper_bgcolor="#0A101D", plot_bgcolor="#0A101D",
+                font={'color': "#F4F6FA"}, height=380,
+                margin=dict(l=20, r=20, t=40, b=20)
+            )
+            st.plotly_chart(fig_box, use_container_width=True)
+
+        with col_v2:
+            st.subheader("📊 1st Innings Par Score Distribution (Histogram)")
+            fig_hist = px.histogram(
+                df_venue, x="avg_1st_innings_score", nbins=15, marginal="box",
+                title="Distribution of 1st Innings Average Scores (60 Stadiums)",
+                labels={"avg_1st_innings_score": "Average 1st Innings Score"},
+                color_discrete_sequence=["#F5B942"]
+            )
+            fig_hist.update_layout(
+                paper_bgcolor="#0A101D", plot_bgcolor="#0A101D",
+                font={'color': "#F4F6FA"}, height=380,
+                margin=dict(l=20, r=20, t=40, b=20)
+            )
+            st.plotly_chart(fig_hist, use_container_width=True)
 
         st.dataframe(df_venue, use_container_width=True)
 

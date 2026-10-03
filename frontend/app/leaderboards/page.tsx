@@ -16,6 +16,8 @@ import { api } from "@/lib/api";
 import {
   ChartCard,
   ThemedBarChart,
+  ThemedLollipopChart,
+  ThemedHorizontalBarChart,
   CHART_COLORS
 } from "@/components/charts";
 import ErrorBanner from "@/components/ErrorBanner";
@@ -55,15 +57,28 @@ export default function LeaderboardsPage() {
   const { most_runs, most_wickets, highest_strike_rate, best_economy, most_sixes, most_fours } = data || {};
 
   // Top Batters Horizontal Bar Data
+  // Top Batters Lollipop Data
   const topBattersBarData = (most_runs || []).slice(0, 8).map((b: any) => ({
     name: b.batter,
     runs: b.total_runs,
   }));
 
-  // Top Bowlers Horizontal Bar Data
+  // Top Bowlers Lollipop Data
   const topBowlersBarData = (most_wickets || []).slice(0, 8).map((bw: any) => ({
     name: bw.bowler,
     wickets: bw.wickets,
+  }));
+
+  // Top Sixes Data
+  const topSixesBarData = (most_sixes || []).slice(0, 8).map((b: any) => ({
+    name: b.batter,
+    sixes: b.sixes,
+  }));
+
+  // Top Fours Data
+  const topFoursBarData = (most_fours || []).slice(0, 8).map((b: any) => ({
+    name: b.batter,
+    fours: b.fours,
   }));
 
   return (
@@ -85,21 +100,19 @@ export default function LeaderboardsPage() {
 
       {error && <ErrorBanner message={error} onRetry={loadData} />}
 
-      {/* Visual Analytics: Horizontal Bar Charts for Top Batters & Bowlers */}
+      {/* Visual Analytics 1: Lollipop Charts for Leading Run Scorers & Wicket Takers */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
         <ChartCard
           eyebrow="RUN ACCUMULATION"
-          title="All-Time Leading Run Scorers"
-          subtitle="Top 8 IPL batters ranked by career runs"
+          title="All-Time Leading Run Scorers (Lollipop)"
+          subtitle="Top 8 IPL batters ranked by career runs with stem markers"
           icon={Award}
           heightClass="h-64 sm:h-72"
         >
-          <ThemedBarChart
+          <ThemedLollipopChart
             data={topBattersBarData}
-            xKey="name"
-            yKey="runs"
-            barName="Career Runs"
-            horizontal={true}
+            labelKey="name"
+            valueKey="runs"
             color={CHART_COLORS.goldPrimary}
             unit="runs"
           />
@@ -107,19 +120,54 @@ export default function LeaderboardsPage() {
 
         <ChartCard
           eyebrow="BOWLING AGGREGATE"
-          title="All-Time Leading Wicket Takers"
-          subtitle="Top 8 IPL bowlers ranked by career wickets"
+          title="All-Time Leading Wicket Takers (Lollipop)"
+          subtitle="Top 8 IPL bowlers ranked by career wickets with stem markers"
           icon={Target}
           heightClass="h-64 sm:h-72"
         >
-          <ThemedBarChart
+          <ThemedLollipopChart
             data={topBowlersBarData}
-            xKey="name"
-            yKey="wickets"
-            barName="Career Wickets"
-            horizontal={true}
+            labelKey="name"
+            valueKey="wickets"
             color={CHART_COLORS.blueVibrant}
             unit="wkts"
+          />
+        </ChartCard>
+      </section>
+
+      {/* Visual Analytics 2: Boundary Supremacy Horizontal Bar Charts */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        <ChartCard
+          eyebrow="MAXIMUMS POWER"
+          title="All-Time Sixes Accumulators (Horizontal Bar)"
+          subtitle="Top 8 IPL power hitters ranked by total career sixes"
+          icon={Flame}
+          heightClass="h-64 sm:h-72"
+        >
+          <ThemedHorizontalBarChart
+            data={topSixesBarData}
+            xKey="sixes"
+            yKey="name"
+            barName="Career Sixes"
+            color={CHART_COLORS.goldPrimary}
+            unit="sixes"
+          />
+        </ChartCard>
+
+        <ChartCard
+          eyebrow="BOUNDARY FOURS"
+          title="All-Time Fours Accumulators (Horizontal Bar)"
+          subtitle="Top 8 IPL boundary strikers ranked by total career fours"
+          icon={Zap}
+          heightClass="h-64 sm:h-72"
+        >
+          <ThemedHorizontalBarChart
+            data={topFoursBarData}
+            xKey="fours"
+            yKey="name"
+            barName="Career Fours"
+            color={CHART_COLORS.blueLight}
+            unit="fours"
           />
         </ChartCard>
       </section>

@@ -1,5 +1,6 @@
 import React from "react";
 import { LucideIcon } from "lucide-react";
+import Sparkline from "./charts/Sparkline";
 
 interface StatCardProps {
   label: string;
@@ -8,6 +9,8 @@ interface StatCardProps {
   icon: LucideIcon;
   accent?: "gold" | "blue" | "white";
   trend?: string;
+  sparklineData?: number[];
+  sparklineColor?: string;
 }
 
 export default function StatCard({
@@ -17,17 +20,26 @@ export default function StatCard({
   icon: Icon,
   accent = "gold",
   trend,
+  sparklineData,
+  sparklineColor = "#2FBF71",
 }: StatCardProps) {
   return (
     <div className="relative overflow-hidden rounded-card bg-[#0D1424] p-3 sm:p-3.5 border border-[rgba(255,255,255,0.08)] shadow-[0_4px_16px_rgba(0,0,0,0.12)] transition-all duration-150 hover:border-[rgba(36,118,232,0.3)]">
       <div className="flex items-start justify-between">
-        <div className="min-w-0 pr-1.5">
+        <div className="min-w-0 pr-1.5 flex-1">
           <p className="text-[10px] font-semibold text-[#707B91] uppercase tracking-wider truncate">
             {label}
           </p>
-          <h3 className="mt-1 text-lg sm:text-xl font-bold tracking-tight text-[#F4F6FA] font-sans">
-            {typeof value === "number" ? value.toLocaleString() : value}
-          </h3>
+          <div className="flex items-baseline gap-2 mt-1">
+            <h3 className="text-lg sm:text-xl font-bold tracking-tight text-[#F4F6FA] font-sans">
+              {typeof value === "number" ? value.toLocaleString() : value}
+            </h3>
+            {sparklineData && sparklineData.length > 1 && (
+              <div className="ml-auto pr-2">
+                <Sparkline data={sparklineData} color={sparklineColor} width={56} height={20} />
+              </div>
+            )}
+          </div>
           {subtitle && (
             <p className="mt-0.5 text-[11px] text-[#8F9AAF] truncate">{subtitle}</p>
           )}

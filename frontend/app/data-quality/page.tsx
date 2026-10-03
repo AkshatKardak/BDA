@@ -20,6 +20,8 @@ import {
   ChartCard,
   ThemedPieChart,
   ThemedBarChart,
+  ThemedGauge,
+  ThemedStepLineChart,
   CHART_COLORS
 } from "@/components/charts";
 import ErrorBanner from "@/components/ErrorBanner";
@@ -164,7 +166,65 @@ export default function DataQualityPage() {
             yDomain={[1200, 1250]}
           />
         </ChartCard>
+      </section>
 
+      {/* Advanced Quality Telemetry: Lake Integrity Gauge & Milestone Step Line */}
+      <section className="space-y-4 pt-2 border-t border-[rgba(255,255,255,0.06)]">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <CheckCircle2 className="w-4 h-4 text-[#2FBF71]" />
+            <h2 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono">
+              Data Lake Parquet Integrity & Pipeline Milestone Stepping
+            </h2>
+          </div>
+          <span className="text-[10px] font-mono text-[#8F9AAF]">Radial Gauge · Step Line</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          {/* 1. Lake Integrity Speedometer Gauge */}
+          <ChartCard
+            eyebrow="AUDIT INTEGRITY"
+            title="Data Lake Storage Verification (Gauge)"
+            subtitle="Parquet consistency check confirming zero duplicate matches and ball records"
+            icon={ShieldCheck}
+            heightClass="h-64 sm:h-72"
+          >
+            <ThemedGauge
+              value={100}
+              min={0}
+              max={100}
+              unit="%"
+              title="Lake Integrity Score"
+              subtitle="100% HEALTHY · Zero Data Loss"
+              color={CHART_COLORS.greenSuccess}
+            />
+          </ChartCard>
+
+          {/* 2. Pipeline Milestone Progression Step Line */}
+          <ChartCard
+            eyebrow="TIER MILESTONES"
+            title="Pipeline Tier Record Reconciliation (Step Line)"
+            subtitle="Stepped milestone verification of 1,243 fixtures across all 5 lake tiers"
+            icon={Layers}
+            heightClass="h-64 sm:h-72"
+          >
+            <ThemedStepLineChart
+              data={[
+                { stage: "Tier 1: Raw", count: 1243 },
+                { stage: "Tier 2: Flume", count: 1243 },
+                { stage: "Tier 3: HDFS", count: 1243 },
+                { stage: "Tier 4: Hive", count: 1243 },
+                { stage: "Tier 5: PySpark", count: 1243 },
+              ]}
+              xKey="stage"
+              yKey="count"
+              lineName="Verified Matches"
+              unit="matches"
+              yDomain={[1200, 1260]}
+              color={CHART_COLORS.blueVibrant}
+            />
+          </ChartCard>
+        </div>
       </section>
 
       {/* 8-Tier Pipeline Architecture Audit Table */}

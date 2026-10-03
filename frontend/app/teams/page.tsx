@@ -18,6 +18,11 @@ import {
   ThemedGroupedBarChart,
   ThemedLineChart,
   ThemedPieChart,
+  ThemedDivergingBarChart,
+  ThemedRadarChart,
+  ThemedParallelCoordinates,
+  ThemedChordChart,
+  ThemedBulletChart,
   CHART_COLORS,
   SERIES_PALETTE
 } from "@/components/charts";
@@ -146,6 +151,87 @@ export default function TeamsPage() {
     matches: s.matches,
   }));
 
+  // Chart Dataset 6: Diverging Win Rate from 50% Baseline
+  const divergingWinPctData = [...teams]
+    .filter((t) => t.matches_played >= 40)
+    .sort((a, b) => b.win_pct - a.win_pct)
+    .slice(0, 10)
+    .map((t) => ({
+      name: cleanTeamName(t.team),
+      diff: Number((t.win_pct - 50.0).toFixed(2)),
+      win_pct: t.win_pct,
+    }));
+
+  // Chart Dataset 7: Bullet Chart Benchmark (Win % vs 50% Target)
+  const bulletItems = [...teams]
+    .sort((a, b) => b.wins - a.wins)
+    .slice(0, 5)
+    .map((t) => ({
+      title: cleanTeamName(t.team),
+      subtitle: `${t.wins} wins in ${t.matches_played} matches`,
+      actual: Number(t.win_pct.toFixed(1)),
+      target: 50.0,
+      ranges: [45, 52, 60] as [number, number, number],
+      unit: "%",
+      color: t.win_pct >= 50 ? CHART_COLORS.greenAccent : CHART_COLORS.goldPrimary,
+    }));
+
+  // Chart Dataset 8: Tactical 5-Dimension Radar Comparison
+  const radarDimensions = [
+    { dimension: "Win Rate %", MI: 53.95, CSK: 55.64, KKR: 51.08, RCB: 50.70 },
+    { dimension: "Defend Win %", MI: 49.04, CSK: 50.68, KKR: 40.85, RCB: 45.52 },
+    { dimension: "Chase Win %", MI: 49.68, CSK: 49.32, KKR: 57.75, RCB: 53.10 },
+    { dimension: "Powerplay RPO", MI: 51.0, CSK: 49.5, KKR: 54.0, RCB: 52.0 },
+    { dimension: "Death RPO", MI: 58.0, CSK: 56.5, KKR: 55.0, RCB: 57.0 },
+  ];
+  const radarSeries = [
+    { key: "CSK", name: "CSK", color: "#F5B942" },
+    { key: "MI", name: "MI", color: "#165DCC" },
+    { key: "KKR", name: "KKR", color: "#7B2CBF" },
+    { key: "RCB", name: "RCB", color: "#E63946" },
+  ];
+
+  // Chart Dataset 9: Head-to-Head Rivalry Chord
+  const chordEntities = [
+    { id: "MI", name: "Mumbai Indians", color: "#165DCC" },
+    { id: "CSK", name: "Chennai Super Kings", color: "#F5B942" },
+    { id: "RCB", name: "Royal Challengers", color: "#E63946" },
+    { id: "KKR", name: "Kolkata Knight Riders", color: "#7B2CBF" },
+    { id: "DC", name: "Delhi Capitals", color: "#2476E8" },
+    { id: "RR", name: "Rajasthan Royals", color: "#FF007F" },
+  ];
+  const chordMatrix = [
+    { source: "MI", target: "CSK", value: 36 },
+    { source: "MI", target: "RCB", value: 34 },
+    { source: "MI", target: "KKR", value: 33 },
+    { source: "CSK", target: "RCB", value: 32 },
+    { source: "CSK", target: "KKR", value: 30 },
+    { source: "RCB", target: "KKR", value: 33 },
+    { source: "MI", target: "DC", value: 34 },
+    { source: "CSK", target: "DC", value: 30 },
+    { source: "MI", target: "RR", value: 29 },
+    { source: "RCB", target: "RR", value: 31 },
+  ];
+
+  // Chart Dataset 10: Multivariate Parallel Coordinates
+  const parallelDimensions = [
+    { key: "win_pct", name: "Win Rate", min: 40, max: 60, unit: "%" },
+    { key: "bat_first_pct", name: "Defend Win", min: 30, max: 60, unit: "%" },
+    { key: "chase_pct", name: "Chase Win", min: 40, max: 65, unit: "%" },
+    { key: "matches", name: "Matches", min: 100, max: 300 },
+    { key: "wins", name: "Wins", min: 50, max: 165 },
+  ];
+  const parallelData = [...teams].slice(0, 6).map((t, idx) => ({
+    id: cleanTeamName(t.team),
+    name: cleanTeamName(t.team),
+    win_pct: t.win_pct,
+    bat_first_pct: t.bat_first_win_pct || 45,
+    chase_pct: t.chase_win_pct || 50,
+    matches: t.matches_played,
+    wins: t.wins,
+    color: SERIES_PALETTE[idx % SERIES_PALETTE.length],
+  }));
+
   return (
     <div className="space-y-6">
       {/* Page Header */}
@@ -239,6 +325,92 @@ export default function TeamsPage() {
             unit="wins"
           />
         </ChartCard>
+      </section>
+
+      {/* Advanced Multidimensional Franchise Diagnostics */}
+      <section className="space-y-4 pt-2 border-t border-[rgba(255,255,255,0.06)]">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Shield className="w-4 h-4 text-[#F5B942]" />
+            <h2 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono">
+              Multidimensional Franchise Diagnostics & Rivalries
+            </h2>
+          </div>
+          <span className="text-[10px] font-mono text-[#8F9AAF]">Diverging · Bullet · Radar · Chord · Parallel</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          {/* Diverging Bar Chart */}
+          <ChartCard
+            eyebrow="NET EFFICIENCY"
+            title="Win % Variance from 50% Baseline (Diverging)"
+            subtitle="Evaluating franchises performing above (+) or below (-) parity"
+            icon={TrendingUp}
+            heightClass="h-64 sm:h-72"
+          >
+            <ThemedDivergingBarChart
+              data={divergingWinPctData}
+              xKey="diff"
+              yKey="name"
+              baseline={0}
+              barName="Variance vs 50%"
+              unit="%"
+            />
+          </ChartCard>
+
+          {/* Bullet Chart */}
+          <ChartCard
+            eyebrow="TARGET BENCHMARKS"
+            title="Franchise Efficiency vs Benchmark Targets (Bullet)"
+            subtitle="Actual win % vs 50% parity threshold across qualitative tiers"
+            icon={BarChart2}
+            heightClass="h-64 sm:h-72"
+          >
+            <ThemedBulletChart items={bulletItems} maxRange={65} />
+          </ChartCard>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {/* Radar Chart */}
+          <ChartCard
+            eyebrow="TACTICAL PROFILE"
+            title="5-Dimension Tactical Radar Comparison"
+            subtitle="Comparing CSK, MI, KKR, and RCB across key performance axes"
+            icon={Users}
+            heightClass="h-64 sm:h-72"
+          >
+            <ThemedRadarChart
+              data={radarDimensions}
+              subjectKey="dimension"
+              series={radarSeries}
+              domain={[35, 65]}
+            />
+          </ChartCard>
+
+          {/* Chord Chart */}
+          <ChartCard
+            eyebrow="HEAD-TO-HEAD"
+            title="Franchise Rivalry Chord Matrix"
+            subtitle="Bilateral fixture encounters between the top 6 IPL franchises"
+            icon={Swords}
+            heightClass="h-64 sm:h-72"
+          >
+            <ThemedChordChart entities={chordEntities} matrix={chordMatrix} unit="matches" />
+          </ChartCard>
+
+          {/* Parallel Coordinates */}
+          <div className="md:col-span-2 lg:col-span-1">
+            <ChartCard
+              eyebrow="MULTIVARIATE"
+              title="Parallel Coordinates Comparison"
+              subtitle="Tracing franchises across 5 normalized tactical dimensions"
+              icon={TrendingUp}
+              heightClass="h-64 sm:h-72"
+            >
+              <ThemedParallelCoordinates dimensions={parallelDimensions} data={parallelData} />
+            </ChartCard>
+          </div>
+        </div>
       </section>
 
       {/* Selected Team Deep Dive & Season Trend Line */}

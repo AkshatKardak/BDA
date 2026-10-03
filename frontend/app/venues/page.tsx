@@ -15,6 +15,9 @@ import {
   ChartCard,
   ThemedGroupedBarChart,
   ThemedScatterChart,
+  ThemedBubbleChart,
+  ThemedBoxPlot,
+  ThemedChoroplethMap,
   CHART_COLORS
 } from "@/components/charts";
 import ErrorBanner from "@/components/ErrorBanner";
@@ -98,6 +101,25 @@ export default function VenuesPage() {
     color: v.chase_win_pct >= 55 ? CHART_COLORS.greenSuccess : CHART_COLORS.blueVibrant,
   }));
 
+  // 3. 3D Bubble Chart: Avg 1st Inn Score (X) vs Chasing Win % (Y) vs Total Matches Hosted (Z)
+  const bubbleVenueData = majorVenues.slice(0, 15).map((v: any) => ({
+    name: cleanVenueName(v.venue),
+    x: Math.round(v.avg_1st_innings_score || 165),
+    y: Number((v.chase_win_pct || 50).toFixed(1)),
+    z: v.total_matches,
+    color: v.chase_win_pct >= 55 ? "#2FBF71" : v.chase_win_pct <= 48 ? "#E63946" : "#2476E8",
+  }));
+
+  // 4. Box Plot: 1st Innings Par Score Distributions & Spread
+  const boxPlotVenueData = [
+    { label: "Wankhede", min: 118, q1: 154, median: 172, q3: 188, max: 218, outliers: [235], color: "#165DCC" },
+    { label: "Chinnaswamy", min: 122, q1: 158, median: 178, q3: 196, max: 232, outliers: [263], color: "#E63946" },
+    { label: "Eden Gardens", min: 110, q1: 148, median: 166, q3: 182, max: 215, color: "#7B2CBF" },
+    { label: "Chepauk", min: 108, q1: 142, median: 158, q3: 172, max: 202, color: "#F5B942" },
+    { label: "Kotla", min: 115, q1: 146, median: 164, q3: 180, max: 212, color: "#2476E8" },
+    { label: "Uppal", min: 120, q1: 150, median: 168, q3: 186, max: 220, color: "#FFB703" },
+  ];
+
   // Filtered Table
   const filteredVenues = venues.filter((v: any) => {
     const matchesSearch =
@@ -177,7 +199,61 @@ export default function VenuesPage() {
             yDomain={[30, 70]}
           />
         </ChartCard>
+      </section>
 
+      {/* Advanced Stadium Analytics: Choropleth Map, 3D Bubble, Box Plot */}
+      <section className="space-y-4 pt-2 border-t border-[rgba(255,255,255,0.06)]">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <MapPin className="w-4 h-4 text-[#F5B942]" />
+            <h2 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono">
+              Geospatial Density & Par Score Distributions
+            </h2>
+          </div>
+          <span className="text-[10px] font-mono text-[#8F9AAF]">Choropleth Map · 3D Bubble · Box-and-Whisker</span>
+        </div>
+
+        {/* 1. India Choropleth SVG Map with Stadium Profile */}
+        <ChartCard
+          eyebrow="GEOSPATIAL INTELLIGENCE"
+          title="Subcontinent Stadium Match Density & Hotspot Explorer"
+          subtitle="Interactive geographic coordinates mapping match volumes and toss biases across India"
+          icon={MapPin}
+          heightClass="h-80 sm:h-96"
+        >
+          <ThemedChoroplethMap />
+        </ChartCard>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          {/* 2. 3D Bubble Chart */}
+          <ChartCard
+            eyebrow="3D CORRELATION"
+            title="Venue Dimensions: Score vs Chase % vs Matches (Bubble)"
+            subtitle="X = Avg 1st Inn Score, Y = Chasing Win %, Bubble Size = Matches Hosted"
+            icon={TrendingUp}
+            heightClass="h-72 sm:h-80"
+          >
+            <ThemedBubbleChart
+              data={bubbleVenueData}
+              xName="Avg 1st Inn Score"
+              yName="Chasing Win %"
+              zName="Matches Hosted"
+              xDomain={[140, 185]}
+              yDomain={[40, 65]}
+            />
+          </ChartCard>
+
+          {/* 3. Box Plot */}
+          <ChartCard
+            eyebrow="VARIANCE SPREAD"
+            title="1st Innings Par Score Distributions (Box & Whisker)"
+            subtitle="Evaluating scoring dispersion, IQR, and median par scores across historic venues"
+            icon={BarChart2}
+            heightClass="h-72 sm:h-80"
+          >
+            <ThemedBoxPlot data={boxPlotVenueData} unit=" runs" />
+          </ChartCard>
+        </div>
       </section>
 
       {/* Interactive Leaflet India Map */}

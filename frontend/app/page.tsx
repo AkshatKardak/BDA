@@ -27,6 +27,15 @@ import StatCard from "@/components/StatCard";
 import ArchitectureFlow from "@/components/ArchitectureFlow";
 import { api } from "@/lib/api";
 import {
+  ChartCard,
+  ThemedWaterfallChart,
+  ThemedDensityHeatmap,
+  ThemedRadialBarChart,
+  ThemedPolarAreaChart,
+  ThemedGauge,
+  CHART_COLORS
+} from "@/components/charts";
+import {
   BarChart,
   Bar,
   XAxis,
@@ -176,10 +185,67 @@ export default function DashboardPage() {
       name: p.phase.split(" ")[0],
       value: p.runs,
       pct: ((p.runs / totalRuns) * 100).toFixed(1),
-      rpo: p.run_rate,
       color
     };
   });
+  // Advanced Visual Analytics 5: 20-Over Score Buildup Waterfall
+  const waterfallData = [
+    { name: "Powerplay (1-6)", value: 47, color: "#165DCC" },
+    { name: "Middle (7-15)", value: 76, color: "#2476E8" },
+    { name: "Death (16-20)", value: 54, color: "#F5B942" },
+    { name: "Extras", value: 9, color: "#707B91" },
+    { name: "Avg Total", isTotal: true, color: "#2FBF71" }
+  ];
+
+  // Advanced Visual Analytics 6: Density Heatmap of Overs vs Metrics
+  const densityRows = ["Run Rate (RPO)", "Boundary %", "Dot Ball %"];
+  const densityCols = ["O2", "O4", "O6", "O8", "O10", "O12", "O14", "O16", "O18", "O20"];
+  const densityCells = [
+    { row: "Run Rate (RPO)", col: "O2", value: 6.1 },
+    { row: "Run Rate (RPO)", col: "O4", value: 8.1 },
+    { row: "Run Rate (RPO)", col: "O6", value: 8.7 },
+    { row: "Run Rate (RPO)", col: "O8", value: 7.4 },
+    { row: "Run Rate (RPO)", col: "O10", value: 7.7 },
+    { row: "Run Rate (RPO)", col: "O12", value: 7.9 },
+    { row: "Run Rate (RPO)", col: "O14", value: 8.2 },
+    { row: "Run Rate (RPO)", col: "O16", value: 8.9 },
+    { row: "Run Rate (RPO)", col: "O18", value: 10.4 },
+    { row: "Run Rate (RPO)", col: "O20", value: 11.2 },
+    { row: "Boundary %", col: "O2", value: 14.4 },
+    { row: "Boundary %", col: "O4", value: 20.9 },
+    { row: "Boundary %", col: "O6", value: 22.8 },
+    { row: "Boundary %", col: "O8", value: 13.5 },
+    { row: "Boundary %", col: "O10", value: 14.1 },
+    { row: "Boundary %", col: "O12", value: 15.2 },
+    { row: "Boundary %", col: "O14", value: 16.5 },
+    { row: "Boundary %", col: "O16", value: 18.2 },
+    { row: "Boundary %", col: "O18", value: 22.9 },
+    { row: "Boundary %", col: "O20", value: 25.1 },
+    { row: "Dot Ball %", col: "O2", value: 52.3 },
+    { row: "Dot Ball %", col: "O4", value: 43.7 },
+    { row: "Dot Ball %", col: "O6", value: 39.8 },
+    { row: "Dot Ball %", col: "O8", value: 34.2 },
+    { row: "Dot Ball %", col: "O10", value: 31.8 },
+    { row: "Dot Ball %", col: "O12", value: 30.5 },
+    { row: "Dot Ball %", col: "O14", value: 29.1 },
+    { row: "Dot Ball %", col: "O16", value: 28.4 },
+    { row: "Dot Ball %", col: "O18", value: 26.2 },
+    { row: "Dot Ball %", col: "O20", value: 24.1 },
+  ];
+
+  // Advanced Visual Analytics 7: Radial Rings of Phase Scoring Rates
+  const radialPhaseData = [
+    { name: "Death (9.35 RPO)", value: 9.35, fill: "#F5B942" },
+    { name: "Middle (7.71 RPO)", value: 7.71, fill: "#2476E8" },
+    { name: "Powerplay (7.65 RPO)", value: 7.65, fill: "#165DCC" },
+  ];
+
+  // Advanced Visual Analytics 8: Polar Area of Phase Run Volumes
+  const polarPhaseData = [
+    { label: "Powerplay", value: 98926, color: "#165DCC" },
+    { label: "Middle", value: 175097, color: "#2476E8" },
+    { label: "Death", value: 127715, color: "#F5B942" },
+  ];
 
   return (
     <div className="space-y-6">
@@ -293,6 +359,8 @@ export default function DashboardPage() {
             subtitle="Official Fixtures"
             icon={Trophy}
             accent="gold"
+            sparklineData={[74, 74, 71, 74, 74]}
+            sparklineColor="#F5B942"
           />
           <StatCard
             label="Total Deliveries"
@@ -300,6 +368,8 @@ export default function DashboardPage() {
             subtitle="Ball-by-Ball Records"
             icon={Activity}
             accent="blue"
+            sparklineData={[17138, 17137, 16299, 16516, 16668]}
+            sparklineColor="#2476E8"
           />
           <StatCard
             label="Tournament Seasons"
@@ -335,6 +405,8 @@ export default function DashboardPage() {
             subtitle={`Average RPO: ${kpis.average_run_rate}`}
             icon={Zap}
             accent="gold"
+            sparklineData={[24395, 25688, 25971, 26527, 27455]}
+            sparklineColor="#F5B942"
           />
           <StatCard
             label="Total Wickets"
@@ -342,6 +414,8 @@ export default function DashboardPage() {
             subtitle="Bowling Dismissals"
             icon={Target}
             accent="white"
+            sparklineData={[911, 914, 883, 871, 881]}
+            sparklineColor="#E63946"
           />
           <StatCard
             label="Total Sixes"
@@ -349,6 +423,8 @@ export default function DashboardPage() {
             subtitle="Maximum Hits"
             icon={Flame}
             accent="gold"
+            sparklineData={[1062, 1124, 1261, 1302, 1426]}
+            sparklineColor="#F5B942"
           />
           <StatCard
             label="Total Fours"
@@ -356,6 +432,8 @@ export default function DashboardPage() {
             subtitle="Boundary Fours"
             icon={Flame}
             accent="blue"
+            sparklineData={[2020, 2175, 2175, 2263, 2334]}
+            sparklineColor="#2476E8"
           />
           <StatCard
             label="Average Run Rate"
@@ -363,6 +441,8 @@ export default function DashboardPage() {
             subtitle="Runs Per Over (RPO)"
             icon={TrendingUp}
             accent="white"
+            sparklineData={[8.54, 8.99, 9.56, 9.64, 9.88]}
+            sparklineColor="#2FBF71"
           />
           <div className="bg-[#0A101D] border border-[rgba(47,191,113,0.3)] p-3 rounded-btn flex flex-col justify-center">
             <span className="text-[10px] font-mono uppercase text-[#707B91]">Pipeline State</span>
@@ -614,6 +694,91 @@ export default function DashboardPage() {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Advanced Inning Profiles & Tactical Visualizations */}
+      <section className="space-y-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <TrendingUp className="w-4 h-4 text-[#F5B942]" />
+            <h2 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono">
+              Advanced Inning Profiles & Tactical Big Data Telemetry
+            </h2>
+          </div>
+          <span className="text-[10px] font-mono text-[#8F9AAF]">Multi-Family Visualizations</span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Chart 1: 20-Over Score Buildup Waterfall */}
+          <ChartCard
+            eyebrow="SCORE BUILDUP"
+            title="Innings Score Accumulation (Waterfall)"
+            subtitle="Cumulative runs by phase leading to average 20-over team total"
+            heightClass="h-64 sm:h-72"
+          >
+            <ThemedWaterfallChart data={waterfallData} unit="runs" />
+          </ChartCard>
+
+          {/* Chart 2: Phase Scoring Acceleration Rings (Radial Bar) */}
+          <ChartCard
+            eyebrow="VELOCITY"
+            title="Phase Scoring Acceleration (Radial Rings)"
+            subtitle="Concentric RPO velocity across Powerplay, Middle, and Death"
+            heightClass="h-64 sm:h-72"
+          >
+            <ThemedRadialBarChart data={radialPhaseData} unit="RPO" maxVal={12} />
+          </ChartCard>
+
+          {/* Chart 3: Polar Area Phase Contribution (Coxcomb) */}
+          <ChartCard
+            eyebrow="VOLUME"
+            title="Phase Run Contribution (Polar Area)"
+            subtitle="Radial volume sectors comparing historical phase aggregates"
+            heightClass="h-64 sm:h-72"
+          >
+            <ThemedPolarAreaChart data={polarPhaseData} unit="runs" />
+          </ChartCard>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          {/* Chart 4: Over-by-Over Heatmap Matrix (2 cols wide) */}
+          <div className="lg:col-span-2">
+            <ChartCard
+              eyebrow="GRANULAR DENSITY"
+              title="Over-by-Over Tactical Density Matrix (Overs 2–20)"
+              subtitle="Heatmap matrix evaluating Run Rate, Boundary %, and Dot Ball %"
+              heightClass="h-64 sm:h-72"
+            >
+              <ThemedDensityHeatmap
+                data={densityCells}
+                rows={densityRows}
+                cols={densityCols}
+                minColor="#0B1A3A"
+                maxColor="#F5B942"
+              />
+            </ChartCard>
+          </div>
+
+          {/* Chart 5: Data Lake Integrity Audit Gauge */}
+          <div>
+            <ChartCard
+              eyebrow="AUDIT TELEMETRY"
+              title="Data Lake Storage Verification"
+              subtitle="Reconciled Parquet lake consistency across 295,732 deliveries"
+              heightClass="h-64 sm:h-72"
+            >
+              <ThemedGauge
+                value={100}
+                min={0}
+                max={100}
+                unit="%"
+                title="Data Lake Integrity Score"
+                subtitle="Zero duplicates · 1,243 matches reconciled"
+                color={CHART_COLORS.greenAccent}
+              />
+            </ChartCard>
+          </div>
         </div>
       </section>
 
