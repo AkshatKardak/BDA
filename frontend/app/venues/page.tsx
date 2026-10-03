@@ -17,7 +17,6 @@ import {
   ThemedScatterChart,
   ThemedBubbleChart,
   ThemedBoxPlot,
-  ThemedChoroplethMap,
   CHART_COLORS
 } from "@/components/charts";
 import ErrorBanner from "@/components/ErrorBanner";
@@ -201,28 +200,17 @@ export default function VenuesPage() {
         </ChartCard>
       </section>
 
-      {/* Advanced Stadium Analytics: Choropleth Map, 3D Bubble, Box Plot */}
+      {/* Advanced Stadium Analytics: 3D Bubble & Box Plot */}
       <section className="space-y-4 pt-2 border-t border-[rgba(255,255,255,0.06)]">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <MapPin className="w-4 h-4 text-[#F5B942]" />
+            <TrendingUp className="w-4 h-4 text-[#F5B942]" />
             <h2 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono">
-              Geospatial Density & Par Score Distributions
+              Par Score Distributions & Multi-Dimensional Pitch Dynamics
             </h2>
           </div>
-          <span className="text-[10px] font-mono text-[#8F9AAF]">Choropleth Map · 3D Bubble · Box-and-Whisker</span>
+          <span className="text-[10px] font-mono text-[#8F9AAF]">3D Correlation Bubble · Box-and-Whisker Spread</span>
         </div>
-
-        {/* 1. India Choropleth SVG Map with Stadium Profile */}
-        <ChartCard
-          eyebrow="GEOSPATIAL INTELLIGENCE"
-          title="Subcontinent Stadium Match Density & Hotspot Explorer"
-          subtitle="Interactive geographic coordinates mapping match volumes and toss biases across India"
-          icon={MapPin}
-          heightClass="h-80 sm:h-96"
-        >
-          <ThemedChoroplethMap />
-        </ChartCard>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
           {/* 2. 3D Bubble Chart */}
