@@ -1,7 +1,7 @@
 {
   "title": "IPL Large-Scale Cricket Data Analytics",
   "description": "Distributed Big Data Analytics Platform powered by Apache Flume, Hadoop HDFS, Hive, and PySpark",
-  "last_data_update": "2026-10-02T15:40:13.275787+00:00",
+  "last_data_update": "2026-10-03T10:14:42.887315+00:00",
   "live_matches_count": 0,
   "kpis": {
     "total_matches": 1243,

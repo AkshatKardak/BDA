@@ -10,8 +10,7 @@ import {
   X,
   Trophy,
   TrendingUp,
-  BarChart3,
-  Activity
+  BarChart3
 } from "lucide-react";
 import { api } from "@/lib/api";
 import {
@@ -19,8 +18,6 @@ import {
   ThemedBarChart,
   ThemedScatterChart,
   ThemedBarRace,
-  ThemedViolinPlot,
-  ThemedTreemap,
   ThemedLollipopChart,
   CHART_COLORS
 } from "@/components/charts";
@@ -173,66 +170,7 @@ export default function PlayersPage() {
     }
   ];
 
-  // Chart 6: Strike Rate Violin Distributions across Archetypes
-  const violinItems = [
-    {
-      label: "Top Order Anchors",
-      median: 133,
-      q1: 125,
-      q3: 139,
-      color: "#165DCC",
-      points: [
-        { val: 110, density: 0.1 },
-        { val: 120, density: 0.4 },
-        { val: 128, density: 0.8 },
-        { val: 133, density: 1.0 },
-        { val: 138, density: 0.75 },
-        { val: 145, density: 0.3 },
-        { val: 155, density: 0.05 },
-      ]
-    },
-    {
-      label: "Powerplay Openers",
-      median: 142,
-      q1: 134,
-      q3: 152,
-      color: "#2476E8",
-      points: [
-        { val: 118, density: 0.1 },
-        { val: 130, density: 0.45 },
-        { val: 138, density: 0.8 },
-        { val: 142, density: 1.0 },
-        { val: 150, density: 0.85 },
-        { val: 162, density: 0.4 },
-        { val: 175, density: 0.1 },
-      ]
-    },
-    {
-      label: "Death Finishers",
-      median: 168,
-      q1: 155,
-      q3: 184,
-      color: "#F5B942",
-      points: [
-        { val: 135, density: 0.1 },
-        { val: 150, density: 0.4 },
-        { val: 162, density: 0.8 },
-        { val: 168, density: 1.0 },
-        { val: 178, density: 0.8 },
-        { val: 195, density: 0.45 },
-        { val: 215, density: 0.1 },
-      ]
-    }
-  ];
-
-  // Chart 7: Top 10 Run Accumulators Treemap
-  const treemapData = rawBatters.slice(0, 10).map((b: any) => ({
-    name: b.batter,
-    value: b.total_runs,
-    strike_rate: b.strike_rate,
-  }));
-
-  // Chart 8: Top Sixes Hitters Lollipop Chart
+  // Chart 6: Top Sixes Hitters Lollipop Chart
   const topSixesLollipop = rawBatters.slice(0, 8).map((b: any) => ({
     name: b.batter,
     sixes: b.sixes || Math.round(b.total_runs * 0.035),
@@ -247,11 +185,13 @@ export default function PlayersPage() {
     bw.bowler.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const filteredCaps = (data?.orange_purple_cap_history || []).filter((c: any) =>
-    (c.batter || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
-    (c.bowler || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
-    (c.season || "").toString().includes(searchQuery)
-  );
+  const filteredCaps = (data?.orange_purple_cap_history || [])
+    .filter((c: any) =>
+      (c.orange_cap_player || c.batter || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (c.purple_cap_player || c.bowler || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (c.season || "").toString().includes(searchQuery)
+    )
+    .sort((a: any, b: any) => Number(a.season) - Number(b.season));
 
   return (
     <div className="space-y-6">
@@ -356,7 +296,7 @@ export default function PlayersPage() {
         </ChartCard>
       </section>
 
-      {/* Advanced Player Visualizations: Bar Race, Violin, Treemap, Lollipop */}
+      {/* Advanced Player Visualizations: Bar Race & Sixes Lollipop */}
       <section className="space-y-4 pt-2 border-t border-[rgba(255,255,255,0.06)]">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -365,7 +305,7 @@ export default function PlayersPage() {
               Advanced Player Career Archetypes & Historical Milestones
             </h2>
           </div>
-          <span className="text-[10px] font-mono text-[#8F9AAF]">Bar Race · Violin · Treemap · Lollipop</span>
+          <span className="text-[10px] font-mono text-[#8F9AAF]">Bar Race · Sixes Lollipop</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
@@ -378,30 +318,6 @@ export default function PlayersPage() {
             heightClass="h-72 sm:h-80"
           >
             <ThemedBarRace frames={barRaceFrames} unit="runs" />
-          </ChartCard>
-
-          {/* Violin Plot */}
-          <ChartCard
-            eyebrow="DISTRIBUTION DENSITY"
-            title="Strike Rate Density by Batting Archetype (Violin)"
-            subtitle="KDE mirrored density envelopes for Anchors, Openers, and Finishers"
-            icon={Activity}
-            heightClass="h-72 sm:h-80"
-          >
-            <ThemedViolinPlot data={violinItems} unit=" SR" />
-          </ChartCard>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-          {/* Treemap */}
-          <ChartCard
-            eyebrow="CAREER ACCUMULATION"
-            title="Top Titans Run Volume Share (Treemap)"
-            subtitle="Hierarchical area proportion of career runs across top 10 batsmen"
-            icon={Award}
-            heightClass="h-72 sm:h-80"
-          >
-            <ThemedTreemap data={treemapData} dataKey="value" nameKey="name" unit="runs" />
           </ChartCard>
 
           {/* Lollipop Chart */}
@@ -602,25 +518,32 @@ export default function PlayersPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-[rgba(255,255,255,0.03)] text-[#F4F6FA]">
-                {filteredCaps.map((c: any, idx: number) => (
-                  <tr key={idx} className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
-                    <td className="py-2 px-3 font-bold text-[#F5B942]">{c.season}</td>
-                    <td
-                      onClick={() => openPlayerProfile(c.batter)}
-                      className="py-2 px-3 font-semibold text-white hover:text-[#F5B942] cursor-pointer"
-                    >
-                      {c.batter}
-                    </td>
-                    <td className="py-2 px-3 text-center font-bold text-[#F5B942]">{c.runs}</td>
-                    <td
-                      onClick={() => openPlayerProfile(c.bowler)}
-                      className="py-2 px-3 font-semibold text-white hover:text-[#8B5CF6] cursor-pointer"
-                    >
-                      {c.bowler}
-                    </td>
-                    <td className="py-2 px-3 text-center font-bold text-[#8B5CF6]">{c.wickets}</td>
-                  </tr>
-                ))}
+                {filteredCaps.map((c: any, idx: number) => {
+                  const orangeBatter = c.orange_cap_player || c.batter || "—";
+                  const orangeRuns = c.orange_cap_runs ?? c.runs ?? "—";
+                  const purpleBowler = c.purple_cap_player || c.bowler || "—";
+                  const purpleWickets = c.purple_cap_wickets ?? c.wickets ?? "—";
+
+                  return (
+                    <tr key={idx} className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                      <td className="py-2 px-3 font-bold text-[#F5B942]">{c.season}</td>
+                      <td
+                        onClick={() => orangeBatter !== "—" && openPlayerProfile(orangeBatter)}
+                        className={`py-2 px-3 font-semibold text-white ${orangeBatter !== "—" ? "hover:text-[#F5B942] cursor-pointer" : ""}`}
+                      >
+                        {orangeBatter}
+                      </td>
+                      <td className="py-2 px-3 text-center font-bold text-[#F5B942]">{orangeRuns}</td>
+                      <td
+                        onClick={() => purpleBowler !== "—" && openPlayerProfile(purpleBowler)}
+                        className={`py-2 px-3 font-semibold text-white ${purpleBowler !== "—" ? "hover:text-[#8B5CF6] cursor-pointer" : ""}`}
+                      >
+                        {purpleBowler}
+                      </td>
+                      <td className="py-2 px-3 text-center font-bold text-[#8B5CF6]">{purpleWickets}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

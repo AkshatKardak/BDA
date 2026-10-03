@@ -48,6 +48,21 @@ def run_player_analysis():
     else:
         df_deliv = spark.read.parquet(deliv_parquet)
 
+    if "is_bowler_wicket" not in df_deliv.columns:
+        df_deliv = df_deliv.withColumn("is_bowler_wicket", F.when(
+            (F.col("is_wicket") == 1) & 
+            (~F.col("dismissal_kind").isin("run out", "retired hurt", "retired out", "obstructing the field")),
+            1
+        ).otherwise(0))
+    if "is_legal_ball" not in df_deliv.columns:
+        df_deliv = df_deliv.withColumn("is_legal_ball", F.when((F.col("wides") == 0) & (F.col("noballs") == 0), 1).otherwise(0))
+    if "is_four" not in df_deliv.columns:
+        df_deliv = df_deliv.withColumn("is_four", F.when(F.col("batter_runs") == 4, 1).otherwise(0))
+    if "is_six" not in df_deliv.columns:
+        df_deliv = df_deliv.withColumn("is_six", F.when(F.col("batter_runs") == 6, 1).otherwise(0))
+    if "is_dot" not in df_deliv.columns:
+        df_deliv = df_deliv.withColumn("is_dot", F.when((F.col("total_runs") == 0) & (F.col("wides") == 0) & (F.col("noballs") == 0), 1).otherwise(0))
+
     df_deliv.createOrReplaceTempView("deliveries")
 
     # -------------------------------------------------------------------------
@@ -145,6 +160,55 @@ def run_player_analysis():
     print("\n[SEASON TOP 3 BATTERS SAMPLE]:")
     season_bat.show(12, truncate=False)
     save_analytics_output(season_bat, "player_performance", "season_player_stats")
+
+    # Season Bowling Aggregation (Purple Cap)
+    season_bowl = (
+        df_deliv.groupBy("season", "bowler")
+        .agg(
+            F.sum("is_bowler_wicket").alias("season_wickets"),
+            F.sum("is_legal_ball").alias("legal_balls"),
+            F.sum("total_runs").alias("runs_conceded"),
+            F.countDistinct("match_id").alias("matches"),
+        )
+        .withColumn(
+            "economy_rate",
+            F.round((F.col("runs_conceded") * 6.0) /
+                    F.when(F.col("legal_balls") > 0, F.col("legal_balls")).otherwise(1), 2)
+        )
+        .withColumn(
+            "season_rank",
+            F.row_number().over(
+                Window.partitionBy("season")
+                      .orderBy(F.col("season_wickets").desc(), F.col("economy_rate").asc())
+            )
+        )
+        .filter(F.col("season_rank") <= 3)
+    )
+    print("\n[SEASON TOP 3 BOWLERS SAMPLE]:")
+    season_bowl.show(12, truncate=False)
+    save_analytics_output(season_bowl, "player_performance", "season_bowler_stats")
+
+    # 4. Cap Winners Table (Rank 1 Orange & Rank 1 Purple)
+    # Tally derived from ball-by-ball dismissal attribution from Cricsheet
+    orange = (
+        season_bat.filter(F.col("season_rank") == 1)
+        .select("season",
+                F.col("batter").alias("orange_cap_player"),
+                F.col("season_runs").alias("orange_cap_runs"))
+    )
+
+    purple = (
+        season_bowl.filter(F.col("season_rank") == 1)
+        .select("season",
+                F.col("bowler").alias("purple_cap_player"),
+                F.col("season_wickets").alias("purple_cap_wickets"),
+                F.col("economy_rate").alias("purple_cap_economy"))
+    )
+
+    cap_winners = orange.join(purple, "season", "outer").orderBy("season")
+    print("\n[CAP WINNERS PER SEASON]:")
+    cap_winners.show(20, truncate=False)
+    save_analytics_output(cap_winners, "player_performance", "cap_winners")
 
     print("\n[SUCCESS] Stage 3 Player Analysis completed successfully.")
     print("=" * 70)

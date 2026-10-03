@@ -123,6 +123,8 @@ def export():
     p_batsmen = pd.read_csv(os.path.join(OUTPUT_DIR, "player_performance", "top_batsmen.csv"))
     p_bowlers = pd.read_csv(os.path.join(OUTPUT_DIR, "player_performance", "top_bowlers.csv"))
     p_season_player = pd.read_csv(os.path.join(OUTPUT_DIR, "player_performance", "season_player_stats.csv"))
+    cap_winners_path = os.path.join(OUTPUT_DIR, "player_performance", "cap_winners.csv")
+    p_caps = pd.read_csv(cap_winners_path) if os.path.exists(cap_winners_path) else pd.DataFrame()
 
     t_overall = pd.read_csv(os.path.join(OUTPUT_DIR, "team_performance", "franchise_overall_records.csv"))
     t_season = pd.read_csv(os.path.join(OUTPUT_DIR, "team_performance", "season_team_records.csv"))
@@ -542,7 +544,7 @@ def export():
     players_data = {
         "top_batters": clean_records(p_batsmen.head(100)),
         "top_bowlers": clean_records(p_bowlers.head(100)),
-        "orange_purple_cap_history": clean_records(p_season_player)
+        "orange_purple_cap_history": clean_records(p_caps) if not p_caps.empty else clean_records(p_season_player)
     }
     with open(os.path.join(WEB_DATA_DIR, "players.json"), "w", encoding="utf-8") as f:
         json.dump(players_data, f, indent=2)

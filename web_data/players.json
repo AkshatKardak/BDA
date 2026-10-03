@@ -2506,381 +2506,147 @@
   "orange_purple_cap_history": [
     {
       "season": 2008,
-      "batter": "SE Marsh",
-      "season_runs": 616,
-      "balls_faced": 441,
-      "season_rank": 1
-    },
-    {
-      "season": 2008,
-      "batter": "G Gambhir",
-      "season_runs": 534,
-      "balls_faced": 379,
-      "season_rank": 2
-    },
-    {
-      "season": 2008,
-      "batter": "ST Jayasuriya",
-      "season_runs": 514,
-      "balls_faced": 309,
-      "season_rank": 3
-    },
-    {
-      "season": 2010,
-      "batter": "SR Tendulkar",
-      "season_runs": 618,
-      "balls_faced": 466,
-      "season_rank": 1
-    },
-    {
-      "season": 2010,
-      "batter": "JH Kallis",
-      "season_runs": 572,
-      "balls_faced": 494,
-      "season_rank": 2
-    },
-    {
-      "season": 2010,
-      "batter": "SK Raina",
-      "season_runs": 528,
-      "balls_faced": 367,
-      "season_rank": 3
-    },
-    {
-      "season": 2014,
-      "batter": "RV Uthappa",
-      "season_runs": 660,
-      "balls_faced": 479,
-      "season_rank": 1
-    },
-    {
-      "season": 2014,
-      "batter": "DR Smith",
-      "season_runs": 566,
-      "balls_faced": 416,
-      "season_rank": 2
-    },
-    {
-      "season": 2014,
-      "batter": "GJ Maxwell",
-      "season_runs": 552,
-      "balls_faced": 294,
-      "season_rank": 3
-    },
-    {
-      "season": 2015,
-      "batter": "DA Warner",
-      "season_runs": 562,
-      "balls_faced": 359,
-      "season_rank": 1
-    },
-    {
-      "season": 2015,
-      "batter": "AM Rahane",
-      "season_runs": 540,
-      "balls_faced": 413,
-      "season_rank": 2
-    },
-    {
-      "season": 2015,
-      "batter": "LMP Simmons",
-      "season_runs": 540,
-      "balls_faced": 441,
-      "season_rank": 3
-    },
-    {
-      "season": 2016,
-      "batter": "V Kohli",
-      "season_runs": 973,
-      "balls_faced": 640,
-      "season_rank": 1
-    },
-    {
-      "season": 2016,
-      "batter": "DA Warner",
-      "season_runs": 848,
-      "balls_faced": 560,
-      "season_rank": 2
-    },
-    {
-      "season": 2016,
-      "batter": "AB de Villiers",
-      "season_runs": 687,
-      "balls_faced": 407,
-      "season_rank": 3
-    },
-    {
-      "season": 2011,
-      "batter": "CH Gayle",
-      "season_runs": 608,
-      "balls_faced": 332,
-      "season_rank": 1
-    },
-    {
-      "season": 2011,
-      "batter": "V Kohli",
-      "season_runs": 557,
-      "balls_faced": 460,
-      "season_rank": 2
-    },
-    {
-      "season": 2011,
-      "batter": "SR Tendulkar",
-      "season_runs": 553,
-      "balls_faced": 488,
-      "season_rank": 3
-    },
-    {
-      "season": 2019,
-      "batter": "DA Warner",
-      "season_runs": 692,
-      "balls_faced": 481,
-      "season_rank": 1
-    },
-    {
-      "season": 2019,
-      "batter": "KL Rahul",
-      "season_runs": 593,
-      "balls_faced": 438,
-      "season_rank": 2
-    },
-    {
-      "season": 2019,
-      "batter": "Q de Kock",
-      "season_runs": 529,
-      "balls_faced": 398,
-      "season_rank": 3
-    },
-    {
-      "season": 2021,
-      "batter": "KL Rahul",
-      "season_runs": 1302,
-      "balls_faced": 975,
-      "season_rank": 1
-    },
-    {
-      "season": 2021,
-      "batter": "S Dhawan",
-      "season_runs": 1205,
-      "balls_faced": 900,
-      "season_rank": 2
-    },
-    {
-      "season": 2021,
-      "batter": "F du Plessis",
-      "season_runs": 1082,
-      "balls_faced": 777,
-      "season_rank": 3
+      "orange_cap_player": "SE Marsh",
+      "orange_cap_runs": 616,
+      "purple_cap_player": "Sohail Tanvir",
+      "purple_cap_wickets": 22,
+      "purple_cap_economy": 6.68
     },
     {
       "season": 2009,
-      "batter": "ML Hayden",
-      "season_runs": 572,
-      "balls_faced": 395,
-      "season_rank": 1
+      "orange_cap_player": "ML Hayden",
+      "orange_cap_runs": 572,
+      "purple_cap_player": "RP Singh",
+      "purple_cap_wickets": 23,
+      "purple_cap_economy": 7.21
     },
     {
-      "season": 2009,
-      "batter": "AC Gilchrist",
-      "season_runs": 495,
-      "balls_faced": 325,
-      "season_rank": 2
+      "season": 2010,
+      "orange_cap_player": "SR Tendulkar",
+      "orange_cap_runs": 618,
+      "purple_cap_player": "PP Ojha",
+      "purple_cap_wickets": 21,
+      "purple_cap_economy": 7.46
     },
     {
-      "season": 2009,
-      "batter": "AB de Villiers",
-      "season_runs": 465,
-      "balls_faced": 355,
-      "season_rank": 3
-    },
-    {
-      "season": 2012,
-      "batter": "CH Gayle",
-      "season_runs": 733,
-      "balls_faced": 456,
-      "season_rank": 1
+      "season": 2011,
+      "orange_cap_player": "CH Gayle",
+      "orange_cap_runs": 608,
+      "purple_cap_player": "SL Malinga",
+      "purple_cap_wickets": 28,
+      "purple_cap_economy": 6.24
     },
     {
       "season": 2012,
-      "batter": "G Gambhir",
-      "season_runs": 590,
-      "balls_faced": 411,
-      "season_rank": 2
-    },
-    {
-      "season": 2012,
-      "batter": "S Dhawan",
-      "season_runs": 569,
-      "balls_faced": 439,
-      "season_rank": 3
-    },
-    {
-      "season": 2017,
-      "batter": "DA Warner",
-      "season_runs": 641,
-      "balls_faced": 452,
-      "season_rank": 1
-    },
-    {
-      "season": 2017,
-      "batter": "G Gambhir",
-      "season_runs": 498,
-      "balls_faced": 389,
-      "season_rank": 2
-    },
-    {
-      "season": 2017,
-      "batter": "S Dhawan",
-      "season_runs": 479,
-      "balls_faced": 376,
-      "season_rank": 3
-    },
-    {
-      "season": 2018,
-      "batter": "KS Williamson",
-      "season_runs": 735,
-      "balls_faced": 516,
-      "season_rank": 1
-    },
-    {
-      "season": 2018,
-      "batter": "RR Pant",
-      "season_runs": 684,
-      "balls_faced": 394,
-      "season_rank": 2
-    },
-    {
-      "season": 2018,
-      "batter": "KL Rahul",
-      "season_runs": 659,
-      "balls_faced": 416,
-      "season_rank": 3
-    },
-    {
-      "season": 2022,
-      "batter": "JC Buttler",
-      "season_runs": 863,
-      "balls_faced": 579,
-      "season_rank": 1
-    },
-    {
-      "season": 2022,
-      "batter": "KL Rahul",
-      "season_runs": 616,
-      "balls_faced": 455,
-      "season_rank": 2
-    },
-    {
-      "season": 2022,
-      "batter": "Q de Kock",
-      "season_runs": 508,
-      "balls_faced": 341,
-      "season_rank": 3
-    },
-    {
-      "season": 2024,
-      "batter": "V Kohli",
-      "season_runs": 741,
-      "balls_faced": 479,
-      "season_rank": 1
-    },
-    {
-      "season": 2024,
-      "batter": "RD Gaikwad",
-      "season_runs": 583,
-      "balls_faced": 413,
-      "season_rank": 2
-    },
-    {
-      "season": 2024,
-      "batter": "R Parag",
-      "season_runs": 573,
-      "balls_faced": 384,
-      "season_rank": 3
+      "orange_cap_player": "CH Gayle",
+      "orange_cap_runs": 733,
+      "purple_cap_player": "M Morkel",
+      "purple_cap_wickets": 25,
+      "purple_cap_economy": 7.4
     },
     {
       "season": 2013,
-      "batter": "MEK Hussey",
-      "season_runs": 733,
-      "balls_faced": 566,
-      "season_rank": 1
+      "orange_cap_player": "MEK Hussey",
+      "orange_cap_runs": 733,
+      "purple_cap_player": "DJ Bravo",
+      "purple_cap_wickets": 32,
+      "purple_cap_economy": 8.08
     },
     {
-      "season": 2013,
-      "batter": "CH Gayle",
-      "season_runs": 720,
-      "balls_faced": 459,
-      "season_rank": 2
+      "season": 2014,
+      "orange_cap_player": "RV Uthappa",
+      "orange_cap_runs": 660,
+      "purple_cap_player": "MM Sharma",
+      "purple_cap_wickets": 23,
+      "purple_cap_economy": 8.49
     },
     {
-      "season": 2013,
-      "batter": "V Kohli",
-      "season_runs": 639,
-      "balls_faced": 459,
-      "season_rank": 3
+      "season": 2015,
+      "orange_cap_player": "DA Warner",
+      "orange_cap_runs": 562,
+      "purple_cap_player": "DJ Bravo",
+      "purple_cap_wickets": 26,
+      "purple_cap_economy": 8.45
+    },
+    {
+      "season": 2016,
+      "orange_cap_player": "V Kohli",
+      "orange_cap_runs": 973,
+      "purple_cap_player": "B Kumar",
+      "purple_cap_wickets": 23,
+      "purple_cap_economy": 7.62
+    },
+    {
+      "season": 2017,
+      "orange_cap_player": "DA Warner",
+      "orange_cap_runs": 641,
+      "purple_cap_player": "B Kumar",
+      "purple_cap_wickets": 26,
+      "purple_cap_economy": 7.34
+    },
+    {
+      "season": 2018,
+      "orange_cap_player": "KS Williamson",
+      "orange_cap_runs": 735,
+      "purple_cap_player": "AJ Tye",
+      "purple_cap_wickets": 24,
+      "purple_cap_economy": 8.2
+    },
+    {
+      "season": 2019,
+      "orange_cap_player": "DA Warner",
+      "orange_cap_runs": 692,
+      "purple_cap_player": "Imran Tahir",
+      "purple_cap_wickets": 26,
+      "purple_cap_economy": 6.84
+    },
+    {
+      "season": 2021,
+      "orange_cap_player": "KL Rahul",
+      "orange_cap_runs": 1302,
+      "purple_cap_player": "JJ Bumrah",
+      "purple_cap_wickets": 50,
+      "purple_cap_economy": 7.33
+    },
+    {
+      "season": 2022,
+      "orange_cap_player": "JC Buttler",
+      "orange_cap_runs": 863,
+      "purple_cap_player": "YS Chahal",
+      "purple_cap_wickets": 27,
+      "purple_cap_economy": 7.88
     },
     {
       "season": 2023,
-      "batter": "Shubman Gill",
-      "season_runs": 890,
-      "balls_faced": 564,
-      "season_rank": 1
+      "orange_cap_player": "Shubman Gill",
+      "orange_cap_runs": 890,
+      "purple_cap_player": "Mohammed Shami",
+      "purple_cap_wickets": 28,
+      "purple_cap_economy": 8.18
     },
     {
-      "season": 2023,
-      "batter": "F du Plessis",
-      "season_runs": 730,
-      "balls_faced": 475,
-      "season_rank": 2
-    },
-    {
-      "season": 2023,
-      "batter": "DP Conway",
-      "season_runs": 672,
-      "balls_faced": 481,
-      "season_rank": 3
+      "season": 2024,
+      "orange_cap_player": "V Kohli",
+      "orange_cap_runs": 741,
+      "purple_cap_player": "HV Patel",
+      "purple_cap_wickets": 24,
+      "purple_cap_economy": 9.9
     },
     {
       "season": 2025,
-      "batter": "B Sai Sudharsan",
-      "season_runs": 759,
-      "balls_faced": 486,
-      "season_rank": 1
-    },
-    {
-      "season": 2025,
-      "batter": "SA Yadav",
-      "season_runs": 717,
-      "balls_faced": 427,
-      "season_rank": 2
-    },
-    {
-      "season": 2025,
-      "batter": "V Kohli",
-      "season_runs": 657,
-      "balls_faced": 454,
-      "season_rank": 3
+      "orange_cap_player": "B Sai Sudharsan",
+      "orange_cap_runs": 759,
+      "purple_cap_player": "M Prasidh Krishna",
+      "purple_cap_wickets": 25,
+      "purple_cap_economy": 8.58
     },
     {
       "season": 2026,
-      "batter": "V Suryavanshi",
-      "season_runs": 776,
-      "balls_faced": 327,
-      "season_rank": 1
-    },
-    {
-      "season": 2026,
-      "batter": "Shubman Gill",
-      "season_runs": 732,
-      "balls_faced": 449,
-      "season_rank": 2
-    },
-    {
-      "season": 2026,
-      "batter": "B Sai Sudharsan",
-      "season_runs": 722,
-      "balls_faced": 457,
-      "season_rank": 3
+      "orange_cap_player": "V Suryavanshi",
+      "orange_cap_runs": 776,
+      "purple_cap_player": "K Rabada",
+      "purple_cap_wickets": 29,
+      "purple_cap_economy": 9.76
     }
   ]
 }
