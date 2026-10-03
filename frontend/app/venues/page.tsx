@@ -265,7 +265,7 @@ export default function VenuesPage() {
           </div>
           <span className="text-[11px] text-[#707B91] font-mono">Click any stadium marker for pitch telemetry</span>
         </div>
-        <VenueMap venues={venues} />
+        <VenueMap venues={filteredVenues} />
       </div>
 
       {/* Toolbar & Filter */}
