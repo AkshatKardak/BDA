@@ -201,7 +201,7 @@ export default function MatchesPage() {
             IPL Historical Match Archives & Scorecards
           </h1>
           <p className="text-xs text-[#A9B2C3] mt-0.5 max-w-3xl leading-normal">
-            Every match across 18 seasons (1,243 official fixtures). Programmatically query by tournament stage, season, franchise, or venue.
+            Every match across 18 seasons (1,243 official fixtures). Search and filter by tournament stage, season, franchise, or venue.
           </p>
         </div>
 

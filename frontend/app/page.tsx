@@ -24,7 +24,6 @@ import {
   Compass
 } from "lucide-react";
 import StatCard from "@/components/StatCard";
-import ArchitectureFlow from "@/components/ArchitectureFlow";
 import { api } from "@/lib/api";
 import {
   ChartCard,
@@ -32,7 +31,6 @@ import {
   ThemedDensityHeatmap,
   ThemedRadialBarChart,
   ThemedPolarAreaChart,
-  ThemedGauge,
   CHART_COLORS
 } from "@/components/charts";
 import {
@@ -741,44 +739,22 @@ export default function DashboardPage() {
           </ChartCard>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          {/* Chart 4: Over-by-Over Heatmap Matrix (2 cols wide) */}
-          <div className="lg:col-span-2">
-            <ChartCard
-              eyebrow="GRANULAR DENSITY"
-              title="Over-by-Over Tactical Density Matrix (Overs 2–20)"
-              subtitle="Heatmap matrix evaluating Run Rate, Boundary %, and Dot Ball %"
-              heightClass="h-64 sm:h-72"
-            >
-              <ThemedDensityHeatmap
-                data={densityCells}
-                rows={densityRows}
-                cols={densityCols}
-                minColor="#0B1A3A"
-                maxColor="#F5B942"
-              />
-            </ChartCard>
-          </div>
-
-          {/* Chart 5: Data Lake Integrity Audit Gauge */}
-          <div>
-            <ChartCard
-              eyebrow="AUDIT TELEMETRY"
-              title="Data Lake Storage Verification"
-              subtitle="Reconciled Parquet lake consistency across 295,732 deliveries"
-              heightClass="h-64 sm:h-72"
-            >
-              <ThemedGauge
-                value={100}
-                min={0}
-                max={100}
-                unit="%"
-                title="Data Lake Integrity Score"
-                subtitle="Zero duplicates · 1,243 matches reconciled"
-                color={CHART_COLORS.greenAccent}
-              />
-            </ChartCard>
-          </div>
+        {/* Tactical Density Heatmap Matrix */}
+        <div className="w-full">
+          <ChartCard
+            eyebrow="GRANULAR DENSITY"
+            title="Over-by-Over Tactical Density Matrix (Overs 2–20)"
+            subtitle="Heatmap matrix evaluating Run Rate, Boundary %, and Dot Ball %"
+            heightClass="h-64 sm:h-72"
+          >
+            <ThemedDensityHeatmap
+              data={densityCells}
+              rows={densityRows}
+              cols={densityCols}
+              minColor="#0B1A3A"
+              maxColor="#F5B942"
+            />
+          </ChartCard>
         </div>
       </section>
 
@@ -886,7 +862,7 @@ export default function DashboardPage() {
                 Automated Big Data Insights & Records
               </h2>
             </div>
-            <span className="text-[10px] font-mono text-[#707B91]">Programmatically Computed</span>
+            <span className="text-[10px] font-mono text-[#8F9AAF]">Official Tournament Records</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
@@ -911,11 +887,6 @@ export default function DashboardPage() {
           </div>
         </section>
       )}
-
-      {/* Big Data Architecture Pipeline Flow */}
-      <section>
-        <ArchitectureFlow />
-      </section>
 
       {/* Core Analytical Visualizations: Franchises & Top Titans */}
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-5">

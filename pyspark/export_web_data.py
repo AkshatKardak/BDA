@@ -474,9 +474,9 @@ def export():
         {
             "category": "Franchise Dominance",
             "title": "Championship Heavyweights",
-            "description": f"{team_playoff_list[0]['team']} and {team_playoff_list[1]['team']} headline tournament history, claiming {team_playoff_list[0]['titles']} and {team_playoff_list[1]['titles']} titles respectively across 18 tournament editions.",
+            "description": "Mumbai Indians headline tournament history, claiming 5 championship titles across 18 tournament editions.",
             "impact": "High",
-            "stat": f"{team_playoff_list[0]['titles']} Titles ({team_playoff_list[0]['team']})"
+            "stat": "5 Titles (Mumbai Indians)"
         },
         {
             "category": "Player Legacy",

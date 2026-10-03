@@ -209,6 +209,9 @@ Open two terminal windows:
   - Swagger Documentation: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
   - Pipeline Health Endpoint: [http://127.0.0.1:8000/api/health](http://127.0.0.1:8000/api/health)
 
+> **Live Match Integration (API Key Added):**  
+> A valid `CRICKET_API_KEY` has been integrated in `backend/.env` to power real-time match and live score queries through our FastAPI backend. When no match is currently active, the system cleanly reports tournament status while preserving 100% genuine Cricsheet data across historical analytics.
+
 - **Terminal 2 (Next.js Frontend):**
   ```bash
   cd frontend
