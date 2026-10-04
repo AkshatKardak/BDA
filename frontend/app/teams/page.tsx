@@ -388,7 +388,7 @@ export default function TeamsPage() {
             <ThemedBarChart
               data={rivalryData}
               xKey="rivalry"
-              dataKey="matches"
+              yKey="matches"
               unit="matches"
               color={CHART_COLORS.bluePrimary}
             />

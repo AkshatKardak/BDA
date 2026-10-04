@@ -16,7 +16,8 @@ import { CHART_COLORS, chartTooltipStyle, chartAxisStyle, chartGridStyle } from 
 interface ThemedBarChartProps {
   data: any[];
   xKey: string;
-  yKey: string;
+  yKey?: string;
+  dataKey?: string;
   barName?: string;
   color?: string;
   horizontal?: boolean;
@@ -29,6 +30,7 @@ export default function ThemedBarChart({
   data,
   xKey,
   yKey,
+  dataKey,
   barName = "Value",
   color = CHART_COLORS.blueVibrant,
   horizontal = false,
@@ -37,6 +39,8 @@ export default function ThemedBarChart({
   yDomain,
 }: ThemedBarChartProps) {
   if (!data || data.length === 0) return null;
+
+  const valueKey = yKey || dataKey || "value";
 
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -69,7 +73,7 @@ export default function ThemedBarChart({
           formatter={(value: any) => [`${Number(value).toLocaleString()}${unit ? " " + unit : ""}`, barName]}
         />
         <Bar
-          dataKey={yKey}
+          dataKey={valueKey}
           name={barName}
           fill={color}
           radius={horizontal ? [0, 4, 4, 0] : [4, 4, 0, 0]}

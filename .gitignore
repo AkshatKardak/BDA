@@ -31,6 +31,16 @@ flume/logs/*.tmp
 .DS_Store
 Thumbs.db
 
+# Frontend & Node build artifacts
+node_modules/
+.next/
+out/
+frontend/.next/
+frontend/out/
+frontend/node_modules/
+*.tsbuildinfo
+.vercel/
+
 # Environment variables & secrets
 .env
 *.env
@@ -39,4 +49,5 @@ Thumbs.db
 backend/.env
 frontend/.env.local
 frontend/.env.*.local
+frontend/.env
 

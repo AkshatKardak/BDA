@@ -192,7 +192,7 @@ export default function DashboardPage() {
     { name: "Middle (7-15)", value: 76, color: "#2476E8" },
     { name: "Death (16-20)", value: 54, color: "#F5B942" },
     { name: "Extras", value: 9, color: "#707B91" },
-    { name: "Avg Total", isTotal: true, color: "#2FBF71" }
+    { name: "Avg Total", value: 186, isTotal: true, color: "#2FBF71" }
   ];
 
   // Advanced Visual Analytics 6: Density Heatmap of Overs vs Metrics

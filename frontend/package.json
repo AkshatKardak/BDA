@@ -4,9 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\"",
+    "prebuild": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.22",
@@ -21,6 +26,7 @@
     "recharts": "^3.10.1"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.16.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

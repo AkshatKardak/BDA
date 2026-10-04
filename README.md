@@ -215,9 +215,50 @@ Open two terminal windows:
 - **Terminal 2 (Next.js Frontend):**
   ```bash
   cd frontend
-  npm run dev
+  npm run build
+  npm run start
   ```
   - Interactive Web Dashboard: [http://localhost:3000](http://localhost:3000)
+
+> [!IMPORTANT]
+> ### 🛑 Crucial: OneDrive File-Locking & Cache Hygiene
+> If this repository resides inside a **Microsoft OneDrive** synchronized folder (e.g. `C:\Users\...\OneDrive\Desktop\BDA`), OneDrive's background sync will actively lock files inside `.next/` while Webpack compiles, causing `Cannot find module './NNN.js'` or `404` errors.
+>
+> **Best Practices:**
+> 1. **Preferred:** Move the project out of OneDrive to a non-synced directory (e.g., `C:\dev\BDA`).
+> 2. **Otherwise:** Pause OneDrive sync while developing, or exclude `frontend\.next` and `frontend\node_modules` from OneDrive syncing.
+> 3. **Never run `next dev` while OneDrive is actively syncing.**
+> 4. **One-Command Recovery:** If you ever encounter `Cannot find module './NNN.js'` or stale chunks:
+>    ```bash
+>    cd frontend
+>    npm run clean
+>    npm run build
+>    npm start
+>    ```
+>    The `npm run clean` script immediately wipes the stale `.next` directory from a clean slate. Nothing else is needed.
+
+---
+
+### Production Cloud Deployment (Netlify + Render)
+
+This repository is pre-configured with infrastructure-as-code for one-click production deployment:
+
+#### 1. Frontend on Netlify (`netlify.toml` included)
+- **Base directory:** `frontend`
+- **Build command:** `npm run build`
+- **Publish directory:** `frontend/.next`
+- **Node version:** `20` (pinned via `.nvmrc` and `engines`)
+- **Plugin:** `@netlify/plugin-nextjs` (installed)
+- **Environment Variables (Netlify Dashboard → Build & deploy → Environment):**
+  - `NEXT_PUBLIC_API_URL` = `https://<your-render-backend-url>.onrender.com/api`
+
+#### 2. Backend on Render (`render.yaml` included)
+- **Service Type:** Web Service
+- **Runtime:** Python 3.11
+- **Build command:** `pip install fastapi uvicorn pydantic`
+- **Start command:** `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
+- **Runtime footprint:** Minimal and fast. The backend reads committed analytical JSON/CSV marts from `web_data/` and `output/`. No heavy PySpark/JVM memory overhead is required in production.
+- **CORS:** Configured in `backend/config.py` with support for `https://*.netlify.app` and custom origins via `ALLOWED_ORIGINS`.
 
 ---
 
