@@ -47,7 +47,7 @@ export default function ThemedPieChart({
   const centerTopClass = showLegend ? "top-[44%]" : "top-[50%]";
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
+    <div className="relative w-full h-full min-h-[220px]">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie

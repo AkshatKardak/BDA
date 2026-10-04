@@ -83,7 +83,7 @@ export default function ChartCard({
       </div>
 
       {/* Body / Chart Area with clean vertical padding */}
-      <div className={`relative w-full flex-1 flex flex-col justify-center min-h-0 ${heightClass} pt-2 pb-1`}>
+      <div className={`relative w-full ${heightClass} pt-2 pb-1`}>
         {loading ? (
           <div className="absolute inset-0 flex flex-col items-center justify-center space-y-2 bg-[#070B16]/50 rounded-btn">
             <div className="w-6 h-6 border-2 border-[rgba(245,185,66,0.2)] border-t-[#F5B942] rounded-full animate-spin" />
@@ -95,7 +95,7 @@ export default function ChartCard({
             <p className="text-xs text-[#A9B2C3] font-mono max-w-xs">{emptyMessage}</p>
           </div>
         ) : (
-          <div className="w-full h-full">{children}</div>
+          <div className="w-full h-full min-h-[220px]">{children}</div>
         )}
       </div>
     </div>

@@ -189,7 +189,13 @@ class DataLoaderService:
         seasons_dict = data.get("seasons", {})
         for s_key, s_data in seasons_dict.items():
             if str(s_key).lower() == str(season).lower():
-                return {"season": s_key, **s_data}
+                summary_data = s_data.get("summary", {})
+                return {
+                    **summary_data,
+                    **s_data,
+                    "season": str(s_key),
+                    "summary": summary_data,
+                }
         return None
 
     def get_leaderboards(self) -> Dict[str, Any]:

@@ -5,7 +5,7 @@ Pydantic data models for IPL Big Data Analytics API responses.
 Directly aligned with genuine PySpark / Hive aggregated tables.
 """
 
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Union
 from pydantic import BaseModel, Field
 
 # 1. Overview Models
@@ -91,10 +91,30 @@ class SeasonsResponse(BaseModel):
     timeline: List[Dict[str, Any]]
 
 class SeasonDetailResponse(BaseModel):
-    season: str
-    summary: Dict[str, Any]
-    sample_matches: List[Dict[str, Any]]
-    leaders: List[Dict[str, Any]]
+    season: Union[str, int]
+    summary: Dict[str, Any] = {}
+    champion: Optional[str] = None
+    runner_up: Optional[str] = None
+    winner: Optional[str] = None
+    matches_count: Optional[int] = None
+    season_matches: Optional[int] = None
+    total_runs: Optional[int] = None
+    legal_balls: Optional[int] = None
+    fours: Optional[int] = None
+    sixes: Optional[int] = None
+    total_wickets: Optional[int] = None
+    run_rate: Optional[float] = None
+    avg_match_runs: Optional[float] = None
+    avg_match_wickets: Optional[float] = None
+    boundary_runs: Optional[int] = None
+    boundary_run_pct: Optional[float] = None
+    chasing_win_pct: Optional[float] = None
+    toss_win_pct: Optional[float] = None
+    sample_matches: List[Dict[str, Any]] = []
+    leaders: List[Dict[str, Any]] = []
+
+    class Config:
+        extra = "allow"
 
 # 7. Leaderboards Models
 class LeaderboardsResponse(BaseModel):
