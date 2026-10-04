@@ -10,7 +10,8 @@ import {
   X,
   Trophy,
   TrendingUp,
-  BarChart3
+  BarChart3,
+  Activity
 } from "lucide-react";
 import { api } from "@/lib/api";
 import {

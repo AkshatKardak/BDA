@@ -26,6 +26,7 @@ interface ThemedPieChartProps {
   unit?: string;
   innerRadius?: number;
   outerRadius?: number;
+  showLegend?: boolean;
 }
 
 export default function ThemedPieChart({
@@ -34,12 +35,15 @@ export default function ThemedPieChart({
   centerLabel,
   centerValue,
   unit = "",
-  innerRadius = 50,
-  outerRadius = 78,
+  innerRadius = 52,
+  outerRadius = 82,
+  showLegend = true,
 }: ThemedPieChartProps) {
   if (!data || data.length === 0) return null;
 
   const total = data.reduce((sum, item) => sum + (item.value || 0), 0);
+  const pieCy = showLegend ? "44%" : "50%";
+  const centerTopClass = showLegend ? "top-[44%]" : "top-[50%]";
 
   return (
     <div className="relative w-full h-full flex items-center justify-center">
@@ -50,7 +54,7 @@ export default function ThemedPieChart({
             dataKey="value"
             nameKey="name"
             cx="50%"
-            cy="48%"
+            cy={pieCy}
             innerRadius={donut ? innerRadius : 0}
             outerRadius={outerRadius}
             paddingAngle={donut ? 2.5 : 0}
@@ -74,18 +78,20 @@ export default function ThemedPieChart({
               ];
             }}
           />
-          <Legend
-            verticalAlign="bottom"
-            height={36}
-            wrapperStyle={{ fontSize: "11px", paddingTop: "8px" }}
-            iconType="circle"
-          />
+          {showLegend && (
+            <Legend
+              verticalAlign="bottom"
+              height={36}
+              wrapperStyle={{ fontSize: "11px", paddingTop: "8px" }}
+              iconType="circle"
+            />
+          )}
         </PieChart>
       </ResponsiveContainer>
 
       {/* Center Label for Donut Mode */}
       {donut && (centerLabel || centerValue) && (
-        <div className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none text-center">
+        <div className={`absolute ${centerTopClass} left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none text-center`}>
           {centerValue && (
             <div className="text-sm sm:text-base font-extrabold text-white font-mono leading-none">
               {centerValue}

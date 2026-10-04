@@ -19,9 +19,7 @@ import {
   ThemedLineChart,
   ThemedPieChart,
   ThemedDivergingBarChart,
-  ThemedRadarChart,
   ThemedParallelCoordinates,
-  ThemedChordChart,
   ThemedBulletChart,
   CHART_COLORS,
   SERIES_PALETTE
@@ -176,41 +174,33 @@ export default function TeamsPage() {
       color: t.win_pct >= 50 ? CHART_COLORS.greenAccent : CHART_COLORS.goldPrimary,
     }));
 
-  // Chart Dataset 8: Tactical 5-Dimension Radar Comparison
-  const radarDimensions = [
+  // Chart Dataset 8: Tactical Performance Comparison (Grouped Bar Chart)
+  const tacticalComparisonData = [
     { dimension: "Win Rate %", MI: 53.95, CSK: 55.64, KKR: 51.08, RCB: 50.70 },
     { dimension: "Defend Win %", MI: 49.04, CSK: 50.68, KKR: 40.85, RCB: 45.52 },
     { dimension: "Chase Win %", MI: 49.68, CSK: 49.32, KKR: 57.75, RCB: 53.10 },
     { dimension: "Powerplay RPO", MI: 51.0, CSK: 49.5, KKR: 54.0, RCB: 52.0 },
     { dimension: "Death RPO", MI: 58.0, CSK: 56.5, KKR: 55.0, RCB: 57.0 },
   ];
-  const radarSeries = [
+  const tacticalBars = [
     { key: "CSK", name: "CSK", color: "#F5B942" },
     { key: "MI", name: "MI", color: "#165DCC" },
     { key: "KKR", name: "KKR", color: "#7B2CBF" },
     { key: "RCB", name: "RCB", color: "#E63946" },
   ];
 
-  // Chart Dataset 9: Head-to-Head Rivalry Chord
-  const chordEntities = [
-    { id: "MI", name: "Mumbai Indians", color: "#165DCC" },
-    { id: "CSK", name: "Chennai Super Kings", color: "#F5B942" },
-    { id: "RCB", name: "Royal Challengers", color: "#E63946" },
-    { id: "KKR", name: "Kolkata Knight Riders", color: "#7B2CBF" },
-    { id: "DC", name: "Delhi Capitals", color: "#2476E8" },
-    { id: "RR", name: "Rajasthan Royals", color: "#FF007F" },
-  ];
-  const chordMatrix = [
-    { source: "MI", target: "CSK", value: 36 },
-    { source: "MI", target: "RCB", value: 34 },
-    { source: "MI", target: "KKR", value: 33 },
-    { source: "CSK", target: "RCB", value: 32 },
-    { source: "CSK", target: "KKR", value: 30 },
-    { source: "RCB", target: "KKR", value: 33 },
-    { source: "MI", target: "DC", value: 34 },
-    { source: "CSK", target: "DC", value: 30 },
-    { source: "MI", target: "RR", value: 29 },
-    { source: "RCB", target: "RR", value: 31 },
+  // Chart Dataset 9: Marquee Franchise Rivalry Encounters (Simple Bar Chart)
+  const rivalryData = [
+    { rivalry: "MI vs CSK", matches: 36 },
+    { rivalry: "MI vs RCB", matches: 34 },
+    { rivalry: "MI vs DC", matches: 34 },
+    { rivalry: "MI vs KKR", matches: 33 },
+    { rivalry: "RCB vs KKR", matches: 33 },
+    { rivalry: "CSK vs RCB", matches: 32 },
+    { rivalry: "RCB vs RR", matches: 31 },
+    { rivalry: "CSK vs KKR", matches: 30 },
+    { rivalry: "CSK vs DC", matches: 30 },
+    { rivalry: "MI vs RR", matches: 29 },
   ];
 
   // Chart Dataset 10: Multivariate Parallel Coordinates
@@ -336,7 +326,7 @@ export default function TeamsPage() {
               Multidimensional Franchise Diagnostics & Rivalries
             </h2>
           </div>
-          <span className="text-[10px] font-mono text-[#8F9AAF]">Diverging · Bullet · Radar · Chord · Parallel</span>
+          <span className="text-[10px] font-mono text-[#8F9AAF]">Diverging · Bullet · Grouped Bar · Rivalries · Parallel</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
@@ -371,31 +361,37 @@ export default function TeamsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {/* Radar Chart */}
+          {/* Tactical Comparison Grouped Bar Chart */}
           <ChartCard
             eyebrow="TACTICAL PROFILE"
-            title="5-Dimension Tactical Radar Comparison"
+            title="Tactical Performance Comparison"
             subtitle="Comparing CSK, MI, KKR, and RCB across key performance axes"
             icon={Users}
             heightClass="h-64 sm:h-72"
           >
-            <ThemedRadarChart
-              data={radarDimensions}
-              subjectKey="dimension"
-              series={radarSeries}
-              domain={[35, 65]}
+            <ThemedGroupedBarChart
+              data={tacticalComparisonData}
+              xKey="dimension"
+              bars={tacticalBars}
+              unit="%"
             />
           </ChartCard>
 
-          {/* Chord Chart */}
+          {/* Marquee Rivalries Bar Chart */}
           <ChartCard
             eyebrow="HEAD-TO-HEAD"
-            title="Franchise Rivalry Chord Matrix"
-            subtitle="Bilateral fixture encounters between the top 6 IPL franchises"
+            title="Marquee Franchise Rivalries"
+            subtitle="Total matches contested between marquee IPL franchise rivalries"
             icon={Swords}
             heightClass="h-64 sm:h-72"
           >
-            <ThemedChordChart entities={chordEntities} matrix={chordMatrix} unit="matches" />
+            <ThemedBarChart
+              data={rivalryData}
+              xKey="rivalry"
+              dataKey="matches"
+              unit="matches"
+              color={CHART_COLORS.bluePrimary}
+            />
           </ChartCard>
 
           {/* Parallel Coordinates */}

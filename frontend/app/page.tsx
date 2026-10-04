@@ -30,7 +30,7 @@ import {
   ThemedWaterfallChart,
   ThemedDensityHeatmap,
   ThemedRadialBarChart,
-  ThemedPolarAreaChart,
+  ThemedPieChart,
   CHART_COLORS
 } from "@/components/charts";
 import {
@@ -238,11 +238,11 @@ export default function DashboardPage() {
     { name: "Powerplay (7.65 RPO)", value: 7.65, fill: "#165DCC" },
   ];
 
-  // Advanced Visual Analytics 8: Polar Area of Phase Run Volumes
-  const polarPhaseData = [
-    { label: "Powerplay", value: 98926, color: "#165DCC" },
-    { label: "Middle", value: 175097, color: "#2476E8" },
-    { label: "Death", value: 127715, color: "#F5B942" },
+  // Advanced Visual Analytics 8: Phase Run Volumes (Pie Chart)
+  const phasePieData = [
+    { name: "Powerplay (1–6)", value: 98926, color: "#165DCC" },
+    { name: "Middle (7–15)", value: 175097, color: "#2476E8" },
+    { name: "Death (16–20)", value: 127715, color: "#F5B942" },
   ];
 
   return (
@@ -728,14 +728,14 @@ export default function DashboardPage() {
             <ThemedRadialBarChart data={radialPhaseData} unit="RPO" maxVal={12} />
           </ChartCard>
 
-          {/* Chart 3: Polar Area Phase Contribution (Coxcomb) */}
+          {/* Chart 3: Phase Run Contribution (Simple Pie Chart) */}
           <ChartCard
-            eyebrow="VOLUME"
-            title="Phase Run Contribution (Polar Area)"
-            subtitle="Radial volume sectors comparing historical phase aggregates"
+            eyebrow="RUN DISTRIBUTION"
+            title="Phase Run Contribution (Pie Chart)"
+            subtitle="Proportional run volume across Powerplay, Middle, and Death"
             heightClass="h-64 sm:h-72"
           >
-            <ThemedPolarAreaChart data={polarPhaseData} unit="runs" />
+            <ThemedPieChart data={phasePieData} donut={false} unit="runs" />
           </ChartCard>
         </div>
 

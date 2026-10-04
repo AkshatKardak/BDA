@@ -35,7 +35,7 @@ export default function ChartCard({
 }: ChartCardProps) {
   return (
     <div
-      className={`rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0A101D] p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.12)] flex flex-col justify-between ${className}`}
+      className={`rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0A101D] p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.12)] flex flex-col ${className}`}
     >
       {/* Header */}
       <div className="flex items-start justify-between mb-3 pb-2.5 border-b border-[rgba(255,255,255,0.06)] gap-2">
@@ -69,7 +69,7 @@ export default function ChartCard({
       </div>
 
       {/* Body / Chart Area with strict fixed height */}
-      <div className={`relative w-full ${heightClass}`}>
+      <div className={`relative w-full flex-1 flex flex-col justify-center min-h-0 ${heightClass}`}>
         {loading ? (
           <div className="absolute inset-0 flex flex-col items-center justify-center space-y-2 bg-[#070B16]/50 rounded-btn">
             <div className="w-6 h-6 border-2 border-[rgba(245,185,66,0.2)] border-t-[#F5B942] rounded-full animate-spin" />
