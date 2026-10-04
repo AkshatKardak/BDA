@@ -13,7 +13,6 @@ const nextConfig = {
   // The settings below make the dev server more robust if used during development.
   poweredByHeader: false,
   compress: true,
-  // Remove experimental flags that caused worker death under low-CPU quota
 };
 
 export default nextConfig;
