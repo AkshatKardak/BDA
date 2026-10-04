@@ -204,6 +204,9 @@ export default function TossPage() {
           subtitle="Proportional split of captain choices after winning the toss"
           icon={PieIcon}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={tossPieData.length === 0}
+          emptyMessage="No toss preference records available."
         >
           <ThemedPieChart
             data={tossPieData}
@@ -221,6 +224,9 @@ export default function TossPage() {
           subtitle="Percentage of fixtures where the toss winner won the match"
           icon={BarChart2}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={seasonTossWinRateData.length === 0}
+          emptyMessage="No season-by-season toss win rate data."
         >
           <ThemedBarChart
             data={seasonTossWinRateData}
@@ -240,6 +246,9 @@ export default function TossPage() {
           subtitle="Tracking the dramatic tactical divergence toward fielding first since 2016"
           icon={TrendingUp}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={tacticalEvolutionData.length === 0}
+          emptyMessage="No tactical evolution data available."
         >
           <ThemedMultiLineChart
             data={tacticalEvolutionData}
@@ -260,6 +269,9 @@ export default function TossPage() {
           subtitle="Comparing volume of calls against actual match wins per decision"
           icon={Trophy}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={decisionConversionData.length === 0}
+          emptyMessage="No decision conversion records available."
         >
           <ThemedGroupedBarChart
             data={decisionConversionData}
@@ -293,6 +305,9 @@ export default function TossPage() {
             subtitle="Ribbon links mapping toss choice (Field vs Bat) to final match victory or defeat"
             icon={Compass}
             heightClass="h-72 sm:h-80"
+            loading={loading}
+            empty={tossSankeyLinks.length === 0}
+            emptyMessage="No toss decision pathway links available."
           >
             <ThemedSankeyChart nodes={tossSankeyNodes} links={tossSankeyLinks} unit="matches" />
           </ChartCard>
@@ -304,6 +319,9 @@ export default function TossPage() {
             subtitle="Evaluating the tactical migration towards chasing across 18 editions"
             icon={TrendingUp}
             heightClass="h-72 sm:h-80"
+            loading={loading}
+            empty={tossPercentData.length === 0}
+            emptyMessage="No normalized seasonal choice data available."
           >
             <ThemedPercentBarChart
               data={tossPercentData}

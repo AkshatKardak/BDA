@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { interpolateColor, CHART_COLORS } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface HeatmapCell {
   row: string;
@@ -31,7 +32,7 @@ export default function ThemedDensityHeatmap({
 }: ThemedDensityHeatmapProps) {
   const [hoveredCell, setHoveredCell] = useState<HeatmapCell | null>(null);
 
-  if (!data || data.length === 0 || rows.length === 0 || cols.length === 0) return null;
+  if (!data || data.length === 0 || rows.length === 0 || cols.length === 0) return <EmptyChartState />;
 
   // Find min and max values across all cells
   const values = data.map((d) => d.value);

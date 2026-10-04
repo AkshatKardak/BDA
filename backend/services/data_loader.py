@@ -8,24 +8,44 @@ system health across Flume, HDFS, Hive, and PySpark.
 import os
 import json
 import math
+import logging
 from datetime import datetime
 from typing import Dict, Any, List, Optional
+from fastapi import HTTPException
 from backend.config import settings
+
+logger = logging.getLogger("bda.data_loader")
 
 class DataLoaderService:
     def __init__(self):
         self.web_data_dir = settings.WEB_DATA_DIR
         self._cache: Dict[str, Any] = {}
+        self.loaded_marts: List[str] = []
+        self.missing_marts: List[str] = []
+        self.corrupt_marts: List[str] = []
         self._load_all()
 
     def _load_json(self, filename: str) -> Any:
         path = os.path.join(self.web_data_dir, filename)
         if not os.path.exists(path):
+            logger.warning("Data mart missing: %s at %s", filename, path)
+            self.missing_marts.append(filename)
             return None
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                self.loaded_marts.append(filename)
+                logger.info("Successfully loaded data mart: %s (%d bytes)", filename, os.path.getsize(path))
+                return data
+        except Exception as exc:
+            logger.error("Failed to parse data mart JSON %s: %s", filename, exc)
+            self.corrupt_marts.append(filename)
+            return None
 
     def _load_all(self):
+        self.loaded_marts = []
+        self.missing_marts = []
+        self.corrupt_marts = []
         files = [
             "overview.json", "teams.json", "players.json", "toss.json",
             "venues.json", "seasons.json", "leaderboards.json",
@@ -37,11 +57,23 @@ class DataLoaderService:
             data = self._load_json(f)
             if data is not None:
                 self._cache[f] = data
+        logger.info(
+            "Data mart inventory: %d loaded, %d missing from %s",
+            len(self.loaded_marts),
+            len(self.missing_marts),
+            self.web_data_dir
+        )
+        if self.missing_marts:
+            logger.warning("Missing data marts: %s", ", ".join(self.missing_marts))
 
     def get_overview(self) -> Dict[str, Any]:
+        if "overview.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Overview data mart not ready")
         return self._cache.get("overview.json", {})
 
     def get_teams(self) -> Dict[str, Any]:
+        if "teams.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Teams data mart not ready")
         data = self._cache.get("teams.json", {})
         return {
             "total_teams": len(data.get("franchises", [])),
@@ -49,6 +81,8 @@ class DataLoaderService:
         }
 
     def get_team_detail(self, team_name: str) -> Optional[Dict[str, Any]]:
+        if "teams.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Teams data mart not ready")
         data = self._cache.get("teams.json", {})
         details = data.get("details", {})
         # Exact match or case-insensitive search
@@ -58,6 +92,8 @@ class DataLoaderService:
         return None
 
     def get_players(self, query: Optional[str] = None, role: Optional[str] = None, limit: int = 50) -> Dict[str, Any]:
+        if "players.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Players data mart not ready")
         data = self._cache.get("players.json", {})
         batters = data.get("top_batters", [])
         bowlers = data.get("top_bowlers", [])
@@ -80,6 +116,8 @@ class DataLoaderService:
         }
 
     def get_player_detail(self, player_name: str) -> Optional[Dict[str, Any]]:
+        if "players.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Players data mart not ready")
         data = self._cache.get("players.json", {})
         target = player_name.lower()
         
@@ -111,9 +149,13 @@ class DataLoaderService:
         }
 
     def get_toss(self) -> Dict[str, Any]:
+        if "toss.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Toss data mart not ready")
         return self._cache.get("toss.json", {})
 
     def get_venues(self) -> Dict[str, Any]:
+        if "venues.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Venue data mart not ready")
         data = self._cache.get("venues.json", {})
         return {
             "total_venues": len(data.get("venues", [])),
@@ -122,6 +164,8 @@ class DataLoaderService:
         }
 
     def get_venue_detail(self, venue_name: str) -> Optional[Dict[str, Any]]:
+        if "venues.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Venue data mart not ready")
         data = self._cache.get("venues.json", {})
         target = venue_name.lower()
         for v in data.get("venues", []):
@@ -130,6 +174,8 @@ class DataLoaderService:
         return None
 
     def get_seasons(self) -> Dict[str, Any]:
+        if "seasons.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Seasons data mart not ready")
         data = self._cache.get("seasons.json", {})
         return {
             "total_seasons": len(data.get("timeline", [])),
@@ -137,6 +183,8 @@ class DataLoaderService:
         }
 
     def get_season_detail(self, season: str) -> Optional[Dict[str, Any]]:
+        if "seasons.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Seasons data mart not ready")
         data = self._cache.get("seasons.json", {})
         seasons_dict = data.get("seasons", {})
         for s_key, s_data in seasons_dict.items():
@@ -145,21 +193,33 @@ class DataLoaderService:
         return None
 
     def get_leaderboards(self) -> Dict[str, Any]:
+        if "leaderboards.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Leaderboards data mart not ready")
         return self._cache.get("leaderboards.json", {})
 
     def get_trends(self) -> Dict[str, Any]:
+        if "trends.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Trends data mart not ready")
         return self._cache.get("trends.json", {})
 
     def get_playoffs(self) -> Dict[str, Any]:
+        if "playoffs.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Playoffs data mart not ready")
         return self._cache.get("playoffs.json", {})
 
     def get_phases(self) -> Dict[str, Any]:
+        if "phases.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Phases data mart not ready")
         return self._cache.get("phases.json", {})
 
     def get_over_by_over(self) -> Dict[str, Any]:
+        if "over_by_over.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Over-by-over data mart not ready")
         return self._cache.get("over_by_over.json", {})
 
     def get_data_quality(self) -> Dict[str, Any]:
+        if "data_quality.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Data quality mart not ready")
         return self._cache.get("data_quality.json", {})
 
     def get_insights(self) -> List[Dict[str, Any]]:
@@ -175,6 +235,8 @@ class DataLoaderService:
         stage: Optional[str] = None,
         match_id: Optional[int] = None
     ) -> Dict[str, Any]:
+        if "matches.json" not in self._cache:
+            raise HTTPException(status_code=503, detail="Matches data mart not ready")
         raw_matches = self._cache.get("matches.json", {}).get("matches", [])
         
         filtered = raw_matches
@@ -291,13 +353,16 @@ class DataLoaderService:
         }
 
         # 6. Web Analytics Serving Layer
-        web_ok = len(self._cache) >= 9
+        web_ok = len(self._cache) >= 9 and len(self.missing_marts) == 0
         components["web_cache"] = {
             "name": "FastAPI Web Analytics Cache",
-            "status": "OPERATIONAL" if web_ok else "PARTIAL",
-            "message": f"Pre-computed analytics cache ready ({len(self._cache)} data marts loaded)",
+            "status": "OPERATIONAL" if web_ok else ("PARTIAL" if len(self._cache) > 0 else "MISSING"),
+            "message": f"Pre-computed analytics cache ready ({len(self.loaded_marts)} data marts loaded, {len(self.missing_marts)} missing)",
             "details": {
-                "loaded_files": list(self._cache.keys())
+                "loaded_count": len(self.loaded_marts),
+                "missing_count": len(self.missing_marts),
+                "loaded_files": self.loaded_marts,
+                "missing_files": self.missing_marts,
             }
         }
 

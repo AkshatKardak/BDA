@@ -12,6 +12,7 @@ import {
   Legend
 } from "recharts";
 import { chartTooltipStyle, chartAxisStyle, chartGridStyle } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface BarConfig {
   key: string;
@@ -36,7 +37,7 @@ export default function ThemedGroupedBarChart({
   unit = "",
   yDomain,
 }: ThemedGroupedBarChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   return (
     <ResponsiveContainer width="100%" height="100%">

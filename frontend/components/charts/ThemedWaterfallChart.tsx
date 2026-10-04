@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CHART_COLORS } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface WaterfallStep {
   name: string;
@@ -21,7 +22,7 @@ export default function ThemedWaterfallChart({
 }: ThemedWaterfallChartProps) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   // Calculate cumulative heights and maximum for scaling
   let runningTotal = 0;

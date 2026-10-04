@@ -13,6 +13,7 @@ import {
   Cell
 } from "recharts";
 import { chartTooltipStyle, chartAxisStyle, chartGridStyle, CHART_COLORS, CHART_PALETTES } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface BubblePoint {
   name: string;
@@ -47,7 +48,7 @@ export default function ThemedBubbleChart({
   yDomain,
   zRange = [40, 400],
 }: ThemedBubbleChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   const palette = CHART_PALETTES.sports;
 

@@ -12,6 +12,7 @@ import {
   Legend
 } from "recharts";
 import { CHART_COLORS, chartTooltipStyle, chartAxisStyle, chartGridStyle } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface ThemedAreaChartProps {
   data: any[];
@@ -32,7 +33,7 @@ export default function ThemedAreaChart({
   unit = "",
   yDomain,
 }: ThemedAreaChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   const gradientId = `area-gradient-${yKey.replace(/[^a-zA-Z0-9]/g, "")}`;
 

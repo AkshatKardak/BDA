@@ -481,7 +481,7 @@ export default function DashboardPage() {
               </p>
             </div>
 
-            <div className="h-44 w-full my-2">
+            <div className="h-44 w-full my-2 pt-1 pb-1">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -537,7 +537,7 @@ export default function DashboardPage() {
               </p>
             </div>
 
-            <div className="h-44 w-full my-2">
+            <div className="h-44 w-full my-2 pt-1 pb-1">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -593,7 +593,7 @@ export default function DashboardPage() {
               </p>
             </div>
 
-            <div className="h-44 w-full my-2">
+            <div className="h-44 w-full my-2 pt-1 pb-1">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -650,7 +650,7 @@ export default function DashboardPage() {
               </p>
             </div>
 
-            <div className="h-44 w-full my-2">
+            <div className="h-44 w-full my-2 pt-1 pb-1">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -714,6 +714,7 @@ export default function DashboardPage() {
             title="Innings Score Accumulation (Waterfall)"
             subtitle="Cumulative runs by phase leading to average 20-over team total"
             heightClass="h-64 sm:h-72"
+            loading={loading}
           >
             <ThemedWaterfallChart data={waterfallData} unit="runs" />
           </ChartCard>
@@ -724,6 +725,7 @@ export default function DashboardPage() {
             title="Phase Scoring Acceleration (Radial Rings)"
             subtitle="Concentric RPO velocity across Powerplay, Middle, and Death"
             heightClass="h-64 sm:h-72"
+            loading={loading}
           >
             <ThemedRadialBarChart data={radialPhaseData} unit="RPO" maxVal={12} />
           </ChartCard>
@@ -734,6 +736,7 @@ export default function DashboardPage() {
             title="Phase Run Contribution (Pie Chart)"
             subtitle="Proportional run volume across Powerplay, Middle, and Death"
             heightClass="h-64 sm:h-72"
+            loading={loading}
           >
             <ThemedPieChart data={phasePieData} donut={false} unit="runs" />
           </ChartCard>
@@ -746,6 +749,7 @@ export default function DashboardPage() {
             title="Over-by-Over Tactical Density Matrix (Overs 2–20)"
             subtitle="Heatmap matrix evaluating Run Rate, Boundary %, and Dot Ball %"
             heightClass="h-64 sm:h-72"
+            loading={loading}
           >
             <ThemedDensityHeatmap
               data={densityCells}
@@ -829,7 +833,7 @@ export default function DashboardPage() {
             <span className="text-[11px] font-mono text-[#8F9AAF]">Historical Tournament Average</span>
           </div>
 
-          <div className="h-60 w-full">
+          <div className="h-60 w-full pt-2 pb-1">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={chartOverData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
@@ -911,7 +915,7 @@ export default function DashboardPage() {
             </Link>
           </div>
 
-          <div className="h-56 w-full">
+          <div className="h-56 w-full pt-2 pb-1">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartTeamData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />

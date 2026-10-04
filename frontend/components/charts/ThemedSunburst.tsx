@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CHART_PALETTES } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface SunburstNode {
   name: string;
@@ -27,7 +28,7 @@ export default function ThemedSunburst({
 }: ThemedSunburstProps) {
   const [hovered, setHovered] = useState<{ name: string; value: number; parent?: string } | null>(null);
 
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   const size = 320;
   const center = size / 2;
@@ -36,7 +37,7 @@ export default function ThemedSunburst({
   const r2 = 138; // Outer tier outer radius
 
   const totalValue = data.reduce((acc, curr) => acc + (curr.value || 0), 0);
-  if (totalValue === 0) return null;
+  if (totalValue === 0) return <EmptyChartState />;
 
   // Helper to calculate arc path given angles (in radians) and radii
   const describeArc = (x: number, y: number, innerR: number, outerR: number, startAngle: number, endAngle: number) => {

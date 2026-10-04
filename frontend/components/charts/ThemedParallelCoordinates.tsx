@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CHART_PALETTES } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface ParallelDimension {
   key: string;
@@ -29,7 +30,7 @@ export default function ThemedParallelCoordinates({
 }: ThemedParallelCoordinatesProps) {
   const [activeEntityId, setActiveEntityId] = useState<string | null>(null);
 
-  if (!dimensions || dimensions.length < 2 || !data || data.length === 0) return null;
+  if (!dimensions || dimensions.length < 2 || !data || data.length === 0) return <EmptyChartState />;
 
   const width = 600;
   const height = 260;

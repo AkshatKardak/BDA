@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Play, Pause, RotateCcw } from "lucide-react";
 import { CHART_PALETTES } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface BarRaceFrame {
   season: string | number;
@@ -42,9 +43,9 @@ export default function ThemedBarRace({
       }, autoPlayIntervalMs);
     }
     return () => clearInterval(timer);
-  }, [isPlaying, frames.length, autoPlayIntervalMs]);
+  }, [isPlaying, frames?.length, autoPlayIntervalMs]);
 
-  if (!frames || frames.length === 0) return null;
+  if (!frames || frames.length === 0) return <EmptyChartState />;
 
   const currentFrame = frames[currentFrameIdx] || frames[0];
   const sorted = [...currentFrame.rankings].sort((a, b) => b.value - a.value).slice(0, 7);

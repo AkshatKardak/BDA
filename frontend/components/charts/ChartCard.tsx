@@ -33,6 +33,20 @@ export default function ChartCard({
   emptyMessage = "No telemetry data available for the current filter criteria.",
   className = "",
 }: ChartCardProps) {
+  // Auto-detect empty state across various chart prop conventions
+  const childProps = React.isValidElement(children) ? (children.props as any) : null;
+  const isChildrenDataEmpty = !children || (
+    childProps && (
+      (Array.isArray(childProps.data) && childProps.data.length === 0) ||
+      (Array.isArray(childProps.items) && childProps.items.length === 0) ||
+      (Array.isArray(childProps.frames) && childProps.frames.length === 0) ||
+      (Array.isArray(childProps.seasons) && childProps.seasons.length === 0) ||
+      (Array.isArray(childProps.nodes) && childProps.nodes.length === 0)
+    )
+  );
+
+  const isEffectivelyEmpty = empty || isChildrenDataEmpty;
+
   return (
     <div
       className={`rounded-card border border-[rgba(255,255,255,0.08)] bg-[#0A101D] p-4 sm:p-5 shadow-[0_4px_16px_rgba(0,0,0,0.12)] flex flex-col ${className}`}
@@ -68,16 +82,16 @@ export default function ChartCard({
         )}
       </div>
 
-      {/* Body / Chart Area with strict fixed height */}
-      <div className={`relative w-full flex-1 flex flex-col justify-center min-h-0 ${heightClass}`}>
+      {/* Body / Chart Area with clean vertical padding */}
+      <div className={`relative w-full flex-1 flex flex-col justify-center min-h-0 ${heightClass} pt-2 pb-1`}>
         {loading ? (
           <div className="absolute inset-0 flex flex-col items-center justify-center space-y-2 bg-[#070B16]/50 rounded-btn">
             <div className="w-6 h-6 border-2 border-[rgba(245,185,66,0.2)] border-t-[#F5B942] rounded-full animate-spin" />
             <span className="text-[10px] font-mono text-[#707B91]">Rendering Visual Analytics...</span>
           </div>
-        ) : empty ? (
+        ) : isEffectivelyEmpty ? (
           <div className="absolute inset-0 flex flex-col items-center justify-center space-y-2 text-center p-4 bg-[#070B16]/30 rounded-btn border border-[rgba(255,255,255,0.03)]">
-            <AlertCircle className="w-5 h-5 text-[#8F9AAF]" />
+            <AlertCircle className="w-5 h-5 text-[#8F9AAF] opacity-60 flex-shrink-0" />
             <p className="text-xs text-[#A9B2C3] font-mono max-w-xs">{emptyMessage}</p>
           </div>
         ) : (

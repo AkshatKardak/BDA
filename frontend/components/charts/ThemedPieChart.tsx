@@ -10,6 +10,7 @@ import {
   Legend
 } from "recharts";
 import { SERIES_PALETTE, chartTooltipStyle } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface PieSlice {
   name: string;
@@ -39,7 +40,7 @@ export default function ThemedPieChart({
   outerRadius = 82,
   showLegend = true,
 }: ThemedPieChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   const total = data.reduce((sum, item) => sum + (item.value || 0), 0);
   const pieCy = showLegend ? "44%" : "50%";

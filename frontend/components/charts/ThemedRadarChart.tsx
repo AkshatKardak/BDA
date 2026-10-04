@@ -12,6 +12,7 @@ import {
   Legend
 } from "recharts";
 import { chartTooltipStyle, CHART_COLORS } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface RadarSeriesConfig {
   key: string;
@@ -32,7 +33,7 @@ export default function ThemedRadarChart({
   series,
   domain = [0, 100],
 }: ThemedRadarChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   return (
     <ResponsiveContainer width="100%" height="100%">

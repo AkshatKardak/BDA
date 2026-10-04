@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CHART_PALETTES } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface FunnelStage {
   stage: string;
@@ -21,7 +22,7 @@ export default function ThemedFunnelChart({
 }: ThemedFunnelChartProps) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   const maxVal = Math.max(...data.map((d) => d.count), 1);
   const colors = [

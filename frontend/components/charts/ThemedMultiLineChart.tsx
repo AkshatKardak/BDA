@@ -12,6 +12,7 @@ import {
   Legend
 } from "recharts";
 import { chartTooltipStyle, chartAxisStyle, chartGridStyle } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface LineConfig {
   key: string;
@@ -35,7 +36,7 @@ export default function ThemedMultiLineChart({
   unit = "",
   yDomain,
 }: ThemedMultiLineChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   return (
     <ResponsiveContainer width="100%" height="100%">

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CHART_COLORS } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface ThemedLollipopChartProps {
   data: any[];
@@ -22,7 +23,7 @@ export default function ThemedLollipopChart({
 }: ThemedLollipopChartProps) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   const items = data.slice(0, maxItems);
   const values = items.map((d) => Number(d[valueKey]) || 0);

@@ -223,6 +223,9 @@ export default function PlayersPage() {
           subtitle="Top 10 IPL batters ranked by cumulative tournament runs"
           icon={Award}
           heightClass="h-72 sm:h-80"
+          loading={loading}
+          empty={top10Batters.length === 0}
+          emptyMessage="No batter leaderboard data available."
         >
           <ThemedBarChart
             data={top10Batters}
@@ -242,6 +245,9 @@ export default function PlayersPage() {
           subtitle="Correlation between longevity (Total Runs) and scoring speed (SR)"
           icon={Zap}
           heightClass="h-72 sm:h-80"
+          loading={loading}
+          empty={batterScatterData.length === 0}
+          emptyMessage="No batter strike rate data available."
         >
           <ThemedScatterChart
             data={batterScatterData}
@@ -263,6 +269,9 @@ export default function PlayersPage() {
           subtitle="Top 10 IPL bowlers ranked by career wickets dismissed"
           icon={Target}
           heightClass="h-72 sm:h-80"
+          loading={loading}
+          empty={top10Bowlers.length === 0}
+          emptyMessage="No bowler leaderboard data available."
         >
           <ThemedBarChart
             data={top10Bowlers}
@@ -282,6 +291,9 @@ export default function PlayersPage() {
           subtitle="Correlation between wicket impact and runs conceded per over"
           icon={Activity}
           heightClass="h-72 sm:h-80"
+          loading={loading}
+          empty={bowlerScatterData.length === 0}
+          emptyMessage="No bowler economy data available."
         >
           <ThemedScatterChart
             data={bowlerScatterData}
@@ -317,6 +329,9 @@ export default function PlayersPage() {
             subtitle="Interactive scrubber tracking the race to 9,000+ career runs"
             icon={TrendingUp}
             heightClass="h-72 sm:h-80"
+            loading={loading}
+            empty={barRaceFrames.length === 0}
+            emptyMessage="No bar race milestone frames available."
           >
             <ThemedBarRace frames={barRaceFrames} unit="runs" />
           </ChartCard>
@@ -328,6 +343,9 @@ export default function PlayersPage() {
             subtitle="Ranked stems displaying maximum hits for all-time power hitters"
             icon={Zap}
             heightClass="h-72 sm:h-80"
+            loading={loading}
+            empty={topSixesLollipop.length === 0}
+            emptyMessage="No sixes ranking telemetry available."
           >
             <ThemedLollipopChart
               data={topSixesLollipop}

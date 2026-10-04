@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CHART_PALETTES } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface PolarAreaItem {
   label: string;
@@ -22,7 +23,7 @@ export default function ThemedPolarAreaChart({
 }: ThemedPolarAreaChartProps) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   const size = 300;
   const center = size / 2;

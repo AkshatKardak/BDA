@@ -116,6 +116,7 @@ export default function PipelinePage() {
         subtitle="100% operational readiness across all 6 core data lake tiers"
         icon={Database}
         heightClass="h-48 sm:h-56"
+        loading={loading}
       >
         <ThemedBarChart
           data={[

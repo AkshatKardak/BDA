@@ -12,6 +12,7 @@ import {
   Cell
 } from "recharts";
 import { CHART_COLORS, chartTooltipStyle, chartAxisStyle, chartGridStyle } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface ThemedBarChartProps {
   data: any[];
@@ -38,7 +39,7 @@ export default function ThemedBarChart({
   unit = "",
   yDomain,
 }: ThemedBarChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   const valueKey = yKey || dataKey || "value";
 

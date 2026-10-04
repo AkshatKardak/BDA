@@ -12,6 +12,7 @@ import {
   Cell
 } from "recharts";
 import { CHART_COLORS, chartTooltipStyle, chartAxisStyle, chartGridStyle } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface HistogramBin {
   bin: string;
@@ -73,7 +74,7 @@ export default function ThemedHistogram({
     }));
   }
 
-  if (!chartData || chartData.length === 0) return null;
+  if (!chartData || chartData.length === 0) return <EmptyChartState />;
 
   return (
     <ResponsiveContainer width="100%" height="100%">

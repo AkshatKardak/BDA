@@ -9,6 +9,7 @@ import {
   ResponsiveContainer
 } from "recharts";
 import { chartTooltipStyle, CHART_PALETTES } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface RadialBarItem {
   name: string;
@@ -27,7 +28,7 @@ export default function ThemedRadialBarChart({
   unit = "",
   maxVal = 100,
 }: ThemedRadialBarChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   const palette = CHART_PALETTES.sports;
   const coloredData = data.map((d, idx) => ({

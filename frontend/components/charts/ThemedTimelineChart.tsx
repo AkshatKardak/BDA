@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CHART_PALETTES, CHART_COLORS } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface SeasonTimelineItem {
   season: string | number;
@@ -21,7 +22,7 @@ export default function ThemedTimelineChart({
 }: ThemedTimelineChartProps) {
   const [hoveredSeason, setHoveredSeason] = useState<SeasonTimelineItem | null>(null);
 
-  if (!seasons || seasons.length === 0) return null;
+  if (!seasons || seasons.length === 0) return <EmptyChartState />;
 
   const maxMatches = Math.max(...seasons.map((s) => s.matches), 1);
   const palette = CHART_PALETTES.sports;

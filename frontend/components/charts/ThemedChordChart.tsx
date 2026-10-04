@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CHART_PALETTES } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface ChordEntity {
   id: string;
@@ -29,7 +30,7 @@ export default function ThemedChordChart({
   const [activeEntity, setActiveEntity] = useState<string | null>(null);
   const [activeRibbon, setActiveRibbon] = useState<ChordRibbon | null>(null);
 
-  if (!entities || entities.length === 0 || !matrix || matrix.length === 0) return null;
+  if (!entities || entities.length === 0 || !matrix || matrix.length === 0) return <EmptyChartState />;
 
   const size = 320;
   const center = size / 2;

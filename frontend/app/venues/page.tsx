@@ -164,6 +164,9 @@ export default function VenuesPage() {
           subtitle="Comparing scoring decay between innings across premier grounds"
           icon={BarChart2}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={scoreParChartData.length === 0}
+          emptyMessage="No venue telemetry found with 15+ hosted matches."
         >
           <ThemedGroupedBarChart
             data={scoreParChartData}
@@ -173,7 +176,7 @@ export default function VenuesPage() {
               { key: "avg_2nd", name: "2nd Innings Avg", color: CHART_COLORS.goldPrimary },
             ]}
             unit="runs"
-            yDomain={[120, 200]}
+            yDomain={[0, 220]}
           />
         </ChartCard>
 
@@ -184,6 +187,9 @@ export default function VenuesPage() {
           subtitle="Correlation between defending (X-axis) and chasing (Y-axis) win rates"
           icon={Activity}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={venueScatterData.length === 0}
+          emptyMessage="No venue pitch bias data available."
         >
           <ThemedScatterChart
             data={venueScatterData}
@@ -194,8 +200,8 @@ export default function VenuesPage() {
             yName="Chase Win %"
             xUnit="%"
             yUnit="%"
-            xDomain={[30, 70]}
-            yDomain={[30, 70]}
+            xDomain={[25, 75]}
+            yDomain={[25, 75]}
           />
         </ChartCard>
       </section>
@@ -220,14 +226,17 @@ export default function VenuesPage() {
             subtitle="X = Avg 1st Inn Score, Y = Chasing Win %, Bubble Size = Matches Hosted"
             icon={TrendingUp}
             heightClass="h-72 sm:h-80"
+            loading={loading}
+            empty={bubbleVenueData.length === 0}
+            emptyMessage="No multidimensional venue data available."
           >
             <ThemedBubbleChart
               data={bubbleVenueData}
               xName="Avg 1st Inn Score"
               yName="Chasing Win %"
               zName="Matches Hosted"
-              xDomain={[140, 185]}
-              yDomain={[40, 65]}
+              xDomain={[130, 200]}
+              yDomain={[35, 70]}
             />
           </ChartCard>
 
@@ -238,6 +247,9 @@ export default function VenuesPage() {
             subtitle="Evaluating scoring dispersion, IQR, and median par scores across historic venues"
             icon={BarChart2}
             heightClass="h-72 sm:h-80"
+            loading={loading}
+            empty={boxPlotVenueData.length === 0}
+            emptyMessage="No distribution records available."
           >
             <ThemedBoxPlot data={boxPlotVenueData} unit=" runs" />
           </ChartCard>

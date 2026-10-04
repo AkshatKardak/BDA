@@ -138,6 +138,9 @@ export default function DataQualityPage() {
           subtitle="Zero-loss audit across 295,732 ball deliveries"
           icon={PieIcon}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={validityDonutData.length === 0}
+          emptyMessage="No validity audit records available."
         >
           <ThemedPieChart
             data={validityDonutData}
@@ -155,6 +158,9 @@ export default function DataQualityPage() {
           subtitle="Verification of 1,243 fixtures across Flume, HDFS, Hive, and PySpark"
           icon={BarChart2}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={pipelineRecordsData.length === 0}
+          emptyMessage="No architectural tier persistence records available."
         >
           <ThemedBarChart
             data={pipelineRecordsData}
@@ -188,6 +194,7 @@ export default function DataQualityPage() {
             subtitle="Parquet consistency check confirming zero duplicate matches and ball records"
             icon={ShieldCheck}
             heightClass="h-64 sm:h-72"
+            loading={loading}
           >
             <ThemedGauge
               value={100}
@@ -207,6 +214,7 @@ export default function DataQualityPage() {
             subtitle="Stepped milestone verification of 1,243 fixtures across all 5 lake tiers"
             icon={Layers}
             heightClass="h-64 sm:h-72"
+            loading={loading}
           >
             <ThemedStepLineChart
               data={[

@@ -233,6 +233,9 @@ export default function PlayoffsPage() {
           subtitle="Proportional breakdown across Finals, Qualifiers, Eliminators & Semis"
           icon={PieIcon}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={stageDonutData.length === 0}
+          emptyMessage="No playoff stage distribution records available."
         >
           <ThemedPieChart
             data={stageDonutData}
@@ -249,6 +252,9 @@ export default function PlayoffsPage() {
           subtitle="Franchises ranked by total playoff wins and titles won"
           icon={BarChart2}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={topTitlesData.length === 0}
+          emptyMessage="No playoff match victory records available."
         >
           <ThemedBarChart
             data={topTitlesData}
@@ -281,6 +287,9 @@ export default function PlayoffsPage() {
             subtitle="Evaluating franchise attrition from 10 league contenders to 1 champion"
             icon={Trophy}
             heightClass="h-72 sm:h-80"
+            loading={loading}
+            empty={funnelData.length === 0}
+            emptyMessage="No championship funnel data available."
           >
             <ThemedFunnelChart data={funnelData} unit="teams" />
           </ChartCard>
@@ -292,6 +301,9 @@ export default function PlayoffsPage() {
             subtitle="Concentric radial rings mapping Playoff Stage -> Match Result breakdown"
             icon={Sparkles}
             heightClass="h-72 sm:h-80"
+            loading={loading}
+            empty={sunburstData.length === 0}
+            emptyMessage="No playoff hierarchy sunburst data available."
           >
             <ThemedSunburst data={sunburstData} centerTitle="74 Playoffs" unit="matches" />
           </ChartCard>

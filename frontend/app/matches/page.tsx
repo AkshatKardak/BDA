@@ -226,6 +226,9 @@ export default function MatchesPage() {
           subtitle="Fixtures breakdown per season (1,243 official matches)"
           icon={Calendar}
           heightClass="h-48 sm:h-56"
+          loading={loading}
+          empty={seasonsData.length === 0}
+          emptyMessage="No seasonal match hosting data available."
         >
           <ThemedBarChart
             data={seasonsData.map((s: any) => ({
@@ -262,6 +265,9 @@ export default function MatchesPage() {
             subtitle="Binned score intervals across 1,243 official IPL first innings"
             icon={Layers}
             heightClass="h-64 sm:h-72"
+            loading={loading}
+            empty={scoreBins.length === 0}
+            emptyMessage="No score distribution data available."
           >
             <ThemedHistogram data={scoreBins} barName="Matches" color={CHART_COLORS.blueLight} />
           </ChartCard>
@@ -273,6 +279,9 @@ export default function MatchesPage() {
             subtitle="Ribbon links mapping toss election (Field vs Bat) to final win/loss outcomes"
             icon={Trophy}
             heightClass="h-64 sm:h-72"
+            loading={loading}
+            empty={sankeyLinks.length === 0}
+            emptyMessage="No decision outcome flow links available."
           >
             <ThemedSankeyChart nodes={sankeyNodes} links={sankeyLinks} unit="matches" />
           </ChartCard>
@@ -286,6 +295,9 @@ export default function MatchesPage() {
             subtitle="Day-by-day density tracking single fixtures and weekend double-headers"
             icon={Calendar}
             heightClass="h-64 sm:h-72"
+            loading={loading}
+            empty={calendarActivityData.length === 0}
+            emptyMessage="No calendar fixture activity recorded."
           >
             <ThemedCalendarHeatmap data={calendarActivityData} />
           </ChartCard>
@@ -297,6 +309,9 @@ export default function MatchesPage() {
             subtitle="Normalized win shares tracking strategic advantages across recent editions"
             icon={Layers}
             heightClass="h-64 sm:h-72"
+            loading={loading}
+            empty={percentWinData.length === 0}
+            emptyMessage="No normalized win ratio data available."
           >
             <ThemedPercentBarChart
               data={percentWinData}

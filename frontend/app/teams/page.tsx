@@ -251,6 +251,9 @@ export default function TeamsPage() {
           subtitle="Top 10 franchises ranked by total match wins (2008–2026)"
           icon={Trophy}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={topWinsData.length === 0}
+          emptyMessage="No franchise victory data available."
         >
           <ThemedBarChart
             data={topWinsData}
@@ -269,6 +272,9 @@ export default function TeamsPage() {
           subtitle="Top 10 franchises ranked by all-time match win efficiency"
           icon={BarChart2}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={topWinPctData.length === 0}
+          emptyMessage="No franchise win rate telemetry available."
         >
           <ThemedBarChart
             data={topWinPctData}
@@ -287,6 +293,9 @@ export default function TeamsPage() {
           subtitle="Comparing defending (bat first) vs chasing victories for top teams"
           icon={Shield}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={batVsChaseData.length === 0}
+          emptyMessage="No defending vs chasing comparison records available."
         >
           <ThemedGroupedBarChart
             data={batVsChaseData}
@@ -306,6 +315,9 @@ export default function TeamsPage() {
           subtitle="Proportional share of total IPL match victories among franchises"
           icon={PieIcon}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={winShareDonutData.length === 0}
+          emptyMessage="No tournament win share breakdown available."
         >
           <ThemedPieChart
             data={winShareDonutData}

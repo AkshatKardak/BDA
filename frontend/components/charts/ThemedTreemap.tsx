@@ -3,6 +3,7 @@
 import React from "react";
 import { ResponsiveContainer, Treemap, Tooltip } from "recharts";
 import { CHART_PALETTES, chartTooltipStyle } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface TreemapItem {
   name: string;
@@ -74,7 +75,7 @@ export default function ThemedTreemap({
   nameKey = "name",
   unit = "",
 }: ThemedTreemapProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   // Format data for Recharts Treemap
   const formattedData = data.map((d) => ({

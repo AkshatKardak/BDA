@@ -108,6 +108,9 @@ export default function LeaderboardsPage() {
           subtitle="Top 8 IPL batters ranked by career runs with stem markers"
           icon={Award}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={topBattersBarData.length === 0}
+          emptyMessage="No leading run scorer records available."
         >
           <ThemedLollipopChart
             data={topBattersBarData}
@@ -124,6 +127,9 @@ export default function LeaderboardsPage() {
           subtitle="Top 8 IPL bowlers ranked by career wickets with stem markers"
           icon={Target}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={topBowlersBarData.length === 0}
+          emptyMessage="No leading wicket taker records available."
         >
           <ThemedLollipopChart
             data={topBowlersBarData}
@@ -143,6 +149,9 @@ export default function LeaderboardsPage() {
           subtitle="Top 8 IPL power hitters ranked by total career sixes"
           icon={Flame}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={topSixesBarData.length === 0}
+          emptyMessage="No career sixes data available."
         >
           <ThemedHorizontalBarChart
             data={topSixesBarData}
@@ -160,6 +169,9 @@ export default function LeaderboardsPage() {
           subtitle="Top 8 IPL boundary strikers ranked by total career fours"
           icon={Zap}
           heightClass="h-64 sm:h-72"
+          loading={loading}
+          empty={topFoursBarData.length === 0}
+          emptyMessage="No career fours data available."
         >
           <ThemedHorizontalBarChart
             data={topFoursBarData}

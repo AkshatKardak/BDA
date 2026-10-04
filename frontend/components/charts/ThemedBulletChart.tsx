@@ -2,6 +2,7 @@
 
 import React from "react";
 import { CHART_COLORS } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface BulletItem {
   title: string;
@@ -22,7 +23,7 @@ export default function ThemedBulletChart({
   items,
   maxRange = 100,
 }: ThemedBulletChartProps) {
-  if (!items || items.length === 0) return null;
+  if (!items || items.length === 0) return <EmptyChartState />;
 
   return (
     <div className="w-full h-full flex flex-col justify-around gap-3 p-2">

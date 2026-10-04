@@ -1,5 +1,6 @@
 export * from "./chartTheme";
 export { default as ChartCard } from "./ChartCard";
+export { default as EmptyChartState } from "./EmptyChartState";
 
 // Family 1: Comparison
 export { default as ThemedBarChart } from "./ThemedBarChart";

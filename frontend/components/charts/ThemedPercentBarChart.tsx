@@ -12,6 +12,7 @@ import {
   Legend
 } from "recharts";
 import { chartTooltipStyle, chartAxisStyle, chartGridStyle } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface PercentBarConfig {
   key: string;
@@ -34,7 +35,7 @@ export default function ThemedPercentBarChart({
   unit = "%",
   layout = "horizontal",
 }: ThemedPercentBarChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   // Normalize data so that the specified keys sum up to 100%
   const normalizedData = data.map((item) => {

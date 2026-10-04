@@ -18,7 +18,9 @@ export default function Sparkline({
   color = CHART_COLORS.greenAccent,
   fillOpacity = 0.2,
 }: SparklineProps) {
-  if (!data || data.length < 2) return null;
+  if (!data || data.length < 2) {
+    return <div className="w-12 h-4 flex items-center justify-center text-[10px] text-[#4E586E] font-mono select-none">—</div>;
+  }
 
   const min = Math.min(...data);
   const max = Math.max(...data);

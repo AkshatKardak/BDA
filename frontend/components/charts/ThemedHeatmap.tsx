@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { interpolateColor } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface HeatmapMatrixItem {
   x: string;
@@ -29,7 +30,7 @@ export default function ThemedHeatmap({
 }: ThemedHeatmapProps) {
   const [hovered, setHovered] = useState<HeatmapMatrixItem | null>(null);
 
-  if (!data || data.length === 0 || labels.length === 0) return null;
+  if (!data || data.length === 0 || labels.length === 0) return <EmptyChartState />;
 
   const vals = data.map((d) => d.value);
   const min = minVal !== undefined ? minVal : Math.min(...vals);

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CHART_COLORS } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface BoxPlotItem {
   label: string;
@@ -27,7 +28,7 @@ export default function ThemedBoxPlot({
 }: ThemedBoxPlotProps) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   const width = 540;
   const height = 260;

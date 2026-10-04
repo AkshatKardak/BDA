@@ -12,6 +12,7 @@ import {
   Cell
 } from "recharts";
 import { CHART_COLORS, chartTooltipStyle, chartAxisStyle, chartGridStyle } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface ThemedScatterChartProps {
   data: any[];
@@ -40,7 +41,7 @@ export default function ThemedScatterChart({
   xDomain,
   yDomain,
 }: ThemedScatterChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   return (
     <ResponsiveContainer width="100%" height="100%">

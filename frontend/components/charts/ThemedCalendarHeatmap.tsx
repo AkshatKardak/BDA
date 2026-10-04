@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { interpolateColor, CHART_COLORS } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface CalendarDayActivity {
   date: string; // "YYYY-MM-DD"
@@ -22,7 +23,7 @@ export default function ThemedCalendarHeatmap({
 }: ThemedCalendarHeatmapProps) {
   const [hoveredDay, setHoveredDay] = useState<CalendarDayActivity | null>(null);
 
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   const counts = data.map((d) => d.count);
   const maxCount = Math.max(...counts, 1);

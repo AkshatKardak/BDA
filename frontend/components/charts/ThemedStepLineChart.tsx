@@ -12,6 +12,7 @@ import {
   Legend
 } from "recharts";
 import { CHART_COLORS, chartTooltipStyle, chartAxisStyle, chartGridStyle } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface ThemedStepLineChartProps {
   data: any[];
@@ -32,7 +33,7 @@ export default function ThemedStepLineChart({
   unit = "",
   yDomain,
 }: ThemedStepLineChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   return (
     <ResponsiveContainer width="100%" height="100%">

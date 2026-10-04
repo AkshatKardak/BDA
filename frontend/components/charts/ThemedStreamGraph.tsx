@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CHART_PALETTES } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface StreamSeries {
   key: string;
@@ -24,7 +25,7 @@ export default function ThemedStreamGraph({
 }: ThemedStreamGraphProps) {
   const [activeSeries, setActiveSeries] = useState<string | null>(null);
 
-  if (!data || data.length < 2 || series.length === 0) return null;
+  if (!data || data.length < 2 || series.length === 0) return <EmptyChartState />;
 
   const width = 600;
   const height = 260;

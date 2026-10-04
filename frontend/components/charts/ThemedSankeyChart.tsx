@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CHART_COLORS } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 export interface SankeyNode {
   id: string;
@@ -29,7 +30,7 @@ export default function ThemedSankeyChart({
 }: ThemedSankeyChartProps) {
   const [hoveredLink, setHoveredLink] = useState<SankeyLink | null>(null);
 
-  if (!nodes || nodes.length === 0 || !links || links.length === 0) return null;
+  if (!nodes || nodes.length === 0 || !links || links.length === 0) return <EmptyChartState />;
 
   const width = 560;
   const height = 240;

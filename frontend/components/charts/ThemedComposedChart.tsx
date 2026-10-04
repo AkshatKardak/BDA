@@ -13,6 +13,7 @@ import {
   Legend
 } from "recharts";
 import { chartTooltipStyle, chartAxisStyle, chartGridStyle, CHART_COLORS } from "./chartTheme";
+import EmptyChartState from "./EmptyChartState";
 
 interface ThemedComposedChartProps {
   data: any[];
@@ -43,7 +44,7 @@ export default function ThemedComposedChart({
   leftYDomain,
   rightYDomain,
 }: ThemedComposedChartProps) {
-  if (!data || data.length === 0) return null;
+  if (!data || data.length === 0) return <EmptyChartState />;
 
   return (
     <ResponsiveContainer width="100%" height="100%">
